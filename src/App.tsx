@@ -1,0 +1,40 @@
+import React from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import { MainLayout } from './components/layout/MainLayout';
+import { Dashboard } from './pages/Dashboard';
+import { Customers } from './pages/Customers';
+import { CustomerDetail } from './pages/CustomerDetail';
+import { AddCustomer } from './pages/AddCustomer';
+import { Vehicles } from './pages/Vehicles';
+import { VehicleDetail } from './pages/VehicleDetail';
+import { AddVehicle } from './pages/AddVehicle';
+import { CheckInOutList } from './pages/CheckInOutList';
+import { CheckInOutDetail } from './pages/CheckInOutDetail';
+import { AddCheckInOut } from './pages/AddCheckInOut';
+import { Settings } from './pages/Settings';
+import { Help } from './pages/Help';
+
+function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<MainLayout />}>
+        <Route index element={<Dashboard />} />
+        <Route path="customers" element={<Customers />} />
+        <Route path="customers/new" element={<AddCustomer />} />
+        <Route path="customers/:id" element={<CustomerDetail />} />
+        <Route path="vehicles" element={<Vehicles />} />
+        <Route path="vehicles/new" element={<AddVehicle />} />
+        <Route path="vehicles/:id" element={<VehicleDetail />} />
+        <Route path="check-in-out" element={<CheckInOutList />} />
+        <Route path="check-in-out/new" element={<AddCheckInOut />} />
+        <Route path="check-in-out/:id" element={<CheckInOutDetail />} />
+        <Route path="appointments" element={<p className="p-8">Appointments Page (Coming Soon)</p>} />
+        <Route path="settings" element={<Settings />} />
+        <Route path="help" element={<Help />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Route>
+    </Routes>
+  );
+}
+
+export default App;
