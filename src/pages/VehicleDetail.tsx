@@ -651,9 +651,6 @@ export function VehicleDetail() {
                 <Button variant="outline" className="w-full justify-start" leftIcon={<Wrench size={16} />}>
                   Schedule Service
                 </Button>
-                <Button variant="outline" className="w-full justify-start" leftIcon={<Calendar size={16} />}>
-                  Book Appointment
-                </Button>
                 <Link to={`/customers/${vehicle.customerId}`}>
                   <Button variant="outline" className="w-full justify-start" leftIcon={<User size={16} />}>
                     Contact Owner

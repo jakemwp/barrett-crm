@@ -5,7 +5,6 @@ import {
   CheckStatus, 
   CheckType,
   ServiceItem,
-  Appointment,
   AuthorizedDriver,
   AuthorizedContact,
   TirePressureReading,
@@ -719,47 +718,6 @@ export const checkInOuts: CheckInOut[] = [
   },
 ];
 
-// Create mock appointments
-export const appointments: Appointment[] = [
-  {
-    id: 'a1',
-    customerId: 'c4',
-    vehicleId: 'v4',
-    date: '2024-03-25',
-    time: '10:00',
-    duration: 60,
-    reason: 'Oil change and tire rotation',
-    status: 'SCHEDULED',
-    createdAt: '2024-03-18T09:00:00Z',
-    updatedAt: '2024-03-18T09:00:00Z',
-  },
-  {
-    id: 'a2',
-    customerId: 'c5',
-    date: '2024-03-23',
-    time: '14:30',
-    duration: 90,
-    reason: 'Engine check - vehicle making unusual noise',
-    status: 'SCHEDULED',
-    notes: 'Customer will bring in 2018 BMW 3 Series',
-    createdAt: '2024-03-17T16:45:00Z',
-    updatedAt: '2024-03-17T16:45:00Z',
-  },
-  {
-    id: 'a3',
-    customerId: 'c1',
-    vehicleId: 'v5',
-    date: '2024-03-20',
-    time: '09:15',
-    duration: 45,
-    reason: 'Inspection before road trip',
-    status: 'COMPLETED',
-    notes: 'Everything checked out fine',
-    createdAt: '2024-03-15T10:20:00Z',
-    updatedAt: '2024-03-20T10:05:00Z',
-  },
-];
-
 export function getUserById(id: string): User | undefined {
   return users.find(user => user.id === id);
 }
@@ -839,17 +797,4 @@ export function addCheckInOut(checkData: Omit<CheckInOut, 'id' | 'serviceItems' 
   
   checkInOuts.push(newCheckInOut);
   return newCheckInOut;
-}
-
-export function addAppointment(appointmentData: Omit<Appointment, 'id' | 'createdAt' | 'updatedAt'>): Appointment {
-  const now = new Date().toISOString();
-  const newAppointment: Appointment = {
-    id: generateId(),
-    ...appointmentData,
-    createdAt: now,
-    updatedAt: now,
-  };
-  
-  appointments.push(newAppointment);
-  return newAppointment;
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Home, Users, Car, CalendarClock, Menu } from 'lucide-react';
+import { Home, Users, Car, ClipboardCheck, Menu } from 'lucide-react';
 import { cn } from '../../lib/utils';
 
 export function MobileNav() {
@@ -8,8 +8,8 @@ export function MobileNav() {
     { to: '/', icon: <Home size={20} />, label: 'Home' },
     { to: '/customers', icon: <Users size={20} />, label: 'Customers' },
     { to: '/vehicles', icon: <Car size={20} />, label: 'Vehicles' },
-    { to: '/appointments', icon: <CalendarClock size={20} />, label: 'Schedule' },
-    { to: '/more', icon: <Menu size={20} />, label: 'More' },
+    { to: '/check-in-out', icon: <ClipboardCheck size={20} />, label: 'Service' },
+    { to: '/settings', icon: <Menu size={20} />, label: 'More' },
   ];
 
   return (

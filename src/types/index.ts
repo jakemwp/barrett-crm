@@ -219,20 +219,6 @@ export interface ServiceItem {
   updatedAt: string;
 }
 
-export interface Appointment {
-  id: string;
-  customerId: string;
-  vehicleId?: string;
-  date: string;
-  time: string;
-  duration: number; // in minutes
-  reason: string;
-  status: 'SCHEDULED' | 'COMPLETED' | 'CANCELED';
-  notes?: string;
-  createdAt: string;
-  updatedAt: string;
-}
-
 export interface User {
   id: string;
   firstName: string;

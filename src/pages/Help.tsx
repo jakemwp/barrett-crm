@@ -5,7 +5,6 @@ import {
   Users, 
   Car, 
   ClipboardCheck, 
-  CalendarClock, 
   Settings,
   Search,
   ChevronDown,
@@ -108,24 +107,6 @@ export function Help() {
         'Add service items and costs as work is completed',
         'Complete check-out process with final photos and signature',
         'Generate and provide customer with service documentation'
-      ]
-    },
-    {
-      id: 'appointments',
-      title: 'Scheduling Appointments',
-      icon: <CalendarClock size={20} />,
-      description: 'Book and manage customer appointments',
-      steps: [
-        'Access the Appointments page from the main navigation',
-        'Click "Schedule New Appointment" to create a booking',
-        'Select the customer and optionally specify a vehicle',
-        'Choose the appointment date and time',
-        'Set the estimated duration for the service',
-        'Enter the reason for the appointment and any special notes',
-        'Save the appointment to add it to the schedule',
-        'View upcoming appointments on the Dashboard',
-        'Update appointment status as needed (Scheduled, Completed, Canceled)',
-        'Use appointment details to prepare for customer visits'
       ]
     },
     {
@@ -443,7 +424,6 @@ export function Help() {
                   { value: 'customers', label: 'Customer Management' },
                   { value: 'vehicles', label: 'Vehicle Management' },
                   { value: 'checkinout', label: 'Check In/Out Process' },
-                  { value: 'appointments', label: 'Appointments' },
                   { value: 'ui', label: 'User Interface' },
                   { value: 'performance', label: 'Performance' },
                   { value: 'feature', label: 'Feature Request' },

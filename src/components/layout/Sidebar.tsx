@@ -4,7 +4,6 @@ import {
   Home, 
   Users, 
   Car, 
-  CalendarClock, 
   ClipboardCheck, 
   Settings, 
   HelpCircle, 
@@ -26,7 +25,6 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
     { to: '/customers', icon: <Users size={20} />, label: 'Customers' },
     { to: '/vehicles', icon: <Car size={20} />, label: 'Vehicles' },
     { to: '/check-in-out', icon: <ClipboardCheck size={20} />, label: 'Check In/Out' },
-    { to: '/appointments', icon: <CalendarClock size={20} />, label: 'Appointments' },
     { to: '/settings', icon: <Settings size={20} />, label: 'Settings' },
     { to: '/help', icon: <HelpCircle size={20} />, label: 'Help & Support' },
   ];

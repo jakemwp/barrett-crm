@@ -28,7 +28,6 @@ function App() {
         <Route path="check-in-out" element={<CheckInOutList />} />
         <Route path="check-in-out/new" element={<AddCheckInOut />} />
         <Route path="check-in-out/:id" element={<CheckInOutDetail />} />
-        <Route path="appointments" element={<p className="p-8">Appointments Page (Coming Soon)</p>} />
         <Route path="settings" element={<Settings />} />
         <Route path="help" element={<Help />} />
         <Route path="*" element={<Navigate to="/" replace />} />
