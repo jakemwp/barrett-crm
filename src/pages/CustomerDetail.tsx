@@ -117,27 +117,8 @@ export function CustomerDetail() {
     navigate(`/vehicles/new?customerId=${id}`);
   };
 
-  // Get vehicle status from check-in/out records
-  const getVehicleStatus = (vehicleId: string) => {
-    const latestRecord = checkInOuts
-      .filter(record => record.vehicleId === vehicleId)
-      .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())[0];
-    
-    if (!latestRecord) return null;
-    
-    return {
-      status: latestRecord.status,
-      canCheckIn: latestRecord.status === CheckStatus.CHECKED_OUT,
-      canCheckOut: latestRecord.status === CheckStatus.CHECKED_IN || latestRecord.status === CheckStatus.IN_SERVICE,
-      recordId: latestRecord.id
-    };
-  };
-
-  const handleCheckInOut = (vehicleId: string, action: 'check-in' | 'check-out') => {
-    // In a real app, this would create a new check-in/out record or navigate to a form
-    console.log(`${action} vehicle ${vehicleId}`);
-    // For now, we'll just show an alert
-    alert(`${action === 'check-in' ? 'Check-in' : 'Check-out'} process would start for this vehicle`);
+  const handleVehicleRowClick = (vehicleId: string) => {
+    navigate(`/vehicles/${vehicleId}`);
   };
 
   if (loading) {
@@ -586,14 +567,17 @@ export function CustomerDetail() {
                     <th className="text-left py-3 px-4 font-medium text-gray-900">Vehicle</th>
                     <th className="text-left py-3 px-4 font-medium text-gray-900">License Plate</th>
                     <th className="text-left py-3 px-4 font-medium text-gray-900">Storage Location</th>
-                    <th className="text-left py-3 px-4 font-medium text-gray-900">Value</th>
                     <th className="text-left py-3 px-4 font-medium text-gray-900">Status</th>
                   </tr>
                 </thead>
                 <tbody>
                   {vehicles.map((vehicle) => {
                     return (
-                      <tr key={vehicle.id} className="border-b border-gray-100 hover:bg-gray-50">
+                      <tr 
+                        key={vehicle.id} 
+                        className="border-b border-gray-100 hover:bg-gray-50 cursor-pointer transition-colors"
+                        onClick={() => handleVehicleRowClick(vehicle.id)}
+                      >
                         <td className="py-4 px-4">
                           <div className="flex items-center space-x-3">
                             {vehicle.image && (
@@ -609,7 +593,9 @@ export function CustomerDetail() {
                               <div className="font-medium text-gray-900">
                                 {vehicle.year} {vehicle.make} {vehicle.model}
                               </div>
-                              <div className="text-sm text-gray-500">VIN: {vehicle.vin.slice(-8)}</div>
+                              {vehicle.color && (
+                                <div className="text-sm text-gray-500">{vehicle.color}</div>
+                              )}
                             </div>
                           </div>
                         </td>
@@ -618,9 +604,6 @@ export function CustomerDetail() {
                         </td>
                         <td className="py-4 px-4">
                           <span className="text-sm text-gray-600">{vehicle.storageLocation}</span>
-                        </td>
-                        <td className="py-4 px-4">
-                          <span className="font-medium">{formatCurrency(vehicle.fairMarketValue)}</span>
                         </td>
                         <td className="py-4 px-4">
                           <div className="flex items-center space-x-2">
