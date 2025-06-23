@@ -10,7 +10,6 @@ import {
   List,
   SortAsc,
   SortDesc,
-  Eye,
   Edit,
   User,
   Car,
@@ -29,7 +28,7 @@ import { Input } from '../components/ui/Input';
 import { Select } from '../components/ui/Select';
 import { Badge } from '../components/ui/Badge';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/Card';
-import { formatDate, formatDateTime, formatCurrency } from '../lib/utils';
+import { formatCurrency } from '../lib/utils';
 
 type ViewMode = 'grid' | 'list';
 type SortField = 'date' | 'customer' | 'vehicle' | 'status' | 'type' | 'totalCost';
@@ -197,6 +196,15 @@ export function CheckInOutList() {
     },
   };
 
+  const formatDateDisplay = (dateString: string) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', {
+      month: '2-digit',
+      day: '2-digit',
+      year: 'numeric'
+    });
+  };
+
   const CheckInOutCard = ({ record }: { record: CheckInOut }) => {
     const customer = getCustomerById(record.customerId);
     const vehicle = getVehicleById(record.vehicleId);
@@ -218,7 +226,7 @@ export function CheckInOutList() {
                 <h3 className="text-lg font-semibold text-gray-900 hover:text-primary-600">
                   Check #{record.id.substring(0, 8).toUpperCase()}
                 </h3>
-                <p className="text-sm text-gray-500 mt-1">{formatDate(record.date)}</p>
+                <p className="text-sm text-gray-500 mt-1">{formatDateDisplay(record.date)}</p>
               </Link>
               <div className="flex flex-col items-end space-y-1">
                 <Badge variant={status.variant} className="text-xs">
@@ -247,13 +255,13 @@ export function CheckInOutList() {
               
               <div className="flex items-center text-sm text-gray-700">
                 <Clock size={16} className="flex-shrink-0 mr-2 text-gray-400" />
-                <span>Check-in: {formatDateTime(record.checkInDate || record.date)}</span>
+                <span>Check-in: {formatDateDisplay(record.checkInDate || record.date)}</span>
               </div>
               
               {record.checkOutDate && (
                 <div className="flex items-center text-sm text-gray-700">
                   <CheckSquare size={16} className="flex-shrink-0 mr-2 text-gray-400" />
-                  <span>Check-out: {formatDateTime(record.checkOutDate)}</span>
+                  <span>Check-out: {formatDateDisplay(record.checkOutDate)}</span>
                 </div>
               )}
 
@@ -326,12 +334,6 @@ export function CheckInOutList() {
                       +{serviceCount - 3} more services
                     </p>
                   )}
-                  <div className="pt-2 border-t border-gray-100">
-                    <div className="flex justify-between text-sm font-medium">
-                      <span>Total:</span>
-                      <span>${totalCost.toFixed(2)}</span>
-                    </div>
-                  </div>
                 </div>
               </div>
             )}
@@ -348,27 +350,20 @@ export function CheckInOutList() {
     const vehicleInfo = vehicle ? `${vehicle.year} ${vehicle.make} ${vehicle.model}` : 'Unknown Vehicle';
     const status = statusConfig[record.status];
     const type = typeConfig[record.type];
-    const serviceCount = record.serviceItems?.length || 0;
-    const totalCost = record.serviceItems?.reduce((sum, item) => sum + item.cost, 0) || 0;
     
     return (
       <tr className="border-b border-gray-100 hover:bg-gray-50">
         <td className="py-4 px-4">
-          <Link to={`/check-in-out/${record.id}`} className="font-mono text-sm text-primary-600 hover:underline">
-            #{record.id.substring(0, 8).toUpperCase()}
-          </Link>
-        </td>
-        <td className="py-4 px-4">
           <div>
-            <div className="text-sm font-medium text-gray-900">{formatDate(record.date)}</div>
+            <div className="text-sm font-medium text-gray-900">{formatDateDisplay(record.date)}</div>
             {record.checkInDate && (
               <div className="text-xs text-gray-500">
-                In: {formatDateTime(record.checkInDate)}
+                In: {formatDateDisplay(record.checkInDate)}
               </div>
             )}
             {record.checkOutDate && (
               <div className="text-xs text-gray-500">
-                Out: {formatDateTime(record.checkOutDate)}
+                Out: {formatDateDisplay(record.checkOutDate)}
               </div>
             )}
           </div>
@@ -400,24 +395,10 @@ export function CheckInOutList() {
           <span className="text-sm text-gray-900">{record.contact}</span>
         </td>
         <td className="py-4 px-4">
-          {serviceCount > 0 ? (
-            <div>
-              <div className="text-sm font-medium text-gray-900">
-                {serviceCount} service{serviceCount !== 1 ? 's' : ''}
-              </div>
-              <div className="text-xs text-gray-500">
-                Total: {formatCurrency(totalCost)}
-              </div>
-            </div>
-          ) : (
-            <span className="text-sm text-gray-500">No services</span>
-          )}
-        </td>
-        <td className="py-4 px-4">
           <div className="flex items-center space-x-2">
             <Link to={`/check-in-out/${record.id}`}>
-              <Button variant="ghost" size="sm" leftIcon={<Eye size={14} />}>
-                View
+              <Button variant="primary" size="sm">
+                View Details
               </Button>
             </Link>
             <Button variant="ghost" size="sm" leftIcon={<Edit size={14} />}>
@@ -575,7 +556,6 @@ export function CheckInOutList() {
             { field: 'vehicle' as SortField, label: 'Vehicle' },
             { field: 'status' as SortField, label: 'Status' },
             { field: 'type' as SortField, label: 'Type' },
-            { field: 'totalCost' as SortField, label: 'Total Cost' },
           ].map(({ field, label }) => (
             <Button
               key={field}
@@ -629,14 +609,12 @@ export function CheckInOutList() {
               <table className="w-full">
                 <thead>
                   <tr className="border-b border-gray-200">
-                    <th className="text-left py-3 px-4 font-medium text-gray-900">Record #</th>
                     <th className="text-left py-3 px-4 font-medium text-gray-900">Date</th>
                     <th className="text-left py-3 px-4 font-medium text-gray-900">Type/Status</th>
                     <th className="text-left py-3 px-4 font-medium text-gray-900">Customer</th>
                     <th className="text-left py-3 px-4 font-medium text-gray-900">Vehicle</th>
                     <th className="text-left py-3 px-4 font-medium text-gray-900">Location</th>
                     <th className="text-left py-3 px-4 font-medium text-gray-900">Contact</th>
-                    <th className="text-left py-3 px-4 font-medium text-gray-900">Services</th>
                     <th className="text-left py-3 px-4 font-medium text-gray-900">Actions</th>
                   </tr>
                 </thead>

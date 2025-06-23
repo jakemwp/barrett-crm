@@ -102,6 +102,15 @@ export function VehicleDetail() {
     navigate(`/check-in-out/new?vehicleId=${id}`);
   };
 
+  const formatDateDisplay = (dateString: string) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', {
+      month: '2-digit',
+      day: '2-digit',
+      year: 'numeric'
+    });
+  };
+
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-screen">
@@ -326,11 +335,15 @@ export function VehicleDetail() {
               {/* Storage Information */}
               <div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">Storage Information</h3>
-                <Input
+                <Select
                   label="Storage Location"
                   value={formData.storageLocation}
                   onChange={(e) => handleInputChange('storageLocation', e.target.value)}
                   disabled={!isEditing}
+                  options={[
+                    { value: 'Moorpark', label: 'Moorpark' },
+                    { value: 'Westlake Village', label: 'Westlake Village' },
+                  ]}
                 />
               </div>
 
@@ -477,7 +490,7 @@ export function VehicleDetail() {
 
         {/* Vehicle Summary & Quick Stats */}
         <div className="space-y-6">
-          {/* Quick Stats */}
+          {/* Vehicle Status */}
           <Card>
             <CardHeader>
               <CardTitle>Vehicle Status</CardTitle>
@@ -547,7 +560,7 @@ export function VehicleDetail() {
                     ? 'text-green-600' 
                     : 'text-red-600'
                 }`}>
-                  {formatDate(vehicle.registration.expirationDate)}
+                  {formatDateDisplay(vehicle.registration.expirationDate)}
                 </span>
               </div>
             </CardContent>
@@ -566,7 +579,7 @@ export function VehicleDetail() {
                 </div>
                 <span className="text-sm font-medium">
                   {vehicle.maintenanceSchedule.lastService 
-                    ? formatDate(vehicle.maintenanceSchedule.lastService)
+                    ? formatDateDisplay(vehicle.maintenanceSchedule.lastService)
                     : 'Never'
                   }
                 </span>
@@ -579,7 +592,7 @@ export function VehicleDetail() {
                     <span className="text-sm text-gray-600">Next Service</span>
                   </div>
                   <span className="text-sm font-medium text-primary-600">
-                    {formatDate(vehicle.maintenanceSchedule.nextService)}
+                    {formatDateDisplay(vehicle.maintenanceSchedule.nextService)}
                   </span>
                 </div>
               )}
@@ -632,33 +645,6 @@ export function VehicleDetail() {
               )}
             </CardContent>
           </Card>
-
-          {/* Quick Actions */}
-          <Card>
-            <CardHeader>
-              <CardTitle>Quick Actions</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-2">
-                <Button 
-                  variant="outline" 
-                  className="w-full justify-start" 
-                  leftIcon={<ClipboardCheck size={16} />}
-                  onClick={handleNewCheckIn}
-                >
-                  New Check-In
-                </Button>
-                <Button variant="outline" className="w-full justify-start" leftIcon={<Wrench size={16} />}>
-                  Schedule Service
-                </Button>
-                <Link to={`/customers/${vehicle.customerId}`}>
-                  <Button variant="outline" className="w-full justify-start" leftIcon={<User size={16} />}>
-                    Contact Owner
-                  </Button>
-                </Link>
-              </div>
-            </CardContent>
-          </Card>
         </div>
       </div>
 
@@ -683,13 +669,11 @@ export function VehicleDetail() {
               <table className="w-full">
                 <thead>
                   <tr className="border-b border-gray-200">
-                    <th className="text-left py-3 px-4 font-medium text-gray-900">Record #</th>
                     <th className="text-left py-3 px-4 font-medium text-gray-900">Date</th>
                     <th className="text-left py-3 px-4 font-medium text-gray-900">Type</th>
                     <th className="text-left py-3 px-4 font-medium text-gray-900">Status</th>
                     <th className="text-left py-3 px-4 font-medium text-gray-900">Contact</th>
                     <th className="text-left py-3 px-4 font-medium text-gray-900">Location</th>
-                    <th className="text-left py-3 px-4 font-medium text-gray-900">Services</th>
                     <th className="text-left py-3 px-4 font-medium text-gray-900">Actions</th>
                   </tr>
                 </thead>
@@ -697,27 +681,20 @@ export function VehicleDetail() {
                   {vehicleCheckInOuts.map((record) => {
                     const status = statusConfig[record.status];
                     const type = typeConfig[record.type];
-                    const serviceCount = record.serviceItems?.length || 0;
-                    const totalCost = record.serviceItems?.reduce((sum, item) => sum + item.cost, 0) || 0;
                     
                     return (
                       <tr key={record.id} className="border-b border-gray-100 hover:bg-gray-50">
                         <td className="py-4 px-4">
-                          <Link to={`/check-in-out/${record.id}`} className="font-mono text-sm text-primary-600 hover:underline">
-                            #{record.id.substring(0, 8).toUpperCase()}
-                          </Link>
-                        </td>
-                        <td className="py-4 px-4">
                           <div>
-                            <div className="text-sm font-medium text-gray-900">{formatDate(record.date)}</div>
+                            <div className="text-sm font-medium text-gray-900">{formatDateDisplay(record.date)}</div>
                             {record.checkInDate && (
                               <div className="text-xs text-gray-500">
-                                In: {formatDateTime(record.checkInDate)}
+                                In: {formatDateDisplay(record.checkInDate)}
                               </div>
                             )}
                             {record.checkOutDate && (
                               <div className="text-xs text-gray-500">
-                                Out: {formatDateTime(record.checkOutDate)}
+                                Out: {formatDateDisplay(record.checkOutDate)}
                               </div>
                             )}
                           </div>
@@ -739,24 +716,10 @@ export function VehicleDetail() {
                           <span className="text-sm text-gray-600">{record.location}</span>
                         </td>
                         <td className="py-4 px-4">
-                          {serviceCount > 0 ? (
-                            <div>
-                              <div className="text-sm font-medium text-gray-900">
-                                {serviceCount} service{serviceCount !== 1 ? 's' : ''}
-                              </div>
-                              <div className="text-xs text-gray-500">
-                                Total: {formatCurrency(totalCost)}
-                              </div>
-                            </div>
-                          ) : (
-                            <span className="text-sm text-gray-500">No services</span>
-                          )}
-                        </td>
-                        <td className="py-4 px-4">
                           <div className="flex items-center space-x-2">
                             <Link to={`/check-in-out/${record.id}`}>
-                              <Button variant="ghost" size="sm" leftIcon={<Eye size={14} />}>
-                                View
+                              <Button variant="primary" size="sm">
+                                View Details
                               </Button>
                             </Link>
                             <Button variant="ghost" size="sm" leftIcon={<Edit size={14} />}>

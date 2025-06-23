@@ -87,6 +87,15 @@ export function CheckInOutDetail() {
     setIsEditing(false);
   };
 
+  const formatDateDisplay = (dateString: string) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', {
+      month: '2-digit',
+      day: '2-digit',
+      year: 'numeric'
+    });
+  };
+
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-screen">
@@ -237,7 +246,7 @@ export function CheckInOutDetail() {
               <Badge variant={type.variant} className="text-xs">
                 {type.label}
               </Badge>
-              <span className="text-sm text-gray-500">{formatDate(checkInOut.date)}</span>
+              <span className="text-sm text-gray-500">{formatDateDisplay(checkInOut.date)}</span>
             </div>
           </div>
         </div>
@@ -306,17 +315,6 @@ export function CheckInOutDetail() {
                   value={formData.contact}
                   onChange={(e) => handleInputChange('contact', e.target.value)}
                   disabled={!isEditing}
-                />
-                <Select
-                  label="Status"
-                  value={formData.status}
-                  onChange={(e) => handleInputChange('status', e.target.value as CheckStatus)}
-                  disabled={!isEditing}
-                  options={[
-                    { value: CheckStatus.CHECKED_IN, label: 'Checked In' },
-                    { value: CheckStatus.IN_SERVICE, label: 'In Service' },
-                    { value: CheckStatus.CHECKED_OUT, label: 'Checked Out' },
-                  ]}
                 />
                 <Input
                   label="Delivery Address"
@@ -502,256 +500,6 @@ export function CheckInOutDetail() {
             </CardContent>
           </Card>
 
-          {/* Detailed Inspection Photos */}
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center">
-                <Camera className="mr-2" size={20} />
-                Detailed Inspection Photos
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-6">
-              {/* Engine Bay */}
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">Engine Bay</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <PhotoUploadSection
-                    title="Engine Bay Photos"
-                    photos={formData.photos?.engineBayPics}
-                    onPhotosChange={(photos) => handleNestedInputChange('photos', 'engineBayPics', photos)}
-                  />
-                  <PhotoUploadSection
-                    title="Hood Photos"
-                    photos={formData.photos?.hoodPics}
-                    onPhotosChange={(photos) => handleNestedInputChange('photos', 'hoodPics', photos)}
-                  />
-                </div>
-              </div>
-
-              {/* Front Section */}
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">Front Section</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <PhotoUploadSection
-                    title="Grille Photos"
-                    photos={formData.photos?.grillePics}
-                    onPhotosChange={(photos) => handleNestedInputChange('photos', 'grillePics', photos)}
-                  />
-                  <PhotoUploadSection
-                    title="Headlight Photos"
-                    photos={formData.photos?.headlightPics}
-                    onPhotosChange={(photos) => handleNestedInputChange('photos', 'headlightPics', photos)}
-                  />
-                  <PhotoUploadSection
-                    title="Front Bumper Photos"
-                    photos={formData.photos?.frontBumperPics}
-                    onPhotosChange={(photos) => handleNestedInputChange('photos', 'frontBumperPics', photos)}
-                  />
-                </div>
-              </div>
-
-              {/* Passenger Side */}
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">Passenger Side</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <PhotoUploadSection
-                    title="Front Fender Photos"
-                    photos={formData.photos?.passengerSideFrontFenderPics}
-                    onPhotosChange={(photos) => handleNestedInputChange('photos', 'passengerSideFrontFenderPics', photos)}
-                  />
-                  <PhotoUploadSection
-                    title="Front Wheel Photos"
-                    photos={formData.photos?.passengerSideFrontWheelPics}
-                    onPhotosChange={(photos) => handleNestedInputChange('photos', 'passengerSideFrontWheelPics', photos)}
-                  />
-                  <PhotoUploadSection
-                    title="Pillar Photos"
-                    photos={formData.photos?.passengerSidePillarPics}
-                    onPhotosChange={(photos) => handleNestedInputChange('photos', 'passengerSidePillarPics', photos)}
-                  />
-                  <PhotoUploadSection
-                    title="Door Photos"
-                    photos={formData.photos?.passengerSideDoorPics}
-                    onPhotosChange={(photos) => handleNestedInputChange('photos', 'passengerSideDoorPics', photos)}
-                  />
-                  <PhotoUploadSection
-                    title="Door Handle Photos"
-                    photos={formData.photos?.passengerSideDoorHandlePics}
-                    onPhotosChange={(photos) => handleNestedInputChange('photos', 'passengerSideDoorHandlePics', photos)}
-                  />
-                  <PhotoUploadSection
-                    title="Rear Fender Photos"
-                    photos={formData.photos?.passengerSideRearFenderPics}
-                    onPhotosChange={(photos) => handleNestedInputChange('photos', 'passengerSideRearFenderPics', photos)}
-                  />
-                  <PhotoUploadSection
-                    title="Rear Wheel Photos"
-                    photos={formData.photos?.passengerSideRearWheelPics}
-                    onPhotosChange={(photos) => handleNestedInputChange('photos', 'passengerSideRearWheelPics', photos)}
-                  />
-                  <PhotoUploadSection
-                    title="Mirror Photos"
-                    photos={formData.photos?.passengerSideMirrorPics}
-                    onPhotosChange={(photos) => handleNestedInputChange('photos', 'passengerSideMirrorPics', photos)}
-                  />
-                </div>
-              </div>
-
-              {/* Rear Section */}
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">Rear Section</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <PhotoUploadSection
-                    title="Trunk Exterior Photos"
-                    photos={formData.photos?.trunkExteriorPics}
-                    onPhotosChange={(photos) => handleNestedInputChange('photos', 'trunkExteriorPics', photos)}
-                  />
-                  <PhotoUploadSection
-                    title="Trunk Interior Photos"
-                    photos={formData.photos?.trunkInteriorPics}
-                    onPhotosChange={(photos) => handleNestedInputChange('photos', 'trunkInteriorPics', photos)}
-                  />
-                  <PhotoUploadSection
-                    title="Rear Light Photos"
-                    photos={formData.photos?.rearLightPics}
-                    onPhotosChange={(photos) => handleNestedInputChange('photos', 'rearLightPics', photos)}
-                  />
-                  <PhotoUploadSection
-                    title="Bumper Photos"
-                    photos={formData.photos?.bumperPics}
-                    onPhotosChange={(photos) => handleNestedInputChange('photos', 'bumperPics', photos)}
-                  />
-                </div>
-              </div>
-
-              {/* Driver Side */}
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">Driver Side</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <PhotoUploadSection
-                    title="Rear Fender Photos"
-                    photos={formData.photos?.driverSideRearFenderPics}
-                    onPhotosChange={(photos) => handleNestedInputChange('photos', 'driverSideRearFenderPics', photos)}
-                  />
-                  <PhotoUploadSection
-                    title="Rear Wheel Photos"
-                    photos={formData.photos?.driverSideRearWheelPics}
-                    onPhotosChange={(photos) => handleNestedInputChange('photos', 'driverSideRearWheelPics', photos)}
-                  />
-                  <PhotoUploadSection
-                    title="Pillar Photos"
-                    photos={formData.photos?.driverSidePillarPics}
-                    onPhotosChange={(photos) => handleNestedInputChange('photos', 'driverSidePillarPics', photos)}
-                  />
-                  <PhotoUploadSection
-                    title="Door Photos"
-                    photos={formData.photos?.driverSideDoorPics}
-                    onPhotosChange={(photos) => handleNestedInputChange('photos', 'driverSideDoorPics', photos)}
-                  />
-                  <PhotoUploadSection
-                    title="Door Handle Photos"
-                    photos={formData.photos?.driverSideDoorHandlePics}
-                    onPhotosChange={(photos) => handleNestedInputChange('photos', 'driverSideDoorHandlePics', photos)}
-                  />
-                  <PhotoUploadSection
-                    title="Front Fender Photos"
-                    photos={formData.photos?.driverSideFrontFenderPics}
-                    onPhotosChange={(photos) => handleNestedInputChange('photos', 'driverSideFrontFenderPics', photos)}
-                  />
-                  <PhotoUploadSection
-                    title="Front Wheel Photos"
-                    photos={formData.photos?.driverSideFrontWheelPics}
-                    onPhotosChange={(photos) => handleNestedInputChange('photos', 'driverSideFrontWheelPics', photos)}
-                  />
-                  <PhotoUploadSection
-                    title="Mirror Photos"
-                    photos={formData.photos?.driverSideMirrorPics}
-                    onPhotosChange={(photos) => handleNestedInputChange('photos', 'driverSideMirrorPics', photos)}
-                  />
-                </div>
-              </div>
-
-              {/* Roof */}
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">Roof</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <PhotoUploadSection
-                    title="Roof Photos"
-                    photos={formData.photos?.roofPics}
-                    onPhotosChange={(photos) => handleNestedInputChange('photos', 'roofPics', photos)}
-                  />
-                </div>
-              </div>
-
-              {/* Interior */}
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">Interior</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <PhotoUploadSection
-                    title="Dashboard Photos (Include Odometer & Fuel)"
-                    photos={formData.photos?.dashboardPics}
-                    onPhotosChange={(photos) => handleNestedInputChange('photos', 'dashboardPics', photos)}
-                  />
-                  <PhotoUploadSection
-                    title="Entertainment Center Photos"
-                    photos={formData.photos?.entertainmentCenterPics}
-                    onPhotosChange={(photos) => handleNestedInputChange('photos', 'entertainmentCenterPics', photos)}
-                  />
-                  <PhotoUploadSection
-                    title="Center Console Interior Photos"
-                    photos={formData.photos?.centerConsoleInteriorPics}
-                    onPhotosChange={(photos) => handleNestedInputChange('photos', 'centerConsoleInteriorPics', photos)}
-                  />
-                  <PhotoUploadSection
-                    title="Center Console Exterior Photos"
-                    photos={formData.photos?.centerConsoleExteriorPics}
-                    onPhotosChange={(photos) => handleNestedInputChange('photos', 'centerConsoleExteriorPics', photos)}
-                  />
-                  <PhotoUploadSection
-                    title="Driver Side Door Trim Photos"
-                    photos={formData.photos?.driverSideDoorTrimPics}
-                    onPhotosChange={(photos) => handleNestedInputChange('photos', 'driverSideDoorTrimPics', photos)}
-                  />
-                  <PhotoUploadSection
-                    title="Driver Side Seat Photos"
-                    photos={formData.photos?.driverSideSeatPics}
-                    onPhotosChange={(photos) => handleNestedInputChange('photos', 'driverSideSeatPics', photos)}
-                  />
-                  <PhotoUploadSection
-                    title="Driver Side Floor Mat Photos"
-                    photos={formData.photos?.driverSideFloorMatPics}
-                    onPhotosChange={(photos) => handleNestedInputChange('photos', 'driverSideFloorMatPics', photos)}
-                  />
-                  <PhotoUploadSection
-                    title="Passenger Side Door Trim Photos"
-                    photos={formData.photos?.passengerSideDoorTrimPics}
-                    onPhotosChange={(photos) => handleNestedInputChange('photos', 'passengerSideDoorTrimPics', photos)}
-                  />
-                  <PhotoUploadSection
-                    title="Passenger Side Seat Photos"
-                    photos={formData.photos?.passengerSideSeatPics}
-                    onPhotosChange={(photos) => handleNestedInputChange('photos', 'passengerSideSeatPics', photos)}
-                  />
-                  <PhotoUploadSection
-                    title="Passenger Side Floor Mat Photos"
-                    photos={formData.photos?.passengerSideFloorMatPics}
-                    onPhotosChange={(photos) => handleNestedInputChange('photos', 'passengerSideFloorMatPics', photos)}
-                  />
-                  <PhotoUploadSection
-                    title="Glove Box Interior Photos"
-                    photos={formData.photos?.gloveBoxInteriorPics}
-                    onPhotosChange={(photos) => handleNestedInputChange('photos', 'gloveBoxInteriorPics', photos)}
-                  />
-                  <PhotoUploadSection
-                    title="Glove Box Exterior Photos"
-                    photos={formData.photos?.gloveBoxExteriorPics}
-                    onPhotosChange={(photos) => handleNestedInputChange('photos', 'gloveBoxExteriorPics', photos)}
-                  />
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
           {/* Notes and Signature */}
           <Card>
             <CardHeader>
@@ -829,13 +577,13 @@ export function CheckInOutDetail() {
               
               <div className="flex items-center justify-between">
                 <span className="text-sm text-gray-600">Check-in Date</span>
-                <span className="text-sm font-medium">{formatDateTime(checkInOut.checkInDate || checkInOut.date)}</span>
+                <span className="text-sm font-medium">{formatDateDisplay(checkInOut.checkInDate || checkInOut.date)}</span>
               </div>
               
               {checkInOut.checkOutDate && (
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-gray-600">Check-out Date</span>
-                  <span className="text-sm font-medium">{formatDateTime(checkInOut.checkOutDate)}</span>
+                  <span className="text-sm font-medium">{formatDateDisplay(checkInOut.checkOutDate)}</span>
                 </div>
               )}
               
@@ -892,29 +640,6 @@ export function CheckInOutDetail() {
               </CardContent>
             </Card>
           )}
-
-          {/* Quick Actions */}
-          <Card>
-            <CardHeader>
-              <CardTitle>Quick Actions</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-2">
-                <Button variant="outline" className="w-full justify-start" leftIcon={<User size={16} />}>
-                  Contact Customer
-                </Button>
-                <Button variant="outline" className="w-full justify-start" leftIcon={<Car size={16} />}>
-                  View Vehicle Details
-                </Button>
-                <Button variant="outline" className="w-full justify-start" leftIcon={<Calendar size={16} />}>
-                  Schedule Follow-up
-                </Button>
-                <Button variant="outline" className="w-full justify-start" leftIcon={<Download size={16} />}>
-                  Download Report
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
         </div>
       </div>
     </div>

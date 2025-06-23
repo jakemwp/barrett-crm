@@ -113,28 +113,6 @@ export const customers: Customer[] = [
   },
   {
     id: 'c3',
-    firstName: 'Robert',
-    lastName: 'Johnson',
-    type: 'Corporate',
-    membershipLevel: 'Enterprise',
-    storageLocation: 'Building C - Section 2',
-    email: 'robert.j@example.com',
-    phone: '(555) 789-0123',
-    streetAddress: '789 Pine Rd',
-    city: 'Elsewhere',
-    state: 'TX',
-    zipCode: '75001',
-    storageSpots: 8,
-    showPandaDocForm: true,
-    dateCreated: '2023-03-10',
-    password: 'corp789',
-    numRows: 4,
-    manualPrice: 600.00,
-    createdAt: '2023-03-10T09:15:00Z',
-    updatedAt: '2023-03-10T09:15:00Z',
-  },
-  {
-    id: 'c4',
     firstName: 'Sarah',
     lastName: 'Williams',
     type: 'Individual',
@@ -157,7 +135,7 @@ export const customers: Customer[] = [
     updatedAt: '2023-04-05T16:20:00Z',
   },
   {
-    id: 'c5',
+    id: 'c4',
     firstName: 'Michael',
     lastName: 'Brown',
     type: 'Business',
@@ -179,7 +157,7 @@ export const customers: Customer[] = [
     updatedAt: '2023-05-12T11:10:00Z',
   },
   {
-    id: 'c6',
+    id: 'c5',
     firstName: 'Emily',
     lastName: 'Davis',
     type: 'Individual',
@@ -202,10 +180,10 @@ export const customers: Customer[] = [
     updatedAt: '2023-06-18T13:25:00Z',
   },
   {
-    id: 'c7',
+    id: 'c6',
     firstName: 'David',
     lastName: 'Wilson',
-    type: 'Corporate',
+    type: 'Business',
     membershipLevel: 'Enterprise',
     storageLocation: 'Building C - Section 1',
     email: 'david.wilson@corp.com',
@@ -224,7 +202,7 @@ export const customers: Customer[] = [
     updatedAt: '2023-07-22T15:40:00Z',
   },
   {
-    id: 'c8',
+    id: 'c7',
     firstName: 'Lisa',
     lastName: 'Anderson',
     type: 'Individual',
@@ -274,7 +252,7 @@ export const vehicles: Vehicle[] = [
     make: 'Toyota',
     model: 'Camry',
     vin: '1HGCM82633A123456',
-    storageLocation: 'Building A - Section 1 - Spot 12',
+    storageLocation: 'Moorpark',
     fairMarketValue: 28500,
     insuranceRiderRequired: true,
     insuranceRiderAmount: 30000,
@@ -334,7 +312,7 @@ export const vehicles: Vehicle[] = [
     make: 'Honda',
     model: 'Accord',
     vin: '2HGES16564H789012',
-    storageLocation: 'Building B - Section 3 - Spot 8',
+    storageLocation: 'Westlake Village',
     fairMarketValue: 24000,
     insuranceRiderRequired: false,
     licensePlate: 'XYZ789',
@@ -382,74 +360,6 @@ export const vehicles: Vehicle[] = [
     authorizedDrivers: [
       {
         id: 'ad4',
-        name: 'Robert Johnson',
-        phone: '(555) 789-0123',
-        email: 'robert.j@example.com',
-        licenseNumber: 'TX789012',
-        relationship: 'Owner'
-      },
-      {
-        id: 'ad5',
-        name: 'Corporate Driver 1',
-        phone: '(555) 789-0124',
-        email: 'driver1@corp.com',
-        licenseNumber: 'TX789013',
-        relationship: 'Employee'
-      }
-    ],
-    year: 2021,
-    make: 'Ford',
-    model: 'F-150',
-    vin: '1FTFW1ET4DFB12345',
-    storageLocation: 'Building C - Section 2 - Spot 15',
-    fairMarketValue: 45000,
-    insuranceRiderRequired: true,
-    insuranceRiderAmount: 50000,
-    licensePlate: 'DEF456',
-    registration: {
-      number: 'REG456789',
-      expirationDate: '2024-10-20',
-      state: 'TX'
-    },
-    tirePressureDefault: {
-      front: 35,
-      rear: 35
-    },
-    tirePressurePreferred: {
-      front: 38,
-      rear: 38
-    },
-    maintenanceSchedule: {
-      lastService: '2024-01-20',
-      nextService: '2024-07-20',
-      serviceInterval: 6,
-      notes: 'Heavy duty maintenance schedule'
-    },
-    authorizedContacts: [
-      {
-        id: 'ac3',
-        name: 'Fleet Manager',
-        phone: '(555) 555-6666',
-        email: 'fleet@corp.com',
-        relationship: 'Fleet Manager',
-        canDropoff: true,
-        canPickup: true
-      }
-    ],
-    odometer: 18000,
-    image: 'https://images.pexels.com/photos/1335077/pexels-photo-1335077.jpeg',
-    fuelLevel: 90,
-    batteryType: 'Standard',
-    color: 'Black',
-    createdAt: '2023-03-10T09:20:00Z',
-    updatedAt: '2024-01-20T13:20:00Z',
-  },
-  {
-    id: 'v4',
-    customerId: 'c4',
-    authorizedDrivers: [
-      {
-        id: 'ad6',
         name: 'Sarah Williams',
         phone: '(555) 456-7890',
         email: 'sarah.w@example.com',
@@ -461,7 +371,7 @@ export const vehicles: Vehicle[] = [
     make: 'Chevrolet',
     model: 'Equinox',
     vin: '3GNFK16338G345678',
-    storageLocation: 'Building A - Section 4 - Spot 3',
+    storageLocation: 'Moorpark',
     fairMarketValue: 18500,
     insuranceRiderRequired: false,
     licensePlate: 'GHI789',
@@ -493,7 +403,7 @@ export const vehicles: Vehicle[] = [
     updatedAt: '2023-10-15T10:35:00Z',
   },
   {
-    id: 'v5',
+    id: 'v4',
     customerId: 'c1',
     authorizedDrivers: [
       {
@@ -509,7 +419,7 @@ export const vehicles: Vehicle[] = [
     make: 'Nissan',
     model: 'Altima',
     vin: '1N4AL3AP3DC567890',
-    storageLocation: 'Building A - Section 1 - Spot 13',
+    storageLocation: 'Westlake Village',
     fairMarketValue: 32000,
     insuranceRiderRequired: true,
     insuranceRiderAmount: 35000,
@@ -686,7 +596,7 @@ export const checkInOuts: CheckInOut[] = [
     date: '2024-03-16',
     type: CheckType.CHECK_OUT,
     location: 'Building C - Section 2',
-    contact: 'Robert Johnson',
+    contact: 'Sarah Williams',
     status: CheckStatus.CHECKED_OUT,
     checkInDate: '2024-03-16T12:00:00Z',
     checkOutDate: '2024-03-16T13:30:00Z',

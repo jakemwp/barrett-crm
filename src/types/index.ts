@@ -2,7 +2,7 @@ export interface Customer {
   id: string;
   firstName: string;
   lastName: string;
-  type: 'Individual' | 'Business' | 'Corporate';
+  type: 'Individual' | 'Business';
   membershipLevel: 'Basic' | 'Premium' | 'VIP' | 'Enterprise';
   storageLocation: string;
   email: string;
