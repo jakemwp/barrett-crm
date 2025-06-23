@@ -118,7 +118,7 @@ export function PhotoUpload({
         accept="image/*"
         multiple={uploadOptions.multiple}
         onChange={(e) => handleFileSelect(e.target.files)}
-        className="hidden"
+
       />
 
       {/* Upload Area */}
