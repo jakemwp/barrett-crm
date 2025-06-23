@@ -43,10 +43,8 @@ export function AddCustomer() {
     state: '',
     zipCode: '',
     storageSpots: 1,
-    numRows: 1,
     showPandaDocForm: false,
     password: '',
-    magicLink: '',
     manualPrice: 0,
   });
 
@@ -116,10 +114,6 @@ export function AddCustomer() {
       newErrors.storageSpots = 'Storage spots must be at least 1';
     }
     
-    if (formData.numRows < 1) {
-      newErrors.numRows = 'Number of rows must be at least 1';
-    }
-    
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -139,6 +133,7 @@ export function AddCustomer() {
       const newCustomer = addCustomer({
         ...formData,
         dateCreated: new Date().toISOString().split('T')[0],
+        numRows: 1, // Default value since field is removed from UI
       });
       
       setSaveStatus('success');
@@ -385,7 +380,7 @@ export function AddCustomer() {
               {/* Storage Information */}
               <div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">Storage Information</h3>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <Input
                     label="Storage Location *"
                     value={formData.storageLocation}
@@ -401,14 +396,6 @@ export function AddCustomer() {
                     value={formData.storageSpots}
                     onChange={(e) => handleInputChange('storageSpots', parseInt(e.target.value) || 1)}
                     error={errors.storageSpots}
-                  />
-                  <Input
-                    label="Number of Rows *"
-                    type="number"
-                    min="1"
-                    value={formData.numRows}
-                    onChange={(e) => handleInputChange('numRows', parseInt(e.target.value) || 1)}
-                    error={errors.numRows}
                   />
                 </div>
               </div>
@@ -434,16 +421,6 @@ export function AddCustomer() {
                     onChange={(e) => handleInputChange('manualPrice', parseFloat(e.target.value) || 0)}
                     placeholder="0.00"
                     helperText="Auto-calculated based on membership"
-                  />
-                </div>
-                
-                <div className="mt-4">
-                  <Input
-                    label="Magic Link (Optional)"
-                    value={formData.magicLink}
-                    onChange={(e) => handleInputChange('magicLink', e.target.value)}
-                    placeholder="https://app.example.com/auth/magic/..."
-                    helperText="Optional magic link for customer access"
                   />
                 </div>
 
@@ -548,40 +525,25 @@ export function AddCustomer() {
                 <span className="text-sm text-gray-600">Storage Spots</span>
                 <span className="font-semibold">{formData.storageSpots}</span>
               </div>
-              
-              <div className="flex items-center justify-between">
-                <span className="text-sm text-gray-600">Rows</span>
-                <span className="font-semibold">{formData.numRows}</span>
-              </div>
             </CardContent>
           </Card>
 
-          {/* Account Features */}
+          {/* PandaDoc Form Status */}
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center">
-                <Key className="mr-2" size={16} />
-                Account Features
+                <FileText className="mr-2" size={16} />
+                PandaDoc Form
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-3">
               <div className="flex items-center justify-between">
                 <div className="flex items-center">
                   <FileText className="mr-2 text-primary-600" size={16} />
-                  <span className="text-sm text-gray-600">PandaDoc Form</span>
+                  <span className="text-sm text-gray-600">Form Status</span>
                 </div>
                 <Badge variant={formData.showPandaDocForm ? 'success' : 'outline'}>
                   {formData.showPandaDocForm ? 'Enabled' : 'Disabled'}
-                </Badge>
-              </div>
-              
-              <div className="flex items-center justify-between">
-                <div className="flex items-center">
-                  <Key className="mr-2 text-secondary-600" size={16} />
-                  <span className="text-sm text-gray-600">Magic Link</span>
-                </div>
-                <Badge variant={formData.magicLink ? 'success' : 'outline'}>
-                  {formData.magicLink ? 'Active' : 'None'}
                 </Badge>
               </div>
             </CardContent>

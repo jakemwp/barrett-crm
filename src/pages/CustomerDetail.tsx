@@ -321,7 +321,7 @@ export function CustomerDetail() {
               {/* Storage Information */}
               <div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">Storage Information</h3>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <Input
                     label="Storage Location"
                     value={formData.storageLocation}
@@ -333,13 +333,6 @@ export function CustomerDetail() {
                     type="number"
                     value={formData.storageSpots}
                     onChange={(e) => handleInputChange('storageSpots', parseInt(e.target.value))}
-                    disabled={!isEditing}
-                  />
-                  <Input
-                    label="Number of Rows"
-                    type="number"
-                    value={formData.numRows}
-                    onChange={(e) => handleInputChange('numRows', parseInt(e.target.value))}
                     disabled={!isEditing}
                   />
                 </div>
@@ -363,16 +356,6 @@ export function CustomerDetail() {
                     value={formData.manualPrice || ''}
                     onChange={(e) => handleInputChange('manualPrice', parseFloat(e.target.value) || 0)}
                     disabled={!isEditing}
-                  />
-                </div>
-                
-                <div className="mt-4">
-                  <Input
-                    label="Magic Link"
-                    value={formData.magicLink || ''}
-                    onChange={(e) => handleInputChange('magicLink', e.target.value)}
-                    disabled={!isEditing}
-                    helperText="Optional magic link for customer access"
                   />
                 </div>
 
@@ -415,14 +398,6 @@ export function CustomerDetail() {
                   <span className="text-sm text-gray-600">Storage Spots</span>
                 </div>
                 <span className="font-semibold">{customer.storageSpots}</span>
-              </div>
-              
-              <div className="flex items-center justify-between">
-                <div className="flex items-center">
-                  <Grid className="mr-2 text-warning-600" size={16} />
-                  <span className="text-sm text-gray-600">Rows</span>
-                </div>
-                <span className="font-semibold">{customer.numRows}</span>
               </div>
               
               {customer.manualPrice && (
@@ -487,29 +462,19 @@ export function CustomerDetail() {
             </Card>
           )}
 
-          {/* Account Features */}
+          {/* PandaDoc Form Status */}
           <Card>
             <CardHeader>
-              <CardTitle>Account Features</CardTitle>
+              <CardTitle>PandaDoc Form</CardTitle>
             </CardHeader>
             <CardContent className="space-y-3">
               <div className="flex items-center justify-between">
                 <div className="flex items-center">
                   <FileText className="mr-2 text-primary-600" size={16} />
-                  <span className="text-sm text-gray-600">PandaDoc Form</span>
+                  <span className="text-sm text-gray-600">Form Status</span>
                 </div>
                 <Badge variant={customer.showPandaDocForm ? 'success' : 'outline'}>
                   {customer.showPandaDocForm ? 'Enabled' : 'Disabled'}
-                </Badge>
-              </div>
-              
-              <div className="flex items-center justify-between">
-                <div className="flex items-center">
-                  <Key className="mr-2 text-secondary-600" size={16} />
-                  <span className="text-sm text-gray-600">Magic Link</span>
-                </div>
-                <Badge variant={customer.magicLink ? 'success' : 'outline'}>
-                  {customer.magicLink ? 'Active' : 'None'}
                 </Badge>
               </div>
             </CardContent>
