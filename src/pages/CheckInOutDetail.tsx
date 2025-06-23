@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { 
   ArrowLeft, 
@@ -8,19 +8,14 @@ import {
   Car, 
   User, 
   Calendar, 
-  MapPin, 
-  Camera, 
-  Video, 
   FileText, 
   Clock, 
   CheckSquare,
-  Upload,
-  Trash2,
   Plus,
-  Eye,
+  Trash2,
   Download,
-  Smartphone,
-  FolderOpen
+  Camera,
+  Video
 } from 'lucide-react';
 import { getCheckInOutById, getCustomerById, getVehicleById } from '../data/mock-data';
 import { CheckInOut, CheckStatus, CheckType } from '../types';
@@ -30,6 +25,8 @@ import { Select } from '../components/ui/Select';
 import { Textarea } from '../components/ui/TextArea';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/Card';
 import { Badge } from '../components/ui/Badge';
+import { PhotoUpload } from '../components/ui/PhotoUpload';
+import { VideoUpload } from '../components/ui/VideoUpload';
 
 export function CheckInOutDetail() {
   const { id } = useParams<{ id: string }>();
@@ -38,9 +35,6 @@ export function CheckInOutDetail() {
   const [isEditing, setIsEditing] = useState(false);
   const [formData, setFormData] = useState<CheckInOut | null>(null);
   const [loading, setLoading] = useState(true);
-
-  // File input refs for different photo sections
-  const fileInputRefs = useRef<{ [key: string]: HTMLInputElement | null }>({});
 
   useEffect(() => {
     if (id) {
@@ -77,6 +71,34 @@ export function CheckInOutDetail() {
     }
   };
 
+  const handlePhotoChange = (photoType: string, urls: string[]) => {
+    if (formData) {
+      const newPhotos = {
+        ...formData.photos,
+        [photoType]: urls.length === 1 ? urls[0] : urls.length > 1 ? urls : undefined
+      };
+      
+      setFormData({
+        ...formData,
+        photos: newPhotos,
+      });
+    }
+  };
+
+  const handleVideoChange = (url: string | null) => {
+    if (formData) {
+      const newPhotos = {
+        ...formData.photos,
+        walkAroundVideo: url || undefined
+      };
+      
+      setFormData({
+        ...formData,
+        photos: newPhotos,
+      });
+    }
+  };
+
   const handleSave = () => {
     if (formData) {
       // In a real app, this would make an API call
@@ -98,57 +120,6 @@ export function CheckInOutDetail() {
       day: '2-digit',
       year: 'numeric'
     });
-  };
-
-  const handleFileUpload = (photoType: string, files: FileList | null, multiple = true) => {
-    if (!files || files.length === 0) return;
-
-    // In a real app, you would upload these files to a server
-    // For now, we'll create local URLs for preview
-    const fileUrls: string[] = [];
-    
-    for (let i = 0; i < files.length; i++) {
-      const file = files[i];
-      if (file.type.startsWith('image/')) {
-        const url = URL.createObjectURL(file);
-        fileUrls.push(url);
-      }
-    }
-
-    if (fileUrls.length > 0) {
-      const newValue = multiple ? fileUrls : fileUrls[0];
-      handleNestedInputChange('photos', photoType, newValue);
-    }
-  };
-
-  const handleVideoUpload = (files: FileList | null) => {
-    if (!files || files.length === 0) return;
-
-    const file = files[0];
-    if (file.type.startsWith('video/')) {
-      const url = URL.createObjectURL(file);
-      handleNestedInputChange('photos', 'walkAroundVideo', url);
-    }
-  };
-
-  const triggerFileInput = (photoType: string) => {
-    const input = fileInputRefs.current[photoType];
-    if (input) {
-      input.click();
-    }
-  };
-
-  const removePhoto = (photoType: string, index?: number) => {
-    if (formData?.photos) {
-      const currentPhotos = formData.photos[photoType as keyof typeof formData.photos];
-      
-      if (Array.isArray(currentPhotos) && typeof index === 'number') {
-        const newPhotos = currentPhotos.filter((_, i) => i !== index);
-        handleNestedInputChange('photos', photoType, newPhotos.length > 0 ? newPhotos : undefined);
-      } else {
-        handleNestedInputChange('photos', photoType, undefined);
-      }
-    }
   };
 
   if (loading) {
@@ -204,279 +175,6 @@ export function CheckInOutDetail() {
 
   const status = statusConfig[checkInOut.status];
   const type = typeConfig[checkInOut.type];
-
-  const PhotoUploadSection = ({ 
-    title, 
-    photoType,
-    photos, 
-    multiple = true 
-  }: { 
-    title: string; 
-    photoType: string;
-    photos?: string | string[]; 
-    multiple?: boolean;
-  }) => (
-    <div className="space-y-3">
-      <h4 className="text-sm font-medium text-gray-700">{title}</h4>
-      
-      {/* Hidden file input */}
-      <input
-        ref={(el) => fileInputRefs.current[photoType] = el}
-        type="file"
-        accept="image/*"
-        multiple={multiple}
-        onChange={(e) => handleFileUpload(photoType, e.target.files, multiple)}
-        className="hidden"
-        capture="environment" // Prefer rear camera on mobile devices
-      />
-      
-      <div className="border-2 border-dashed border-gray-300 rounded-lg p-4 bg-gray-50">
-        {isEditing ? (
-          <div className="text-center space-y-4">
-            <Camera className="mx-auto h-12 w-12 text-gray-400" />
-            <div>
-              <h5 className="text-sm font-medium text-gray-700 mb-2">Add {multiple ? 'Photos' : 'Photo'}</h5>
-              <p className="text-xs text-gray-500 mb-4">
-                {multiple ? 'Select multiple photos' : 'Select a photo'} for this section
-              </p>
-            </div>
-            
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Button 
-                variant="outline" 
-                size="sm" 
-                className="flex items-center"
-                onClick={() => triggerFileInput(photoType)}
-              >
-                <Smartphone className="mr-2 h-4 w-4" />
-                Take Photo
-              </Button>
-              <Button 
-                variant="outline" 
-                size="sm" 
-                className="flex items-center"
-                onClick={() => triggerFileInput(photoType)}
-              >
-                <FolderOpen className="mr-2 h-4 w-4" />
-                Choose from Storage
-              </Button>
-            </div>
-            
-            <p className="text-xs text-gray-400 mt-2">
-              Supported formats: JPG, PNG, HEIC
-            </p>
-          </div>
-        ) : (
-          <div className="text-center">
-            {photos ? (
-              <div className="flex flex-wrap gap-2 justify-center">
-                {Array.isArray(photos) ? (
-                  photos.map((photo, index) => (
-                    <div key={index} className="relative group">
-                      <div className="w-20 h-20 bg-gray-200 rounded border flex items-center justify-center overflow-hidden">
-                        <img 
-                          src={photo} 
-                          alt={`${title} ${index + 1}`}
-                          className="w-full h-full object-cover"
-                          onError={(e) => {
-                            // Fallback to camera icon if image fails to load
-                            e.currentTarget.style.display = 'none';
-                            e.currentTarget.nextElementSibling?.classList.remove('hidden');
-                          }}
-                        />
-                        <Camera className="h-6 w-6 text-gray-400 hidden" />
-                      </div>
-                      <div className="absolute -top-2 -right-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                        <Button
-                          variant="ghost"
-                          size="sm"
-                          className="p-1 bg-white rounded-full shadow-md hover:bg-gray-100"
-                          onClick={() => removePhoto(photoType, index)}
-                        >
-                          <Eye className="h-3 w-3" />
-                        </Button>
-                      </div>
-                      {isEditing && (
-                        <div className="absolute -bottom-2 -right-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                          <Button
-                            variant="ghost"
-                            size="sm"
-                            className="p-1 bg-red-100 text-red-600 rounded-full shadow-md hover:bg-red-200"
-                            onClick={() => removePhoto(photoType, index)}
-                          >
-                            <Trash2 className="h-3 w-3" />
-                          </Button>
-                        </div>
-                      )}
-                    </div>
-                  ))
-                ) : (
-                  <div className="relative group">
-                    <div className="w-20 h-20 bg-gray-200 rounded border flex items-center justify-center overflow-hidden">
-                      <img 
-                        src={photos} 
-                        alt={title}
-                        className="w-full h-full object-cover"
-                        onError={(e) => {
-                          e.currentTarget.style.display = 'none';
-                          e.currentTarget.nextElementSibling?.classList.remove('hidden');
-                        }}
-                      />
-                      <Camera className="h-6 w-6 text-gray-400 hidden" />
-                    </div>
-                    <div className="absolute -top-2 -right-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        className="p-1 bg-white rounded-full shadow-md hover:bg-gray-100"
-                      >
-                        <Eye className="h-3 w-3" />
-                      </Button>
-                    </div>
-                    {isEditing && (
-                      <div className="absolute -bottom-2 -right-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                        <Button
-                          variant="ghost"
-                          size="sm"
-                          className="p-1 bg-red-100 text-red-600 rounded-full shadow-md hover:bg-red-200"
-                          onClick={() => removePhoto(photoType)}
-                        >
-                          <Trash2 className="h-3 w-3" />
-                        </Button>
-                      </div>
-                    )}
-                  </div>
-                )}
-              </div>
-            ) : (
-              <div className="text-gray-500">
-                <Camera className="mx-auto h-8 w-8 text-gray-400 mb-2" />
-                <p className="text-sm">No photos uploaded</p>
-                {isEditing && (
-                  <Button 
-                    variant="outline" 
-                    size="sm" 
-                    className="mt-2"
-                    onClick={() => triggerFileInput(photoType)}
-                  >
-                    <Upload className="mr-2 h-4 w-4" />
-                    Add {multiple ? 'Photos' : 'Photo'}
-                  </Button>
-                )}
-              </div>
-            )}
-          </div>
-        )}
-      </div>
-    </div>
-  );
-
-  const VideoUploadSection = () => (
-    <div className="space-y-3">
-      <h4 className="text-sm font-medium text-gray-700">Walk Around Video</h4>
-      
-      {/* Hidden video input */}
-      <input
-        ref={(el) => fileInputRefs.current['walkAroundVideo'] = el}
-        type="file"
-        accept="video/*"
-        onChange={(e) => handleVideoUpload(e.target.files)}
-        className="hidden"
-        capture="environment"
-      />
-      
-      <div className="border-2 border-dashed border-gray-300 rounded-lg p-4 bg-gray-50">
-        {isEditing ? (
-          <div className="text-center space-y-4">
-            <Video className="mx-auto h-12 w-12 text-gray-400" />
-            <div>
-              <h5 className="text-sm font-medium text-gray-700 mb-2">Add Walk Around Video</h5>
-              <p className="text-xs text-gray-500 mb-4">
-                Record or select a video showing the vehicle's exterior condition
-              </p>
-            </div>
-            
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Button 
-                variant="outline" 
-                size="sm" 
-                className="flex items-center"
-                onClick={() => triggerFileInput('walkAroundVideo')}
-              >
-                <Video className="mr-2 h-4 w-4" />
-                Record Video
-              </Button>
-              <Button 
-                variant="outline" 
-                size="sm" 
-                className="flex items-center"
-                onClick={() => triggerFileInput('walkAroundVideo')}
-              >
-                <FolderOpen className="mr-2 h-4 w-4" />
-                Choose from Storage
-              </Button>
-            </div>
-            
-            <p className="text-xs text-gray-400 mt-2">
-              Supported formats: MP4, MOV, AVI (max 100MB)
-            </p>
-          </div>
-        ) : (
-          <div className="text-center">
-            {formData.photos?.walkAroundVideo ? (
-              <div className="relative group">
-                <div className="w-32 h-20 bg-gray-200 rounded border flex items-center justify-center overflow-hidden">
-                  <video 
-                    src={formData.photos.walkAroundVideo}
-                    className="w-full h-full object-cover"
-                    controls={false}
-                    muted
-                  />
-                </div>
-                <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 rounded">
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    className="text-white hover:bg-white hover:bg-opacity-20"
-                  >
-                    <Eye className="h-4 w-4" />
-                  </Button>
-                </div>
-                {isEditing && (
-                  <div className="absolute -top-2 -right-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      className="p-1 bg-red-100 text-red-600 rounded-full shadow-md hover:bg-red-200"
-                      onClick={() => handleNestedInputChange('photos', 'walkAroundVideo', undefined)}
-                    >
-                      <Trash2 className="h-3 w-3" />
-                    </Button>
-                  </div>
-                )}
-              </div>
-            ) : (
-              <div className="text-gray-500">
-                <Video className="mx-auto h-8 w-8 text-gray-400 mb-2" />
-                <p className="text-sm">No video uploaded</p>
-                {isEditing && (
-                  <Button 
-                    variant="outline" 
-                    size="sm" 
-                    className="mt-2"
-                    onClick={() => triggerFileInput('walkAroundVideo')}
-                  >
-                    <Upload className="mr-2 h-4 w-4" />
-                    Add Video
-                  </Button>
-                )}
-              </div>
-            )}
-          </div>
-        )}
-      </div>
-    </div>
-  );
 
   return (
     <div className="space-y-6 pb-16">
@@ -704,34 +402,56 @@ export function CheckInOutDetail() {
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <PhotoUploadSection
+                <PhotoUpload
                   title="Driver Side Photo"
-                  photoType="driverPic"
-                  photos={formData.photos?.driverPic}
+                  description="Photo of the driver side of the vehicle"
                   multiple={false}
+                  maxSize={10}
+                  initialPhotos={formData.photos?.driverPic ? [formData.photos.driverPic] : []}
+                  onPhotosChange={(urls) => handlePhotoChange('driverPic', urls)}
+                  disabled={!isEditing}
                 />
-                <PhotoUploadSection
+                
+                <PhotoUpload
                   title="Passenger Side Photo"
-                  photoType="passengerPic"
-                  photos={formData.photos?.passengerPic}
+                  description="Photo of the passenger side of the vehicle"
                   multiple={false}
+                  maxSize={10}
+                  initialPhotos={formData.photos?.passengerPic ? [formData.photos.passengerPic] : []}
+                  onPhotosChange={(urls) => handlePhotoChange('passengerPic', urls)}
+                  disabled={!isEditing}
                 />
-                <PhotoUploadSection
+                
+                <PhotoUpload
                   title="Front Photo"
-                  photoType="frontPic"
-                  photos={formData.photos?.frontPic}
+                  description="Photo of the front of the vehicle"
                   multiple={false}
+                  maxSize={10}
+                  initialPhotos={formData.photos?.frontPic ? [formData.photos.frontPic] : []}
+                  onPhotosChange={(urls) => handlePhotoChange('frontPic', urls)}
+                  disabled={!isEditing}
                 />
-                <PhotoUploadSection
+                
+                <PhotoUpload
                   title="Rear Photo"
-                  photoType="rearPic"
-                  photos={formData.photos?.rearPic}
+                  description="Photo of the rear of the vehicle"
                   multiple={false}
+                  maxSize={10}
+                  initialPhotos={formData.photos?.rearPic ? [formData.photos.rearPic] : []}
+                  onPhotosChange={(urls) => handlePhotoChange('rearPic', urls)}
+                  disabled={!isEditing}
                 />
               </div>
               
               {/* Walk Around Video */}
-              <VideoUploadSection />
+              <VideoUpload
+                title="Walk Around Video"
+                description="Record or select a video showing the vehicle's exterior condition"
+                initialVideo={formData.photos?.walkAroundVideo}
+                onVideoChange={handleVideoChange}
+                disabled={!isEditing}
+                maxSize={100}
+              />
             </CardContent>
           </Card>
 
@@ -743,20 +463,29 @@ export function CheckInOutDetail() {
                 Detailed Inspection Photos
               </CardTitle>
             </CardHeader>
-            <CardContent className="space-y-6">
+            <CardContent className="space-y-8">
               {/* Engine Bay */}
               <div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">Engine Bay</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <PhotoUploadSection
+                  <PhotoUpload
                     title="Engine Bay Photos"
-                    photoType="engineBayPics"
-                    photos={formData.photos?.engineBayPics}
+                    description="Multiple photos of the engine bay"
+                    multiple={true}
+                    maxSize={10}
+                    initialPhotos={formData.photos?.engineBayPics || []}
+                    onPhotosChange={(urls) => handlePhotoChange('engineBayPics', urls)}
+                    disabled={!isEditing}
                   />
-                  <PhotoUploadSection
+                  
+                  <PhotoUpload
                     title="Hood Photos"
-                    photoType="hoodPics"
-                    photos={formData.photos?.hoodPics}
+                    description="Photos of the hood exterior and interior"
+                    multiple={true}
+                    maxSize={10}
+                    initialPhotos={formData.photos?.hoodPics || []}
+                    onPhotosChange={(urls) => handlePhotoChange('hoodPics', urls)}
+                    disabled={!isEditing}
                   />
                 </div>
               </div>
@@ -765,15 +494,24 @@ export function CheckInOutDetail() {
               <div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">Interior</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <PhotoUploadSection
-                    title="Dashboard Photos (Include Odometer & Fuel)"
-                    photoType="dashboardPics"
-                    photos={formData.photos?.dashboardPics}
+                  <PhotoUpload
+                    title="Dashboard Photos"
+                    description="Include odometer and fuel level readings"
+                    multiple={true}
+                    maxSize={10}
+                    initialPhotos={formData.photos?.dashboardPics || []}
+                    onPhotosChange={(urls) => handlePhotoChange('dashboardPics', urls)}
+                    disabled={!isEditing}
                   />
-                  <PhotoUploadSection
+                  
+                  <PhotoUpload
                     title="Interior Overview"
-                    photoType="interiorPics"
-                    photos={formData.photos?.entertainmentCenterPics}
+                    description="General interior condition photos"
+                    multiple={true}
+                    maxSize={10}
+                    initialPhotos={formData.photos?.interiorPics || []}
+                    onPhotosChange={(urls) => handlePhotoChange('interiorPics', urls)}
+                    disabled={!isEditing}
                   />
                 </div>
               </div>
@@ -801,32 +539,24 @@ export function CheckInOutDetail() {
               <div className="space-y-3">
                 <h4 className="text-sm font-medium text-gray-700">Customer Signature</h4>
                 <div className="border-2 border-dashed border-gray-300 rounded-lg p-4">
-                  {isEditing ? (
-                    <div className="text-center">
-                      <FileText className="mx-auto h-8 w-8 text-gray-400" />
-                      <div className="mt-2">
-                        <Button variant="outline" size="sm">
-                          <Upload className="mr-2 h-4 w-4" />
-                          Capture Signature
-                        </Button>
+                  <div className="text-center text-gray-500">
+                    {formData.signature ? (
+                      <div className="flex items-center justify-center space-x-2">
+                        <FileText className="h-5 w-5" />
+                        <span className="text-sm">Signature captured</span>
                       </div>
-                      <p className="text-xs text-gray-500 mt-1">Digital signature pad</p>
-                    </div>
-                  ) : (
-                    <div className="text-center text-gray-500">
-                      {formData.signature ? (
-                        <div className="flex items-center justify-center space-x-2">
-                          <FileText className="h-5 w-5" />
-                          <span className="text-sm">Signature captured</span>
-                          <Button variant="ghost" size="sm">
-                            <Eye className="h-4 w-4" />
-                          </Button>
-                        </div>
-                      ) : (
+                    ) : (
+                      <div>
+                        <FileText className="mx-auto h-8 w-8 text-gray-400 mb-2" />
                         <p className="text-sm">No signature captured</p>
-                      )}
-                    </div>
-                  )}
+                        {isEditing && (
+                          <Button variant="outline" size="sm" className="mt-2">
+                            Capture Signature
+                          </Button>
+                        )}
+                      </div>
+                    )}
+                  </div>
                 </div>
               </div>
             </CardContent>
