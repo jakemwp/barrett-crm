@@ -28,7 +28,6 @@ import { Select } from '../components/ui/Select';
 import { Textarea } from '../components/ui/TextArea';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/Card';
 import { Badge } from '../components/ui/Badge';
-import { formatDateTime, formatDate } from '../lib/utils';
 
 export function CheckInOutDetail() {
   const { id } = useParams<{ id: string }>();
@@ -121,21 +120,6 @@ export function CheckInOutDetail() {
   const customerName = customer ? `${customer.firstName} ${customer.lastName}` : 'Unknown Customer';
   const vehicleInfo = vehicle ? `${vehicle.year} ${vehicle.make} ${vehicle.model}` : 'Unknown Vehicle';
 
-  const statusConfig = {
-    [CheckStatus.CHECKED_IN]: {
-      label: 'Checked In',
-      variant: 'warning' as const,
-    },
-    [CheckStatus.IN_SERVICE]: {
-      label: 'In Service',
-      variant: 'default' as const,
-    },
-    [CheckStatus.CHECKED_OUT]: {
-      label: 'Checked Out',
-      variant: 'success' as const,
-    },
-  };
-
   const typeConfig = {
     [CheckType.CHECK_IN]: {
       label: 'Check In',
@@ -147,7 +131,6 @@ export function CheckInOutDetail() {
     },
   };
 
-  const status = statusConfig[checkInOut.status];
   const type = typeConfig[checkInOut.type];
 
   const PhotoUploadSection = ({ 
@@ -240,9 +223,6 @@ export function CheckInOutDetail() {
               Check #{checkInOut.id.substring(0, 8).toUpperCase()}
             </h1>
             <div className="flex items-center space-x-2 mt-1">
-              <Badge variant={status.variant} className="text-xs">
-                {status.label}
-              </Badge>
               <Badge variant={type.variant} className="text-xs">
                 {type.label}
               </Badge>
@@ -315,6 +295,17 @@ export function CheckInOutDetail() {
                   value={formData.contact}
                   onChange={(e) => handleInputChange('contact', e.target.value)}
                   disabled={!isEditing}
+                />
+                <Select
+                  label="Status"
+                  value={formData.status}
+                  onChange={(e) => handleInputChange('status', e.target.value as CheckStatus)}
+                  disabled={!isEditing}
+                  options={[
+                    { value: 'Normal', label: 'Normal' },
+                    { value: 'Scheduled', label: 'Scheduled' },
+                    { value: 'Damage', label: 'Damage' },
+                  ]}
                 />
                 <Input
                   label="Delivery Address"
@@ -576,16 +567,9 @@ export function CheckInOutDetail() {
               </div>
               
               <div className="flex items-center justify-between">
-                <span className="text-sm text-gray-600">Check-in Date</span>
-                <span className="text-sm font-medium">{formatDateDisplay(checkInOut.checkInDate || checkInOut.date)}</span>
+                <span className="text-sm text-gray-600">Date</span>
+                <span className="text-sm font-medium">{formatDateDisplay(checkInOut.date)}</span>
               </div>
-              
-              {checkInOut.checkOutDate && (
-                <div className="flex items-center justify-between">
-                  <span className="text-sm text-gray-600">Check-out Date</span>
-                  <span className="text-sm font-medium">{formatDateDisplay(checkInOut.checkOutDate)}</span>
-                </div>
-              )}
               
               <div className="flex items-center justify-between">
                 <span className="text-sm text-gray-600">Location</span>

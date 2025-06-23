@@ -7,27 +7,20 @@ import {
   X, 
   Car, 
   Plus, 
-  Eye, 
-  Trash2,
   User,
   Building,
   Mail,
   Phone,
   MapPin,
   Calendar,
-  Key,
-  FileText,
   DollarSign,
-  Grid,
   Shield,
   Fuel,
   Battery,
   AlertTriangle,
   CheckCircle,
   Wrench,
-  Clock,
-  CheckSquare,
-  ClipboardCheck
+  Clock
 } from 'lucide-react';
 import { getVehicleById, getCustomerById, checkInOuts } from '../data/mock-data';
 import { Vehicle, CheckInOut, CheckStatus, CheckType } from '../types';
@@ -37,7 +30,7 @@ import { Select } from '../components/ui/Select';
 import { Textarea } from '../components/ui/TextArea';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/Card';
 import { Badge } from '../components/ui/Badge';
-import { formatCurrency, formatDate, formatDateTime, getInitials } from '../lib/utils';
+import { formatCurrency, getInitials } from '../lib/utils';
 import { Avatar } from '../components/ui/Avatar';
 
 export function VehicleDetail() {
@@ -484,6 +477,36 @@ export function VehicleDetail() {
                   />
                 </div>
               </div>
+
+              {/* Authorized Drivers */}
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Authorized Drivers ({vehicle.authorizedDrivers.length})</h3>
+                {vehicle.authorizedDrivers.length > 0 ? (
+                  <div className="space-y-3">
+                    {vehicle.authorizedDrivers.map((driver) => (
+                      <div key={driver.id} className="flex items-center p-3 border border-gray-200 rounded-md">
+                        <Avatar initials={getInitials(driver.name.split(' ')[0] || '', driver.name.split(' ')[1] || '')} size="sm" />
+                        <div className="ml-3 flex-1">
+                          <h5 className="font-medium text-gray-900">{driver.name}</h5>
+                          <p className="text-sm text-gray-600">{driver.email}</p>
+                          <div className="flex items-center space-x-2 mt-1">
+                            {driver.phone && (
+                              <span className="text-xs text-gray-500">{driver.phone}</span>
+                            )}
+                            {driver.relationship && (
+                              <Badge variant="outline" className="text-xs">
+                                {driver.relationship}
+                              </Badge>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <p className="text-sm text-gray-500">No authorized drivers added</p>
+                )}
+              </div>
             </CardContent>
           </Card>
         </div>
@@ -652,7 +675,7 @@ export function VehicleDetail() {
       <Card>
         <CardHeader className="flex flex-row items-center justify-between space-y-0">
           <CardTitle className="flex items-center">
-            <ClipboardCheck className="mr-2" size={20} />
+            <Car className="mr-2" size={20} />
             Check In/Out Records ({vehicleCheckInOuts.length})
           </CardTitle>
           <Button 
@@ -685,19 +708,7 @@ export function VehicleDetail() {
                     return (
                       <tr key={record.id} className="border-b border-gray-100 hover:bg-gray-50">
                         <td className="py-4 px-4">
-                          <div>
-                            <div className="text-sm font-medium text-gray-900">{formatDateDisplay(record.date)}</div>
-                            {record.checkInDate && (
-                              <div className="text-xs text-gray-500">
-                                In: {formatDateDisplay(record.checkInDate)}
-                              </div>
-                            )}
-                            {record.checkOutDate && (
-                              <div className="text-xs text-gray-500">
-                                Out: {formatDateDisplay(record.checkOutDate)}
-                              </div>
-                            )}
-                          </div>
+                          <div className="text-sm font-medium text-gray-900">{formatDateDisplay(record.date)}</div>
                         </td>
                         <td className="py-4 px-4">
                           <Badge variant={type.variant} className="text-xs">
@@ -735,7 +746,7 @@ export function VehicleDetail() {
             </div>
           ) : (
             <div className="text-center py-12">
-              <ClipboardCheck className="mx-auto h-12 w-12 text-gray-400" />
+              <Car className="mx-auto h-12 w-12 text-gray-400" />
               <h3 className="mt-2 text-sm font-medium text-gray-900">No check-in/out records</h3>
               <p className="mt-1 text-sm text-gray-500">
                 This vehicle doesn't have any service records yet.
