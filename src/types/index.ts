@@ -15,7 +15,6 @@ export interface Customer {
   showPandaDocForm: boolean;
   dateCreated: string;
   password: string;
-  magicLink?: string;
   numRows: number;
   manualPrice?: number;
   createdAt: string;
@@ -160,6 +159,7 @@ export interface VehicleInspectionPhotos {
   passengerSideFloorMatPics?: string[];
   gloveBoxInteriorPics?: string[];
   gloveBoxExteriorPics?: string[];
+  interiorPics?: string[];
 }
 
 export interface CheckInOut {

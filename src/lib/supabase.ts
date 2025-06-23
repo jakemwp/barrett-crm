@@ -65,7 +65,7 @@ export interface Database {
           id: string;
           first_name: string;
           last_name: string;
-          type: 'Individual' | 'Business' | 'Corporate';
+          type: 'Individual' | 'Business';
           membership_level: 'Basic' | 'Premium' | 'VIP' | 'Enterprise';
           storage_location: string;
           email: string;
@@ -78,7 +78,6 @@ export interface Database {
           show_panda_doc_form: boolean;
           date_created: string;
           password: string;
-          magic_link: string | null;
           num_rows: number;
           manual_price: number | null;
           created_at: string;
@@ -88,7 +87,7 @@ export interface Database {
           id?: string;
           first_name: string;
           last_name: string;
-          type?: 'Individual' | 'Business' | 'Corporate';
+          type?: 'Individual' | 'Business';
           membership_level?: 'Basic' | 'Premium' | 'VIP' | 'Enterprise';
           storage_location: string;
           email: string;
@@ -101,7 +100,6 @@ export interface Database {
           show_panda_doc_form?: boolean;
           date_created?: string;
           password: string;
-          magic_link?: string | null;
           num_rows?: number;
           manual_price?: number | null;
           created_at?: string;
@@ -111,7 +109,7 @@ export interface Database {
           id?: string;
           first_name?: string;
           last_name?: string;
-          type?: 'Individual' | 'Business' | 'Corporate';
+          type?: 'Individual' | 'Business';
           membership_level?: 'Basic' | 'Premium' | 'VIP' | 'Enterprise';
           storage_location?: string;
           email?: string;
@@ -124,7 +122,6 @@ export interface Database {
           show_panda_doc_form?: boolean;
           date_created?: string;
           password?: string;
-          magic_link?: string | null;
           num_rows?: number;
           manual_price?: number | null;
           created_at?: string;
@@ -428,47 +425,14 @@ export interface Database {
           created_at?: string;
         };
       };
-      appointments: {
-        Row: {
-          id: string;
-          customer_id: string;
-          vehicle_id: string | null;
-          date: string;
-          time: string;
-          duration: number;
-          reason: string;
-          status: 'SCHEDULED' | 'COMPLETED' | 'CANCELED';
-          notes: string | null;
-          created_at: string;
-          updated_at: string;
-        };
-        Insert: {
-          id?: string;
-          customer_id: string;
-          vehicle_id?: string | null;
-          date: string;
-          time: string;
-          duration?: number;
-          reason: string;
-          status?: 'SCHEDULED' | 'COMPLETED' | 'CANCELED';
-          notes?: string | null;
-          created_at?: string;
-          updated_at?: string;
-        };
-        Update: {
-          id?: string;
-          customer_id?: string;
-          vehicle_id?: string | null;
-          date?: string;
-          time?: string;
-          duration?: number;
-          reason?: string;
-          status?: 'SCHEDULED' | 'COMPLETED' | 'CANCELED';
-          notes?: string | null;
-          created_at?: string;
-          updated_at?: string;
-        };
-      };
+    };
+    Enums: {
+      customer_type: 'Individual' | 'Business';
+      membership_level: 'Basic' | 'Premium' | 'VIP' | 'Enterprise';
+      battery_type: 'Standard' | 'AGM' | 'Lithium' | 'Gel' | 'Other';
+      check_status: 'CHECKED_IN' | 'IN_SERVICE' | 'CHECKED_OUT';
+      check_type: 'CHECK_IN' | 'CHECK_OUT';
+      user_role: 'Admin' | 'Manager' | 'Staff' | 'Viewer';
     };
   };
 }
