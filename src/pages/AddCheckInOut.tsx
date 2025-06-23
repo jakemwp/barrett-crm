@@ -32,7 +32,6 @@ import { Badge } from '../components/ui/Badge';
 import { formatDateTime, generateId } from '../lib/utils';
 
 // Placeholder URL for demo purposes
-const placeholderUrl = 'https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg?auto=compress&cs=tinysrgb&w=400';
 
 export function AddCheckInOut() {
   const navigate = useNavigate();
@@ -159,7 +158,7 @@ export function AddCheckInOut() {
     if (multiple) {
       setPhotos(prev => ({
         ...prev,
-        [photoType]: [...(prev[photoType] as string[] || []), placeholderUrl],
+        [photoType]: [...(prev[photoType] as string[] || [])],
       }));
     } else {
       setPhotos(prev => ({
