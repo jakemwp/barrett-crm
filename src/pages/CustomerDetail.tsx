@@ -24,6 +24,9 @@ import {
   Battery,
   AlertTriangle,
   CheckCircle,
+  Wrench,
+  Clock,
+  CheckSquare,
   ClipboardCheck,
   LogIn,
   LogOut,
@@ -585,14 +588,10 @@ export function CustomerDetail() {
                     <th className="text-left py-3 px-4 font-medium text-gray-900">Storage Location</th>
                     <th className="text-left py-3 px-4 font-medium text-gray-900">Value</th>
                     <th className="text-left py-3 px-4 font-medium text-gray-900">Status</th>
-                    <th className="text-left py-3 px-4 font-medium text-gray-900">Service Status</th>
-                    <th className="text-left py-3 px-4 font-medium text-gray-900">Actions</th>
                   </tr>
                 </thead>
                 <tbody>
                   {vehicles.map((vehicle) => {
-                    const vehicleStatus = getVehicleStatus(vehicle.id);
-                    
                     return (
                       <tr key={vehicle.id} className="border-b border-gray-100 hover:bg-gray-50">
                         <td className="py-4 px-4">
@@ -656,74 +655,6 @@ export function CustomerDetail() {
                             ) : (
                               <AlertTriangle size={14} className="text-red-600" />
                             )}
-                          </div>
-                        </td>
-                        <td className="py-4 px-4">
-                          {vehicleStatus ? (
-                            <Badge 
-                              variant={
-                                vehicleStatus.status === CheckStatus.CHECKED_OUT ? 'success' :
-                                vehicleStatus.status === CheckStatus.IN_SERVICE ? 'default' : 'warning'
-                              }
-                              className="text-xs"
-                            >
-                              {vehicleStatus.status === CheckStatus.CHECKED_OUT ? 'Available' :
-                               vehicleStatus.status === CheckStatus.IN_SERVICE ? 'In Service' : 'Checked In'}
-                            </Badge>
-                          ) : (
-                            <Badge variant="outline" className="text-xs">
-                              No Records
-                            </Badge>
-                          )}
-                        </td>
-                        <td className="py-4 px-4">
-                          <div className="flex items-center space-x-2">
-                            <Link to={`/vehicles/${vehicle.id}`}>
-                              <Button variant="ghost" size="sm" leftIcon={<Eye size={14} />}>
-                                View
-                              </Button>
-                            </Link>
-                            
-                            {/* Check-In/Out Actions */}
-                            {vehicleStatus?.canCheckIn && (
-                              <Button 
-                                variant="outline" 
-                                size="sm" 
-                                leftIcon={<LogIn size={14} />}
-                                onClick={() => handleCheckInOut(vehicle.id, 'check-in')}
-                                className="text-blue-600 border-blue-600 hover:bg-blue-50"
-                              >
-                                Check In
-                              </Button>
-                            )}
-                            
-                            {vehicleStatus?.canCheckOut && (
-                              <Button 
-                                variant="outline" 
-                                size="sm" 
-                                leftIcon={<LogOut size={14} />}
-                                onClick={() => handleCheckInOut(vehicle.id, 'check-out')}
-                                className="text-green-600 border-green-600 hover:bg-green-50"
-                              >
-                                Check Out
-                              </Button>
-                            )}
-                            
-                            {!vehicleStatus && (
-                              <Button 
-                                variant="outline" 
-                                size="sm" 
-                                leftIcon={<ClipboardCheck size={14} />}
-                                onClick={() => handleCheckInOut(vehicle.id, 'check-in')}
-                                className="text-primary-600 border-primary-600 hover:bg-primary-50"
-                              >
-                                First Check-In
-                              </Button>
-                            )}
-                            
-                            <Button variant="ghost" size="sm" leftIcon={<Trash2 size={14} />}>
-                              Remove
-                            </Button>
                           </div>
                         </td>
                       </tr>
