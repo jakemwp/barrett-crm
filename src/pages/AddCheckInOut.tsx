@@ -152,7 +152,6 @@ export function AddCheckInOut() {
   const handlePhotoUpload = (photoType: keyof VehicleInspectionPhotos, multiple: boolean = true) => {
     // In a real app, this would open a file picker and upload photos
     // For now, we'll simulate with placeholder URLs
-    const placeholderUrl = 'https://images.pexels.com/photos/116675/pexels-photo-116675.jpeg';
     
     if (multiple) {
       setPhotos(prev => ({
