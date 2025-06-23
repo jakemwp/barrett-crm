@@ -163,7 +163,7 @@ export function AddCheckInOut() {
     } else {
       setPhotos(prev => ({
         ...prev,
-        [photoType]: placeholderUrl,
+        [photoType],
       }));
     }
   };
