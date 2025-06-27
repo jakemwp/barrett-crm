@@ -136,7 +136,7 @@ export function VehicleCard({ vehicle, customerName, showCustomer = false }: Veh
           </div>
           
           {/* Authorized Drivers */}
-          {vehicle.authorizedDrivers.length > 0 && (
+          {vehicle.authorizedDrivers && vehicle.authorizedDrivers.length > 0 && (
             <div className="mt-4 pt-4 border-t border-gray-200">
               <div className="flex items-center text-sm text-gray-600 mb-2">
                 <Users size={16} className="flex-shrink-0 mr-2 text-gray-400" />
@@ -147,7 +147,7 @@ export function VehicleCard({ vehicle, customerName, showCustomer = false }: Veh
               <div className="space-y-1">
                 {vehicle.authorizedDrivers.slice(0, 2).map((driver) => (
                   <div key={driver.id} className="text-xs text-gray-600">
-                    {driver.name} ({driver.relationship})
+                    {driver.name} {driver.relationship ? `(${driver.relationship})` : ''}
                   </div>
                 ))}
                 {vehicle.authorizedDrivers.length > 2 && (
@@ -167,14 +167,14 @@ export function VehicleCard({ vehicle, customerName, showCustomer = false }: Veh
                 <span className="text-gray-600">Last Service:</span>
               </div>
               <span className="font-medium">
-                {vehicle.maintenanceSchedule.lastService 
+                {vehicle.maintenanceSchedule?.lastService 
                   ? formatDate(vehicle.maintenanceSchedule.lastService)
                   : 'Never'
                 }
               </span>
             </div>
             
-            {vehicle.maintenanceSchedule.nextService && (
+            {vehicle.maintenanceSchedule?.nextService && (
               <div className="flex items-center justify-between text-sm mt-1">
                 <div className="flex items-center">
                   <Calendar size={16} className="flex-shrink-0 mr-2 text-gray-400" />
@@ -192,18 +192,24 @@ export function VehicleCard({ vehicle, customerName, showCustomer = false }: Veh
             <div className="flex items-center justify-between text-sm">
               <span className="text-gray-600">Registration:</span>
               <div className="flex items-center">
-                {new Date(vehicle.registration.expirationDate) > new Date() ? (
-                  <CheckCircle size={16} className="text-green-600 mr-1" />
+                {vehicle.registration?.expirationDate ? (
+                  <>
+                    {new Date(vehicle.registration.expirationDate) > new Date() ? (
+                      <CheckCircle size={16} className="text-green-600 mr-1" />
+                    ) : (
+                      <AlertTriangle size={16} className="text-red-600 mr-1" />
+                    )}
+                    <span className={`font-medium ${
+                      new Date(vehicle.registration.expirationDate) > new Date() 
+                        ? 'text-green-600' 
+                        : 'text-red-600'
+                    }`}>
+                      {formatDate(vehicle.registration.expirationDate)}
+                    </span>
+                  </>
                 ) : (
-                  <AlertTriangle size={16} className="text-red-600 mr-1" />
+                  <span className="font-medium text-gray-400">Not available</span>
                 )}
-                <span className={`font-medium ${
-                  new Date(vehicle.registration.expirationDate) > new Date() 
-                    ? 'text-green-600' 
-                    : 'text-red-600'
-                }`}>
-                  {formatDate(vehicle.registration.expirationDate)}
-                </span>
               </div>
             </div>
           </div>
