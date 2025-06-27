@@ -67,7 +67,7 @@ export const currentUser: User = users[0]; // Admin user
 export const customers: Customer[] =[
   {
     "id": "c1",
-    "firstName": "Company",
+    "firstName": "Name",
     "lastName": " ",
     "type": "Individual",
     "membershipLevel": "Standard",
@@ -89,7 +89,7 @@ export const customers: Customer[] =[
   },
   {
     "id": "c2",
-    "firstName": "",
+    "firstName": "Adang, Jason",
     "lastName": " ",
     "type": "Individual",
     "membershipLevel": "Standard",
@@ -111,7 +111,7 @@ export const customers: Customer[] =[
   },
   {
     "id": "c3",
-    "firstName": "",
+    "firstName": "All Valley Washer Service, Inc.",
     "lastName": " ",
     "type": "Individual",
     "membershipLevel": "Standard",
@@ -133,7 +133,7 @@ export const customers: Customer[] =[
   },
   {
     "id": "c4",
-    "firstName": "",
+    "firstName": "Antonsen, Chris",
     "lastName": " ",
     "type": "Individual",
     "membershipLevel": "Standard",
@@ -155,7 +155,7 @@ export const customers: Customer[] =[
   },
   {
     "id": "c5",
-    "firstName": "",
+    "firstName": "Assil, Kam",
     "lastName": " ",
     "type": "Individual",
     "membershipLevel": "Standard",
@@ -177,7 +177,7 @@ export const customers: Customer[] =[
   },
   {
     "id": "c6",
-    "firstName": "",
+    "firstName": "Barrett Whips ",
     "lastName": " ",
     "type": "Individual",
     "membershipLevel": "Standard",
@@ -199,7 +199,7 @@ export const customers: Customer[] =[
   },
   {
     "id": "c7",
-    "firstName": "",
+    "firstName": "Barrett, Kevin",
     "lastName": " ",
     "type": "Individual",
     "membershipLevel": "Standard",
@@ -221,7 +221,7 @@ export const customers: Customer[] =[
   },
   {
     "id": "c8",
-    "firstName": "",
+    "firstName": "Biehl, Jake",
     "lastName": " ",
     "type": "Individual",
     "membershipLevel": "Standard",
@@ -243,7 +243,7 @@ export const customers: Customer[] =[
   },
   {
     "id": "c9",
-    "firstName": "",
+    "firstName": "Boerger, Aaron",
     "lastName": " ",
     "type": "Individual",
     "membershipLevel": "Standard",
@@ -265,7 +265,7 @@ export const customers: Customer[] =[
   },
   {
     "id": "c10",
-    "firstName": "",
+    "firstName": "Boztepe, Dylan",
     "lastName": " ",
     "type": "Individual",
     "membershipLevel": "Standard",
@@ -287,7 +287,7 @@ export const customers: Customer[] =[
   },
   {
     "id": "c11",
-    "firstName": "",
+    "firstName": "Boztepe, Dylan",
     "lastName": " ",
     "type": "Individual",
     "membershipLevel": "Standard",
@@ -309,7 +309,7 @@ export const customers: Customer[] =[
   },
   {
     "id": "c12",
-    "firstName": "",
+    "firstName": "Brodsly, Jeffrey",
     "lastName": " ",
     "type": "Individual",
     "membershipLevel": "Standard",
@@ -331,7 +331,7 @@ export const customers: Customer[] =[
   },
   {
     "id": "c13",
-    "firstName": "",
+    "firstName": "Button, Jenson",
     "lastName": " ",
     "type": "Individual",
     "membershipLevel": "Standard",
@@ -353,7 +353,7 @@ export const customers: Customer[] =[
   },
   {
     "id": "c14",
-    "firstName": "",
+    "firstName": "C&H Construction ",
     "lastName": " ",
     "type": "Individual",
     "membershipLevel": "Standard",
@@ -375,7 +375,7 @@ export const customers: Customer[] =[
   },
   {
     "id": "c15",
-    "firstName": "",
+    "firstName": "Casson, Daniel",
     "lastName": " ",
     "type": "Individual",
     "membershipLevel": "Standard",
@@ -397,7 +397,7 @@ export const customers: Customer[] =[
   },
   {
     "id": "c16",
-    "firstName": "",
+    "firstName": "Cobey, Richard",
     "lastName": " ",
     "type": "Individual",
     "membershipLevel": "Standard",
@@ -419,7 +419,7 @@ export const customers: Customer[] =[
   },
   {
     "id": "c17",
-    "firstName": "",
+    "firstName": "Cohen, Assaf",
     "lastName": " ",
     "type": "Individual",
     "membershipLevel": "Standard",
@@ -441,7 +441,7 @@ export const customers: Customer[] =[
   },
   {
     "id": "c18",
-    "firstName": "",
+    "firstName": "Cypers, Rory",
     "lastName": " ",
     "type": "Individual",
     "membershipLevel": "Standard",
@@ -463,7 +463,7 @@ export const customers: Customer[] =[
   },
   {
     "id": "c19",
-    "firstName": "",
+    "firstName": "Dev Test",
     "lastName": " ",
     "type": "Individual",
     "membershipLevel": "Standard",
@@ -485,7 +485,7 @@ export const customers: Customer[] =[
   },
   {
     "id": "c20",
-    "firstName": "",
+    "firstName": "DHK Plumbing ",
     "lastName": " ",
     "type": "Individual",
     "membershipLevel": "Standard",
@@ -507,7 +507,7 @@ export const customers: Customer[] =[
   },
   {
     "id": "c21",
-    "firstName": "",
+    "firstName": "Einstein, David",
     "lastName": " ",
     "type": "Individual",
     "membershipLevel": "Standard",
@@ -529,7 +529,7 @@ export const customers: Customer[] =[
   },
   {
     "id": "c22",
-    "firstName": "",
+    "firstName": "English, Alfred",
     "lastName": " ",
     "type": "Individual",
     "membershipLevel": "Standard",
@@ -551,7 +551,7 @@ export const customers: Customer[] =[
   },
   {
     "id": "c23",
-    "firstName": "",
+    "firstName": "Ercolani, Russ",
     "lastName": " ",
     "type": "Individual",
     "membershipLevel": "Standard",
@@ -573,7 +573,7 @@ export const customers: Customer[] =[
   },
   {
     "id": "c24",
-    "firstName": "",
+    "firstName": "Forte, Demetrius",
     "lastName": " ",
     "type": "Individual",
     "membershipLevel": "Standard",
@@ -595,7 +595,7 @@ export const customers: Customer[] =[
   },
   {
     "id": "c25",
-    "firstName": "",
+    "firstName": "Friese, Donald",
     "lastName": " ",
     "type": "Individual",
     "membershipLevel": "Standard",
@@ -617,7 +617,7 @@ export const customers: Customer[] =[
   },
   {
     "id": "c26",
-    "firstName": "",
+    "firstName": "Gamboa, Joshua",
     "lastName": " ",
     "type": "Individual",
     "membershipLevel": "Standard",
@@ -639,7 +639,7 @@ export const customers: Customer[] =[
   },
   {
     "id": "c27",
-    "firstName": "",
+    "firstName": "Gamboa, Joshua",
     "lastName": " ",
     "type": "Individual",
     "membershipLevel": "Standard",
@@ -661,7 +661,7 @@ export const customers: Customer[] =[
   },
   {
     "id": "c28",
-    "firstName": "",
+    "firstName": "Garcia, John",
     "lastName": " ",
     "type": "Individual",
     "membershipLevel": "Standard",
@@ -683,7 +683,7 @@ export const customers: Customer[] =[
   },
   {
     "id": "c29",
-    "firstName": "",
+    "firstName": "Garland, Jon",
     "lastName": " ",
     "type": "Individual",
     "membershipLevel": "Standard",
@@ -705,7 +705,7 @@ export const customers: Customer[] =[
   },
   {
     "id": "c30",
-    "firstName": "",
+    "firstName": "Geyer, Greg",
     "lastName": " ",
     "type": "Individual",
     "membershipLevel": "Standard",
@@ -727,7 +727,7 @@ export const customers: Customer[] =[
   },
   {
     "id": "c31",
-    "firstName": "",
+    "firstName": "Herbert, Richard",
     "lastName": " ",
     "type": "Individual",
     "membershipLevel": "Standard",
@@ -749,7 +749,7 @@ export const customers: Customer[] =[
   },
   {
     "id": "c32",
-    "firstName": "",
+    "firstName": "Ingoldsby, Kenneth",
     "lastName": " ",
     "type": "Individual",
     "membershipLevel": "Standard",
@@ -771,7 +771,7 @@ export const customers: Customer[] =[
   },
   {
     "id": "c33",
-    "firstName": "",
+    "firstName": "Johnson, Kurt",
     "lastName": " ",
     "type": "Individual",
     "membershipLevel": "Standard",
@@ -793,7 +793,7 @@ export const customers: Customer[] =[
   },
   {
     "id": "c34",
-    "firstName": "",
+    "firstName": "Johnson, Paul",
     "lastName": " ",
     "type": "Individual",
     "membershipLevel": "Standard",
@@ -815,7 +815,7 @@ export const customers: Customer[] =[
   },
   {
     "id": "c35",
-    "firstName": "",
+    "firstName": "Jones, Brian",
     "lastName": " ",
     "type": "Individual",
     "membershipLevel": "Standard",
@@ -837,7 +837,7 @@ export const customers: Customer[] =[
   },
   {
     "id": "c36",
-    "firstName": "",
+    "firstName": "Kirtley, Denise",
     "lastName": " ",
     "type": "Individual",
     "membershipLevel": "Standard",
@@ -859,7 +859,7 @@ export const customers: Customer[] =[
   },
   {
     "id": "c37",
-    "firstName": "",
+    "firstName": "Lotus USA",
     "lastName": " ",
     "type": "Individual",
     "membershipLevel": "Standard",
@@ -881,7 +881,7 @@ export const customers: Customer[] =[
   },
   {
     "id": "c38",
-    "firstName": "",
+    "firstName": "Ludwick, Matthew",
     "lastName": " ",
     "type": "Individual",
     "membershipLevel": "Standard",
@@ -903,7 +903,7 @@ export const customers: Customer[] =[
   },
   {
     "id": "c39",
-    "firstName": "",
+    "firstName": "Lydick, Kevin",
     "lastName": " ",
     "type": "Individual",
     "membershipLevel": "Standard",
@@ -925,7 +925,7 @@ export const customers: Customer[] =[
   },
   {
     "id": "c40",
-    "firstName": "",
+    "firstName": "Malfa, Vincent",
     "lastName": " ",
     "type": "Individual",
     "membershipLevel": "Standard",
@@ -947,7 +947,7 @@ export const customers: Customer[] =[
   },
   {
     "id": "c41",
-    "firstName": "",
+    "firstName": "Mansell, Gerald",
     "lastName": " ",
     "type": "Individual",
     "membershipLevel": "Standard",
@@ -969,7 +969,7 @@ export const customers: Customer[] =[
   },
   {
     "id": "c42",
-    "firstName": "",
+    "firstName": "Marmonte Cars, LLC",
     "lastName": " ",
     "type": "Individual",
     "membershipLevel": "Standard",
@@ -991,7 +991,7 @@ export const customers: Customer[] =[
   },
   {
     "id": "c43",
-    "firstName": "",
+    "firstName": "Matta, Joseph",
     "lastName": " ",
     "type": "Individual",
     "membershipLevel": "Standard",
@@ -1013,7 +1013,7 @@ export const customers: Customer[] =[
   },
   {
     "id": "c44",
-    "firstName": "",
+    "firstName": "McNeal, Greg",
     "lastName": " ",
     "type": "Individual",
     "membershipLevel": "Standard",
@@ -1035,7 +1035,7 @@ export const customers: Customer[] =[
   },
   {
     "id": "c45",
-    "firstName": "",
+    "firstName": "Oropeza, Jared",
     "lastName": " ",
     "type": "Individual",
     "membershipLevel": "Standard",
@@ -1057,7 +1057,7 @@ export const customers: Customer[] =[
   },
   {
     "id": "c46",
-    "firstName": "",
+    "firstName": "Pegler, Garrett",
     "lastName": " ",
     "type": "Individual",
     "membershipLevel": "Standard",
@@ -1079,7 +1079,7 @@ export const customers: Customer[] =[
   },
   {
     "id": "c47",
-    "firstName": "",
+    "firstName": "Pena, Steve",
     "lastName": " ",
     "type": "Individual",
     "membershipLevel": "Standard",
@@ -1101,7 +1101,7 @@ export const customers: Customer[] =[
   },
   {
     "id": "c48",
-    "firstName": "",
+    "firstName": "Pham, Tyrone",
     "lastName": " ",
     "type": "Individual",
     "membershipLevel": "Standard",
@@ -1123,7 +1123,7 @@ export const customers: Customer[] =[
   },
   {
     "id": "c49",
-    "firstName": "",
+    "firstName": "Powers, Thomas",
     "lastName": " ",
     "type": "Individual",
     "membershipLevel": "Standard",
@@ -1145,7 +1145,7 @@ export const customers: Customer[] =[
   },
   {
     "id": "c50",
-    "firstName": "",
+    "firstName": "Powers, Thomas",
     "lastName": " ",
     "type": "Individual",
     "membershipLevel": "Standard",
@@ -1167,7 +1167,7 @@ export const customers: Customer[] =[
   },
   {
     "id": "c51",
-    "firstName": "",
+    "firstName": "Renstrom, Jeremy",
     "lastName": " ",
     "type": "Individual",
     "membershipLevel": "Standard",
@@ -1189,7 +1189,7 @@ export const customers: Customer[] =[
   },
   {
     "id": "c52",
-    "firstName": "",
+    "firstName": "Renstrom, Jeremy",
     "lastName": " ",
     "type": "Individual",
     "membershipLevel": "Standard",
@@ -1211,7 +1211,7 @@ export const customers: Customer[] =[
   },
   {
     "id": "c53",
-    "firstName": "",
+    "firstName": "Richards, Josiah",
     "lastName": " ",
     "type": "Individual",
     "membershipLevel": "Standard",
@@ -1233,7 +1233,7 @@ export const customers: Customer[] =[
   },
   {
     "id": "c54",
-    "firstName": "",
+    "firstName": "Shap, Joey",
     "lastName": " ",
     "type": "Individual",
     "membershipLevel": "Standard",
@@ -1255,7 +1255,7 @@ export const customers: Customer[] =[
   },
   {
     "id": "c55",
-    "firstName": "",
+    "firstName": "Shore, Andrew",
     "lastName": " ",
     "type": "Individual",
     "membershipLevel": "Standard",
@@ -1277,7 +1277,7 @@ export const customers: Customer[] =[
   },
   {
     "id": "c56",
-    "firstName": "",
+    "firstName": "Shuken, Victoria",
     "lastName": " ",
     "type": "Individual",
     "membershipLevel": "Standard",
@@ -1299,7 +1299,7 @@ export const customers: Customer[] =[
   },
   {
     "id": "c57",
-    "firstName": "",
+    "firstName": "Singh, Tarnpreet",
     "lastName": " ",
     "type": "Individual",
     "membershipLevel": "Standard",
@@ -1321,7 +1321,7 @@ export const customers: Customer[] =[
   },
   {
     "id": "c58",
-    "firstName": "",
+    "firstName": "Solomon, Nico",
     "lastName": " ",
     "type": "Individual",
     "membershipLevel": "Standard",
@@ -1343,7 +1343,7 @@ export const customers: Customer[] =[
   },
   {
     "id": "c59",
-    "firstName": "",
+    "firstName": "Star Management (Kenneth Allen)",
     "lastName": " ",
     "type": "Individual",
     "membershipLevel": "Standard",
@@ -1365,7 +1365,7 @@ export const customers: Customer[] =[
   },
   {
     "id": "c60",
-    "firstName": "",
+    "firstName": "Swink, Lindsay",
     "lastName": " ",
     "type": "Individual",
     "membershipLevel": "Standard",
@@ -1387,7 +1387,7 @@ export const customers: Customer[] =[
   },
   {
     "id": "c61",
-    "firstName": "",
+    "firstName": "Tatum, Donovan",
     "lastName": " ",
     "type": "Individual",
     "membershipLevel": "Standard",
@@ -1409,7 +1409,7 @@ export const customers: Customer[] =[
   },
   {
     "id": "c62",
-    "firstName": "",
+    "firstName": "Telford, Ryan",
     "lastName": " ",
     "type": "Individual",
     "membershipLevel": "Standard",
@@ -1431,7 +1431,7 @@ export const customers: Customer[] =[
   },
   {
     "id": "c63",
-    "firstName": "",
+    "firstName": "Thaxton & Associates (Mike Thaxton)",
     "lastName": " ",
     "type": "Individual",
     "membershipLevel": "Standard",
@@ -1453,7 +1453,7 @@ export const customers: Customer[] =[
   },
   {
     "id": "c64",
-    "firstName": "",
+    "firstName": "The Chosen Group Inc",
     "lastName": " ",
     "type": "Individual",
     "membershipLevel": "Standard",
@@ -1475,7 +1475,7 @@ export const customers: Customer[] =[
   },
   {
     "id": "c65",
-    "firstName": "",
+    "firstName": "Velocity Restoration LLC",
     "lastName": " ",
     "type": "Individual",
     "membershipLevel": "Standard",
@@ -1497,7 +1497,7 @@ export const customers: Customer[] =[
   },
   {
     "id": "c66",
-    "firstName": "",
+    "firstName": "Virella, Anthony",
     "lastName": " ",
     "type": "Individual",
     "membershipLevel": "Standard",
@@ -1519,7 +1519,7 @@ export const customers: Customer[] =[
   },
   {
     "id": "c67",
-    "firstName": "",
+    "firstName": "Williams, Deke",
     "lastName": " ",
     "type": "Individual",
     "membershipLevel": "Standard",
@@ -1561,7 +1561,7 @@ export const customers: Customer[] =[
     "createdAt": "2025-06-27T10:30:00Z",
     "updatedAt": "2025-06-27T10:30:00Z"
   }
-];
+]
 
 // Create mock vehicles with comprehensive data
 export const vehicles: Vehicle[] = [
