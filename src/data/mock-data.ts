@@ -1923,58 +1923,6 @@ export const serviceItems: ServiceItem[] = [
   },
 ];
 
-// Create mock service items
-export const serviceItems: ServiceItem[] = [
-  {
-    id: 's1',
-    checkInOutId: 'ci1',
-    description: 'Oil Change',
-    cost: 49.99,
-    completed: true,
-    completedAt: '2024-03-15T11:30:00Z',
-    createdAt: '2024-03-15T09:30:00Z',
-    updatedAt: '2024-03-15T11:30:00Z',
-  },
-  {
-    id: 's2',
-    checkInOutId: 'ci1',
-    description: 'Tire Rotation',
-    cost: 29.99,
-    completed: true,
-    completedAt: '2024-03-15T10:45:00Z',
-    createdAt: '2024-03-15T09:30:00Z',
-    updatedAt: '2024-03-15T10:45:00Z',
-  },
-  {
-    id: 's3',
-    checkInOutId: 'ci2',
-    description: 'Brake Pad Replacement',
-    cost: 249.99,
-    completed: false,
-    createdAt: '2024-03-17T14:15:00Z',
-    updatedAt: '2024-03-17T14:15:00Z',
-  },
-  {
-    id: 's4',
-    checkInOutId: 'ci3',
-    description: 'Air Filter Replacement',
-    cost: 39.99,
-    completed: true,
-    completedAt: '2024-03-16T13:20:00Z',
-    createdAt: '2024-03-16T12:00:00Z',
-    updatedAt: '2024-03-16T13:20:00Z',
-  },
-  {
-    id: 's5',
-    checkInOutId: 'ci3',
-    description: 'Wiper Blade Replacement',
-    cost: 24.99,
-    completed: true,
-    completedAt: '2024-03-16T12:50:00Z',
-    createdAt: '2024-03-16T12:00:00Z',
-    updatedAt: '2024-03-16T12:50:00Z',
-  },
-];
 
 // Create mock check-in/check-out records with comprehensive data
 export const checkInOuts: CheckInOut[] = [
