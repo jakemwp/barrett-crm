@@ -1564,310 +1564,5685 @@ export const customers: Customer[] =[
 ]
 
 // Create mock vehicles with comprehensive data
-export const vehicles: Vehicle[] = [
+export const vehicles: Vehicle[] =[
   {
-    id: 'v1',
-    customerId: 'c1',
-    authorizedDrivers: [
-      {
-        id: 'ad1',
-        name: 'John Doe',
-        phone: '(555) 123-4567',
-        email: 'john.doe@example.com',
-        licenseNumber: 'D1234567',
-        relationship: 'Owner'
-      },
-      {
-        id: 'ad2',
-        name: 'Jane Doe',
-        phone: '(555) 123-4568',
-        email: 'jane.doe@example.com',
-        licenseNumber: 'D7654321',
-        relationship: 'Spouse'
-      }
-    ],
-    year: 2020,
-    make: 'Toyota',
-    model: 'Camry',
-    vin: '1HGCM82633A123456',
-    storageLocation: 'Building A - Section 1 - Spot 12',
-    fairMarketValue: 28500,
-    insuranceRiderRequired: true,
-    insuranceRiderAmount: 30000,
-    licensePlate: 'ABC123',
-    registration: {
-      number: 'REG123456',
-      expirationDate: '2024-12-31',
-      state: 'CA'
+    "id": "c1",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "Vehicle",
+    "make": null,
+    "model": null,
+    "vin": "VIN",
+    "storageLocation": "Location",
+    "fairMarketValue": " Claimed Value ",
+    "insuranceRiderRequired": true,
+    "insuranceRiderAmount": " Insurance Rider Amount ",
+    "licensePlate": "VSA Start Date",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
     },
-    tirePressureDefault: {
-      front: 32,
-      rear: 30
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
     },
-    tirePressurePreferred: {
-      front: 34,
-      rear: 32
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
     },
-    maintenanceSchedule: {
-      lastService: '2023-12-10',
-      nextService: '2024-06-10',
-      serviceInterval: 6,
-      notes: 'Oil change every 6 months'
-    },
-    authorizedContacts: [
-      {
-        id: 'ac1',
-        name: 'Mike Johnson',
-        phone: '(555) 111-2222',
-        email: 'mike.j@example.com',
-        relationship: 'Friend',
-        canDropoff: true,
-        canPickup: false
-      }
-    ],
-    odometer: 25000,
-    image: 'https://images.pexels.com/photos/116675/pexels-photo-116675.jpeg',
-    fuelLevel: 75,
-    batteryType: 'Standard',
-    color: 'Silver',
-    createdAt: '2023-01-15T10:35:00Z',
-    updatedAt: '2023-12-10T14:35:00Z',
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
   },
   {
-    id: 'v2',
-    customerId: 'c2',
-    authorizedDrivers: [
-      {
-        id: 'ad3',
-        name: 'Jane Smith',
-        phone: '(555) 987-6543',
-        email: 'jane.smith@example.com',
-        licenseNumber: 'NY987654',
-        relationship: 'Owner'
-      }
-    ],
-    year: 2019,
-    make: 'Honda',
-    model: 'Accord',
-    vin: '2HGES16564H789012',
-    storageLocation: 'Building B - Section 3 - Spot 8',
-    fairMarketValue: 24000,
-    insuranceRiderRequired: false,
-    licensePlate: 'XYZ789',
-    registration: {
-      number: 'REG789012',
-      expirationDate: '2024-08-15',
-      state: 'NY'
+    "id": "c2",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "1972",
+    "make": "Porsche",
+    "model": "911",
+    "vin": "9112101858",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$100,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": " $-   ",
+    "licensePlate": "4/21/2025",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
     },
-    tirePressureDefault: {
-      front: 30,
-      rear: 28
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
     },
-    tirePressurePreferred: {
-      front: 32,
-      rear: 30
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
     },
-    maintenanceSchedule: {
-      lastService: '2023-11-05',
-      nextService: '2024-05-05',
-      serviceInterval: 6,
-      notes: 'Regular maintenance schedule'
-    },
-    authorizedContacts: [
-      {
-        id: 'ac2',
-        name: 'Bob Smith',
-        phone: '(555) 333-4444',
-        email: 'bob.smith@example.com',
-        relationship: 'Brother',
-        canDropoff: true,
-        canPickup: true
-      }
-    ],
-    odometer: 32000,
-    image: 'https://images.pexels.com/photos/3802510/pexels-photo-3802510.jpeg',
-    fuelLevel: 50,
-    batteryType: 'AGM',
-    color: 'Blue',
-    createdAt: '2023-02-20T14:50:00Z',
-    updatedAt: '2023-11-05T09:50:00Z',
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
   },
   {
-    id: 'v3',
-    customerId: 'c3',
-    authorizedDrivers: [
-      {
-        id: 'ad4',
-        name: 'Robert Johnson',
-        phone: '(555) 789-0123',
-        email: 'robert.j@example.com',
-        licenseNumber: 'TX789012',
-        relationship: 'Owner'
-      },
-      {
-        id: 'ad5',
-        name: 'Corporate Driver 1',
-        phone: '(555) 789-0124',
-        email: 'driver1@corp.com',
-        licenseNumber: 'TX789013',
-        relationship: 'Employee'
-      }
-    ],
-    year: 2021,
-    make: 'Ford',
-    model: 'F-150',
-    vin: '1FTFW1ET4DFB12345',
-    storageLocation: 'Building C - Section 2 - Spot 15',
-    fairMarketValue: 45000,
-    insuranceRiderRequired: true,
-    insuranceRiderAmount: 50000,
-    licensePlate: 'DEF456',
-    registration: {
-      number: 'REG456789',
-      expirationDate: '2024-10-20',
-      state: 'TX'
+    "id": "c3",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2012",
+    "make": "Lexus",
+    "model": "LFA",
+    "vin": "JTHHX8BH2C1000028",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$875,000.00 ",
+    "insuranceRiderRequired": true,
+    "insuranceRiderAmount": "$100.00 ",
+    "licensePlate": "4/21/2025",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
     },
-    tirePressureDefault: {
-      front: 35,
-      rear: 35
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
     },
-    tirePressurePreferred: {
-      front: 38,
-      rear: 38
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
     },
-    maintenanceSchedule: {
-      lastService: '2024-01-20',
-      nextService: '2024-07-20',
-      serviceInterval: 6,
-      notes: 'Heavy duty maintenance schedule'
-    },
-    authorizedContacts: [
-      {
-        id: 'ac3',
-        name: 'Fleet Manager',
-        phone: '(555) 555-6666',
-        email: 'fleet@corp.com',
-        relationship: 'Fleet Manager',
-        canDropoff: true,
-        canPickup: true
-      }
-    ],
-    odometer: 18000,
-    image: 'https://images.pexels.com/photos/1335077/pexels-photo-1335077.jpeg',
-    fuelLevel: 90,
-    batteryType: 'Standard',
-    color: 'Black',
-    createdAt: '2023-03-10T09:20:00Z',
-    updatedAt: '2024-01-20T13:20:00Z',
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
   },
   {
-    id: 'v4',
-    customerId: 'c4',
-    authorizedDrivers: [
-      {
-        id: 'ad6',
-        name: 'Sarah Williams',
-        phone: '(555) 456-7890',
-        email: 'sarah.w@example.com',
-        licenseNumber: 'FL456789',
-        relationship: 'Owner'
-      }
-    ],
-    year: 2018,
-    make: 'Chevrolet',
-    model: 'Equinox',
-    vin: '3GNFK16338G345678',
-    storageLocation: 'Building A - Section 4 - Spot 3',
-    fairMarketValue: 18500,
-    insuranceRiderRequired: false,
-    licensePlate: 'GHI789',
-    registration: {
-      number: 'REG345678',
-      expirationDate: '2024-06-30',
-      state: 'FL'
+    "id": "c4",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2019",
+    "make": "Porsche",
+    "model": "GT2RS",
+    "vin": "WP0AE2A97KS155294",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$450,000.00 ",
+    "insuranceRiderRequired": true,
+    "insuranceRiderAmount": "$50.00 ",
+    "licensePlate": "4/21/2025",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
     },
-    tirePressureDefault: {
-      front: 30,
-      rear: 30
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
     },
-    tirePressurePreferred: {
-      front: 32,
-      rear: 32
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
     },
-    maintenanceSchedule: {
-      lastService: '2023-10-15',
-      nextService: '2024-04-15',
-      serviceInterval: 6,
-      notes: 'Standard maintenance'
-    },
-    authorizedContacts: [],
-    odometer: 45000,
-    fuelLevel: 25,
-    batteryType: 'Standard',
-    color: 'Red',
-    createdAt: '2023-04-05T16:25:00Z',
-    updatedAt: '2023-10-15T10:35:00Z',
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
   },
   {
-    id: 'v5',
-    customerId: 'c1',
-    authorizedDrivers: [
-      {
-        id: 'ad7',
-        name: 'John Doe',
-        phone: '(555) 123-4567',
-        email: 'john.doe@example.com',
-        licenseNumber: 'D1234567',
-        relationship: 'Owner'
-      }
-    ],
-    year: 2022,
-    make: 'Nissan',
-    model: 'Altima',
-    vin: '1N4AL3AP3DC567890',
-    storageLocation: 'Building A - Section 1 - Spot 13',
-    fairMarketValue: 32000,
-    insuranceRiderRequired: true,
-    insuranceRiderAmount: 35000,
-    licensePlate: 'JKL012',
-    registration: {
-      number: 'REG567890',
-      expirationDate: '2025-02-28',
-      state: 'CA'
+    "id": "c5",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2024",
+    "make": "Jeep",
+    "model": "Rubicon",
+    "vin": "1C4RJXSJ3RW223940",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$98,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": " $-   ",
+    "licensePlate": "7/1/2025",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
     },
-    tirePressureDefault: {
-      front: 32,
-      rear: 30
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
     },
-    tirePressurePreferred: {
-      front: 34,
-      rear: 32
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
     },
-    maintenanceSchedule: {
-      lastService: '2024-02-08',
-      nextService: '2024-08-08',
-      serviceInterval: 6,
-      notes: 'New vehicle maintenance schedule'
-    },
-    authorizedContacts: [
-      {
-        id: 'ac4',
-        name: 'Emergency Contact',
-        phone: '(555) 777-8888',
-        email: 'emergency@example.com',
-        relationship: 'Emergency',
-        canDropoff: false,
-        canPickup: true
-      }
-    ],
-    odometer: 8000,
-    image: 'https://images.pexels.com/photos/1545743/pexels-photo-1545743.jpeg',
-    fuelLevel: 85,
-    batteryType: 'Lithium',
-    color: 'White',
-    createdAt: '2023-06-18T12:40:00Z',
-    updatedAt: '2024-02-08T15:50:00Z',
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
   },
+  {
+    "id": "c6",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2022",
+    "make": "Mastercraft",
+    "model": "X24",
+    "vin": "MBCPHBVG122",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$267,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": " $-   ",
+    "licensePlate": "2/1/2025",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c7",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "1964",
+    "make": "Pontiac",
+    "model": "GTO",
+    "vin": "824F34870",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$150,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "N/A",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c8",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2001",
+    "make": "Mercedes",
+    "model": "SL500",
+    "vin": "WDBFA68F31F200029",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$12,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "N/A",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c9",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2009",
+    "make": "Mercedes-AMG",
+    "model": null,
+    "vin": "WDDGF77X29f233516",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$22,000.00 ",
+    "insuranceRiderRequired": true,
+    "insuranceRiderAmount": "$0.00 ",
+    "licensePlate": "6/20/2025",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c10",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2013",
+    "make": "Rolls",
+    "model": "Royce",
+    "vin": "SCA664S56DUX51683",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$90,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": " $-   ",
+    "licensePlate": "6/1/2025",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c11",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2010",
+    "make": "Harley",
+    "model": "Davidson",
+    "vin": "1HD1KH438AB606132",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$16,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": " $-   ",
+    "licensePlate": "5/1/2025",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c12",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2017",
+    "make": "Ferrari",
+    "model": "California",
+    "vin": "ZFF77XJAXH0227476 ",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$150,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": " $-   ",
+    "licensePlate": "6/13/2025",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c13",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2014",
+    "make": "Bentley",
+    "model": "Continental",
+    "vin": "SCBEC9ZA5EC095631",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$100,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": " $-   ",
+    "licensePlate": "8/26/2024",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c14",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2015",
+    "make": "Nissan",
+    "model": "R35",
+    "vin": "JN1AR5EF3FM281610",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$150,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": " $-   ",
+    "licensePlate": "8/1/2024",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c15",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "1995",
+    "make": "Nissan",
+    "model": "Skyline",
+    "vin": "BCNR33001214",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$120,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": " $-   ",
+    "licensePlate": "8/1/2024",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c16",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "1999",
+    "make": "Nissan",
+    "model": "Skyline",
+    "vin": "BNR34005053",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$200,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": " $-   ",
+    "licensePlate": "8/1/2024",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c17",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "1990",
+    "make": "Nissan",
+    "model": "Skyline",
+    "vin": "BNR32012884",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$100,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": " $-   ",
+    "licensePlate": "8/1/2024",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c18",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2007",
+    "make": "Lamborghini",
+    "model": "Murcielago",
+    "vin": "ZHWBU47S57LA02518",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$320,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": " $-   ",
+    "licensePlate": "12/5/2024",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c19",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2009",
+    "make": "Rolls",
+    "model": "Royce",
+    "vin": "SCA2D68509UX16359",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$60,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": " $-   ",
+    "licensePlate": "12/5/2024",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c20",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2024",
+    "make": "Ferrari",
+    "model": "296",
+    "vin": "ZFF01SMA9R0311081",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$459,358.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": " $-   ",
+    "licensePlate": "12/1/2024",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c21",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2020",
+    "make": "Winnebago",
+    "model": "View",
+    "vin": "W1X8E33Y3LN108451",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$190,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": " $-   ",
+    "licensePlate": "8/26/2024",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c22",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "Malibu",
+    "make": "Wakesetter",
+    "model": "MXZ",
+    "vin": "MB2L5005K920",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$150,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": " $-   ",
+    "licensePlate": "3/1/2025",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c23",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2015",
+    "make": "Audi",
+    "model": "R8",
+    "vin": "WUAVNAFG8F7000901",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$100,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": " $-   ",
+    "licensePlate": "6/21/2025",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c24",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2017",
+    "make": "Rolls",
+    "model": "Royce",
+    "vin": "SCA666D59HU102684",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$350,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": " $-   ",
+    "licensePlate": "6/21/2025",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c25",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2020",
+    "make": "Jeep",
+    "model": "Wrangler",
+    "vin": "1C4HJXEN1LW139889",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$50,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": " $-   ",
+    "licensePlate": "6/21/2025",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c26",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2023",
+    "make": "Cadillac",
+    "model": "Escalade",
+    "vin": "1GYS4SK96PR424223",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$95,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": " $-   ",
+    "licensePlate": "6/21/2025",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c27",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2024",
+    "make": "McLaren",
+    "model": "759S",
+    "vin": "SBM14BCA2RW007915",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$450,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": " $-   ",
+    "licensePlate": "6/21/2025",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c28",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2025",
+    "make": "Porsche",
+    "model": "GT3RS",
+    "vin": "WP0AF2A9XSS279198",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$380,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": " $-   ",
+    "licensePlate": "6/21/2025",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c29",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2022",
+    "make": "Tesla",
+    "model": "Model",
+    "vin": "7SAXCBE63NF332797",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$80,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": " $-   ",
+    "licensePlate": "6/21/2025",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c30",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2007",
+    "make": "Mercedes-Benz",
+    "model": null,
+    "vin": "WDDDJ72X27A090604",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": " $-   ",
+    "licensePlate": "6/21/2025",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c31",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "1982",
+    "make": "Suzuki",
+    "model": "Touring",
+    "vin": "JS1GI51I6C2102966",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$400.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": " $-   ",
+    "licensePlate": "6/21/2025",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c32",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2003",
+    "make": "Ferrari",
+    "model": "360",
+    "vin": "ZFFYU51A730132853",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$150,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": " $-   ",
+    "licensePlate": "8/14/2024",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c33",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "1962",
+    "make": "Lincoln",
+    "model": "Continental",
+    "vin": "2Y82H414205",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$80,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": " $-   ",
+    "licensePlate": "12/1/2024",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c34",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "1985",
+    "make": "Ferrari",
+    "model": "308",
+    "vin": "ZFFLA13S000059193",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$100,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": " $-   ",
+    "licensePlate": "12/1/2024",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c35",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2005",
+    "make": "Porsche",
+    "model": "911",
+    "vin": "WP0AB29995S740704",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$40,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": " $-   ",
+    "licensePlate": "12/1/2024",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c36",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2014",
+    "make": "Porsche",
+    "model": "911",
+    "vin": "WP0AD2A9XES167737",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$120,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "8/26/2024",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c37",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2022",
+    "make": "Jeep",
+    "model": "Grand",
+    "vin": "1C4RJHDG8N8561212",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$65,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "8/29/2024",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c38",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2023",
+    "make": "Ford",
+    "model": "F150",
+    "vin": "1FTFW1RG4PFB84493",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$100,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "8/30/2024",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c39",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2025",
+    "make": "BMW",
+    "model": "M8",
+    "vin": "WBSGV0C05SCT93497",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$140,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "8/28/2024",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c40",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2025",
+    "make": "Land",
+    "model": "Rover",
+    "vin": "SALKPBE95SA277675",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$120,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "8/27/2024",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c41",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2003",
+    "make": "Harley-Davidson",
+    "model": "Fat",
+    "vin": "",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c42",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "1989",
+    "make": "Lamborghini",
+    "model": "Countach",
+    "vin": "ZA9CA05AXKLA12520",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$850,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "4/4/2025",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c43",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "Malibu",
+    "make": "Wakesetter",
+    "model": "23LSV",
+    "vin": "MB2S5847D515",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$85,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": " $-   ",
+    "licensePlate": "1/1/2025",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c44",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2018",
+    "make": "Dodge",
+    "model": "Demon",
+    "vin": "2C3CDZH95JH101819",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$125,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "6/1/2025",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c45",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2018",
+    "make": "Porsche",
+    "model": "GT2RS",
+    "vin": "WPOAE2A94JS185349",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$410,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "6/1/2025",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c46",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2019",
+    "make": "Ferrari",
+    "model": "812",
+    "vin": "ZFF83CLAXK0241486",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$430,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "6/1/2025",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c47",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2021",
+    "make": "Ram",
+    "model": "TRX",
+    "vin": "1C6SRFU94MN764248",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$95,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "6/1/2025",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c48",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "1932",
+    "make": "Ford",
+    "model": "RD",
+    "vin": "1841802",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$69,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "12/10/2022",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c49",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "1934",
+    "make": "Ford",
+    "model": "Pick-Up",
+    "vin": "18760279",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$67,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "12/10/2022",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c50",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "1939",
+    "make": "Ford",
+    "model": "Deluxe",
+    "vin": "185140520",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$50,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "12/10/2022",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c51",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "1940",
+    "make": "Ford",
+    "model": "Deluxe",
+    "vin": "185013372",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$65,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "12/10/2022",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c52",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "1941",
+    "make": "Ford",
+    "model": "11C",
+    "vin": "9C5749",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$60,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "12/10/2022",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c53",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "1951",
+    "make": "Mercury",
+    "model": "Monterey",
+    "vin": "185140520",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$85,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "12/10/2022",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c54",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "1964",
+    "make": "Ford",
+    "model": "Ranchero",
+    "vin": "4R27F219491",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$50,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "12/10/2022",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c55",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "1966",
+    "make": "Chevrolet",
+    "model": "C-10",
+    "vin": "C1446Z153964",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$50,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "12/10/2022",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c56",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "1988",
+    "make": "Porsche",
+    "model": "911",
+    "vin": "WP0EB0911JS171065",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$800,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "12/10/2022",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c57",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2016",
+    "make": "Dodge",
+    "model": "Challenger",
+    "vin": "2C3CDZC9XGH308450",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$120,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "5/6/2024",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c58",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "Honda",
+    "make": "350x",
+    "model": "ATC",
+    "vin": "JHSTE080XFM008615",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$8,500.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "12/10/2022",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c59",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2024",
+    "make": "Lotus",
+    "model": "Emira",
+    "vin": "T131-GT4-C023",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$290,450.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": " $-   ",
+    "licensePlate": "6/18/2025",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c60",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "1994",
+    "make": "Chevrolet",
+    "model": "C1500",
+    "vin": "1GCDC14Z1RZ124083",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$140,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": " $-   ",
+    "licensePlate": "7/3/2024",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c61",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2017",
+    "make": "BMW",
+    "model": "M6",
+    "vin": "WBS6E9C31HG437538",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$85,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": " $-   ",
+    "licensePlate": "9/1/2024",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c62",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2022",
+    "make": "Ford",
+    "model": "Shelby",
+    "vin": "1FA6P8SJ4N5502617",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$125,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": " $-   ",
+    "licensePlate": "9/1/2024",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c63",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2024",
+    "make": "Ford",
+    "model": "Raptor",
+    "vin": "1FTFW1RJ7RFB29647",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$60,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": " $-   ",
+    "licensePlate": "9/1/2024",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c64",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2024",
+    "make": "Ford",
+    "model": "F-150",
+    "vin": "1FTFW5L58RFB74129",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$138,495 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": " $-   ",
+    "licensePlate": "9/1/2024",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c65",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "1987",
+    "make": "BMW",
+    "model": "325is",
+    "vin": "WBAAA2304H3112655",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$15,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": " $-   ",
+    "licensePlate": "9/6/2023",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c66",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "1995",
+    "make": "BMW",
+    "model": "M3",
+    "vin": "WBSBF9326SEH08263",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$32,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": " $-   ",
+    "licensePlate": "9/6/2023",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c67",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "1999",
+    "make": "Mazda",
+    "model": "Miata",
+    "vin": "JM1NB3539X0123052",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$15,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": " $-   ",
+    "licensePlate": "9/6/2023",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c68",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2018",
+    "make": "Porsche",
+    "model": "911",
+    "vin": "WP0AC2A91JS175934",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$205,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": " $-   ",
+    "licensePlate": "9/6/2023",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c69",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2011",
+    "make": "Porsche",
+    "model": "997",
+    "vin": "WP0AB2A9XBS721313",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$110,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": " $-   ",
+    "licensePlate": "12/17/2024",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c70",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2020",
+    "make": "Porsche",
+    "model": "718",
+    "vin": "WP0CC2A89LS240306",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$112,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": " $-   ",
+    "licensePlate": "",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c71",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2003",
+    "make": "Mazda",
+    "model": "Miata",
+    "vin": "JM1NB353030300663",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$45,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": " $-   ",
+    "licensePlate": "5/7/2025",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c72",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2018",
+    "make": "Porsche",
+    "model": "911",
+    "vin": "WP0AD2A96JS156695",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$190,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": " $-   ",
+    "licensePlate": "12/27/2023",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c73",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2018",
+    "make": "Porsche",
+    "model": "GT3",
+    "vin": "WP0AC2A98JS175154",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$200,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": " $-   ",
+    "licensePlate": "12/27/2023",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c74",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "1971",
+    "make": "Ford",
+    "model": "Bronco",
+    "vin": "U15GLK08711",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$125,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": " $-   ",
+    "licensePlate": "",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c75",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "1969",
+    "make": "Chevrolet",
+    "model": "Camaro",
+    "vin": "N592786",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$50,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "12/14/2022",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c76",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "1979",
+    "make": "Horizon",
+    "model": "Pleasure",
+    "vin": "HFB20103M78H",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$60,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "12/14/2022",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c77",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "1968",
+    "make": "Cadillac",
+    "model": "DeVille",
+    "vin": "F8103861",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$30,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": " $-   ",
+    "licensePlate": "7/23/2024",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c78",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2017",
+    "make": "Subaru",
+    "model": "BRZ",
+    "vin": "JF1ZCAC19H9605401",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$32,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": " $-   ",
+    "licensePlate": "6/19/2022",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c79",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "1992",
+    "make": "Ford",
+    "model": "F250",
+    "vin": "1FTHX25M2NKA18100",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$8,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": " $-   ",
+    "licensePlate": "6/1/2025",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c80",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2013",
+    "make": "Infiniti",
+    "model": "G37",
+    "vin": "JN1CV6AP7DM725397",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$7,750.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": " $-   ",
+    "licensePlate": "9/9/2024",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c81",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2018",
+    "make": "BMW",
+    "model": "530e",
+    "vin": "WBAJA9C5XJB250474",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$30,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "3/8/2024",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c82",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "1969",
+    "make": "Chevrolet",
+    "model": "Camaro",
+    "vin": "124379N691257",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$50,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": " $-   ",
+    "licensePlate": "6/1/2025",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c83",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "1973",
+    "make": "Chevy",
+    "model": "Corvette",
+    "vin": "1Z37T3S415681",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$30,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": " $-   ",
+    "licensePlate": "6/1/2025",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c84",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "Ferrari",
+    "make": "488",
+    "model": "Pista",
+    "vin": "ZFF91HMA5L0253651",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$800,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "7/9/2023",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c85",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "Ferrari",
+    "make": "812",
+    "model": "GTS",
+    "vin": "ZFF97CMA2P0288588",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$700,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "7/14/2023",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c86",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "Lexus",
+    "make": "LFA",
+    "model": null,
+    "vin": "JTHHX8BH7C1000137",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$900,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "7/7/2023",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c87",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "McLaren",
+    "make": "Senna",
+    "model": null,
+    "vin": "SBM15ACAXKW800196",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$1,400,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "7/10/2023",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c88",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "Porsche",
+    "make": "GT3",
+    "model": "Touring",
+    "vin": "WPOAC2A97PS270457",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$300,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "7/11/2023",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c89",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "Porsche",
+    "make": "GT3RS",
+    "model": null,
+    "vin": "WP0AF2A93KS165740",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$275,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "7/8/2023",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c90",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "Porsche",
+    "make": "GT3",
+    "model": "RS",
+    "vin": "WPOAF2A98PS278431",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$500,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "7/12/2023",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c91",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "Ford",
+    "make": "Bronco",
+    "model": "Raptor",
+    "vin": "1FMEE5JR7NLA52664",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$100,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "7/13/2023",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c92",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "Ford",
+    "make": "F-150",
+    "model": "Raptor",
+    "vin": "1FTFW1RG5NFA93648",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$85,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "7/15/2023",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c93",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "Ford",
+    "make": "Mustang",
+    "model": "GT500",
+    "vin": "1FA6P8SJ3N5501023",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$125,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "7/6/2023",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c94",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2008",
+    "make": "BMW",
+    "model": "M3",
+    "vin": "WBSWD93558PY39566",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$45,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "4/11/2025",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c95",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2015",
+    "make": "BMW",
+    "model": "M5",
+    "vin": "WBSFV9C52FD594804",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$45,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "4/11/2025",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c96",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2025",
+    "make": "BMW",
+    "model": "M3",
+    "vin": "WBS13HJ07SFU77025",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$125,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "4/11/2025",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c97",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "1963",
+    "make": "Cadillac",
+    "model": "Coupe",
+    "vin": "63J030283",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$140,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "8/21/2024",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c98",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "1963",
+    "make": "Jaguar",
+    "model": "E-Type",
+    "vin": "878960",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$120,585.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "2/1/2025",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c99",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "1964",
+    "make": "Chevrolet",
+    "model": "Corvette",
+    "vin": "4.08675E+11",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$52,690.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "2/1/2025",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c100",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "1966",
+    "make": "Porsche",
+    "model": "912",
+    "vin": "753155",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$35,890.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "2/1/2025",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c101",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "1977",
+    "make": "Ford",
+    "model": "Bronco",
+    "vin": "U15GLY05378",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$65,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "5/1/2025",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c102",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "1968",
+    "make": "Ford",
+    "model": "Bronco",
+    "vin": "U15NLC65309",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$165,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "2/1/2023",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c103",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2023",
+    "make": "Ford",
+    "model": "F150",
+    "vin": "1FTFW1E55PKE74267",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$158,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "5/21/2024",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c104",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2019",
+    "make": "Mercedes",
+    "model": "Sprinter",
+    "vin": "WDAPF1CD6KP072139",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$150,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": " $-   ",
+    "licensePlate": "6/1/2025",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c105",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "1967",
+    "make": "Ford",
+    "model": "F100",
+    "vin": "F10YNB14246",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$309,900.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": " $-   ",
+    "licensePlate": "4/24/2025",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c106",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "1967",
+    "make": "Ford",
+    "model": "F250",
+    "vin": "F25HLM80324",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$349,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": " $-   ",
+    "licensePlate": "4/24/2025",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c107",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "1971",
+    "make": "Ford",
+    "model": "Bronco",
+    "vin": "U15GLK10354",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$273,700.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": " $-   ",
+    "licensePlate": "4/24/2025",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c108",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "1973",
+    "make": "Ford",
+    "model": "Bronco",
+    "vin": "U15GLQ47072",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$268,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": " $-   ",
+    "licensePlate": "4/24/2025",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c109",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "1967",
+    "make": "Ford",
+    "model": "Mustang",
+    "vin": "Z67400F2A02902",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": "$350,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "7/26/2024",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c110",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "Pop",
+    "make": "Tent",
+    "model": null,
+    "vin": " N/A ",
+    "storageLocation": "Moorpark",
+    "fairMarketValue": " N/A ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": " $-   ",
+    "licensePlate": "N/A",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c111",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2014",
+    "make": "Porsche",
+    "model": "911",
+    "vin": "WP0AD2A92ES167487",
+    "storageLocation": "Westlake Village",
+    "fairMarketValue": "$90,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": " $-   ",
+    "licensePlate": "",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c112",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "1977",
+    "make": "Porsche",
+    "model": "911",
+    "vin": "9307800351",
+    "storageLocation": "Westlake Village",
+    "fairMarketValue": "$150,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "N/A",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c113",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "1999",
+    "make": "Ferrari",
+    "model": "F355",
+    "vin": "ZFFXR48A7X0116557",
+    "storageLocation": "Westlake Village",
+    "fairMarketValue": "$400,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "N/A",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c115",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2017",
+    "make": "Nissan",
+    "model": "GTR",
+    "vin": "JN1AREF0HM820784",
+    "storageLocation": "Westlake Village",
+    "fairMarketValue": "$100,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "N/A",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c116",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2019",
+    "make": "Porsche",
+    "model": "911",
+    "vin": "WP0AE2A97KS155070",
+    "storageLocation": "Westlake Village",
+    "fairMarketValue": "$350,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "N/A",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c117",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2022",
+    "make": "Ford",
+    "model": "Mustang",
+    "vin": "1FA6P8SJ5N5501122",
+    "storageLocation": "Westlake Village",
+    "fairMarketValue": "$120,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "N/A",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c118",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2024",
+    "make": "Porsche",
+    "model": "718",
+    "vin": "WP0CE2A80RK240536",
+    "storageLocation": "Westlake Village",
+    "fairMarketValue": "",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c119",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "1992",
+    "make": "Porsche",
+    "model": "911",
+    "vin": "WP0AB2961NS420699",
+    "storageLocation": "Westlake Village",
+    "fairMarketValue": "$1,200,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "6/1/2025",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c120",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "1996",
+    "make": "Harley",
+    "model": "Davidson",
+    "vin": "1HD1BJL51TY028907",
+    "storageLocation": "Westlake Village",
+    "fairMarketValue": "$12,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "5/1/2025",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c121",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2019",
+    "make": "Aston",
+    "model": "Martin",
+    "vin": "SCFRMFEVXKGL07979",
+    "storageLocation": "Westlake Village",
+    "fairMarketValue": "$140,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": " $-   ",
+    "licensePlate": "6/1/2025",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c122",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "1962",
+    "make": "Chevrolet",
+    "model": "Corvette",
+    "vin": "20867S101404",
+    "storageLocation": "Westlake Village",
+    "fairMarketValue": "$125,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "3/1/2025",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c123",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "1966",
+    "make": "Chevrolet",
+    "model": "Corvette",
+    "vin": "19467S1109086",
+    "storageLocation": "Westlake Village",
+    "fairMarketValue": "$115,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "3/1/2025",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c124",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2012",
+    "make": "Mercedes-Benz",
+    "model": "SLS",
+    "vin": "WDDRH7HA2CA009345",
+    "storageLocation": "Westlake Village",
+    "fairMarketValue": "$250,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "3/1/2025",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c125",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2017",
+    "make": "Mercedes-Benz",
+    "model": "S63",
+    "vin": "WDDXK7JB3H023771",
+    "storageLocation": "Westlake Village",
+    "fairMarketValue": "$110,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c126",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "1989",
+    "make": "Ferrari",
+    "model": "Testarossa",
+    "vin": "ZFFSG17A4K0082196",
+    "storageLocation": "Westlake Village",
+    "fairMarketValue": "$152,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "7/24/2024",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c127",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2006",
+    "make": "Lotus",
+    "model": "Elise",
+    "vin": "SCCVC11147HL80626",
+    "storageLocation": "Westlake Village",
+    "fairMarketValue": "$60,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": " $-   ",
+    "licensePlate": "5/7/2025",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c128",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "1973",
+    "make": "Porsche",
+    "model": "911T",
+    "vin": "9113102214",
+    "storageLocation": "Westlake Village",
+    "fairMarketValue": "$80,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "5/7/2025",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c129",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2025",
+    "make": "BMW",
+    "model": "840i",
+    "vin": "WBAGV2C01SCS49865",
+    "storageLocation": "Westlake Village",
+    "fairMarketValue": "$85,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "5/7/2025",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c130",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2025",
+    "make": "Porsche",
+    "model": "718",
+    "vin": "WP0AD2A86SK265442",
+    "storageLocation": "Westlake Village",
+    "fairMarketValue": "$110,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "5/7/2025",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c131",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2016",
+    "make": "Aston",
+    "model": "Martin",
+    "vin": "SCFLMCFU8GGJ02677",
+    "storageLocation": "Westlake Village",
+    "fairMarketValue": "$140,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c132",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2018",
+    "make": "Ferrari",
+    "model": "GT4",
+    "vin": "ZFF82YNA2J0234642",
+    "storageLocation": "Westlake Village",
+    "fairMarketValue": "$180,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c133",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2019",
+    "make": "Tesla",
+    "model": "Model",
+    "vin": "5YJXCDE4XKF205337",
+    "storageLocation": "Westlake Village",
+    "fairMarketValue": "$120,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c134",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2021",
+    "make": "Porsche",
+    "model": "Taycan",
+    "vin": "WP0AC2Y1XMSA63933",
+    "storageLocation": "Westlake Village",
+    "fairMarketValue": "",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c135",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2022",
+    "make": "GMC",
+    "model": "Hummer",
+    "vin": "1GT40FDA9NU100783",
+    "storageLocation": "Westlake Village",
+    "fairMarketValue": "",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c136",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2022",
+    "make": "McLaren",
+    "model": "GT",
+    "vin": "SBM22GCA2NW002084",
+    "storageLocation": "Westlake Village",
+    "fairMarketValue": "$215,280.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c137",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2023",
+    "make": "Audi",
+    "model": "RS6",
+    "vin": "WUA1CBF26PN903723",
+    "storageLocation": "Westlake Village",
+    "fairMarketValue": "",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c138",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2023",
+    "make": "BMW",
+    "model": "IX",
+    "vin": "WB533CF02PCM65736",
+    "storageLocation": "Westlake Village",
+    "fairMarketValue": "$120,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c139",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2024",
+    "make": "Aston",
+    "model": "Martin",
+    "vin": "SD7VUJBW2RTV10377",
+    "storageLocation": "Westlake Village",
+    "fairMarketValue": "",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c140",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2025",
+    "make": "McLaren",
+    "model": "Artura",
+    "vin": "SBM16BEA5SW003158",
+    "storageLocation": "Westlake Village",
+    "fairMarketValue": "",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c141",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2003",
+    "make": "Porsche",
+    "model": "911",
+    "vin": "WP0AB29953S696133  ",
+    "storageLocation": "Westlake Village",
+    "fairMarketValue": "$250,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "11/21/2022",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c142",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2005",
+    "make": "Porsche",
+    "model": "Carrera",
+    "vin": "WP0CA29855L001164",
+    "storageLocation": "Westlake Village",
+    "fairMarketValue": "$1,500,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "11/21/2022",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c143",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2014",
+    "make": "Ferrari",
+    "model": "458",
+    "vin": "ZFF67NFA8E0200880",
+    "storageLocation": "Westlake Village",
+    "fairMarketValue": "$230,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "11/21/2022",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c144",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2014",
+    "make": "Ferrari",
+    "model": "LaFerrari",
+    "vin": "ZFF76ZFA9E0204693",
+    "storageLocation": "Westlake Village",
+    "fairMarketValue": "$4,500,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "11/21/2022",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c145",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2015",
+    "make": "Ferrari",
+    "model": "458",
+    "vin": "ZFF75VFA7F0211932",
+    "storageLocation": "Westlake Village",
+    "fairMarketValue": "$600,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "11/21/2022",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c146",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2015",
+    "make": "Porsche",
+    "model": "918",
+    "vin": "WP0CA2A19FS800130",
+    "storageLocation": "Westlake Village",
+    "fairMarketValue": "$2,500,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "11/21/2022",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c147",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2018",
+    "make": "Porsche",
+    "model": "GT2RS",
+    "vin": "WP0AE2A93JS185505 ",
+    "storageLocation": "Westlake Village",
+    "fairMarketValue": "$475,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "11/21/2022",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c148",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2019",
+    "make": "Porsche",
+    "model": "GT3RS",
+    "vin": "WP0AF2A90KS164917 ",
+    "storageLocation": "Westlake Village",
+    "fairMarketValue": "$290,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "11/21/2022",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c149",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2020",
+    "make": "Ferrari",
+    "model": "488",
+    "vin": "ZFF90HLA3L0250266",
+    "storageLocation": "Westlake Village",
+    "fairMarketValue": "$750,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "11/21/2022",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c150",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2020",
+    "make": "Mercedes-AMG",
+    "model": "G63",
+    "vin": "W1NYC7HJ7LX347376",
+    "storageLocation": "Westlake Village",
+    "fairMarketValue": "$200,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "11/21/2022",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c151",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2020",
+    "make": "Porsche",
+    "model": "Taycan",
+    "vin": "WP0AC2Y12LSA71698",
+    "storageLocation": "Westlake Village",
+    "fairMarketValue": "",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c152",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2021",
+    "make": "Porsche",
+    "model": "Turbo",
+    "vin": "WP0AD2A99MS257928",
+    "storageLocation": "Westlake Village",
+    "fairMarketValue": "$310,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "11/21/2022",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c153",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2022",
+    "make": "Porsche",
+    "model": "GT3",
+    "vin": "WP0AC2A9XNS268280",
+    "storageLocation": "Westlake Village",
+    "fairMarketValue": "$320,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "11/21/2022",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c154",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2023",
+    "make": "BMW",
+    "model": "M4",
+    "vin": "WBS43AZ02PCM14805",
+    "storageLocation": "Westlake Village",
+    "fairMarketValue": "$55,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "11/21/2022",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c155",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2023",
+    "make": "Ferrari",
+    "model": "296",
+    "vin": "ZFF99SLA6P0297915",
+    "storageLocation": "Westlake Village",
+    "fairMarketValue": "$440,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "11/21/2022",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c156",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2023",
+    "make": "Ferrari",
+    "model": "SF90",
+    "vin": "ZFF96NMA2PO298472",
+    "storageLocation": "Westlake Village",
+    "fairMarketValue": "$750,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "11/21/2022",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c157",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2024",
+    "make": "Porsche",
+    "model": "GT4RS",
+    "vin": "WP0AE2A80RK274256",
+    "storageLocation": "Westlake Village",
+    "fairMarketValue": "$200,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "11/21/2022",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c158",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "1967",
+    "make": "Ferrari",
+    "model": "275",
+    "vin": "275GTB49511",
+    "storageLocation": "Westlake Village",
+    "fairMarketValue": "$2,000,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "7/26/2024",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c159",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "1970",
+    "make": "Porsche",
+    "model": "911",
+    "vin": "9110301589",
+    "storageLocation": "Westlake Village",
+    "fairMarketValue": "$150,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "7/26/2024",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c160",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "1974",
+    "make": "Ferrari",
+    "model": "Dino",
+    "vin": "8068",
+    "storageLocation": "Westlake Village",
+    "fairMarketValue": "$400,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "7/26/2024",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c161",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "1989",
+    "make": "Porsche",
+    "model": "911",
+    "vin": "WP0EB0911KS170192",
+    "storageLocation": "Westlake Village",
+    "fairMarketValue": "$80,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "7/26/2024",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c162",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "1991",
+    "make": "Jeep",
+    "model": "Wrangler",
+    "vin": "2J4FY29S9MJ139826",
+    "storageLocation": "Westlake Village",
+    "fairMarketValue": "$20,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "7/26/2024",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c163",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "1995",
+    "make": "Ferrari",
+    "model": "512M",
+    "vin": "ZFFVG0A5S0100780",
+    "storageLocation": "Westlake Village",
+    "fairMarketValue": "$650,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "7/26/2024",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c164",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2005",
+    "make": "Ford",
+    "model": "GT",
+    "vin": "1FAFP90S45Y401321",
+    "storageLocation": "Westlake Village",
+    "fairMarketValue": "$350,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "7/26/2024",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c165",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2009",
+    "make": "Ferrari",
+    "model": "430",
+    "vin": "ZFFKW66A490166918",
+    "storageLocation": "Westlake Village",
+    "fairMarketValue": "",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c166",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2015",
+    "make": "Subaru",
+    "model": "WRX",
+    "vin": "JF1VA2L66F9805932",
+    "storageLocation": "Westlake Village",
+    "fairMarketValue": "$50,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "7/26/2024",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c167",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "2024",
+    "make": "Porsche",
+    "model": "Dakar",
+    "vin": "WP0AB2A97RS225069",
+    "storageLocation": "Westlake Village",
+    "fairMarketValue": "$250,000.00 ",
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": "",
+    "licensePlate": "",
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  },
+  {
+    "id": "c168",
+    "customerId": "",
+    "authorizedDrivers": [],
+    "year": "",
+    "make": null,
+    "model": null,
+    "vin": null,
+    "storageLocation": null,
+    "fairMarketValue": null,
+    "insuranceRiderRequired": false,
+    "insuranceRiderAmount": null,
+    "licensePlate": null,
+    "registration": {
+      "number": "REG123456",
+      "expirationDate": "2024-12-31",
+      "state": "CA"
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  }
 ];
 
 // Create mock service items
