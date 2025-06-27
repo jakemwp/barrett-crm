@@ -34,11 +34,11 @@ export function Customers() {
   const filteredAndSortedCustomers = useMemo(() => {
     let filtered = customers.filter(customer => {
       const matchesSearch = 
-        customer.firstName.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        customer.lastName.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        customer.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        customer.phone.includes(searchTerm) ||
-        customer.storageLocation.toLowerCase().includes(searchTerm.toLowerCase());
+        (customer.firstName ?? '').toLowerCase().includes(searchTerm.toLowerCase()) ||
+        (customer.lastName ?? '').toLowerCase().includes(searchTerm.toLowerCase()) ||
+        (customer.email ?? '').toLowerCase().includes(searchTerm.toLowerCase()) ||
+        (customer.phone ?? '').includes(searchTerm) ||
+        (customer.storageLocation ?? '').toLowerCase().includes(searchTerm.toLowerCase());
       
       const matchesType = typeFilter === 'all' || customer.type === typeFilter;
       const matchesMembership = membershipFilter === 'all' || customer.membershipLevel === membershipFilter;
@@ -53,8 +53,8 @@ export function Customers() {
 
       switch (sortField) {
         case 'name':
-          aValue = `${a.firstName} ${a.lastName}`;
-          bValue = `${b.firstName} ${b.lastName}`;
+          aValue = `${a.firstName ?? ''} ${a.lastName ?? ''}`;
+          bValue = `${b.firstName ?? ''} ${b.lastName ?? ''}`;
           break;
         case 'dateCreated':
           aValue = new Date(a.dateCreated).getTime();
@@ -70,8 +70,8 @@ export function Customers() {
           bValue = b.storageSpots;
           break;
         default:
-          aValue = `${a.firstName} ${a.lastName}`;
-          bValue = `${b.firstName} ${b.lastName}`;
+          aValue = `${a.firstName ?? ''} ${a.lastName ?? ''}`;
+          bValue = `${b.firstName ?? ''} ${b.lastName ?? ''}`;
       }
 
       if (typeof aValue === 'string' && typeof bValue === 'string') {
@@ -120,11 +120,11 @@ export function Customers() {
           <div>
             <Link to={`/customers/${customer.id}`}>
               <h3 className="text-lg font-semibold text-gray-900 hover:text-primary-600">
-                {customer.firstName} {customer.lastName}
+                {customer.firstName ?? ''} {customer.lastName ?? ''}
               </h3>
             </Link>
-            <p className="text-sm text-gray-600">{customer.email}</p>
-            <p className="text-sm text-gray-500">{customer.storageLocation}</p>
+            <p className="text-sm text-gray-600">{customer.email ?? ''}</p>
+            <p className="text-sm text-gray-500">{customer.storageLocation ?? ''}</p>
           </div>
         </div>
         
@@ -139,7 +139,7 @@ export function Customers() {
           </div>
           
           <div className="text-right">
-            <p className="text-sm font-medium text-gray-900">{customer.phone}</p>
+            <p className="text-sm font-medium text-gray-900">{customer.phone ?? ''}</p>
             <p className="text-xs text-gray-500">{customer.dateCreated}</p>
           </div>
         </div>
