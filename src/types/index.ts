@@ -73,7 +73,7 @@ export interface Vehicle {
     notes?: string;
   };
   authorizedContacts: AuthorizedContact[];
-  odometer: number;
+  odometer: number | null;
   image?: string;
   fuelLevel: number; // percentage 0-100
   batteryType: 'Standard' | 'AGM' | 'Lithium' | 'Gel' | 'Other';

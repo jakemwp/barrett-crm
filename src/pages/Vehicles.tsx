@@ -78,8 +78,8 @@ export function Vehicles() {
           bValue = b.fairMarketValue;
           break;
         case 'odometer':
-          aValue = a.odometer;
-          bValue = b.odometer;
+          aValue = a.odometer ?? 0;
+          bValue = b.odometer ?? 0;
           break;
         case 'lastService':
           aValue = a.maintenanceSchedule.lastService ? new Date(a.maintenanceSchedule.lastService).getTime() : 0;
@@ -123,7 +123,7 @@ export function Vehicles() {
   const vehicleStats = useMemo(() => {
     const totalValue = vehicles.reduce((sum, v) => sum + v.fairMarketValue, 0);
     const insuredVehicles = vehicles.filter(v => v.insuranceRiderRequired).length;
-    const avgOdometer = vehicles.reduce((sum, v) => sum + v.odometer, 0) / vehicles.length;
+    const avgOdometer = vehicles.reduce((sum, v) => sum + (v.odometer ?? 0), 0) / vehicles.length;
     const expiredRegistrations = vehicles.filter(v => 
       v.registration?.expirationDate && new Date(v.registration.expirationDate) <= new Date()
     ).length;
@@ -185,7 +185,7 @@ export function Vehicles() {
             </div>
             
             <div className="text-right">
-              <p className="text-sm font-medium text-gray-900">{vehicle.odometer.toLocaleString()} mi</p>
+              <p className="text-sm font-medium text-gray-900">{(vehicle.odometer ?? 0).toLocaleString()} mi</p>
               <p className="text-xs text-gray-500">Odometer</p>
             </div>
             

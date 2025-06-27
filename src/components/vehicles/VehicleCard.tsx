@@ -120,7 +120,7 @@ export function VehicleCard({ vehicle, customerName, showCustomer = false }: Veh
               </div>
               <div>
                 <p className="text-gray-500 text-xs uppercase font-medium">Odometer</p>
-                <p className="font-semibold">{vehicle.odometer.toLocaleString()} mi</p>
+                <p className="font-semibold">{(vehicle.odometer ?? 0).toLocaleString()} mi</p>
               </div>
             </div>
             
