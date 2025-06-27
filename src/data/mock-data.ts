@@ -64,7 +64,7 @@ export const users: User[] = [
 export const currentUser: User = users[0]; // Admin user
 
 // Create customers from complete CSV data
-export const customers: Customer[] ==[
+export const customers: Customer[] =[
   {
     "id": "c1",
     "firstName": "Company",
