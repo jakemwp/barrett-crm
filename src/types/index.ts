@@ -1,22 +1,22 @@
 export interface Customer {
   id: string;
-  firstName: string;
-  lastName: string;
+  firstName: string | null;
+  lastName: string | null;
   type: 'Individual' | 'Business';
   membershipLevel: 'Basic' | 'Premium' | 'VIP' | 'Enterprise';
-  storageLocation: string;
-  email: string;
-  phone: string;
-  streetAddress: string;
-  city: string;
-  state: string;
-  zipCode: string;
+  storageLocation: string | null;
+  email: string | null;
+  phone: string | null;
+  streetAddress: string | null;
+  city: string | null;
+  state: string | null;
+  zipCode: string | null;
   storageSpots: number;
   showPandaDocForm: boolean;
   dateCreated: string;
-  password: string;
+  password: string | null;
   numRows: number;
-  manualPrice?: number;
+  manualPrice?: number | null;
   createdAt: string;
   updatedAt: string;
 }
@@ -24,18 +24,18 @@ export interface Customer {
 export interface AuthorizedDriver {
   id: string;
   name: string;
-  phone: string;
-  email: string;
-  licenseNumber: string;
-  relationship: string;
+  phone: string | null;
+  email: string | null;
+  licenseNumber: string | null;
+  relationship: string | null;
 }
 
 export interface AuthorizedContact {
   id: string;
   name: string;
-  phone: string;
-  email: string;
-  relationship: string;
+  phone: string | null;
+  email: string | null;
+  relationship: string | null;
   canDropoff: boolean;
   canPickup: boolean;
 }
@@ -44,19 +44,19 @@ export interface Vehicle {
   id: string;
   customerId: string;
   authorizedDrivers: AuthorizedDriver[];
-  year: number;
-  make: string;
-  model: string;
-  vin: string;
-  storageLocation: string;
+  year: number | null;
+  make: string | null;
+  model: string | null;
+  vin: string | null;
+  storageLocation: string | null;
   fairMarketValue: number;
   insuranceRiderRequired: boolean;
-  insuranceRiderAmount?: number;
-  licensePlate: string;
-  registration: {
-    number: string;
-    expirationDate: string;
-    state: string;
+  insuranceRiderAmount?: number | null;
+  licensePlate: string | null;
+  registration?: {
+    number: string | null;
+    expirationDate: string | null;
+    state: string | null;
   };
   tirePressureDefault: {
     front: number;
@@ -66,18 +66,18 @@ export interface Vehicle {
     front: number;
     rear: number;
   };
-  maintenanceSchedule: {
-    lastService?: string;
-    nextService?: string;
+  maintenanceSchedule?: {
+    lastService?: string | null;
+    nextService?: string | null;
     serviceInterval: number; // in months
-    notes?: string;
+    notes?: string | null;
   };
   authorizedContacts: AuthorizedContact[];
   odometer: number | null;
-  image?: string;
+  image?: string | null;
   fuelLevel: number; // percentage 0-100
   batteryType: 'Standard' | 'AGM' | 'Lithium' | 'Gel' | 'Other';
-  color?: string;
+  color?: string | null;
   createdAt: string;
   updatedAt: string;
 }
@@ -94,10 +94,10 @@ export enum CheckType {
 }
 
 export interface TirePressureReading {
-  passengerFront: number;
-  passengerRear: number;
-  driverFront: number;
-  driverRear: number;
+  passengerFront: number | null;
+  passengerRear: number | null;
+  driverFront: number | null;
+  driverRear: number | null;
 }
 
 export interface VehicleInspectionPhotos {
@@ -168,40 +168,40 @@ export interface CheckInOut {
   customerId: string;
   
   // Basic information
-  date: string;
-  type: CheckType;
-  location: string;
-  contact: string;
+  date: string | null;
+  type: CheckType | null;
+  location: string | null;
+  contact: string | null;
   status: CheckStatus;
   
   // Check-in/out times
-  checkInDate?: string;
-  checkOutDate?: string;
+  checkInDate?: string | null;
+  checkOutDate?: string | null;
   
   // Vehicle condition at time of service
-  fuelLevel?: number;
-  mileage?: number;
+  fuelLevel?: number | null;
+  mileage?: number | null;
   
   // Tire pressures
-  tirePressure?: TirePressureReading;
+  tirePressure?: TirePressureReading | null;
   
   // Vehicle preparation
   carCover?: boolean;
   killSwitch?: boolean;
-  startupDirections?: string;
+  startupDirections?: string | null;
   
   // Delivery information
-  deliveryAddress?: string;
+  deliveryAddress?: string | null;
   
   // Documentation
-  notes?: string;
-  signature?: string; // Base64 encoded signature image
+  notes?: string | null;
+  signature?: string | null;
   
   // Photos and videos
-  photos?: VehicleInspectionPhotos;
+  photos?: VehicleInspectionPhotos | null;
   
   // Service items
-  serviceItems?: ServiceItem[];
+  serviceItems?: ServiceItem[] | null;
   
   // Timestamps
   createdAt: string;
@@ -211,10 +211,10 @@ export interface CheckInOut {
 export interface ServiceItem {
   id: string;
   checkInOutId: string;
-  description: string;
+  description: string | null;
   cost: number;
   completed: boolean;
-  completedAt?: string;
+  completedAt?: string | null;
   createdAt: string;
   updatedAt: string;
 }
@@ -226,10 +226,10 @@ export interface User {
   email: string;
   password: string;
   role: 'Admin' | 'Manager' | 'Staff' | 'Viewer';
-  avatar?: string;
-  phone?: string;
-  department?: string;
-  lastLogin?: string;
+  avatar?: string | null;
+  phone?: string | null;
+  department?: string | null;
+  lastLogin?: string | null;
   isActive: boolean;
   createdAt: string;
   updatedAt: string;

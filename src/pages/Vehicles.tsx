@@ -66,12 +66,12 @@ export function Vehicles() {
 
       switch (sortField) {
         case 'make':
-          aValue = `${a.make} ${a.model}`;
-          bValue = `${b.make} ${b.model}`;
+          aValue = `${a.make ?? ''} ${a.model ?? ''}`;
+          bValue = `${b.make ?? ''} ${b.model ?? ''}`;
           break;
         case 'year':
-          aValue = a.year;
-          bValue = b.year;
+          aValue = a.year ?? 0;
+          bValue = b.year ?? 0;
           break;
         case 'value':
           aValue = a.fairMarketValue;
@@ -82,12 +82,12 @@ export function Vehicles() {
           bValue = b.odometer ?? 0;
           break;
         case 'lastService':
-          aValue = a.maintenanceSchedule.lastService ? new Date(a.maintenanceSchedule.lastService).getTime() : 0;
-          bValue = b.maintenanceSchedule.lastService ? new Date(b.maintenanceSchedule.lastService).getTime() : 0;
+          aValue = a.maintenanceSchedule?.lastService ? new Date(a.maintenanceSchedule.lastService).getTime() : 0;
+          bValue = b.maintenanceSchedule?.lastService ? new Date(b.maintenanceSchedule.lastService).getTime() : 0;
           break;
         default:
-          aValue = `${a.make} ${a.model}`;
-          bValue = `${b.make} ${b.model}`;
+          aValue = `${a.make ?? ''} ${a.model ?? ''}`;
+          bValue = `${b.make ?? ''} ${b.model ?? ''}`;
       }
 
       if (typeof aValue === 'string' && typeof bValue === 'string') {
@@ -105,10 +105,10 @@ export function Vehicles() {
   }, [searchTerm, makeFilter, batteryFilter, insuranceFilter, sortField, sortOrder]);
 
   const makeOptions = useMemo(() => {
-    const makes = [...new Set(vehicles.map(v => v.make))].sort();
+    const makes = [...new Set(vehicles.map(v => v.make).filter(Boolean))].sort();
     return [
       { value: 'all', label: 'All Makes' },
-      ...makes.map(make => ({ value: make, label: make }))
+      ...makes.map(make => ({ value: make as string, label: make as string }))
     ];
   }, []);
 
@@ -157,7 +157,7 @@ export function Vehicles() {
               <div className="w-16 h-12 rounded-md overflow-hidden bg-gray-100 flex-shrink-0">
                 <img 
                   src={vehicle.image} 
-                  alt={`${vehicle.make} ${vehicle.model}`}
+                  alt={`${vehicle.make || ''} ${vehicle.model || ''}`}
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -166,10 +166,10 @@ export function Vehicles() {
             <div>
               <Link to={`/vehicles/${vehicle.id}`}>
                 <h3 className="text-lg font-semibold text-gray-900 hover:text-primary-600">
-                  {vehicle.year} {vehicle.make} {vehicle.model}
+                  {vehicle.year || ''} {vehicle.make || ''} {vehicle.model || ''}
                 </h3>
               </Link>
-              <p className="text-sm text-gray-600">{vehicle.licensePlate} • {vehicle.storageLocation}</p>
+              <p className="text-sm text-gray-600">{vehicle.licensePlate || 'No Plate'} • {vehicle.storageLocation || 'No Location'}</p>
               <p className="text-sm text-gray-500">
                 Owner: <Link to={`/customers/${vehicle.customerId}`} className="text-primary-600 hover:underline">
                   {customerName}

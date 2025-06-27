@@ -52,7 +52,7 @@ export function VehicleCard({ vehicle, customerName, showCustomer = false }: Veh
               <div className="w-full h-32 mb-4 rounded-lg overflow-hidden bg-gray-100">
                 <img 
                   src={vehicle.image} 
-                  alt={`${vehicle.make} ${vehicle.model}`}
+                  alt={`${vehicle.make || ''} ${vehicle.model || ''}`}
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -61,14 +61,16 @@ export function VehicleCard({ vehicle, customerName, showCustomer = false }: Veh
             <div className="flex justify-between items-start">
               <Link to={`/vehicles/${vehicle.id}`} className="block">
                 <h3 className="text-lg font-semibold text-gray-900 hover:text-primary-600 transition-colors">
-                  {vehicle.make} {vehicle.model}
+                  {vehicle.year || ''} {vehicle.make || ''} {vehicle.model || ''}
                 </h3>
-                <p className="text-sm text-gray-600">{vehicle.licensePlate}</p>
+                <p className="text-sm text-gray-600">{vehicle.licensePlate || 'No Plate'}</p>
               </Link>
               <div className="flex flex-col items-end space-y-1">
-                <Badge variant="default" className="text-xs">
-                  {vehicle.year}
-                </Badge>
+                {vehicle.year && (
+                  <Badge variant="default" className="text-xs">
+                    {vehicle.year}
+                  </Badge>
+                )}
                 {vehicle.insuranceRiderRequired && (
                   <Badge variant="warning" className="text-xs flex items-center">
                     <Shield size={12} className="mr-1" />
@@ -87,10 +89,12 @@ export function VehicleCard({ vehicle, customerName, showCustomer = false }: Veh
           
           {/* Vehicle Details */}
           <div className="flex-1 space-y-3">
-            <div className="flex items-center text-sm text-gray-600">
-              <Building size={16} className="flex-shrink-0 mr-2 text-gray-400" />
-              <span className="truncate">{vehicle.storageLocation}</span>
-            </div>
+            {vehicle.storageLocation && (
+              <div className="flex items-center text-sm text-gray-600">
+                <Building size={16} className="flex-shrink-0 mr-2 text-gray-400" />
+                <span className="truncate">{vehicle.storageLocation}</span>
+              </div>
+            )}
             
             <div className="flex items-center text-sm text-gray-600">
               <DollarSign size={16} className="flex-shrink-0 mr-2 text-gray-400" />
@@ -116,7 +120,7 @@ export function VehicleCard({ vehicle, customerName, showCustomer = false }: Veh
             <div className="grid grid-cols-2 gap-4 text-sm">
               <div>
                 <p className="text-gray-500 text-xs uppercase font-medium">VIN</p>
-                <p className="font-mono text-xs truncate">{vehicle.vin}</p>
+                <p className="font-mono text-xs truncate">{vehicle.vin || 'N/A'}</p>
               </div>
               <div>
                 <p className="text-gray-500 text-xs uppercase font-medium">Odometer</p>
