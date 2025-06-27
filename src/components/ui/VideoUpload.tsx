@@ -1,7 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { 
   Video, 
-  Upload, 
   Smartphone, 
   FolderOpen, 
   X, 
@@ -74,10 +73,6 @@ export function VideoUpload({
       // Create local URL for immediate preview
       const url = URL.createObjectURL(file);
       
-      // In a real app, you would upload to your server/cloud storage here
-      // For now, we'll simulate an upload delay
-      await new Promise(resolve => setTimeout(resolve, 2000));
-
       // Clean up previous video URL if it exists
       if (video?.url && video.file) {
         URL.revokeObjectURL(video.url);

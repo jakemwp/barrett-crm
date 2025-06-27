@@ -12,16 +12,18 @@ import {
   Loader2
 } from 'lucide-react';
 import { Button } from './Button';
-import { usePhotoUpload, PhotoUploadOptions } from '../../hooks/usePhotoUpload';
 import { cn } from '../../lib/utils';
 
-interface PhotoUploadProps extends PhotoUploadOptions {
+interface PhotoUploadProps {
   title: string;
   description?: string;
   onPhotosChange?: (urls: string[]) => void;
   initialPhotos?: string[];
   disabled?: boolean;
   className?: string;
+  multiple?: boolean;
+  maxSize?: number; // in MB
+  acceptedTypes?: string[];
 }
 
 export function PhotoUpload({
@@ -31,49 +33,109 @@ export function PhotoUpload({
   initialPhotos = [],
   disabled = false,
   className,
-  ...uploadOptions
+  multiple = true,
+  maxSize = 10,
+  acceptedTypes = ['image/jpeg', 'image/png', 'image/heic', 'image/webp']
 }: PhotoUploadProps) {
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const { photos, isUploading, error, uploadPhotos, removePhoto, getPhotoUrls } = usePhotoUpload(uploadOptions);
-  const [previewPhoto, setPreviewPhoto] = useState<string | null>(null);
-
-  // Combine initial photos with uploaded photos for display
-  const allPhotos = [
-    ...initialPhotos.map((url, index) => ({
+  const [photos, setPhotos] = useState<{ id: string; url: string; file?: File }[]>(
+    initialPhotos.map((url, index) => ({
       id: `initial-${index}`,
       url,
       isInitial: true
-    })),
-    ...photos.map(photo => ({
-      id: photo.id,
-      url: photo.url,
-      isInitial: false
     }))
-  ];
+  );
+  const [isUploading, setIsUploading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [previewPhoto, setPreviewPhoto] = useState<string | null>(null);
+
+  const validateFile = (file: File): string | null => {
+    if (!acceptedTypes.includes(file.type)) {
+      return `File type ${file.type} is not supported. Please use JPG, PNG, HEIC, or WebP.`;
+    }
+
+    if (file.size > maxSize * 1024 * 1024) {
+      return `File size must be less than ${maxSize}MB.`;
+    }
+
+    return null;
+  };
 
   const handleFileSelect = async (files: FileList | null) => {
     if (!files || files.length === 0) return;
     
-    const uploadedPhotos = await uploadPhotos(files);
-    if (uploadedPhotos.length > 0 && onPhotosChange) {
-      onPhotosChange(getPhotoUrls());
+    setIsUploading(true);
+    setError(null);
+
+    try {
+      const fileArray = Array.from(files);
+      const validFiles: File[] = [];
+      
+      // Validate all files first
+      for (const file of fileArray) {
+        const validationError = validateFile(file);
+        if (validationError) {
+          setError(validationError);
+          setIsUploading(false);
+          return;
+        }
+        validFiles.push(file);
+      }
+
+      // If not multiple, only take the first file
+      const filesToProcess = multiple ? validFiles : validFiles.slice(0, 1);
+
+      // Create photo objects with local URLs for immediate preview
+      const newPhotos = filesToProcess.map(file => ({
+        id: `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+        url: URL.createObjectURL(file),
+        file
+      }));
+
+      // Update photos state
+      if (multiple) {
+        setPhotos(prev => [...prev, ...newPhotos]);
+      } else {
+        // If not multiple, revoke previous object URLs to prevent memory leaks
+        photos.forEach(photo => {
+          if (photo.file) {
+            URL.revokeObjectURL(photo.url);
+          }
+        });
+        setPhotos(newPhotos);
+      }
+
+      // Notify parent component
+      if (onPhotosChange) {
+        const allPhotos = multiple 
+          ? [...photos.filter(p => !p.file).map(p => p.url), ...newPhotos.map(p => p.url)]
+          : newPhotos.map(p => p.url);
+        onPhotosChange(allPhotos);
+      }
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Upload failed');
+    } finally {
+      setIsUploading(false);
     }
   };
 
-  const handleRemovePhoto = (photoId: string, isInitial: boolean) => {
-    if (isInitial) {
-      // Handle removal of initial photos
-      const photoIndex = parseInt(photoId.replace('initial-', ''));
-      const newInitialPhotos = initialPhotos.filter((_, index) => index !== photoIndex);
-      if (onPhotosChange) {
-        onPhotosChange([...newInitialPhotos, ...getPhotoUrls()]);
+  const handleRemovePhoto = (photoId: string) => {
+    setPhotos(prev => {
+      const photoToRemove = prev.find(p => p.id === photoId);
+      if (photoToRemove?.file) {
+        // Clean up object URL to prevent memory leaks
+        URL.revokeObjectURL(photoToRemove.url);
       }
-    } else {
-      removePhoto(photoId);
+      
+      const updatedPhotos = prev.filter(p => p.id !== photoId);
+      
+      // Notify parent component
       if (onPhotosChange) {
-        onPhotosChange(getPhotoUrls());
+        onPhotosChange(updatedPhotos.map(p => p.url));
       }
-    }
+      
+      return updatedPhotos;
+    });
   };
 
   const triggerFileInput = (captureMode?: 'environment' | 'user') => {
@@ -100,9 +162,9 @@ export function PhotoUpload({
     <div className={cn('space-y-3', className)}>
       <div className="flex items-center justify-between">
         <h4 className="text-sm font-medium text-gray-700">{title}</h4>
-        {allPhotos.length > 0 && (
+        {photos.length > 0 && (
           <span className="text-xs text-gray-500">
-            {allPhotos.length} photo{allPhotos.length !== 1 ? 's' : ''}
+            {photos.length} photo{photos.length !== 1 ? 's' : ''}
           </span>
         )}
       </div>
@@ -116,9 +178,9 @@ export function PhotoUpload({
         ref={fileInputRef}
         type="file"
         accept="image/*"
-        multiple={uploadOptions.multiple}
+        multiple={multiple}
         onChange={(e) => handleFileSelect(e.target.files)}
-
+        className="hidden"
       />
 
       {/* Upload Area */}
@@ -147,10 +209,10 @@ export function PhotoUpload({
               
               <div>
                 <h5 className="text-sm font-medium text-gray-700 mb-2">
-                  {isUploading ? 'Uploading...' : `Add ${uploadOptions.multiple ? 'Photos' : 'Photo'}`}
+                  {isUploading ? 'Uploading...' : `Add ${multiple ? 'Photos' : 'Photo'}`}
                 </h5>
                 <p className="text-xs text-gray-500 mb-4">
-                  {uploadOptions.multiple ? 'Select multiple photos' : 'Select a photo'} for this section
+                  {multiple ? 'Select multiple photos' : 'Select a photo'} for this section
                 </p>
               </div>
               
@@ -180,7 +242,7 @@ export function PhotoUpload({
               )}
               
               <p className="text-xs text-gray-400">
-                Supported: JPG, PNG, HEIC, WebP (max {uploadOptions.maxSize || 10}MB)
+                Supported: JPG, PNG, HEIC, WebP (max {maxSize}MB)
               </p>
             </div>
           </div>
@@ -193,9 +255,9 @@ export function PhotoUpload({
       </div>
 
       {/* Photo Grid */}
-      {allPhotos.length > 0 && (
+      {photos.length > 0 && (
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-          {allPhotos.map((photo) => (
+          {photos.map((photo) => (
             <div key={photo.id} className="relative group">
               <div className="aspect-square bg-gray-200 rounded-lg border overflow-hidden">
                 <img 
@@ -231,7 +293,7 @@ export function PhotoUpload({
                       variant="ghost"
                       size="sm"
                       className="p-2 bg-red-100 bg-opacity-90 hover:bg-opacity-100 text-red-600 rounded-full"
-                      onClick={() => handleRemovePhoto(photo.id, photo.isInitial)}
+                      onClick={() => handleRemovePhoto(photo.id)}
                     >
                       <Trash2 className="h-4 w-4" />
                     </Button>
@@ -240,7 +302,7 @@ export function PhotoUpload({
               </div>
 
               {/* Upload Status Indicator */}
-              {!photo.isInitial && (
+              {photo.file && (
                 <div className="absolute top-2 right-2">
                   <div className="bg-green-100 text-green-600 rounded-full p-1">
                     <CheckCircle className="h-3 w-3" />
