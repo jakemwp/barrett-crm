@@ -125,7 +125,7 @@ export function Vehicles() {
     const insuredVehicles = vehicles.filter(v => v.insuranceRiderRequired).length;
     const avgOdometer = vehicles.reduce((sum, v) => sum + v.odometer, 0) / vehicles.length;
     const expiredRegistrations = vehicles.filter(v => 
-      new Date(v.registration.expirationDate) <= new Date()
+      v.registration?.expirationDate && new Date(v.registration.expirationDate) <= new Date()
     ).length;
     
     return {
@@ -207,20 +207,29 @@ export function Vehicles() {
             </div>
             
             <div className="text-right">
-              <div className="flex items-center">
-                {new Date(vehicle.registration.expirationDate) > new Date() ? (
-                  <CheckCircle size={16} className="text-green-600 mr-1" />
-                ) : (
-                  <AlertTriangle size={16} className="text-red-600 mr-1" />
-                )}
-                <span className={`text-sm font-medium ${
-                  new Date(vehicle.registration.expirationDate) > new Date() 
-                    ? 'text-green-600' 
-                    : 'text-red-600'
-                }`}>
-                  {formatDate(vehicle.registration.expirationDate)}
-                </span>
-              </div>
+              {vehicle.registration?.expirationDate ? (
+                <div className="flex items-center">
+                  {new Date(vehicle.registration.expirationDate) > new Date() ? (
+                    <CheckCircle size={16} className="text-green-600 mr-1" />
+                  ) : (
+                    <AlertTriangle size={16} className="text-red-600 mr-1" />
+                  )}
+                  <span className={`text-sm font-medium ${
+                    new Date(vehicle.registration.expirationDate) > new Date() 
+                      ? 'text-green-600' 
+                      : 'text-red-600'
+                  }`}>
+                    {formatDate(vehicle.registration.expirationDate)}
+                  </span>
+                </div>
+              ) : (
+                <div className="flex items-center">
+                  <AlertTriangle size={16} className="text-gray-400 mr-1" />
+                  <span className="text-sm font-medium text-gray-400">
+                    No Registration
+                  </span>
+                </div>
+              )}
               <p className="text-xs text-gray-500">Registration</p>
             </div>
           </div>
