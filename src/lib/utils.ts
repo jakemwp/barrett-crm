@@ -36,8 +36,10 @@ export function generateId(): string {
          Math.random().toString(36).substring(2, 15);
 }
 
-export function getInitials(firstName: string, lastName: string): string {
-  return `${firstName.charAt(0)}${lastName.charAt(0)}`.toUpperCase();
+export function getInitials(firstName: string | null, lastName: string | null): string {
+  const firstInitial = firstName ? firstName.charAt(0) : '';
+  const lastInitial = lastName ? lastName.charAt(0) : '';
+  return `${firstInitial}${lastInitial}`.toUpperCase();
 }
 
 export function truncate(str: string, length: number): string {
