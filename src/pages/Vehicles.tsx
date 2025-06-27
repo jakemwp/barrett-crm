@@ -40,14 +40,14 @@ export function Vehicles() {
   const filteredAndSortedVehicles = useMemo(() => {
     let filtered = vehicles.filter(vehicle => {
       const customer = getCustomerById(vehicle.customerId);
-      const customerName = customer ? `${customer.firstName} ${customer.lastName}` : '';
+      const customerName = customer ? `${customer.firstName ?? ''} ${customer.lastName ?? ''}` : '';
       
       const matchesSearch = 
-        vehicle.make.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        vehicle.model.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        vehicle.licensePlate.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        vehicle.vin.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        vehicle.storageLocation.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        (vehicle.make ?? '').toLowerCase().includes(searchTerm.toLowerCase()) ||
+        (vehicle.model ?? '').toLowerCase().includes(searchTerm.toLowerCase()) ||
+        (vehicle.licensePlate ?? '').toLowerCase().includes(searchTerm.toLowerCase()) ||
+        (vehicle.vin ?? '').toLowerCase().includes(searchTerm.toLowerCase()) ||
+        (vehicle.storageLocation ?? '').toLowerCase().includes(searchTerm.toLowerCase()) ||
         customerName.toLowerCase().includes(searchTerm.toLowerCase());
       
       const matchesMake = makeFilter === 'all' || vehicle.make === makeFilter;
@@ -147,7 +147,7 @@ export function Vehicles() {
 
   const VehicleListItem = ({ vehicle }: { vehicle: Vehicle }) => {
     const customer = getCustomerById(vehicle.customerId);
-    const customerName = customer ? `${customer.firstName} ${customer.lastName}` : 'Unknown Customer';
+    const customerName = customer ? `${customer.firstName ?? ''} ${customer.lastName ?? ''}` : 'Unknown Customer';
     
     return (
       <div className="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
@@ -412,7 +412,7 @@ export function Vehicles() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredAndSortedVehicles.map((vehicle) => {
                 const customer = getCustomerById(vehicle.customerId);
-                const customerName = customer ? `${customer.firstName} ${customer.lastName}` : 'Unknown Customer';
+                const customerName = customer ? `${customer.firstName ?? ''} ${customer.lastName ?? ''}` : 'Unknown Customer';
                 
                 return (
                   <VehicleCard 
