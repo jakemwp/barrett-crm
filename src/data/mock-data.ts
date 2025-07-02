@@ -7208,40 +7208,6 @@ export const vehicles: Vehicle[] =[
     "color": "Placeholder",
     "createdAt": "2025-06-27T10:35:00Z",
     "updatedAt": "2025-06-27T14:35:00Z"
-  },
-  {
-    "id": "c168",
-    "customerId": null,
-    "authorizedDrivers": [],
-    "year": "",
-    "make": null,
-    "model": null,
-    "vin": null,
-    "storageLocation": null,
-    "fairMarketValue": 0,
-    "insuranceRiderRequired": false,
-    "insuranceRiderAmount": 0,
-    "licensePlate": null,
-    "registration": {
-      "number": "REG123456",
-      "expirationDate": "2024-12-31",
-      "state": "CA"
-    },
-    "tirePressureDefault": {
-      "front": 32,
-      "rear": 32
-    },
-    "tirePressurePreferred": {
-      "front": 32,
-      "rear": 32
-    },
-    "maintenanceSchedule": [],
-    "odometer": null,
-    "fuelLevel": 100,
-    "batteryType": "Standard",
-    "color": "Placeholder",
-    "createdAt": "2025-06-27T10:35:00Z",
-    "updatedAt": "2025-06-27T14:35:00Z"
   }
 ];
 
