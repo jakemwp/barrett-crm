@@ -288,7 +288,7 @@ export function VehicleDetail() {
                   <Input
                     label="Odometer"
                     type="number"
-                    value={formData.odometer}
+                    value={formData.odometer || ''}
                     onChange={(e) => handleInputChange('odometer', parseInt(e.target.value))}
                     disabled={!isEditing}
                   />
@@ -554,7 +554,7 @@ export function VehicleDetail() {
                   <MapPin className="mr-2 text-gray-400" size={16} />
                   <span className="text-sm text-gray-600">Odometer</span>
                 </div>
-                <span className="font-semibold">{vehicle.odometer.toLocaleString()} mi</span>
+                <span className="font-semibold">{(vehicle.odometer ?? 0).toLocaleString()} mi</span>
               </div>
               
               {vehicle.insuranceRiderRequired && (
