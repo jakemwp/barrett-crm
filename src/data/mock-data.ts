@@ -1566,42 +1566,8 @@ export const customers: Customer[] =[
 // Create mock vehicles with comprehensive data
 export const vehicles: Vehicle[] =[
   {
-    "id": "c1",
-    "customerId": "Customer ID",
-    "authorizedDrivers": [],
-    "year": "Vehicle",
-    "make": null,
-    "model": null,
-    "vin": "VIN",
-    "storageLocation": "Location",
-    "fairMarketValue": 0,
-    "insuranceRiderRequired": true,
-    "insuranceRiderAmount": 0,
-    "licensePlate": "VSA Start Date",
-    "registration": {
-      "number": "REG123456",
-      "expirationDate": "2024-12-31",
-      "state": "CA"
-    },
-    "tirePressureDefault": {
-      "front": 32,
-      "rear": 32
-    },
-    "tirePressurePreferred": {
-      "front": 32,
-      "rear": 32
-    },
-    "maintenanceSchedule": [],
-    "odometer": null,
-    "fuelLevel": 100,
-    "batteryType": "Standard",
-    "color": "Placeholder",
-    "createdAt": "2025-06-27T10:35:00Z",
-    "updatedAt": "2025-06-27T14:35:00Z"
-  },
-  {
     "id": "c2",
-    "customerId": "C2",
+    "customerId": "c2",
     "authorizedDrivers": [],
     "year": "1972",
     "make": "Porsche",
@@ -1635,7 +1601,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c3",
-    "customerId": "C2",
+    "customerId": "c2",
     "authorizedDrivers": [],
     "year": "2012",
     "make": "Lexus",
@@ -1669,7 +1635,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c4",
-    "customerId": "C2",
+    "customerId": "c2",
     "authorizedDrivers": [],
     "year": "2019",
     "make": "Porsche",
@@ -1703,7 +1669,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c5",
-    "customerId": "C3",
+    "customerId": "c3",
     "authorizedDrivers": [],
     "year": "2024",
     "make": "Jeep",
@@ -1737,7 +1703,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c6",
-    "customerId": "C4",
+    "customerId": "c4",
     "authorizedDrivers": [],
     "year": "2022",
     "make": "Mastercraft",
@@ -1771,7 +1737,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c7",
-    "customerId": "C6",
+    "customerId": "c6",
     "authorizedDrivers": [],
     "year": "1964",
     "make": "Pontiac",
@@ -1805,7 +1771,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c8",
-    "customerId": "C6",
+    "customerId": "c6",
     "authorizedDrivers": [],
     "year": "2001",
     "make": "Mercedes",
@@ -1839,7 +1805,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c9",
-    "customerId": "C10",
+    "customerId": "c10",
     "authorizedDrivers": [],
     "year": "2009",
     "make": "Mercedes-AMG",
@@ -1873,7 +1839,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c10",
-    "customerId": "C12",
+    "customerId": "c12",
     "authorizedDrivers": [],
     "year": "2013",
     "make": "Rolls",
@@ -1907,7 +1873,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c11",
-    "customerId": "C14",
+    "customerId": "c14",
     "authorizedDrivers": [],
     "year": "2010",
     "make": "Harley",
@@ -1941,7 +1907,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c12",
-    "customerId": "C15",
+    "customerId": "c15",
     "authorizedDrivers": [],
     "year": "2017",
     "make": "Ferrari",
@@ -1975,7 +1941,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c13",
-    "customerId": "C16",
+    "customerId": "c16",
     "authorizedDrivers": [],
     "year": "2014",
     "make": "Bentley",
@@ -2009,7 +1975,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c14",
-    "customerId": "C17",
+    "customerId": "c17",
     "authorizedDrivers": [],
     "year": "2015",
     "make": "Nissan",
@@ -2043,7 +2009,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c15",
-    "customerId": "C17",
+    "customerId": "c17",
     "authorizedDrivers": [],
     "year": "1995",
     "make": "Nissan",
@@ -2077,7 +2043,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c16",
-    "customerId": "C17",
+    "customerId": "c17",
     "authorizedDrivers": [],
     "year": "1999",
     "make": "Nissan",
@@ -2111,7 +2077,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c17",
-    "customerId": "C17",
+    "customerId": "c17",
     "authorizedDrivers": [],
     "year": "1990",
     "make": "Nissan",
@@ -2145,7 +2111,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c18",
-    "customerId": "C20",
+    "customerId": "c20",
     "authorizedDrivers": [],
     "year": "2007",
     "make": "Lamborghini",
@@ -2179,7 +2145,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c19",
-    "customerId": "C20",
+    "customerId": "c20",
     "authorizedDrivers": [],
     "year": "2009",
     "make": "Rolls",
@@ -2213,7 +2179,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c20",
-    "customerId": "C21",
+    "customerId": "c21",
     "authorizedDrivers": [],
     "year": "2024",
     "make": "Ferrari",
@@ -2247,7 +2213,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c21",
-    "customerId": "C22",
+    "customerId": "c22",
     "authorizedDrivers": [],
     "year": "2020",
     "make": "Winnebago",
@@ -2281,7 +2247,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c22",
-    "customerId": "C23",
+    "customerId": "c23",
     "authorizedDrivers": [],
     "year": "Malibu",
     "make": "Wakesetter",
@@ -2315,7 +2281,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c23",
-    "customerId": "C25",
+    "customerId": "c25",
     "authorizedDrivers": [],
     "year": "2015",
     "make": "Audi",
@@ -2349,7 +2315,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c24",
-    "customerId": "C25",
+    "customerId": "c25",
     "authorizedDrivers": [],
     "year": "2017",
     "make": "Rolls",
@@ -2383,7 +2349,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c25",
-    "customerId": "C25",
+    "customerId": "c25",
     "authorizedDrivers": [],
     "year": "2020",
     "make": "Jeep",
@@ -2417,7 +2383,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c26",
-    "customerId": "C25",
+    "customerId": "c25",
     "authorizedDrivers": [],
     "year": "2023",
     "make": "Cadillac",
@@ -2451,7 +2417,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c27",
-    "customerId": "C25",
+    "customerId": "c25",
     "authorizedDrivers": [],
     "year": "2024",
     "make": "McLaren",
@@ -2485,7 +2451,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c28",
-    "customerId": "C25",
+    "customerId": "c25",
     "authorizedDrivers": [],
     "year": "2025",
     "make": "Porsche",
@@ -2519,7 +2485,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c29",
-    "customerId": "C25",
+    "customerId": "c25",
     "authorizedDrivers": [],
     "year": "2022",
     "make": "Tesla",
@@ -2553,7 +2519,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c30",
-    "customerId": "C26",
+    "customerId": "c26",
     "authorizedDrivers": [],
     "year": "2007",
     "make": "Mercedes-Benz",
@@ -2587,7 +2553,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c31",
-    "customerId": "C26",
+    "customerId": "c26",
     "authorizedDrivers": [],
     "year": "1982",
     "make": "Suzuki",
@@ -2621,7 +2587,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c32",
-    "customerId": "C28",
+    "customerId": "c28",
     "authorizedDrivers": [],
     "year": "2003",
     "make": "Ferrari",
@@ -2655,7 +2621,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c33",
-    "customerId": "C29",
+    "customerId": "c29",
     "authorizedDrivers": [],
     "year": "1962",
     "make": "Lincoln",
@@ -2689,7 +2655,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c34",
-    "customerId": "C29",
+    "customerId": "c29",
     "authorizedDrivers": [],
     "year": "1985",
     "make": "Ferrari",
@@ -2723,7 +2689,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c35",
-    "customerId": "C29",
+    "customerId": "c29",
     "authorizedDrivers": [],
     "year": "2005",
     "make": "Porsche",
@@ -2757,7 +2723,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c36",
-    "customerId": "C30",
+    "customerId": "c30",
     "authorizedDrivers": [],
     "year": "2014",
     "make": "Porsche",
@@ -2791,7 +2757,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c37",
-    "customerId": "C30",
+    "customerId": "c30",
     "authorizedDrivers": [],
     "year": "2022",
     "make": "Jeep",
@@ -2825,7 +2791,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c38",
-    "customerId": "C30",
+    "customerId": "c30",
     "authorizedDrivers": [],
     "year": "2023",
     "make": "Ford",
@@ -2859,7 +2825,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c39",
-    "customerId": "C30",
+    "customerId": "c30",
     "authorizedDrivers": [],
     "year": "2025",
     "make": "BMW",
@@ -2893,7 +2859,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c40",
-    "customerId": "C30",
+    "customerId": "c30",
     "authorizedDrivers": [],
     "year": "2025",
     "make": "Land",
@@ -2927,7 +2893,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c41",
-    "customerId": "C30",
+    "customerId": "c30",
     "authorizedDrivers": [],
     "year": "2003",
     "make": "Harley-Davidson",
@@ -2961,7 +2927,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c42",
-    "customerId": "C32",
+    "customerId": "c32",
     "authorizedDrivers": [],
     "year": "1989",
     "make": "Lamborghini",
@@ -2995,7 +2961,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c43",
-    "customerId": "C33",
+    "customerId": "c33",
     "authorizedDrivers": [],
     "year": "Malibu",
     "make": "Wakesetter",
@@ -3029,7 +2995,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c44",
-    "customerId": "C34",
+    "customerId": "c34",
     "authorizedDrivers": [],
     "year": "2018",
     "make": "Dodge",
@@ -3063,7 +3029,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c45",
-    "customerId": "C34",
+    "customerId": "c34",
     "authorizedDrivers": [],
     "year": "2018",
     "make": "Porsche",
@@ -3097,7 +3063,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c46",
-    "customerId": "C34",
+    "customerId": "c34",
     "authorizedDrivers": [],
     "year": "2019",
     "make": "Ferrari",
@@ -3131,7 +3097,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c47",
-    "customerId": "C34",
+    "customerId": "c34",
     "authorizedDrivers": [],
     "year": "2021",
     "make": "Ram",
@@ -3165,7 +3131,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c48",
-    "customerId": "C35",
+    "customerId": "c35",
     "authorizedDrivers": [],
     "year": "1932",
     "make": "Ford",
@@ -3199,7 +3165,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c49",
-    "customerId": "C35",
+    "customerId": "c35",
     "authorizedDrivers": [],
     "year": "1934",
     "make": "Ford",
@@ -3233,7 +3199,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c50",
-    "customerId": "C35",
+    "customerId": "c35",
     "authorizedDrivers": [],
     "year": "1939",
     "make": "Ford",
@@ -3267,7 +3233,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c51",
-    "customerId": "C35",
+    "customerId": "c35",
     "authorizedDrivers": [],
     "year": "1940",
     "make": "Ford",
@@ -3301,7 +3267,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c52",
-    "customerId": "C35",
+    "customerId": "c35",
     "authorizedDrivers": [],
     "year": "1941",
     "make": "Ford",
@@ -3335,7 +3301,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c53",
-    "customerId": "C35",
+    "customerId": "c35",
     "authorizedDrivers": [],
     "year": "1951",
     "make": "Mercury",
@@ -3369,7 +3335,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c54",
-    "customerId": "C35",
+    "customerId": "c35",
     "authorizedDrivers": [],
     "year": "1964",
     "make": "Ford",
@@ -3403,7 +3369,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c55",
-    "customerId": "C35",
+    "customerId": "c35",
     "authorizedDrivers": [],
     "year": "1966",
     "make": "Chevrolet",
@@ -3437,7 +3403,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c56",
-    "customerId": "C35",
+    "customerId": "c35",
     "authorizedDrivers": [],
     "year": "1988",
     "make": "Porsche",
@@ -3471,7 +3437,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c57",
-    "customerId": "C35",
+    "customerId": "c35",
     "authorizedDrivers": [],
     "year": "2016",
     "make": "Dodge",
@@ -3505,7 +3471,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c58",
-    "customerId": "C35",
+    "customerId": "c35",
     "authorizedDrivers": [],
     "year": "Honda",
     "make": "350x",
@@ -3539,7 +3505,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c59",
-    "customerId": "C37",
+    "customerId": "c37",
     "authorizedDrivers": [],
     "year": "2024",
     "make": "Lotus",
@@ -3573,7 +3539,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c60",
-    "customerId": "C38",
+    "customerId": "c38",
     "authorizedDrivers": [],
     "year": "1994",
     "make": "Chevrolet",
@@ -3607,7 +3573,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c61",
-    "customerId": "C39",
+    "customerId": "c39",
     "authorizedDrivers": [],
     "year": "2017",
     "make": "BMW",
@@ -3641,7 +3607,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c62",
-    "customerId": "C39",
+    "customerId": "c39",
     "authorizedDrivers": [],
     "year": "2022",
     "make": "Ford",
@@ -3675,7 +3641,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c63",
-    "customerId": "C39",
+    "customerId": "c39",
     "authorizedDrivers": [],
     "year": "2024",
     "make": "Ford",
@@ -3709,7 +3675,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c64",
-    "customerId": "C39",
+    "customerId": "c39",
     "authorizedDrivers": [],
     "year": "2024",
     "make": "Ford",
@@ -3743,7 +3709,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c65",
-    "customerId": "C40",
+    "customerId": "c40",
     "authorizedDrivers": [],
     "year": "1987",
     "make": "BMW",
@@ -3777,7 +3743,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c66",
-    "customerId": "C40",
+    "customerId": "c40",
     "authorizedDrivers": [],
     "year": "1995",
     "make": "BMW",
@@ -3811,7 +3777,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c67",
-    "customerId": "C40",
+    "customerId": "c40",
     "authorizedDrivers": [],
     "year": "1999",
     "make": "Mazda",
@@ -3845,7 +3811,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c68",
-    "customerId": "C40",
+    "customerId": "c40",
     "authorizedDrivers": [],
     "year": "2018",
     "make": "Porsche",
@@ -3879,7 +3845,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c69",
-    "customerId": "C41",
+    "customerId": "c41",
     "authorizedDrivers": [],
     "year": "2011",
     "make": "Porsche",
@@ -3913,7 +3879,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c70",
-    "customerId": "C41",
+    "customerId": "c41",
     "authorizedDrivers": [],
     "year": "2020",
     "make": "Porsche",
@@ -3947,7 +3913,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c71",
-    "customerId": "C42",
+    "customerId": "c42",
     "authorizedDrivers": [],
     "year": "2003",
     "make": "Mazda",
@@ -3981,7 +3947,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c72",
-    "customerId": "C43",
+    "customerId": "c43",
     "authorizedDrivers": [],
     "year": "2018",
     "make": "Porsche",
@@ -4015,7 +3981,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c73",
-    "customerId": "C43",
+    "customerId": "c43",
     "authorizedDrivers": [],
     "year": "2018",
     "make": "Porsche",
@@ -4049,7 +4015,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c74",
-    "customerId": "C44",
+    "customerId": "c44",
     "authorizedDrivers": [],
     "year": "1971",
     "make": "Ford",
@@ -4083,7 +4049,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c75",
-    "customerId": "C46",
+    "customerId": "c46",
     "authorizedDrivers": [],
     "year": "1969",
     "make": "Chevrolet",
@@ -4117,7 +4083,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c76",
-    "customerId": "C46",
+    "customerId": "c46",
     "authorizedDrivers": [],
     "year": "1979",
     "make": "Horizon",
@@ -4151,7 +4117,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c77",
-    "customerId": "C47",
+    "customerId": "c47",
     "authorizedDrivers": [],
     "year": "1968",
     "make": "Cadillac",
@@ -4185,7 +4151,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c78",
-    "customerId": "C48",
+    "customerId": "c48",
     "authorizedDrivers": [],
     "year": "2017",
     "make": "Subaru",
@@ -4219,7 +4185,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c79",
-    "customerId": "C49",
+    "customerId": "c49",
     "authorizedDrivers": [],
     "year": "1992",
     "make": "Ford",
@@ -4253,7 +4219,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c80",
-    "customerId": "C51",
+    "customerId": "c51",
     "authorizedDrivers": [],
     "year": "2013",
     "make": "Infiniti",
@@ -4287,7 +4253,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c81",
-    "customerId": "C53",
+    "customerId": "c53",
     "authorizedDrivers": [],
     "year": "2018",
     "make": "BMW",
@@ -4321,7 +4287,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c82",
-    "customerId": "C54",
+    "customerId": "c54",
     "authorizedDrivers": [],
     "year": "1969",
     "make": "Chevrolet",
@@ -4355,7 +4321,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c83",
-    "customerId": "C54",
+    "customerId": "c54",
     "authorizedDrivers": [],
     "year": "1973",
     "make": "Chevy",
@@ -4389,7 +4355,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c84",
-    "customerId": "C56",
+    "customerId": "c56",
     "authorizedDrivers": [],
     "year": "Ferrari",
     "make": "488",
@@ -4423,7 +4389,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c85",
-    "customerId": "C56",
+    "customerId": "c56",
     "authorizedDrivers": [],
     "year": "Ferrari",
     "make": "812",
@@ -4457,7 +4423,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c86",
-    "customerId": "C56",
+    "customerId": "c56",
     "authorizedDrivers": [],
     "year": "Lexus",
     "make": "LFA",
@@ -4491,7 +4457,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c87",
-    "customerId": "C56",
+    "customerId": "c56",
     "authorizedDrivers": [],
     "year": "McLaren",
     "make": "Senna",
@@ -4525,7 +4491,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c88",
-    "customerId": "C56",
+    "customerId": "c56",
     "authorizedDrivers": [],
     "year": "Porsche",
     "make": "GT3",
@@ -4559,7 +4525,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c89",
-    "customerId": "C56",
+    "customerId": "c56",
     "authorizedDrivers": [],
     "year": "Porsche",
     "make": "GT3RS",
@@ -4593,7 +4559,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c90",
-    "customerId": "C56",
+    "customerId": "c56",
     "authorizedDrivers": [],
     "year": "Porsche",
     "make": "GT3",
@@ -4627,7 +4593,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c91",
-    "customerId": "C56",
+    "customerId": "c56",
     "authorizedDrivers": [],
     "year": "Ford",
     "make": "Bronco",
@@ -4661,7 +4627,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c92",
-    "customerId": "C56",
+    "customerId": "c56",
     "authorizedDrivers": [],
     "year": "Ford",
     "make": "F-150",
@@ -4695,7 +4661,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c93",
-    "customerId": "C56",
+    "customerId": "c56",
     "authorizedDrivers": [],
     "year": "Ford",
     "make": "Mustang",
@@ -4729,7 +4695,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c94",
-    "customerId": "C57",
+    "customerId": "c57",
     "authorizedDrivers": [],
     "year": "2008",
     "make": "BMW",
@@ -4763,7 +4729,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c95",
-    "customerId": "C57",
+    "customerId": "c57",
     "authorizedDrivers": [],
     "year": "2015",
     "make": "BMW",
@@ -4797,7 +4763,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c96",
-    "customerId": "C57",
+    "customerId": "c57",
     "authorizedDrivers": [],
     "year": "2025",
     "make": "BMW",
@@ -4831,7 +4797,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c97",
-    "customerId": "C58",
+    "customerId": "c58",
     "authorizedDrivers": [],
     "year": "1963",
     "make": "Cadillac",
@@ -4865,7 +4831,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c98",
-    "customerId": "C59",
+    "customerId": "c59",
     "authorizedDrivers": [],
     "year": "1963",
     "make": "Jaguar",
@@ -4899,7 +4865,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c99",
-    "customerId": "C59",
+    "customerId": "c59",
     "authorizedDrivers": [],
     "year": "1964",
     "make": "Chevrolet",
@@ -4933,7 +4899,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c100",
-    "customerId": "C59",
+    "customerId": "c59",
     "authorizedDrivers": [],
     "year": "1966",
     "make": "Porsche",
@@ -4967,7 +4933,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c101",
-    "customerId": "C61",
+    "customerId": "c61",
     "authorizedDrivers": [],
     "year": "1977",
     "make": "Ford",
@@ -5001,7 +4967,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c102",
-    "customerId": "C62",
+    "customerId": "c62",
     "authorizedDrivers": [],
     "year": "1968",
     "make": "Ford",
@@ -5035,7 +5001,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c103",
-    "customerId": "C63",
+    "customerId": "c63",
     "authorizedDrivers": [],
     "year": "2023",
     "make": "Ford",
@@ -5069,7 +5035,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c104",
-    "customerId": "C64",
+    "customerId": "c64",
     "authorizedDrivers": [],
     "year": "2019",
     "make": "Mercedes",
@@ -5239,7 +5205,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c109",
-    "customerId": "C67",
+    "customerId": "c67",
     "authorizedDrivers": [],
     "year": "1967",
     "make": "Ford",
@@ -5273,7 +5239,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c110",
-    "customerId": "C67",
+    "customerId": "c67",
     "authorizedDrivers": [],
     "year": "Pop",
     "make": "Tent",
@@ -5307,7 +5273,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c111",
-    "customerId": "C5",
+    "customerId": "c5",
     "authorizedDrivers": [],
     "year": "2014",
     "make": "Porsche",
@@ -5341,7 +5307,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c112",
-    "customerId": "C6",
+    "customerId": "c6",
     "authorizedDrivers": [],
     "year": "1977",
     "make": "Porsche",
@@ -5375,7 +5341,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c113",
-    "customerId": "C6",
+    "customerId": "c6",
     "authorizedDrivers": [],
     "year": "1999",
     "make": "Ferrari",
@@ -5409,7 +5375,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c115",
-    "customerId": "C6",
+    "customerId": "c6",
     "authorizedDrivers": [],
     "year": "2017",
     "make": "Nissan",
@@ -5443,7 +5409,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c116",
-    "customerId": "C6",
+    "customerId": "c6",
     "authorizedDrivers": [],
     "year": "2019",
     "make": "Porsche",
@@ -5477,7 +5443,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c117",
-    "customerId": "C6",
+    "customerId": "c6",
     "authorizedDrivers": [],
     "year": "2022",
     "make": "Ford",
@@ -5511,7 +5477,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c118",
-    "customerId": "C6",
+    "customerId": "c6",
     "authorizedDrivers": [],
     "year": "2024",
     "make": "Porsche",
@@ -5545,7 +5511,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c119",
-    "customerId": "C13",
+    "customerId": "c13",
     "authorizedDrivers": [],
     "year": "1992",
     "make": "Porsche",
@@ -5579,7 +5545,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c120",
-    "customerId": "C14",
+    "customerId": "c14",
     "authorizedDrivers": [],
     "year": "1996",
     "make": "Harley",
@@ -5613,7 +5579,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c121",
-    "customerId": "C18",
+    "customerId": "c18",
     "authorizedDrivers": [],
     "year": "2019",
     "make": "Aston",
@@ -5647,7 +5613,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c122",
-    "customerId": "C31",
+    "customerId": "c31",
     "authorizedDrivers": [],
     "year": "1962",
     "make": "Chevrolet",
@@ -5681,7 +5647,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c123",
-    "customerId": "C31",
+    "customerId": "c31",
     "authorizedDrivers": [],
     "year": "1966",
     "make": "Chevrolet",
@@ -5715,7 +5681,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c124",
-    "customerId": "C31",
+    "customerId": "c31",
     "authorizedDrivers": [],
     "year": "2012",
     "make": "Mercedes-Benz",
@@ -5749,7 +5715,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c125",
-    "customerId": "C31",
+    "customerId": "c31",
     "authorizedDrivers": [],
     "year": "2017",
     "make": "Mercedes-Benz",
@@ -5783,7 +5749,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c126",
-    "customerId": "C36",
+    "customerId": "c36",
     "authorizedDrivers": [],
     "year": "1989",
     "make": "Ferrari",
@@ -5817,7 +5783,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c127",
-    "customerId": "C42",
+    "customerId": "c42",
     "authorizedDrivers": [],
     "year": "2006",
     "make": "Lotus",
@@ -5851,7 +5817,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c128",
-    "customerId": "C55",
+    "customerId": "c55",
     "authorizedDrivers": [],
     "year": "1973",
     "make": "Porsche",
@@ -5885,7 +5851,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c129",
-    "customerId": "C55",
+    "customerId": "c55",
     "authorizedDrivers": [],
     "year": "2025",
     "make": "BMW",
@@ -5919,7 +5885,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c130",
-    "customerId": "C55",
+    "customerId": "c55",
     "authorizedDrivers": [],
     "year": "2025",
     "make": "Porsche",
@@ -5953,7 +5919,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c131",
-    "customerId": "C63",
+    "customerId": "c63",
     "authorizedDrivers": [],
     "year": "2016",
     "make": "Aston",
@@ -5987,7 +5953,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c132",
-    "customerId": "C63",
+    "customerId": "c63",
     "authorizedDrivers": [],
     "year": "2018",
     "make": "Ferrari",
@@ -6021,7 +5987,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c133",
-    "customerId": "C63",
+    "customerId": "c63",
     "authorizedDrivers": [],
     "year": "2019",
     "make": "Tesla",
@@ -6055,7 +6021,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c134",
-    "customerId": "C63",
+    "customerId": "c63",
     "authorizedDrivers": [],
     "year": "2021",
     "make": "Porsche",
@@ -6089,7 +6055,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c135",
-    "customerId": "C63",
+    "customerId": "c63",
     "authorizedDrivers": [],
     "year": "2022",
     "make": "GMC",
@@ -6123,7 +6089,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c136",
-    "customerId": "C63",
+    "customerId": "c63",
     "authorizedDrivers": [],
     "year": "2022",
     "make": "McLaren",
@@ -6157,7 +6123,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c137",
-    "customerId": "C63",
+    "customerId": "c63",
     "authorizedDrivers": [],
     "year": "2023",
     "make": "Audi",
@@ -6191,7 +6157,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c138",
-    "customerId": "C63",
+    "customerId": "c63",
     "authorizedDrivers": [],
     "year": "2023",
     "make": "BMW",
@@ -6225,7 +6191,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c139",
-    "customerId": "C63",
+    "customerId": "c63",
     "authorizedDrivers": [],
     "year": "2024",
     "make": "Aston",
@@ -6259,7 +6225,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c140",
-    "customerId": "C63",
+    "customerId": "c63",
     "authorizedDrivers": [],
     "year": "2025",
     "make": "McLaren",
@@ -6293,7 +6259,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c141",
-    "customerId": "C66",
+    "customerId": "c66",
     "authorizedDrivers": [],
     "year": "2003",
     "make": "Porsche",
@@ -6327,7 +6293,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c142",
-    "customerId": "C66",
+    "customerId": "c66",
     "authorizedDrivers": [],
     "year": "2005",
     "make": "Porsche",
@@ -6361,7 +6327,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c143",
-    "customerId": "C66",
+    "customerId": "c66",
     "authorizedDrivers": [],
     "year": "2014",
     "make": "Ferrari",
@@ -6395,7 +6361,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c144",
-    "customerId": "C66",
+    "customerId": "c66",
     "authorizedDrivers": [],
     "year": "2014",
     "make": "Ferrari",
@@ -6429,7 +6395,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c145",
-    "customerId": "C66",
+    "customerId": "c66",
     "authorizedDrivers": [],
     "year": "2015",
     "make": "Ferrari",
@@ -6463,7 +6429,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c146",
-    "customerId": "C66",
+    "customerId": "c66",
     "authorizedDrivers": [],
     "year": "2015",
     "make": "Porsche",
@@ -6497,7 +6463,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c147",
-    "customerId": "C66",
+    "customerId": "c66",
     "authorizedDrivers": [],
     "year": "2018",
     "make": "Porsche",
@@ -6531,7 +6497,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c148",
-    "customerId": "C66",
+    "customerId": "c66",
     "authorizedDrivers": [],
     "year": "2019",
     "make": "Porsche",
@@ -6565,7 +6531,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c149",
-    "customerId": "C66",
+    "customerId": "c66",
     "authorizedDrivers": [],
     "year": "2020",
     "make": "Ferrari",
@@ -6599,7 +6565,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c150",
-    "customerId": "C66",
+    "customerId": "c66",
     "authorizedDrivers": [],
     "year": "2020",
     "make": "Mercedes-AMG",
@@ -6633,7 +6599,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c151",
-    "customerId": "C66",
+    "customerId": "c66",
     "authorizedDrivers": [],
     "year": "2020",
     "make": "Porsche",
@@ -6667,7 +6633,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c152",
-    "customerId": "C66",
+    "customerId": "c66",
     "authorizedDrivers": [],
     "year": "2021",
     "make": "Porsche",
@@ -6701,7 +6667,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c153",
-    "customerId": "C66",
+    "customerId": "c66",
     "authorizedDrivers": [],
     "year": "2022",
     "make": "Porsche",
@@ -6735,7 +6701,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c154",
-    "customerId": "C66",
+    "customerId": "c66",
     "authorizedDrivers": [],
     "year": "2023",
     "make": "BMW",
@@ -6769,7 +6735,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c155",
-    "customerId": "C66",
+    "customerId": "c66",
     "authorizedDrivers": [],
     "year": "2023",
     "make": "Ferrari",
@@ -6803,7 +6769,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c156",
-    "customerId": "C66",
+    "customerId": "c66",
     "authorizedDrivers": [],
     "year": "2023",
     "make": "Ferrari",
@@ -6837,7 +6803,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c157",
-    "customerId": "C66",
+    "customerId": "c66",
     "authorizedDrivers": [],
     "year": "2024",
     "make": "Porsche",
@@ -6871,7 +6837,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c158",
-    "customerId": "C67",
+    "customerId": "c67",
     "authorizedDrivers": [],
     "year": "1967",
     "make": "Ferrari",
@@ -6905,7 +6871,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c159",
-    "customerId": "C67",
+    "customerId": "c67",
     "authorizedDrivers": [],
     "year": "1970",
     "make": "Porsche",
@@ -6939,7 +6905,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c160",
-    "customerId": "C67",
+    "customerId": "c67",
     "authorizedDrivers": [],
     "year": "1974",
     "make": "Ferrari",
@@ -6973,7 +6939,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c161",
-    "customerId": "C67",
+    "customerId": "c67",
     "authorizedDrivers": [],
     "year": "1989",
     "make": "Porsche",
@@ -7007,7 +6973,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c162",
-    "customerId": "C67",
+    "customerId": "c67",
     "authorizedDrivers": [],
     "year": "1991",
     "make": "Jeep",
@@ -7041,7 +7007,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c163",
-    "customerId": "C67",
+    "customerId": "c67",
     "authorizedDrivers": [],
     "year": "1995",
     "make": "Ferrari",
@@ -7075,7 +7041,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c164",
-    "customerId": "C67",
+    "customerId": "c67",
     "authorizedDrivers": [],
     "year": "2005",
     "make": "Ford",
@@ -7109,7 +7075,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c165",
-    "customerId": "C67",
+    "customerId": "c67",
     "authorizedDrivers": [],
     "year": "2009",
     "make": "Ferrari",
@@ -7143,7 +7109,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c166",
-    "customerId": "C67",
+    "customerId": "c67",
     "authorizedDrivers": [],
     "year": "2015",
     "make": "Subaru",
@@ -7177,7 +7143,7 @@ export const vehicles: Vehicle[] =[
   },
   {
     "id": "c167",
-    "customerId": "C67",
+    "customerId": "c67",
     "authorizedDrivers": [],
     "year": "2024",
     "make": "Porsche",
