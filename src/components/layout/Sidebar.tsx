@@ -7,11 +7,14 @@ import {
   ClipboardCheck, 
   Settings, 
   HelpCircle, 
-  X 
+  X,
+  UserCog,
+  LogOut
 } from 'lucide-react';
 import { cn } from '../../lib/utils';
-import { currentUser } from '../../data/mock-data';
+import { useAuth } from '../../contexts/AuthContext';
 import { Avatar } from '../ui/Avatar';
+import { Button } from '../ui/Button';
 import { getInitials } from '../../lib/utils';
 
 interface SidebarProps {
@@ -20,16 +23,30 @@ interface SidebarProps {
 }
 
 export function Sidebar({ isOpen, onClose }: SidebarProps) {
+  const { user, signOut } = useAuth();
+  
   const navItems = [
     { to: '/', icon: <Home size={20} />, label: 'Dashboard' },
     { to: '/customers', icon: <Users size={20} />, label: 'Customers' },
     { to: '/vehicles', icon: <Car size={20} />, label: 'Vehicles' },
     { to: '/check-in-out', icon: <ClipboardCheck size={20} />, label: 'Check In/Out' },
+    { to: '/users', icon: <UserCog size={20} />, label: 'User Management' },
     { to: '/settings', icon: <Settings size={20} />, label: 'Settings' },
     { to: '/help', icon: <HelpCircle size={20} />, label: 'Help & Support' },
   ];
 
-  const initials = getInitials(currentUser.firstName, currentUser.lastName);
+  const handleSignOut = async () => {
+    try {
+      await signOut();
+    } catch (error) {
+      console.error('Error signing out:', error);
+    }
+  };
+
+  const userInitials = user ? getInitials(
+    user.user_metadata?.first_name || user.email?.split('@')[0] || '',
+    user.user_metadata?.last_name || ''
+  ) : '';
 
   return (
     <>
@@ -96,25 +113,32 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
           
           {/* User profile section */}
           <div className="p-4 border-t border-gray-200">
-            <div className="flex items-center">
+            <div className="flex items-center mb-3">
               <div className="flex-shrink-0">
-                {currentUser.avatar ? (
-                  <img 
-                    src={currentUser.avatar} 
-                    alt="Profile" 
-                    className="w-8 h-8 rounded-full object-cover"
-                  />
-                ) : (
-                  <Avatar initials={initials} size="sm" />
+                <Avatar initials={userInitials} size="sm" />
+              </div>
+              <div className="ml-3 flex-1 min-w-0">
+                <p className="text-sm font-medium text-gray-700 truncate">
+                  {user?.user_metadata?.first_name && user?.user_metadata?.last_name
+                    ? `${user.user_metadata.first_name} ${user.user_metadata.last_name}`
+                    : user?.email?.split('@')[0] || 'User'
+                  }
+                </p>
+                <p className="text-xs text-gray-500 truncate">{user?.email}</p>
+                {user?.user_metadata?.role && (
+                  <p className="text-xs text-primary-600">{user.user_metadata.role}</p>
                 )}
               </div>
-              <div className="ml-3">
-                <p className="text-sm font-medium text-gray-700">
-                  {currentUser.firstName} {currentUser.lastName}
-                </p>
-                <p className="text-xs text-gray-500">{currentUser.email}</p>
-              </div>
             </div>
+            <Button
+              variant="outline"
+              size="sm"
+              className="w-full"
+              onClick={handleSignOut}
+              leftIcon={<LogOut size={14} />}
+            >
+              Sign Out
+            </Button>
           </div>
         </div>
       </div>
