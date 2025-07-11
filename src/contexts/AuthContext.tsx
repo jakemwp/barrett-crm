@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-import { supabase } from '../lib/supabase-client';
-import { User } from '@supabase/supabase-js';
+import { currentUser, users } from '../data/mock-data';
+import { User } from '../types';
 
 interface AuthContextType {
   user: User | null;
@@ -16,73 +16,55 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Check for active session on mount
-    const checkSession = async () => {
+    // Check for stored session on mount
+    const checkStoredSession = () => {
       try {
-        const { data: { session } } = await supabase.auth.getSession();
-        setUser(session?.user || null);
+        const storedUser = localStorage.getItem('auth_user');
+        if (storedUser) {
+          const userData = JSON.parse(storedUser);
+          // Verify user still exists in mock data and is active
+          const existingUser = users.find(u => u.id === userData.id && u.isActive);
+          if (existingUser) {
+            setUser(existingUser);
+          } else {
+            // Clear invalid session
+            localStorage.removeItem('auth_user');
+          }
+        }
       } catch (error) {
-        console.error('Error checking session:', error);
+        console.error('Error checking stored session:', error);
+        localStorage.removeItem('auth_user');
       } finally {
         setLoading(false);
       }
     };
 
-    checkSession();
-
-    // Listen for auth state changes
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      async (_event, session) => {
-        setUser(session?.user || null);
-        setLoading(false);
-      }
-    );
-
-    return () => {
-      subscription.unsubscribe();
-    };
+    checkStoredSession();
   }, []);
 
   const signIn = async (email: string, password: string) => {
     setLoading(true);
     try {
-      // Use Supabase's built-in authentication
-      const { data, error } = await supabase.auth.signInWithPassword({
-        email,
-        password
-      });
+      // Simulate API delay
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      // Find user in mock data
+      const foundUser = users.find(u => 
+        u.email.toLowerCase() === email.toLowerCase() && 
+        u.password === password &&
+        u.isActive
+      );
 
-      if (error) {
-        throw new Error(error.message);
+      if (!foundUser) {
+        throw new Error('Invalid email or password');
       }
 
-      if (!data.user) {
-        throw new Error('Authentication failed');
-      }
+      // Update last login in mock data (in a real app, this would be persisted)
+      foundUser.lastLogin = new Date().toISOString();
 
-      // Optionally fetch additional user profile data from your users table
-      try {
-        const { data: userData, error: userError } = await supabase
-          .from('users')
-          .select('*')
-          .eq('email', email)
-          .eq('is_active', true)
-          .single();
-
-        if (userError || !userData) {
-          console.warn('Could not fetch user profile data:', userError);
-        } else {
-          // Update last login
-          await supabase
-            .from('users')
-            .update({ last_login: new Date().toISOString() })
-            .eq('id', userData.id);
-        }
-      } catch (profileError) {
-        console.warn('Error fetching user profile:', profileError);
-      }
-
-      setUser(data.user);
+      // Store session
+      localStorage.setItem('auth_user', JSON.stringify(foundUser));
+      setUser(foundUser);
     } catch (error: any) {
       console.error('Error signing in:', error);
       throw new Error(error.message || 'Login failed');
@@ -94,10 +76,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const signOut = async () => {
     setLoading(true);
     try {
-      const { error } = await supabase.auth.signOut();
-      if (error) {
-        throw error;
-      }
+      // Simulate API delay
+      await new Promise(resolve => setTimeout(resolve, 500));
+      
+      // Clear session
+      localStorage.removeItem('auth_user');
       setUser(null);
     } catch (error) {
       console.error('Error signing out:', error);

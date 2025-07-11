@@ -43,10 +43,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
     }
   };
 
-  const userInitials = user ? getInitials(
-    user.user_metadata?.first_name || user.email?.split('@')[0] || '',
-    user.user_metadata?.last_name || ''
-  ) : '';
+  const userInitials = user ? getInitials(user.firstName, user.lastName) : '';
 
   return (
     <>
@@ -119,14 +116,11 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
               </div>
               <div className="ml-3 flex-1 min-w-0">
                 <p className="text-sm font-medium text-gray-700 truncate">
-                  {user?.user_metadata?.first_name && user?.user_metadata?.last_name
-                    ? `${user.user_metadata.first_name} ${user.user_metadata.last_name}`
-                    : user?.email?.split('@')[0] || 'User'
-                  }
+                  {user ? `${user.firstName} ${user.lastName}` : 'User'}
                 </p>
                 <p className="text-xs text-gray-500 truncate">{user?.email}</p>
-                {user?.user_metadata?.role && (
-                  <p className="text-xs text-primary-600">{user.user_metadata.role}</p>
+                {user?.role && (
+                  <p className="text-xs text-primary-600">{user.role}</p>
                 )}
               </div>
             </div>
