@@ -6,7 +6,7 @@ import { cn } from '../../lib/utils';
 export function MobileNav() {
   const navItems = [
     { to: '/', icon: <Home size={20} />, label: 'Home' },
-    { to: '/customers', icon: <Users size={20} />, label: 'Customers' },
+    { to: '/clients', icon: <Users size={20} />, label: 'Clients' },
     { to: '/vehicles', icon: <Car size={20} />, label: 'Vehicles' },
     { to: '/check-in-out', icon: <ClipboardCheck size={20} />, label: 'Service' },
     { to: '/settings', icon: <Menu size={20} />, label: 'More' },

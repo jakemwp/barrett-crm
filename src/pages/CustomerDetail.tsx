@@ -132,9 +132,9 @@ export function CustomerDetail() {
   if (!customer || !formData) {
     return (
       <div className="text-center py-12">
-        <h2 className="text-2xl font-bold text-gray-900">Customer not found</h2>
-        <p className="mt-2 text-gray-600">The customer you're looking for doesn't exist.</p>
-        <Link to="/customers" className="mt-4 inline-block">
+        <h2 className="text-2xl font-bold text-gray-900">Client not found</h2>
+        <p className="mt-2 text-gray-600">The client you're looking for doesn't exist.</p>
+        <Link to="/clients" className="mt-4 inline-block">
           <Button variant="primary">Back to Customers</Button>
         </Link>
       </div>
@@ -162,7 +162,7 @@ export function CustomerDetail() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-4">
-          <Link to="/customers">
+          <Link to="/clients">
             <Button variant="outline" size="icon">
               <ArrowLeft size={20} />
             </Button>
@@ -206,7 +206,7 @@ export function CustomerDetail() {
                 Service Agreement
               </Button>
               <Button variant="primary" onClick={() => setIsEditing(true)} leftIcon={<Edit size={16} />}>
-                Edit Customer
+                Edit Client
               </Button>
             </>
           )}
@@ -220,7 +220,7 @@ export function CustomerDetail() {
             <CardHeader>
               <CardTitle className="flex items-center">
                 <User className="mr-2" size={20} />
-                Customer Information
+              Client Information
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">

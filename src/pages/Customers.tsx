@@ -154,10 +154,10 @@ export function Customers() {
         <div>
           <h1 className="text-2xl font-bold text-gray-900 flex items-center">
             <Users className="mr-3" size={28} />
-            Customers
+            Clients
           </h1>
           <p className="text-gray-600 mt-1">
-            Manage your storage customers and their information
+            Manage your storage clients and their information
           </p>
         </div>
         
@@ -165,9 +165,9 @@ export function Customers() {
           <Button variant="outline" leftIcon={<Download size={16} />}>
             Export
           </Button>
-          <Link to="/customers/new">
+          <Link to="/clients/new">
             <Button variant="primary" leftIcon={<Plus size={16} />}>
-              Add Customer
+              Add Client
             </Button>
           </Link>
         </div>
@@ -178,7 +178,7 @@ export function Customers() {
         <div className="bg-white rounded-lg border border-gray-200 p-4">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm font-medium text-gray-500">Total Customers</p>
+              <p className="text-sm font-medium text-gray-500">Total Clients</p>
               <p className="text-2xl font-bold text-gray-900">{customers.length}</p>
             </div>
             <Users className="h-8 w-8 text-primary-600" />
@@ -227,7 +227,7 @@ export function Customers() {
             <div className="relative">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
               <Input
-                placeholder="Search customers by name, email, phone, or location..."
+                placeholder="Search clients by name, email, phone, or location..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="pl-10"
@@ -309,7 +309,7 @@ export function Customers() {
       <div className="bg-white rounded-lg border border-gray-200 p-6">
         <div className="flex items-center justify-between mb-6">
           <h2 className="text-lg font-semibold text-gray-900">
-            {filteredAndSortedCustomers.length} Customer{filteredAndSortedCustomers.length !== 1 ? 's' : ''}
+            {filteredAndSortedCustomers.length} Client{filteredAndSortedCustomers.length !== 1 ? 's' : ''}
           </h2>
           
           {(searchTerm || typeFilter !== 'all' || membershipFilter !== 'all') && (
@@ -344,17 +344,17 @@ export function Customers() {
         ) : (
           <div className="text-center py-12">
             <Users className="mx-auto h-12 w-12 text-gray-400" />
-            <h3 className="mt-2 text-sm font-medium text-gray-900">No customers found</h3>
+            <h3 className="mt-2 text-sm font-medium text-gray-900">No clients found</h3>
             <p className="mt-1 text-sm text-gray-500">
               {searchTerm || typeFilter !== 'all' || membershipFilter !== 'all'
                 ? 'Try adjusting your search or filter criteria.'
-                : 'Get started by adding your first customer.'}
+                : 'Get started by adding your first client.'}
             </p>
             {!(searchTerm || typeFilter !== 'all' || membershipFilter !== 'all') && (
               <div className="mt-6">
-                <Link to="/customers/new">
+                <Link to="/clients/new">
                   <Button variant="primary" leftIcon={<Plus size={16} />}>
-                    Add Customer
+                    Add Client
                   </Button>
                 </Link>
               </div>

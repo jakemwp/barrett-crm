@@ -35,9 +35,9 @@ export function TopBar({ onMenuClick }: TopBarProps) {
         
         {/* Right side: Actions */}
         <div className="flex items-center space-x-4">
-          <Link to="/customers/new">
+          <Link to="/clients/new">
             <Button variant="primary" size="sm">
-              + Add Customer
+              + Add Client
             </Button>
           </Link>
           

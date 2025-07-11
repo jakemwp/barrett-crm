@@ -22,7 +22,7 @@ interface SidebarProps {
 export function Sidebar({ isOpen, onClose }: SidebarProps) {
   const navItems = [
     { to: '/', icon: <Home size={20} />, label: 'Dashboard' },
-    { to: '/customers', icon: <Users size={20} />, label: 'Customers' },
+    { to: '/clients', icon: <Users size={20} />, label: 'Clients' },
     { to: '/vehicles', icon: <Car size={20} />, label: 'Vehicles' },
     { to: '/check-in-out', icon: <ClipboardCheck size={20} />, label: 'Check In/Out' },
     { to: '/settings', icon: <Settings size={20} />, label: 'Settings' },

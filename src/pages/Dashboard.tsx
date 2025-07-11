@@ -56,9 +56,9 @@ export function Dashboard() {
       <div className="flex justify-between items-center">
         <h1 className="text-2xl font-bold text-gray-900">Dashboard</h1>
         <div className="flex space-x-2">
-          <Link to="/customers/new">
+          <Link to="/clients/new">
             <Button variant="primary" leftIcon={<Users size={16} />}>
-              Add Customer
+              Add Client
             </Button>
           </Link>
           <Link to="/vehicles/new">
@@ -75,7 +75,7 @@ export function Dashboard() {
           <CardContent className="p-6">
             <div className="flex justify-between">
               <div>
-                <p className="text-sm font-medium text-gray-500">Total Customers</p>
+                <p className="text-sm font-medium text-gray-500">Total Clients</p>
                 <p className="text-3xl font-bold text-gray-900 mt-2">{customers.length}</p>
               </div>
               <div className="h-12 w-12 rounded-full bg-primary-100 flex items-center justify-center text-primary-600">
@@ -83,8 +83,8 @@ export function Dashboard() {
               </div>
             </div>
             <div className="mt-4">
-              <Link to="/customers" className="text-sm font-medium text-primary-600 hover:text-primary-800 flex items-center">
-                View All Customers
+              <Link to="/clients" className="text-sm font-medium text-primary-600 hover:text-primary-800 flex items-center">
+                View All Clients
                 <ArrowRight size={16} className="ml-1" />
               </Link>
             </div>
@@ -149,13 +149,13 @@ export function Dashboard() {
               </Button>
             </Link>
             
-            <Link to="/customers/new">
+            <Link to="/clients/new">
               <Button 
                 className="h-auto py-6 flex flex-col items-center justify-center space-y-2 w-full"
                 variant="outline"
               >
                 <Users size={24} />
-                <span>Add Customer</span>
+                <span>Add Client</span>
               </Button>
             </Link>
             

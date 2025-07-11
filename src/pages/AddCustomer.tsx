@@ -149,7 +149,7 @@ export function AddCustomer() {
   };
 
   const handleCancel = () => {
-    navigate('/customers');
+    navigate('/clients');
   };
 
   // Auto-generate storage location based on type and membership
@@ -215,7 +215,7 @@ export function AddCustomer() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-4">
-          <Link to="/customers">
+          <Link to="/clients">
             <Button variant="outline" size="icon">
               <ArrowLeft size={20} />
             </Button>
@@ -224,10 +224,10 @@ export function AddCustomer() {
           <div>
             <h1 className="text-2xl font-bold text-gray-900 flex items-center">
               <Users className="mr-3" size={28} />
-              Add Customer
+              Add Client
             </h1>
             <p className="text-gray-600 mt-1">
-              Create a new customer account with storage information
+              Create a new client account with storage information
             </p>
           </div>
         </div>
@@ -236,7 +236,7 @@ export function AddCustomer() {
           {saveStatus === 'success' && (
             <div className="flex items-center text-green-600 mr-4">
               <CheckCircle size={16} className="mr-1" />
-              <span className="text-sm">Customer created successfully!</span>
+              <span className="text-sm">Client created successfully!</span>
             </div>
           )}
           
@@ -261,7 +261,7 @@ export function AddCustomer() {
             leftIcon={<Save size={16} />}
             isLoading={saveStatus === 'saving'}
           >
-            {saveStatus === 'saving' ? 'Creating Customer...' : 'Create Customer'}
+            {saveStatus === 'saving' ? 'Creating Client...' : 'Create Client'}
           </Button>
         </div>
       </div>
@@ -273,7 +273,7 @@ export function AddCustomer() {
             <CardHeader>
               <CardTitle className="flex items-center">
                 <User className="mr-2" size={20} />
-                Customer Information
+                Client Information
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
@@ -447,7 +447,7 @@ export function AddCustomer() {
           {/* Customer Preview */}
           <Card>
             <CardHeader>
-              <CardTitle>Customer Preview</CardTitle>
+              <CardTitle>Client Preview</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="text-center">

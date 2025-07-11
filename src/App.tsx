@@ -21,9 +21,13 @@ function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/" element={<MainLayout />}>
         <Route index element={<Dashboard />} />
-        <Route path="customers" element={<Customers />} />
-        <Route path="customers/new" element={<AddCustomer />} />
-        <Route path="customers/:id" element={<CustomerDetail />} />
+        <Route path="clients" element={<Customers />} />
+        <Route path="clients/new" element={<AddCustomer />} />
+        <Route path="clients/:id" element={<CustomerDetail />} />
+        {/* Legacy routes for backward compatibility */}
+        <Route path="customers" element={<Navigate to="/clients" replace />} />
+        <Route path="customers/new" element={<Navigate to="/clients/new" replace />} />
+        <Route path="customers/:id" element={<Navigate to="/clients/$1" replace />} />
         <Route path="vehicles" element={<Vehicles />} />
         <Route path="vehicles/new" element={<AddVehicle />} />
         <Route path="vehicles/:id" element={<VehicleDetail />} />
