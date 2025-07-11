@@ -18,7 +18,8 @@ export function CustomerCard({ customer }: CustomerCardProps) {
     'Basic': 'default',
     'Premium': 'warning',
     'VIP': 'success',
-    'Enterprise': 'error'
+    'Enterprise': 'error',
+    'Archived': 'outline'
   } as const;
 
   const typeColors = {

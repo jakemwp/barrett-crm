@@ -3,7 +3,7 @@ export interface Customer {
   firstName: string | null;
   lastName: string | null;
   type: 'Individual' | 'Business';
-  membershipLevel: 'Basic' | 'Premium' | 'VIP' | 'Enterprise';
+  membershipLevel: 'Basic' | 'Premium' | 'VIP' | 'Enterprise' | 'Archived';
   storageLocation: string | null;
   email: string | null;
   phone: string | null;
