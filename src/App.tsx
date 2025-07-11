@@ -27,7 +27,7 @@ function App() {
         {/* Legacy routes for backward compatibility */}
         <Route path="customers" element={<Navigate to="/clients" replace />} />
         <Route path="customers/new" element={<Navigate to="/clients/new" replace />} />
-        <Route path="customers/:id" element={<Navigate to="/clients/$1" replace />} />
+        <Route path="customers/:id" element={<CustomerDetail />} />
         <Route path="vehicles" element={<Vehicles />} />
         <Route path="vehicles/new" element={<AddVehicle />} />
         <Route path="vehicles/:id" element={<VehicleDetail />} />

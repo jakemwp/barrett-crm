@@ -68,15 +68,15 @@ export function CustomerDetail() {
 
   useEffect(() => {
     if (id) {
-      const customerData = getCustomerById(id);
+      const clientData = getCustomerById(id);
       const vehicleData = getVehiclesByCustomerId(id);
       
-      if (customerData) {
-        setCustomer(customerData);
-        setFormData(customerData);
+      if (clientData) {
+        setCustomer(clientData);
+        setFormData(clientData);
         setVehicles(vehicleData);
       } else {
-        navigate('/customers');
+        navigate('/clients');
       }
       setLoading(false);
     }
@@ -261,6 +261,7 @@ export function CustomerDetail() {
                       { value: 'Premium', label: 'Premium' },
                       { value: 'VIP', label: 'VIP' },
                       { value: 'Enterprise', label: 'Enterprise' },
+                      { value: 'Archived', label: 'Archived' },
                     ]}
                   />
                 </div>
