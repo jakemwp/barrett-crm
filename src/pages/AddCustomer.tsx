@@ -198,6 +198,7 @@ export function AddCustomer() {
       'Premium': 150,
       'VIP': 200,
       'Enterprise': 300,
+      'Archived': 0,
     };
     
     const basePrice = pricingMap[formData.membershipLevel];
@@ -313,6 +314,7 @@ export function AddCustomer() {
                       { value: 'Premium', label: 'Premium' },
                       { value: 'VIP', label: 'VIP' },
                       { value: 'Enterprise', label: 'Enterprise' },
+                      { value: 'Archived', label: 'Archived' },
                     ]}
                   />
                 </div>
@@ -387,7 +389,7 @@ export function AddCustomer() {
                     onChange={(e) => handleInputChange('storageLocation', e.target.value)}
                     error={errors.storageLocation}
                     placeholder="Building A - Section 1"
-                    helperText="Auto-generated based on type and membership"
+                    helperText={formData.membershipLevel === 'Archived' ? 'Archived customers may not have active storage' : 'Auto-generated based on type and membership'}
                   />
                   <Input
                     label="Storage Spots *"

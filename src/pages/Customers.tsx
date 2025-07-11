@@ -61,7 +61,7 @@ export function Customers() {
           bValue = new Date(b.dateCreated).getTime();
           break;
         case 'membershipLevel':
-          const membershipOrder = { 'Basic': 1, 'Premium': 2, 'VIP': 3, 'Enterprise': 4 };
+          const membershipOrder = { 'Basic': 1, 'Premium': 2, 'VIP': 3, 'Enterprise': 4, 'Archived': 5 };
           aValue = membershipOrder[a.membershipLevel];
           bValue = membershipOrder[b.membershipLevel];
           break;
@@ -256,6 +256,7 @@ export function Customers() {
                 { value: 'Premium', label: 'Premium' },
                 { value: 'VIP', label: 'VIP' },
                 { value: 'Enterprise', label: 'Enterprise' },
+                { value: 'Archived', label: 'Archived' },
               ]}
             />
             
