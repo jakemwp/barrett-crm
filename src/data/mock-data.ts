@@ -7359,6 +7359,15 @@ export function updateUser(id: string, updates: Partial<User>): User | undefined
   users[userIndex] = updatedUser;
   return updatedUser;
 }
+// Authentication function for mock data
+export function authenticateUser(email: string, password: string): User | null {
+  return users.find(u => 
+    u.email.toLowerCase() === email.toLowerCase() && 
+    u.password === password &&
+    u.isActive
+  ) || null;
+}
+
 
 export function getCustomerById(id: string): Customer | undefined {
   return customers.find(customer => customer.id === id);

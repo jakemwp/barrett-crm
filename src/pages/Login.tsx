@@ -12,7 +12,7 @@ import {
 import { Button } from '../components/ui/Button';
 import { Input } from '../components/ui/Input';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/Card';
-import { users } from '../data/mock-data';
+import { users, authenticateUser } from '../data/mock-data';
 
 export function Login() {
   const navigate = useNavigate();
@@ -52,12 +52,8 @@ export function Login() {
       // Simulate API call delay
       await new Promise(resolve => setTimeout(resolve, 1000));
 
-      // Check credentials against mock users
-      const user = users.find(u => 
-        u.email.toLowerCase() === formData.email.toLowerCase() && 
-        u.password === formData.password &&
-        u.isActive
-      );
+      // Use mock authentication
+      const user = authenticateUser(formData.email, formData.password);
 
       if (user) {
         setLoginStatus('success');
