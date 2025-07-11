@@ -13,7 +13,6 @@ import { Button } from '../components/ui/Button';
 import { Input } from '../components/ui/Input';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/Card';
 import { useAuth } from '../contexts/AuthContext';
-import { users } from '../data/mock-data';
 
 export function Login() {
   const navigate = useNavigate();
@@ -64,12 +63,15 @@ export function Login() {
     }
   };
 
-  const fillDemoCredentials = (email: string, password: string) => {
-    setFormData({ email, password });
-  };
+  const fillDemoCredentials = (role: 'admin' | 'manager' | 'staff') => {
+    const demoUsers = {
+      admin: { email: 'admin@autoservice.com', password: 'admin123' },
+      manager: { email: 'john.manager@autoservice.com', password: 'manager123' },
+      staff: { email: 'sarah.staff@autoservice.com', password: 'staff123' },
+    };
 
-  // Get demo users from mock data
-  const demoUsers = users.filter(user => user.isActive).slice(0, 4);
+    setFormData(demoUsers[role]);
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-primary-50 to-secondary-50 flex items-center justify-center p-4">
@@ -157,34 +159,49 @@ export function Login() {
 
             {/* Demo Credentials */}
             <div className="mt-8 pt-6 border-t border-gray-200">
-              <p className="text-sm text-gray-600 text-center mb-4">Demo Accounts (for testing):</p>
+              <p className="text-sm text-gray-600 text-center mb-4">Demo Accounts:</p>
               <div className="space-y-2">
-                {demoUsers.map((user) => (
-                  <Button
-                    key={user.id}
-                    variant="outline"
-                    size="sm"
-                    className="w-full text-left justify-start"
-                    onClick={() => fillDemoCredentials(user.email, user.password)}
-                    disabled={loginStatus === 'loading' || loginStatus === 'success'}
-                  >
-                    <div className="flex items-center w-full">
-                      <div className={`w-2 h-2 rounded-full mr-2 ${
-                        user.role === 'Admin' ? 'bg-red-500' :
-                        user.role === 'Manager' ? 'bg-yellow-500' :
-                        user.role === 'Staff' ? 'bg-blue-500' : 'bg-gray-500'
-                      }`}></div>
-                      <span className="font-medium">{user.firstName} {user.lastName}</span>
-                      <span className="ml-auto text-xs text-gray-500">{user.role}</span>
-                    </div>
-                  </Button>
-                ))}
-              </div>
-              
-              <div className="mt-4 text-center">
-                <p className="text-xs text-gray-500">
-                  Click any demo account to auto-fill credentials, then click "Sign In"
-                </p>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="w-full text-left justify-start"
+                  onClick={() => fillDemoCredentials('admin')}
+                  disabled={loginStatus === 'loading' || loginStatus === 'success'}
+                >
+                  <div className="flex items-center">
+                    <div className="w-2 h-2 bg-red-500 rounded-full mr-2"></div>
+                    <span className="font-medium">Administrator</span>
+                    <span className="ml-auto text-xs text-gray-500">Full Access</span>
+                  </div>
+                </Button>
+                
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="w-full text-left justify-start"
+                  onClick={() => fillDemoCredentials('manager')}
+                  disabled={loginStatus === 'loading' || loginStatus === 'success'}
+                >
+                  <div className="flex items-center">
+                    <div className="w-2 h-2 bg-yellow-500 rounded-full mr-2"></div>
+                    <span className="font-medium">Manager</span>
+                    <span className="ml-auto text-xs text-gray-500">Management Access</span>
+                  </div>
+                </Button>
+                
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="w-full text-left justify-start"
+                  onClick={() => fillDemoCredentials('staff')}
+                  disabled={loginStatus === 'loading' || loginStatus === 'success'}
+                >
+                  <div className="flex items-center">
+                    <div className="w-2 h-2 bg-blue-500 rounded-full mr-2"></div>
+                    <span className="font-medium">Staff Member</span>
+                    <span className="ml-auto text-xs text-gray-500">Standard Access</span>
+                  </div>
+                </Button>
               </div>
             </div>
 

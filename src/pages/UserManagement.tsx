@@ -1,4 +1,5 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { 
   Users, 
   Plus, 
@@ -24,16 +25,31 @@ import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/Card'
 import { Badge } from '../components/ui/Badge';
 import { Avatar } from '../components/ui/Avatar';
 import { Modal } from '../components/ui/Modal';
-import { getInitials, formatDate, generateId } from '../lib/utils';
-import { users, addUser, updateUser } from '../data/mock-data';
-import { User } from '../types';
+import { getInitials, formatDate } from '../lib/utils';
+import { supabase } from '../lib/supabase-client';
+
+interface User {
+  id: string;
+  first_name: string;
+  last_name: string;
+  email: string;
+  role: 'Admin' | 'Manager' | 'Staff' | 'Viewer';
+  avatar?: string | null;
+  phone?: string | null;
+  department?: string | null;
+  last_login?: string | null;
+  is_active: boolean;
+  created_at: string;
+  updated_at: string;
+}
 
 type ViewMode = 'grid' | 'list';
-type SortField = 'name' | 'email' | 'role' | 'createdAt' | 'lastLogin';
+type SortField = 'name' | 'email' | 'role' | 'created_at' | 'last_login';
 type SortOrder = 'asc' | 'desc';
 
 export function UserManagement() {
-  const [userList, setUserList] = useState<User[]>(users);
+  const [users, setUsers] = useState<User[]>([]);
+  const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
   const [roleFilter, setRoleFilter] = useState('all');
   const [statusFilter, setStatusFilter] = useState('all');
@@ -42,28 +58,42 @@ export function UserManagement() {
   const [sortOrder, setSortOrder] = useState<SortOrder>('asc');
   const [showCreateModal, setShowCreateModal] = useState(false);
   const [createUserForm, setCreateUserForm] = useState({
-    firstName: '',
-    lastName: '',
+    first_name: '',
+    last_name: '',
     email: '',
     password: '',
     role: 'Staff' as User['role'],
     phone: '',
     department: '',
-    isActive: true,
+    is_active: true,
   });
   const [showPassword, setShowPassword] = useState(false);
   const [createStatus, setCreateStatus] = useState<'idle' | 'creating' | 'success' | 'error'>('idle');
   const [createError, setCreateError] = useState('');
 
-  const handleCreateUser = async () => {
-    if (!createUserForm.firstName || !createUserForm.lastName || !createUserForm.email || !createUserForm.password) {
-      setCreateError('Please fill in all required fields');
-      return;
-    }
+  useEffect(() => {
+    fetchUsers();
+  }, []);
 
-    // Check if email already exists
-    if (userList.some(user => user.email.toLowerCase() === createUserForm.email.toLowerCase())) {
-      setCreateError('A user with this email already exists');
+  const fetchUsers = async () => {
+    try {
+      const { data, error } = await supabase
+        .from('users')
+        .select('*')
+        .order('first_name');
+      
+      if (error) throw error;
+      setUsers(data || []);
+    } catch (error) {
+      console.error('Error fetching users:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleCreateUser = async () => {
+    if (!createUserForm.first_name || !createUserForm.last_name || !createUserForm.email || !createUserForm.password) {
+      setCreateError('Please fill in all required fields');
       return;
     }
 
@@ -71,33 +101,36 @@ export function UserManagement() {
     setCreateError('');
 
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      const newUser = addUser({
-        firstName: createUserForm.firstName,
-        lastName: createUserForm.lastName,
-        email: createUserForm.email,
-        password: createUserForm.password,
-        role: createUserForm.role,
-        phone: createUserForm.phone || null,
-        department: createUserForm.department || null,
-        isActive: createUserForm.isActive,
-      });
+      const { data, error } = await supabase
+        .from('users')
+        .insert([{
+          first_name: createUserForm.first_name,
+          last_name: createUserForm.last_name,
+          email: createUserForm.email,
+          password: createUserForm.password, // In production, this should be hashed
+          role: createUserForm.role,
+          phone: createUserForm.phone || null,
+          department: createUserForm.department || null,
+          is_active: createUserForm.is_active,
+        }])
+        .select()
+        .single();
 
-      setUserList(prev => [...prev, newUser]);
+      if (error) throw error;
+
+      setUsers(prev => [...prev, data]);
       setCreateStatus('success');
       
       // Reset form
       setCreateUserForm({
-        firstName: '',
-        lastName: '',
+        first_name: '',
+        last_name: '',
         email: '',
         password: '',
         role: 'Staff',
         phone: '',
         department: '',
-        isActive: true,
+        is_active: true,
       });
 
       setTimeout(() => {
@@ -112,29 +145,33 @@ export function UserManagement() {
 
   const toggleUserStatus = async (userId: string, currentStatus: boolean) => {
     try {
-      const updatedUser = updateUser(userId, { isActive: !currentStatus });
-      if (updatedUser) {
-        setUserList(prev => prev.map(user => 
-          user.id === userId ? updatedUser : user
-        ));
-      }
+      const { error } = await supabase
+        .from('users')
+        .update({ is_active: !currentStatus })
+        .eq('id', userId);
+
+      if (error) throw error;
+
+      setUsers(prev => prev.map(user => 
+        user.id === userId ? { ...user, is_active: !currentStatus } : user
+      ));
     } catch (error) {
       console.error('Error updating user status:', error);
     }
   };
 
-  const filteredAndSortedUsers = useMemo(() => {
-    let filtered = userList.filter(user => {
+  const filteredAndSortedUsers = React.useMemo(() => {
+    let filtered = users.filter(user => {
       const matchesSearch = 
-        user.firstName.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        user.lastName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        user.first_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        user.last_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
         user.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
         (user.department && user.department.toLowerCase().includes(searchTerm.toLowerCase()));
       
       const matchesRole = roleFilter === 'all' || user.role === roleFilter;
       const matchesStatus = statusFilter === 'all' || 
-        (statusFilter === 'active' && user.isActive) ||
-        (statusFilter === 'inactive' && !user.isActive);
+        (statusFilter === 'active' && user.is_active) ||
+        (statusFilter === 'inactive' && !user.is_active);
       
       return matchesSearch && matchesRole && matchesStatus;
     });
@@ -146,8 +183,8 @@ export function UserManagement() {
 
       switch (sortField) {
         case 'name':
-          aValue = `${a.firstName} ${a.lastName}`;
-          bValue = `${b.firstName} ${b.lastName}`;
+          aValue = `${a.first_name} ${a.last_name}`;
+          bValue = `${b.first_name} ${b.last_name}`;
           break;
         case 'email':
           aValue = a.email;
@@ -157,17 +194,17 @@ export function UserManagement() {
           aValue = a.role;
           bValue = b.role;
           break;
-        case 'createdAt':
-          aValue = new Date(a.createdAt).getTime();
-          bValue = new Date(b.createdAt).getTime();
+        case 'created_at':
+          aValue = new Date(a.created_at).getTime();
+          bValue = new Date(b.created_at).getTime();
           break;
-        case 'lastLogin':
-          aValue = a.lastLogin ? new Date(a.lastLogin).getTime() : 0;
-          bValue = b.lastLogin ? new Date(b.lastLogin).getTime() : 0;
+        case 'last_login':
+          aValue = a.last_login ? new Date(a.last_login).getTime() : 0;
+          bValue = b.last_login ? new Date(b.last_login).getTime() : 0;
           break;
         default:
-          aValue = `${a.firstName} ${a.lastName}`;
-          bValue = `${b.firstName} ${b.lastName}`;
+          aValue = `${a.first_name} ${a.last_name}`;
+          bValue = `${b.first_name} ${b.last_name}`;
       }
 
       if (typeof aValue === 'string' && typeof bValue === 'string') {
@@ -182,7 +219,7 @@ export function UserManagement() {
     });
 
     return filtered;
-  }, [userList, searchTerm, roleFilter, statusFilter, sortField, sortOrder]);
+  }, [users, searchTerm, roleFilter, statusFilter, sortField, sortOrder]);
 
   const toggleSort = (field: SortField) => {
     if (sortField === field) {
@@ -201,7 +238,7 @@ export function UserManagement() {
   } as const;
 
   const UserCard = ({ user }: { user: User }) => {
-    const initials = getInitials(user.firstName, user.lastName);
+    const initials = getInitials(user.first_name, user.last_name);
     
     return (
       <Card className="h-full hover:shadow-md transition-shadow duration-200">
@@ -219,7 +256,7 @@ export function UserManagement() {
             
             <div className="flex-1 min-w-0">
               <h3 className="text-lg font-semibold text-gray-900 truncate">
-                {user.firstName} {user.lastName}
+                {user.first_name} {user.last_name}
               </h3>
               <p className="text-sm text-gray-600 truncate">{user.email}</p>
               
@@ -227,8 +264,8 @@ export function UserManagement() {
                 <Badge variant={roleColors[user.role]} className="text-xs">
                   {user.role}
                 </Badge>
-                <Badge variant={user.isActive ? 'success' : 'outline'} className="text-xs">
-                  {user.isActive ? 'Active' : 'Inactive'}
+                <Badge variant={user.is_active ? 'success' : 'outline'} className="text-xs">
+                  {user.is_active ? 'Active' : 'Inactive'}
                 </Badge>
               </div>
             </div>
@@ -249,12 +286,12 @@ export function UserManagement() {
             )}
             <div className="flex items-center text-gray-600">
               <span className="font-medium mr-2">Created:</span>
-              <span>{formatDate(user.createdAt)}</span>
+              <span>{formatDate(user.created_at)}</span>
             </div>
-            {user.lastLogin && (
+            {user.last_login && (
               <div className="flex items-center text-gray-600">
                 <span className="font-medium mr-2">Last Login:</span>
-                <span>{formatDate(user.lastLogin)}</span>
+                <span>{formatDate(user.last_login)}</span>
               </div>
             )}
           </div>
@@ -264,12 +301,12 @@ export function UserManagement() {
               Edit
             </Button>
             <Button 
-              variant={user.isActive ? 'outline' : 'primary'} 
+              variant={user.is_active ? 'outline' : 'primary'} 
               size="sm" 
-              onClick={() => toggleUserStatus(user.id, user.isActive)}
-              leftIcon={user.isActive ? <XCircle size={14} /> : <CheckCircle size={14} />}
+              onClick={() => toggleUserStatus(user.id, user.is_active)}
+              leftIcon={user.is_active ? <XCircle size={14} /> : <CheckCircle size={14} />}
             >
-              {user.isActive ? 'Deactivate' : 'Activate'}
+              {user.is_active ? 'Deactivate' : 'Activate'}
             </Button>
           </div>
         </CardContent>
@@ -278,7 +315,7 @@ export function UserManagement() {
   };
 
   const UserListItem = ({ user }: { user: User }) => {
-    const initials = getInitials(user.firstName, user.lastName);
+    const initials = getInitials(user.first_name, user.last_name);
     
     return (
       <tr className="border-b border-gray-100 hover:bg-gray-50">
@@ -295,7 +332,7 @@ export function UserManagement() {
             )}
             <div>
               <div className="font-medium text-gray-900">
-                {user.firstName} {user.lastName}
+                {user.first_name} {user.last_name}
               </div>
               <div className="text-sm text-gray-500">{user.email}</div>
             </div>
@@ -310,13 +347,13 @@ export function UserManagement() {
           <span className="text-sm text-gray-900">{user.department || '-'}</span>
         </td>
         <td className="py-4 px-4">
-          <Badge variant={user.isActive ? 'success' : 'outline'} className="text-xs">
-            {user.isActive ? 'Active' : 'Inactive'}
+          <Badge variant={user.is_active ? 'success' : 'outline'} className="text-xs">
+            {user.is_active ? 'Active' : 'Inactive'}
           </Badge>
         </td>
         <td className="py-4 px-4">
           <span className="text-sm text-gray-600">
-            {user.lastLogin ? formatDate(user.lastLogin) : 'Never'}
+            {user.last_login ? formatDate(user.last_login) : 'Never'}
           </span>
         </td>
         <td className="py-4 px-4">
@@ -327,16 +364,24 @@ export function UserManagement() {
             <Button 
               variant="ghost" 
               size="sm" 
-              onClick={() => toggleUserStatus(user.id, user.isActive)}
-              leftIcon={user.isActive ? <XCircle size={14} /> : <CheckCircle size={14} />}
+              onClick={() => toggleUserStatus(user.id, user.is_active)}
+              leftIcon={user.is_active ? <XCircle size={14} /> : <CheckCircle size={14} />}
             >
-              {user.isActive ? 'Deactivate' : 'Activate'}
+              {user.is_active ? 'Deactivate' : 'Activate'}
             </Button>
           </div>
         </td>
       </tr>
     );
   };
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-primary-600"></div>
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-6 pb-16">
@@ -372,7 +417,7 @@ export function UserManagement() {
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm font-medium text-gray-500">Total Users</p>
-              <p className="text-2xl font-bold text-gray-900">{userList.length}</p>
+              <p className="text-2xl font-bold text-gray-900">{users.length}</p>
             </div>
             <Users className="h-8 w-8 text-primary-600" />
           </div>
@@ -383,7 +428,7 @@ export function UserManagement() {
             <div>
               <p className="text-sm font-medium text-gray-500">Active Users</p>
               <p className="text-2xl font-bold text-green-600">
-                {userList.filter(u => u.isActive).length}
+                {users.filter(u => u.is_active).length}
               </p>
             </div>
             <CheckCircle className="h-8 w-8 text-green-600" />
@@ -395,7 +440,7 @@ export function UserManagement() {
             <div>
               <p className="text-sm font-medium text-gray-500">Administrators</p>
               <p className="text-2xl font-bold text-red-600">
-                {userList.filter(u => u.role === 'Admin').length}
+                {users.filter(u => u.role === 'Admin').length}
               </p>
             </div>
             <Shield className="h-8 w-8 text-red-600" />
@@ -407,7 +452,7 @@ export function UserManagement() {
             <div>
               <p className="text-sm font-medium text-gray-500">Staff Members</p>
               <p className="text-2xl font-bold text-blue-600">
-                {userList.filter(u => u.role === 'Staff').length}
+                {users.filter(u => u.role === 'Staff').length}
               </p>
             </div>
             <Users className="h-8 w-8 text-blue-600" />
@@ -479,8 +524,8 @@ export function UserManagement() {
             { field: 'name' as SortField, label: 'Name' },
             { field: 'email' as SortField, label: 'Email' },
             { field: 'role' as SortField, label: 'Role' },
-            { field: 'createdAt' as SortField, label: 'Created' },
-            { field: 'lastLogin' as SortField, label: 'Last Login' },
+            { field: 'created_at' as SortField, label: 'Created' },
+            { field: 'last_login' as SortField, label: 'Last Login' },
           ].map(({ field, label }) => (
             <Button
               key={field}
@@ -606,15 +651,15 @@ export function UserManagement() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <Input
               label="First Name *"
-              value={createUserForm.firstName}
-              onChange={(e) => setCreateUserForm(prev => ({ ...prev, firstName: e.target.value }))}
+              value={createUserForm.first_name}
+              onChange={(e) => setCreateUserForm(prev => ({ ...prev, first_name: e.target.value }))}
               placeholder="Enter first name"
               disabled={createStatus === 'creating'}
             />
             <Input
               label="Last Name *"
-              value={createUserForm.lastName}
-              onChange={(e) => setCreateUserForm(prev => ({ ...prev, lastName: e.target.value }))}
+              value={createUserForm.last_name}
+              onChange={(e) => setCreateUserForm(prev => ({ ...prev, last_name: e.target.value }))}
               placeholder="Enter last name"
               disabled={createStatus === 'creating'}
             />
@@ -677,8 +722,8 @@ export function UserManagement() {
             <label className="flex items-center space-x-2">
               <input
                 type="checkbox"
-                checked={createUserForm.isActive}
-                onChange={(e) => setCreateUserForm(prev => ({ ...prev, isActive: e.target.checked }))}
+                checked={createUserForm.is_active}
+                onChange={(e) => setCreateUserForm(prev => ({ ...prev, is_active: e.target.checked }))}
                 disabled={createStatus === 'creating'}
                 className="checkbox"
               />
