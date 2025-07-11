@@ -241,7 +241,7 @@ export function CheckInOutList() {
             <div className="flex-1 space-y-3">
               <div className="flex items-center text-sm text-gray-700">
                 <User size={16} className="flex-shrink-0 mr-2 text-gray-400" />
-                <Link to={`/customers/${record.customerId}`} className="font-medium hover:text-primary-600">
+                <Link to={`/clients/${record.customerId}`} className="font-medium hover:text-primary-600">
                   {customerName}
                 </Link>
               </div>
@@ -379,7 +379,7 @@ export function CheckInOutList() {
           </div>
         </td>
         <td className="py-4 px-4">
-          <Link to={`/customers/${record.customerId}`} className="text-sm font-medium text-primary-600 hover:underline">
+          <Link to={`/clients/${record.customerId}`} className="text-sm font-medium text-primary-600 hover:underline">
             {customerName}
           </Link>
         </td>

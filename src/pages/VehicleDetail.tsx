@@ -200,7 +200,7 @@ export function VehicleDetail() {
               </h1>
               <p className="text-sm text-gray-600">{vehicle.licensePlate} • VIN: {vehicle.vin}</p>
               <p className="text-sm text-gray-500">
-                Owner: <Link to={`/customers/${vehicle.customerId}`} className="text-primary-600 hover:underline">
+                Owner: <Link to={`/clients/${vehicle.customerId}`} className="text-primary-600 hover:underline">
                   {customerName}
                 </Link>
               </p>
@@ -643,7 +643,7 @@ export function VehicleDetail() {
                   <div className="flex items-center space-x-3">
                     <Avatar initials={getInitials(customer.firstName, customer.lastName)} size="sm" />
                     <div>
-                      <Link to={`/customers/${customer.id}`} className="font-medium text-primary-600 hover:underline">
+                      <Link to={`/clients/${customer.id}`} className="font-medium text-primary-600 hover:underline">
                         {customerName}
                       </Link>
                       <p className="text-xs text-gray-500">{customer.type} • {customer.membershipLevel}</p>

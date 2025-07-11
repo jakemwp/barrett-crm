@@ -255,7 +255,7 @@ export function ServiceSignupModal({ isOpen, onClose, customer, onSignatureCompl
                 <CardHeader>
                   <CardTitle className="flex items-center">
                     <User className="mr-2" size={20} />
-                    Customer Information
+                    Client Information
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-3">

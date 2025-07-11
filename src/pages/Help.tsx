@@ -59,18 +59,18 @@ export function Help() {
   const guides: GuideSection[] = [
     {
       id: 'customers',
-      title: 'Managing Customers',
+      title: 'Managing Clients',
       icon: <Users size={20} />,
-      description: 'Learn how to add, edit, and manage customer information',
+      description: 'Learn how to add, edit, and manage client information',
       steps: [
-        'Navigate to the Customers page from the sidebar',
-        'Click "Add Customer" to create a new customer record',
+        'Navigate to the Clients page from the sidebar',
+        'Click "Add Client" to create a new client record',
         'Fill in all required information including contact details and storage preferences',
         'Set the appropriate membership level (Basic, Premium, VIP, or Enterprise)',
         'Configure storage location and number of spots needed',
-        'Save the customer record to complete the setup',
-        'Use the search and filter options to find existing customers',
-        'Click on any customer card to view detailed information and edit as needed'
+        'Save the client record to complete the setup',
+        'Use the search and filter options to find existing clients',
+        'Click on any client card to view detailed information and edit as needed'
       ]
     },
     {
@@ -130,9 +130,9 @@ export function Help() {
   const faqs: FAQItem[] = [
     {
       id: 'faq1',
-      question: 'How do I add a new customer to the system?',
-      answer: 'Navigate to the Customers page and click the "Add Customer" button. Fill in all required fields including contact information, storage preferences, and membership level. The system will automatically generate storage location suggestions based on the customer type and membership level.',
-      category: 'customers'
+      question: 'How do I add a new client to the system?',
+      answer: 'Navigate to the Clients page and click the "Add Client" button. Fill in all required fields including contact information, storage preferences, and membership level. The system will automatically generate storage location suggestions based on the client type and membership level.',
+      category: 'clients'
     },
     {
       id: 'faq2',
@@ -161,8 +161,8 @@ export function Help() {
     {
       id: 'faq6',
       question: 'What are the different membership levels?',
-      answer: 'The system supports four membership levels: Basic (entry level), Premium (enhanced features), VIP (priority service), and Enterprise (corporate accounts). Each level can have different pricing and storage location assignments.',
-      category: 'customers'
+      answer: 'The system supports five membership levels: Basic (entry level), Premium (enhanced features), VIP (priority service), Enterprise (corporate accounts), and Archived (inactive accounts). Each level can have different pricing and storage location assignments.',
+      category: 'clients'
     }
   ];
 

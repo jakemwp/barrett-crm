@@ -74,7 +74,7 @@ export function CheckInOutCard({ checkInOut, customerName, vehicleInfo }: CheckI
           <div className="flex-1 space-y-3">
             <div className="flex items-center text-sm text-gray-700">
               <User size={16} className="flex-shrink-0 mr-2 text-gray-400" />
-              <Link to={`/customers/${checkInOut.customerId}`} className="font-medium hover:text-primary-600">
+              <Link to={`/clients/${checkInOut.customerId}`} className="font-medium hover:text-primary-600">
                 {customerName}
               </Link>
             </div>

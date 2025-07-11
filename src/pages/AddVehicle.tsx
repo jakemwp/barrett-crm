@@ -306,7 +306,7 @@ export function AddVehicle() {
 
   const selectedCustomer = formData.customerId ? getCustomerById(formData.customerId) : null;
 
-  const customerOptions = customers.map(customer => ({
+  const clientOptions = customers.map(customer => ({
     value: customer.id,
     label: `${customer.firstName} ${customer.lastName} (${customer.email})`,
   }));
@@ -396,13 +396,13 @@ export function AddVehicle() {
             </CardHeader>
             <CardContent>
               <Select
-                label="Customer *"
+                label="Client *"
                 value={formData.customerId}
                 onChange={(e) => handleCustomerChange(e.target.value)}
                 error={errors.customerId}
                 options={[
-                  { value: '', label: 'Select a customer...' },
-                  ...customerOptions,
+                  { value: '', label: 'Select a client...' },
+                  ...clientOptions,
                 ]}
               />
             </CardContent>

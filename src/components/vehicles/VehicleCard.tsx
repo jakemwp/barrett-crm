@@ -159,7 +159,7 @@ export function VehicleCard({ vehicle, customerName, showCustomer = false }: Veh
                     +{vehicle.authorizedDrivers.length - 2} more
                   </div>
                 )}
-              </div>
+              Owner: <Link to={`/clients/${vehicle.customerId}`} className="text-primary-600 hover:underline">{customerName}</Link>
             </div>
           )}
           

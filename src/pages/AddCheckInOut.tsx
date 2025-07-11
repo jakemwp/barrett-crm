@@ -235,7 +235,7 @@ export function AddCheckInOut() {
     navigate('/check-in-out');
   };
 
-  const customerOptions = customers.map(customer => ({
+  const clientOptions = customers.map(customer => ({
     value: customer.id,
     label: `${customer.firstName} ${customer.lastName} (${customer.email})`,
   }));
@@ -314,19 +314,19 @@ export function AddCheckInOut() {
             <CardHeader>
               <CardTitle className="flex items-center">
                 <User className="mr-2" size={20} />
-                Customer & Vehicle
+                Client & Vehicle
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <Select
-                  label="Customer *"
+                  label="Client *"
                   value={formData.customerId}
                   onChange={(e) => handleInputChange('customerId', e.target.value)}
                   error={errors.customerId}
                   options={[
-                    { value: '', label: 'Select a customer...' },
-                    ...customerOptions,
+                    { value: '', label: 'Select a client...' },
+                    ...clientOptions,
                   ]}
                 />
                 <Select

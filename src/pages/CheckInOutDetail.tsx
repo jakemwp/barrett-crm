@@ -573,7 +573,7 @@ export function CheckInOutDetail() {
             <CardContent className="space-y-4">
               <div className="flex items-center justify-between">
                 <span className="text-sm text-gray-600">Customer</span>
-                <Link to={`/customers/${checkInOut.customerId}`} className="text-sm font-medium text-primary-600 hover:underline">
+                <Link to={`/clients/${checkInOut.customerId}`} className="text-sm font-medium text-primary-600 hover:underline">
                   {customerName}
                 </Link>
               </div>

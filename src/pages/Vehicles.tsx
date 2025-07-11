@@ -171,7 +171,7 @@ export function Vehicles() {
               </Link>
               <p className="text-sm text-gray-600">{vehicle.licensePlate || 'No Plate'} • {vehicle.storageLocation || 'No Location'}</p>
               <p className="text-sm text-gray-500">
-                Owner: <Link to={`/customers/${vehicle.customerId}`} className="text-primary-600 hover:underline">
+                Owner: <Link to={`/clients/${vehicle.customerId}`} className="text-primary-600 hover:underline">
                   {customerName}
                 </Link>
               </p>
