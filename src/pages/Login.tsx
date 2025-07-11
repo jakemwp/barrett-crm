@@ -63,14 +63,8 @@ export function Login() {
     }
   };
 
-  const fillDemoCredentials = (role: 'admin' | 'manager' | 'staff') => {
-    const demoUsers = {
-      admin: { email: 'admin@autoservice.com', password: 'admin123' },
-      manager: { email: 'john.manager@autoservice.com', password: 'manager123' },
-      staff: { email: 'sarah.staff@autoservice.com', password: 'staff123' },
-    };
-
-    setFormData(demoUsers[role]);
+  const fillDemoCredentials = (email: string, password: string) => {
+    setFormData({ email, password });
   };
 
   return (
@@ -159,49 +153,27 @@ export function Login() {
 
             {/* Demo Credentials */}
             <div className="mt-8 pt-6 border-t border-gray-200">
-              <p className="text-sm text-gray-600 text-center mb-4">Demo Accounts:</p>
+              <p className="text-sm text-gray-600 text-center mb-4">Demo Accounts (for testing):</p>
               <div className="space-y-2">
                 <Button
                   variant="outline"
                   size="sm"
                   className="w-full text-left justify-start"
-                  onClick={() => fillDemoCredentials('admin')}
-                  disabled={loginStatus === 'loading' || loginStatus === 'success'}
-                >
-                  <div className="flex items-center">
-                    <div className="w-2 h-2 bg-red-500 rounded-full mr-2"></div>
-                    <span className="font-medium">Administrator</span>
-                    <span className="ml-auto text-xs text-gray-500">Full Access</span>
-                  </div>
-                </Button>
-                
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="w-full text-left justify-start"
-                  onClick={() => fillDemoCredentials('manager')}
-                  disabled={loginStatus === 'loading' || loginStatus === 'success'}
-                >
-                  <div className="flex items-center">
-                    <div className="w-2 h-2 bg-yellow-500 rounded-full mr-2"></div>
-                    <span className="font-medium">Manager</span>
-                    <span className="ml-auto text-xs text-gray-500">Management Access</span>
-                  </div>
-                </Button>
-                
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="w-full text-left justify-start"
-                  onClick={() => fillDemoCredentials('staff')}
+                  onClick={() => fillDemoCredentials('test@example.com', 'password123')}
                   disabled={loginStatus === 'loading' || loginStatus === 'success'}
                 >
                   <div className="flex items-center">
                     <div className="w-2 h-2 bg-blue-500 rounded-full mr-2"></div>
-                    <span className="font-medium">Staff Member</span>
-                    <span className="ml-auto text-xs text-gray-500">Standard Access</span>
+                    <span className="font-medium">Test User</span>
+                    <span className="ml-auto text-xs text-gray-500">test@example.com</span>
                   </div>
                 </Button>
+              </div>
+              
+              <div className="mt-4 text-center">
+                <p className="text-xs text-gray-500">
+                  Note: You'll need to create users in Supabase Auth first, or use the mock data approach.
+                </p>
               </div>
             </div>
 

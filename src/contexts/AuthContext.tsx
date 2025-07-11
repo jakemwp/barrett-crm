@@ -32,7 +32,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
     // Listen for auth state changes
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      (_event, session) => {
+      async (_event, session) => {
         setUser(session?.user || null);
         setLoading(false);
       }
@@ -46,43 +46,43 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const signIn = async (email: string, password: string) => {
     setLoading(true);
     try {
-      // First, try to find the user in our users table
-      const { data: userData, error: userError } = await supabase
-        .from('users')
-        .select('*')
-        .eq('email', email)
-        .eq('password', password) // In production, this should use proper password hashing
-        .eq('is_active', true)
-        .single();
+      // Use Supabase's built-in authentication
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email,
+        password
+      });
 
-      if (userError || !userData) {
-        throw new Error('Invalid email or password');
+      if (error) {
+        throw new Error(error.message);
       }
 
-      // For demo purposes, we'll create a mock session
-      // In production, you'd use proper Supabase auth
-      const mockUser = {
-        id: userData.id,
-        email: userData.email,
-        user_metadata: {
-          first_name: userData.first_name,
-          last_name: userData.last_name,
-          role: userData.role,
-        },
-        app_metadata: {},
-        aud: 'authenticated',
-        created_at: userData.created_at,
-        updated_at: userData.updated_at,
-      } as User;
+      if (!data.user) {
+        throw new Error('Authentication failed');
+      }
 
-      setUser(mockUser);
+      // Optionally fetch additional user profile data from your users table
+      try {
+        const { data: userData, error: userError } = await supabase
+          .from('users')
+          .select('*')
+          .eq('email', email)
+          .eq('is_active', true)
+          .single();
 
-      // Update last login
-      await supabase
-        .from('users')
-        .update({ last_login: new Date().toISOString() })
-        .eq('id', userData.id);
+        if (userError || !userData) {
+          console.warn('Could not fetch user profile data:', userError);
+        } else {
+          // Update last login
+          await supabase
+            .from('users')
+            .update({ last_login: new Date().toISOString() })
+            .eq('id', userData.id);
+        }
+      } catch (profileError) {
+        console.warn('Error fetching user profile:', profileError);
+      }
 
+      setUser(data.user);
     } catch (error: any) {
       console.error('Error signing in:', error);
       throw new Error(error.message || 'Login failed');
@@ -94,8 +94,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const signOut = async () => {
     setLoading(true);
     try {
-      // For demo purposes, just clear the user state
-      // In production, you'd use supabase.auth.signOut()
+      const { error } = await supabase.auth.signOut();
+      if (error) {
+        throw error;
+      }
       setUser(null);
     } catch (error) {
       console.error('Error signing out:', error);
