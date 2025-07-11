@@ -12,11 +12,10 @@ import {
 import { Button } from '../components/ui/Button';
 import { Input } from '../components/ui/Input';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/Card';
-import { useAuth } from '../contexts/AuthContext';
+import { users } from '../data/mock-data';
 
 export function Login() {
   const navigate = useNavigate();
-  const { signIn } = useAuth();
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -50,16 +49,35 @@ export function Login() {
     setLoginStatus('loading');
 
     try {
-      await signIn(formData.email, formData.password);
-      setLoginStatus('success');
-      
-      // Navigate to dashboard after successful login
-      setTimeout(() => {
-        navigate('/');
-      }, 1000);
-    } catch (error: any) {
+      // Simulate API call delay
+      await new Promise(resolve => setTimeout(resolve, 1000));
+
+      // Check credentials against mock users
+      const user = users.find(u => 
+        u.email.toLowerCase() === formData.email.toLowerCase() && 
+        u.password === formData.password &&
+        u.isActive
+      );
+
+      if (user) {
+        setLoginStatus('success');
+        
+        // In a real app, you would:
+        // 1. Store the authentication token
+        // 2. Set up user session
+        // 3. Update global auth state
+        
+        // Simulate successful login and redirect
+        setTimeout(() => {
+          navigate('/');
+        }, 1000);
+      } else {
+        setLoginStatus('error');
+        setErrorMessage('Invalid email or password. Please try again.');
+      }
+    } catch (error) {
       setLoginStatus('error');
-      setErrorMessage(error.message || 'Login failed. Please check your credentials.');
+      setErrorMessage('Login failed. Please try again.');
     }
   };
 
