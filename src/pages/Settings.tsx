@@ -134,7 +134,8 @@ export function Settings() {
     'Admin': 'error',
     'Manager': 'warning',
     'Staff': 'default',
-    'Viewer': 'outline'
+    'Viewer': 'outline',
+    'Archived': 'outline'
   } as const;
 
   const initials = getInitials(user.firstName, user.lastName);
