@@ -6345,6 +6345,3 @@ export const vehicles: Vehicle[] =[
       "number": "REG123456",
       "expirationDate": "2024-12-31",
       "state
-    }
-  }
-]
