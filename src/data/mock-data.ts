@@ -187,8 +187,8 @@ export const customers: Customer[] =[
     "lastName": " ",
     "type": "Individual",
     "membershipLevel": "Standard",
-    "storageLocation": "Moorpark",jim@allvalleywasher.com
-    "email": "jim@allvalleywasher.com",
+    "storageLocation": "Moorpark",
+    "email": "jim@allvalleywasher.com",jim@allvalleywasher.com
     "phone": "818-464-5264",
     "streetAddress": "15008 Delano St.",
     "city": "Va",
