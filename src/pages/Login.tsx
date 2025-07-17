@@ -167,53 +167,7 @@ export function Login() {
               </Button>
             </form>
 
-            {/* Demo Credentials */}
-            <div className="mt-8 pt-6 border-t border-gray-200">
-              <p className="text-sm text-gray-600 text-center mb-4">Demo Accounts:</p>
-              <div className="space-y-2">
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="w-full text-left justify-start"
-                  onClick={() => fillDemoCredentials('admin')}
-                  disabled={loginStatus === 'loading' || loginStatus === 'success'}
-                >
-                  <div className="flex items-center">
-                    <div className="w-2 h-2 bg-red-500 rounded-full mr-2"></div>
-                    <span className="font-medium">Administrator</span>
-                    <span className="ml-auto text-xs text-gray-500">Full Access</span>
-                  </div>
-                </Button>
-                
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="w-full text-left justify-start"
-                  onClick={() => fillDemoCredentials('manager')}
-                  disabled={loginStatus === 'loading' || loginStatus === 'success'}
-                >
-                  <div className="flex items-center">
-                    <div className="w-2 h-2 bg-yellow-500 rounded-full mr-2"></div>
-                    <span className="font-medium">Manager</span>
-                    <span className="ml-auto text-xs text-gray-500">Management Access</span>
-                  </div>
-                </Button>
-                
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="w-full text-left justify-start"
-                  onClick={() => fillDemoCredentials('staff')}
-                  disabled={loginStatus === 'loading' || loginStatus === 'success'}
-                >
-                  <div className="flex items-center">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full mr-2"></div>
-                    <span className="font-medium">Staff Member</span>
-                    <span className="ml-auto text-xs text-gray-500">Standard Access</span>
-                  </div>
-                </Button>
-              </div>
-            </div>
+            
 
             {/* Footer */}
             <div className="mt-6 pt-4 border-t border-gray-200 text-center">
