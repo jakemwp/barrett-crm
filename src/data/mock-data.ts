@@ -136,189 +136,339 @@ export function authenticateUser(email: string, password: string, userType: 'sta
 }
 
 // Create customers from complete CSV data
-export const customers: Customer[] = [
+export const customers: Customer[] =[
   {
-    id: "c1",
-    firstName: "Jason",
-    lastName: "Adang",
-    type: "Individual",
-    membershipLevel: "Premium",
-    storageLocation: "Moorpark",
-    email: "jason@adangenterprises.com",
-    phone: "(805) 795-6808",
-    streetAddress: "821 Calle Pecos",
-    city: "Thousand Oaks",
-    state: "CA",
-    zipCode: "91360",
-    storageSpots: 2,
-    showPandaDocForm: false,
-    dateCreated: "2023-01-15",
-    password: "customer123",
-    numRows: 1,
-    manualPrice: 300,
-    createdAt: "2023-01-15T10:30:00Z",
-    updatedAt: "2023-12-10T14:35:00Z"
+    "id": "c1",
+    "firstName": "Name",
+    "lastName": " ",
+    "type": "Individual",
+    "membershipLevel": "Standard",
+    "storageLocation": "Storage Location ",
+    "email": "Email",
+    "phone": "Phone Number",
+    "streetAddress": "Address",
+    "city": "City",
+    "state": "State,",
+    "zipCode": "Zip",
+    "storageSpots": "Payment Information",
+    "showPandaDocForm": false,
+    "dateCreated": "2025-06-27",
+    "password": "placeholder",
+    "numRows": 1,
+    "manualprice": null,
+    "createdAt": "2025-06-27T10:30:00Z",
+    "updatedAt": "2025-06-27T10:30:00Z"
   },
   {
-    id: "c2",
-    firstName: "Chris",
-    lastName: "Antonsen",
-    type: "Individual",
-    membershipLevel: "VIP",
-    storageLocation: "Westlake Village",
-    email: "antonsenchris3@gmail.com",
-    phone: "(818) 381-7105",
-    streetAddress: "4565 Wolsey Court",
-    city: "Westlake Village",
-    state: "CA",
-    zipCode: "91361",
-    storageSpots: 1,
-    showPandaDocForm: true,
-    dateCreated: "2023-02-20",
-    password: "customer123",
-    numRows: 1,
-    manualPrice: 200,
-    createdAt: "2023-02-20T14:50:00Z",
-    updatedAt: "2023-11-05T09:50:00Z"
+    "id": "c2",
+    "firstName": "Adang, Jason",
+    "lastName": " ",
+    "type": "Individual",
+    "membershipLevel": "Standard",
+    "storageLocation": "Moorpark",
+    "email": "jason@adangenterprises.com",
+    "phone": "(805) 795-6808",
+    "streetAddress": "821 Calle Pecos",
+    "city": "Thousan",
+    "state": "Oaks,",
+    "zipCode": "CA",
+    "storageSpots": "2",
+    "showPandaDocForm": false,
+    "dateCreated": "2025-06-27",
+    "password": "placeholder",
+    "numRows": 1,
+    "manualprice": null,
+    "createdAt": "2025-06-27T10:30:00Z",
+    "updatedAt": "2025-06-27T10:30:00Z"
   },
   {
-    id: "c3",
-    firstName: "Kam",
-    lastName: "Assil",
-    type: "Individual",
-    membershipLevel: "Enterprise",
-    storageLocation: "Moorpark",
-    email: "kamassil@gmail.com",
-    phone: "(805) 405-2054",
-    streetAddress: "5124 Oxley Place",
-    city: "Westlake Village",
-    state: "CA",
-    zipCode: "91362",
-    storageSpots: 1,
-    showPandaDocForm: false,
-    dateCreated: "2023-03-10",
-    password: "customer123",
-    numRows: 1,
-    manualPrice: 300,
-    createdAt: "2023-03-10T09:20:00Z",
-    updatedAt: "2024-01-20T13:20:00Z"
-  },
-  {
-    id: "c4",
-    firstName: "Dylan",
-    lastName: "Boztepe",
-    type: "Individual",
-    membershipLevel: "Premium",
-    storageLocation: "Moorpark",
-    email: "dylanboztepe@gmail.com",
-    phone: "(805) 555-0123",
-    streetAddress: "1234 Main Street",
-    city: "Moorpark",
-    state: "CA",
-    zipCode: "93021",
-    storageSpots: 1,
-    showPandaDocForm: false,
-    dateCreated: "2023-04-05",
-    password: "customer123",
-    numRows: 1,
-    manualPrice: 150,
-    createdAt: "2023-04-05T16:25:00Z",
-    updatedAt: "2023-10-15T10:35:00Z"
-  },
-  {
-    id: "c5",
-    firstName: "Jeffrey",
-    lastName: "Brodsly",
-    type: "Individual",
-    membershipLevel: "VIP",
-    storageLocation: "Moorpark",
-    email: "jeffrey.brodsly@email.com",
-    phone: "(805) 555-0456",
-    streetAddress: "5678 Oak Avenue",
-    city: "Moorpark",
-    state: "CA",
-    zipCode: "93021",
-    storageSpots: 1,
-    showPandaDocForm: true,
-    dateCreated: "2023-06-18",
-    password: "customer123",
-    numRows: 1,
-    manualPrice: 200,
-    createdAt: "2023-06-18T12:40:00Z",
-    updatedAt: "2024-02-08T15:50:00Z"
+    "id": "c3",
+    "firstName": "All Valley Washer Service, Inc.",
+    "lastName": " ",
+    "type": "Individual",
+    "membershipLevel": "Standard",
+    "storageLocation": "Moorpark",
+    "email": "jim@allvalleywasher.com",
+    "phone": "818-464-5264",
+    "streetAddress": "15008 Delano St.",
+    "city": "Va",
+    "state": "Nuys,",
+    "zipCode": "CA",
+    "storageSpots": "1",
+    "showPandaDocForm": false,
+    "dateCreated": "2025-06-27",
+    "password": "placeholder",
+    "numRows": 1,
+    "manualprice": null,
+    "createdAt": "2025-06-27T10:30:00Z",
+    "updatedAt": "2025-06-27T10:30:00Z"
   }
 ]
 
 // Create mock vehicles with comprehensive data
 
-export const vehicles: Vehicle[] =[
+export const vehicles: Vehicle[] = [
   {
-    "id": "c2",
-    "customerId": "c2",
-    "authorizedDrivers": [],
-    "year": "1972",
-    "make": "Porsche",
-    "model": "911",
-    "vin": "9112101858",
-    "storageLocation": "Moorpark",
-    "fairMarketValue": 100000,
-    "insuranceRiderRequired": false,
-    "insuranceRiderAmount": 0,
-    "licensePlate": "4/21/2025",
-    "registration": {
-      "number": "REG123456",
-      "expirationDate": "2024-12-31",
-      "state": "CA"
+    id: "v1",
+    customerId: "c1",
+    authorizedDrivers: [
+      {
+        id: "ad1",
+        name: "Jason Adang",
+        phone: "(805) 795-6808",
+        email: "jason@adangenterprises.com",
+        licenseNumber: "D1234567",
+        relationship: "Owner"
+      }
+    ],
+    year: 2020,
+    make: "Toyota",
+    model: "Camry",
+    vin: "1HGCM82633A123456",
+    storageLocation: "Moorpark",
+    fairMarketValue: 28500,
+    insuranceRiderRequired: true,
+    insuranceRiderAmount: 30000,
+    licensePlate: "ABC123",
+    registration: {
+      number: "REG123456",
+      expirationDate: "2024-12-31",
+      state: "CA"
     },
-    "tirePressureDefault": {
-      "front": 32,
-      "rear": 32
+    tirePressureDefault: {
+      front: 32,
+      rear: 30
     },
-    "tirePressurePreferred": {
-      "front": 32,
-      "rear": 32
+    tirePressurePreferred: {
+      front: 34,
+      rear: 32
     },
-    "maintenanceSchedule": [],
-    "odometer": null,
-    "fuelLevel": 100,
-    "batteryType": "Standard",
-    "color": "Placeholder",
-    "createdAt": "2025-06-27T10:35:00Z",
-    "updatedAt": "2025-06-27T14:35:00Z"
+    maintenanceSchedule: {
+      lastService: "2023-12-10",
+      nextService: "2024-06-10",
+      serviceInterval: 6,
+      notes: "Oil change every 6 months"
+    },
+    authorizedContacts: [],
+    odometer: 25000,
+    image: "https://images.pexels.com/photos/116675/pexels-photo-116675.jpeg",
+    fuelLevel: 75,
+    batteryType: "Standard",
+    proofOfOwnership: "Vehicle Registration",
+    color: "Silver",
+    createdAt: "2023-01-15T10:35:00Z",
+    updatedAt: "2023-12-10T14:35:00Z"
   },
   {
-    "id": "c3",
-    "customerId": "c2",
-    "authorizedDrivers": [],
-    "year": "2012",
-    "make": "Lexus",
-    "model": "LFA",
-    "vin": "JTHHX8BH2C1000028",
-    "storageLocation": "Moorpark",
-    "fairMarketValue": 875000,
-    "insuranceRiderRequired": true,
-    "insuranceRiderAmount": 100,
-    "licensePlate": "4/21/2025",
-    "registration": {
-      "number": "REG123456",
-      "expirationDate": "2024-12-31",
-      "state": "CA"
+    id: "v2",
+    customerId: "c2",
+    authorizedDrivers: [
+      {
+        id: "ad2",
+        name: "Chris Antonsen",
+        phone: "(818) 381-7105",
+        email: "antonsenchris3@gmail.com",
+        licenseNumber: "NY987654",
+        relationship: "Owner"
+      }
+    ],
+    year: 2019,
+    make: "Honda",
+    model: "Accord",
+    vin: "2HGES16564H789012",
+    storageLocation: "Westlake Village",
+    fairMarketValue: 24000,
+    insuranceRiderRequired: false,
+    licensePlate: "XYZ789",
+    registration: {
+      number: "REG789012",
+      expirationDate: "2024-08-15",
+      state: "NY"
     },
-    "tirePressureDefault": {
-      "front": 32,
-      "rear": 32
+    tirePressureDefault: {
+      front: 30,
+      rear: 28
     },
-    "tirePressurePreferred": {
-      "front": 32,
-      "rear": 32
+    tirePressurePreferred: {
+      front: 32,
+      rear: 30
     },
-    "maintenanceSchedule": [],
-    "odometer": null,
-    "fuelLevel": 100,
-    "batteryType": "Standard",
-    "color": "Placeholder",
-    "createdAt": "2025-06-27T10:35:00Z",
-    "updatedAt": "2025-06-27T14:35:00Z"
+    maintenanceSchedule: {
+      lastService: "2023-11-05",
+      nextService: "2024-05-05",
+      serviceInterval: 6,
+      notes: "Regular maintenance schedule"
+    },
+    authorizedContacts: [],
+    odometer: 32000,
+    image: "https://images.pexels.com/photos/3802510/pexels-photo-3802510.jpeg",
+    fuelLevel: 50,
+    batteryType: "AGM",
+    proofOfOwnership: "Vehicle Registration",
+    color: "Blue",
+    createdAt: "2023-02-20T14:50:00Z",
+    updatedAt: "2023-11-05T09:50:00Z"
+  },
+  {
+    id: "v3",
+    customerId: "c3",
+    authorizedDrivers: [
+      {
+        id: "ad3",
+        name: "Kam Assil",
+        phone: "(805) 405-2054",
+        email: "kamassil@gmail.com",
+        licenseNumber: "TX789012",
+        relationship: "Owner"
+      }
+    ],
+    year: 2021,
+    make: "Ford",
+    model: "F-150",
+    vin: "1FTFW1ET4DFB12345",
+    storageLocation: "Moorpark",
+    fairMarketValue: 45000,
+    insuranceRiderRequired: true,
+    insuranceRiderAmount: 50000,
+    licensePlate: "DEF456",
+    registration: {
+      number: "REG456789",
+      expirationDate: "2024-10-20",
+      state: "TX"
+    },
+    tirePressureDefault: {
+      front: 35,
+      rear: 35
+    },
+    tirePressurePreferred: {
+      front: 38,
+      rear: 38
+    },
+    maintenanceSchedule: {
+      lastService: "2024-01-20",
+      nextService: "2024-07-20",
+      serviceInterval: 6,
+      notes: "Heavy duty maintenance schedule"
+    },
+    authorizedContacts: [],
+    odometer: 18000,
+    image: "https://images.pexels.com/photos/1335077/pexels-photo-1335077.jpeg",
+    fuelLevel: 90,
+    batteryType: "Standard",
+    proofOfOwnership: "Vehicle Registration",
+    color: "Black",
+    createdAt: "2023-03-10T09:20:00Z",
+    updatedAt: "2024-01-20T13:20:00Z"
+  },
+  {
+    id: "v4",
+    customerId: "c4",
+    authorizedDrivers: [
+      {
+        id: "ad4",
+        name: "Dylan Boztepe",
+        phone: "(805) 555-0123",
+        email: "dylanboztepe@gmail.com",
+        licenseNumber: "FL345678",
+        relationship: "Owner"
+      }
+    ],
+    year: 2018,
+    make: "Chevrolet",
+    model: "Equinox",
+    vin: "3GNFK16338G345678",
+    storageLocation: "Moorpark",
+    fairMarketValue: 18500,
+    insuranceRiderRequired: false,
+    licensePlate: "GHI789",
+    registration: {
+      number: "REG345678",
+      expirationDate: "2024-06-30",
+      state: "FL"
+    },
+    tirePressureDefault: {
+      front: 30,
+      rear: 30
+    },
+    tirePressurePreferred: {
+      front: 32,
+      rear: 32
+    },
+    maintenanceSchedule: {
+      lastService: "2023-10-15",
+      nextService: "2024-04-15",
+      serviceInterval: 6,
+      notes: "Standard maintenance"
+    },
+    authorizedContacts: [],
+    odometer: 45000,
+    fuelLevel: 25,
+    batteryType: "Standard",
+    proofOfOwnership: "Vehicle Registration",
+    color: "Red",
+    createdAt: "2023-04-05T16:25:00Z",
+    updatedAt: "2023-10-15T10:35:00Z"
+  },
+  {
+    id: "v5",
+    customerId: "c5",
+    authorizedDrivers: [
+      {
+        id: "ad5",
+        name: "Jeffrey Brodsly",
+        phone: "(805) 555-0456",
+        email: "jeffrey.brodsly@email.com",
+        licenseNumber: "CA567890",
+        relationship: "Owner"
+      }
+    ],
+    year: 2022,
+    make: "Nissan",
+    model: "Altima",
+    vin: "1N4AL3AP3DC567890",
+    storageLocation: "Moorpark",
+    fairMarketValue: 32000,
+    insuranceRiderRequired: true,
+    insuranceRiderAmount: 35000,
+    licensePlate: "JKL012",
+    registration: {
+      number: "REG567890",
+      expirationDate: "2025-02-28",
+      state: "CA"
+    },
+    tirePressureDefault: {
+      front: 32,
+      rear: 30
+    },
+    tirePressurePreferred: {
+      front: 34,
+      rear: 32
+    },
+    maintenanceSchedule: {
+      lastService: "2024-02-08",
+      nextService: "2024-08-08",
+      serviceInterval: 6,
+      notes: "New vehicle maintenance schedule"
+    },
+    authorizedContacts: [
+      {
+        id: "ac1",
+        name: "Emergency Contact",
+        phone: "(555) 777-8888",
+        email: "emergency@example.com",
+        relationship: "Emergency",
+        canDropoff: false,
+        canPickup: true
+      }
+    ],
+    odometer: 8000,
+    image: "https://images.pexels.com/photos/1545743/pexels-photo-1545743.jpeg",
+    fuelLevel: 85,
+    batteryType: "Lithium",
+    proofOfOwnership: "Vehicle Registration",
+    color: "White",
+    createdAt: "2023-06-18T12:40:00Z",
+    updatedAt: "2024-02-08T15:50:00Z"
   }
 ]
 
