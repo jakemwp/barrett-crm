@@ -17,6 +17,7 @@ import {
 } from 'lucide-react';
 import { vehicles, getCustomerById } from '../data/mock-data';
 import { Vehicle } from '../types';
+import { useAuth } from '../contexts/AuthContext';
 import { VehicleCard } from '../components/vehicles/VehicleCard';
 import { Button } from '../components/ui/Button';
 import { Input } from '../components/ui/Input';
@@ -29,6 +30,7 @@ type SortField = 'make' | 'year' | 'value' | 'odometer' | 'lastService';
 type SortOrder = 'asc' | 'desc';
 
 export function Vehicles() {
+  const { user } = useAuth();
   const [searchTerm, setSearchTerm] = useState('');
   const [makeFilter, setMakeFilter] = useState('all');
   const [batteryFilter, setBatteryFilter] = useState('all');
@@ -37,8 +39,13 @@ export function Vehicles() {
   const [sortField, setSortField] = useState<SortField>('make');
   const [sortOrder, setSortOrder] = useState<SortOrder>('asc');
 
+  // Filter vehicles based on user role
+  const availableVehicles = user?.role === 'Customer' 
+    ? vehicles.filter(vehicle => vehicle.customerId === user.customerId)
+    : vehicles;
+
   const filteredAndSortedVehicles = useMemo(() => {
-    let filtered = vehicles.filter(vehicle => {
+    let filtered = availableVehicles.filter(vehicle => {
       const customer = getCustomerById(vehicle.customerId);
       const customerName = customer ? `${customer.firstName ?? ''} ${customer.lastName ?? ''}` : '';
       
@@ -105,26 +112,26 @@ export function Vehicles() {
   }, [searchTerm, makeFilter, batteryFilter, insuranceFilter, sortField, sortOrder]);
 
   const makeOptions = useMemo(() => {
-    const makes = [...new Set(vehicles.map(v => v.make).filter(Boolean))].sort();
+    const makes = [...new Set(availableVehicles.map(v => v.make).filter(Boolean))].sort();
     return [
       { value: 'all', label: 'All Makes' },
       ...makes.map(make => ({ value: make as string, label: make as string }))
     ];
-  }, []);
+  }, [availableVehicles]);
 
   const batteryOptions = useMemo(() => {
-    const types = [...new Set(vehicles.map(v => v.batteryType))].sort();
+    const types = [...new Set(availableVehicles.map(v => v.batteryType))].sort();
     return [
       { value: 'all', label: 'All Battery Types' },
       ...types.map(type => ({ value: type, label: type }))
     ];
-  }, []);
+  }, [availableVehicles]);
 
   const vehicleStats = useMemo(() => {
-    const totalValue = vehicles.reduce((sum, v) => sum + v.fairMarketValue, 0);
-    const insuredVehicles = vehicles.filter(v => v.insuranceRiderRequired).length;
-    const avgOdometer = vehicles.reduce((sum, v) => sum + (v.odometer ?? 0), 0) / vehicles.length;
-    const expiredRegistrations = vehicles.filter(v => 
+    const totalValue = availableVehicles.reduce((sum, v) => sum + v.fairMarketValue, 0);
+    const insuredVehicles = availableVehicles.filter(v => v.insuranceRiderRequired).length;
+    const avgOdometer = availableVehicles.reduce((sum, v) => sum + (v.odometer ?? 0), 0) / availableVehicles.length;
+    const expiredRegistrations = availableVehicles.filter(v => 
       v.registration?.expirationDate && new Date(v.registration.expirationDate) <= new Date()
     ).length;
     
@@ -134,7 +141,7 @@ export function Vehicles() {
       avgOdometer: Math.round(avgOdometer),
       expiredRegistrations
     };
-  }, []);
+  }, [availableVehicles]);
 
   const toggleSort = (field: SortField) => {
     if (sortField === field) {
@@ -256,11 +263,13 @@ export function Vehicles() {
           <Button variant="outline" leftIcon={<Download size={16} />}>
             Export
           </Button>
-          <Link to="/vehicles/new">
-            <Button variant="primary" leftIcon={<Plus size={16} />}>
-              Add Vehicle
-            </Button>
-          </Link>
+          {user?.role !== 'Customer' && (
+            <Link to="/vehicles/new">
+              <Button variant="primary" leftIcon={<Plus size={16} />}>
+                Add Vehicle
+              </Button>
+            </Link>
+          )}
         </div>
       </div>
 
@@ -270,7 +279,7 @@ export function Vehicles() {
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm font-medium text-gray-500">Total Vehicles</p>
-              <p className="text-2xl font-bold text-gray-900">{vehicles.length}</p>
+              <p className="text-2xl font-bold text-gray-900">{availableVehicles.length}</p>
             </div>
             <Car className="h-8 w-8 text-primary-600" />
           </div>
@@ -451,11 +460,13 @@ export function Vehicles() {
             </p>
             {!(searchTerm || makeFilter !== 'all' || batteryFilter !== 'all' || insuranceFilter !== 'all') && (
               <div className="mt-6">
-                <Link to="/vehicles/new">
-                  <Button variant="primary" leftIcon={<Plus size={16} />}>
-                    Add Vehicle
-                  </Button>
-                </Link>
+                {user?.role !== 'Customer' && (
+                  <Link to="/vehicles/new">
+                    <Button variant="primary" leftIcon={<Plus size={16} />}>
+                      Add Vehicle
+                    </Button>
+                  </Link>
+                )}
               </div>
             )}
           </div>

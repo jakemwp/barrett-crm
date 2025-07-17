@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { 
   Users, 
   Car, 
@@ -20,16 +20,25 @@ import {
 } from '../components/ui/Card';
 import { Button } from '../components/ui/Button';
 import { Badge } from '../components/ui/Badge';
+import { useAuth } from '../contexts/AuthContext';
 import { 
   customers, 
   vehicles, 
   checkInOuts, 
   getCustomerById,
-  getVehicleById
+  getVehicleById,
+  getVehiclesByCustomerId
 } from '../data/mock-data';
 import { CheckStatus } from '../types';
 
 export function Dashboard() {
+  const { user } = useAuth();
+  
+  // If customer, redirect to customer portal
+  if (user?.role === 'Customer') {
+    return <Navigate to="/customer-portal" replace />;
+  }
+  
   // Get recently serviced vehicles (checked out in the last 7 days)
   const sevenDaysAgo = new Date();
   sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);

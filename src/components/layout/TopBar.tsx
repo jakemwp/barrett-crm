@@ -4,12 +4,14 @@ import { Menu, Search, Bell, X } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { customers } from '../../data/mock-data';
 import { Customer } from '../../types';
+import { useAuth } from '../../contexts/AuthContext';
 
 interface TopBarProps {
   onMenuClick: () => void;
 }
 
 export function TopBar({ onMenuClick }: TopBarProps) {
+  const { user } = useAuth();
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState<Customer[]>([]);
   const [showResults, setShowResults] = useState(false);
@@ -109,11 +111,14 @@ export function TopBar({ onMenuClick }: TopBarProps) {
         
         {/* Right side: Actions */}
         <div className="flex items-center space-x-2 flex-shrink-0">
-          <Link to="/clients/new" className="hidden sm:block">
-            <Button variant="primary" size="sm">
-              + Add Client
-            </Button>
-          </Link>
+          {/* Only show Add Client button for non-customer users */}
+          {user?.role !== 'Customer' && (
+            <Link to="/clients/new" className="hidden sm:block">
+              <Button variant="primary" size="sm">
+                + Add Client
+              </Button>
+            </Link>
+          )}
           
           <button
             type="button"

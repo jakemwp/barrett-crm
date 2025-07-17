@@ -23,6 +23,7 @@ import {
 } from 'lucide-react';
 import { checkInOuts, getCustomerById, getVehicleById } from '../data/mock-data';
 import { CheckInOut, CheckStatus, CheckType } from '../types';
+import { useAuth } from '../contexts/AuthContext';
 import { Button } from '../components/ui/Button';
 import { Input } from '../components/ui/Input';
 import { Select } from '../components/ui/Select';
@@ -35,6 +36,7 @@ type SortField = 'date' | 'customer' | 'vehicle' | 'status' | 'type' | 'totalCos
 type SortOrder = 'asc' | 'desc';
 
 export function CheckInOutList() {
+  const { user } = useAuth();
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState('all');
   const [typeFilter, setTypeFilter] = useState('all');
@@ -43,8 +45,13 @@ export function CheckInOutList() {
   const [sortField, setSortField] = useState<SortField>('date');
   const [sortOrder, setSortOrder] = useState<SortOrder>('desc');
 
+  // Filter records based on user role
+  const availableRecords = user?.role === 'Customer' 
+    ? checkInOuts.filter(record => record.customerId === user.customerId)
+    : checkInOuts;
+
   const filteredAndSortedRecords = useMemo(() => {
-    let filtered = checkInOuts.filter(record => {
+    let filtered = availableRecords.filter(record => {
       const customer = getCustomerById(record.customerId);
       const vehicle = getVehicleById(record.vehicleId);
       const customerName = customer ? `${customer.firstName} ${customer.lastName}` : '';
@@ -137,19 +144,19 @@ export function CheckInOutList() {
     });
 
     return filtered;
-  }, [searchTerm, statusFilter, typeFilter, dateFilter, sortField, sortOrder]);
+  }, [searchTerm, statusFilter, typeFilter, dateFilter, sortField, sortOrder, availableRecords]);
 
   const recordStats = useMemo(() => {
-    const totalRecords = checkInOuts.length;
-    const activeServices = checkInOuts.filter(r => 
+    const totalRecords = availableRecords.length;
+    const activeServices = availableRecords.filter(r => 
       r.status === CheckStatus.CHECKED_IN || r.status === CheckStatus.IN_SERVICE
     ).length;
-    const completedToday = checkInOuts.filter(r => {
+    const completedToday = availableRecords.filter(r => {
       const today = new Date().toDateString();
       return r.status === CheckStatus.CHECKED_OUT && 
              new Date(r.checkOutDate || r.date).toDateString() === today;
     }).length;
-    const totalRevenue = checkInOuts.reduce((sum, record) => 
+    const totalRevenue = availableRecords.reduce((sum, record) => 
       sum + (record.serviceItems?.reduce((itemSum, item) => itemSum + item.cost, 0) || 0), 0
     );
     
@@ -159,7 +166,7 @@ export function CheckInOutList() {
       completedToday,
       totalRevenue
     };
-  }, []);
+  }, [availableRecords]);
 
   const toggleSort = (field: SortField) => {
     if (sortField === field) {
@@ -428,11 +435,13 @@ export function CheckInOutList() {
           <Button variant="outline" leftIcon={<Download size={16} />}>
             Export
           </Button>
-          <Link to="/check-in-out/new">
-            <Button variant="primary" leftIcon={<Plus size={16} />}>
-              Add Check In/Out
-            </Button>
-          </Link>
+          {user?.role !== 'Customer' && (
+            <Link to="/check-in-out/new">
+              <Button variant="primary" leftIcon={<Plus size={16} />}>
+                Add Check In/Out
+              </Button>
+            </Link>
+          )}
         </div>
       </div>
 
@@ -637,11 +646,13 @@ export function CheckInOutList() {
             </p>
             {!(searchTerm || statusFilter !== 'all' || typeFilter !== 'all' || dateFilter !== 'all') && (
               <div className="mt-6">
-                <Link to="/check-in-out/new">
-                  <Button variant="primary" leftIcon={<Plus size={16} />}>
-                    Create First Check-In
-                  </Button>
-                </Link>
+                {user?.role !== 'Customer' && (
+                  <Link to="/check-in-out/new">
+                    <Button variant="primary" leftIcon={<Plus size={16} />}>
+                      Create First Check-In
+                    </Button>
+                  </Link>
+                )}
               </div>
             )}
           </div>
