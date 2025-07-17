@@ -23,7 +23,8 @@ import {
   CheckCircle,
   AlertCircle
 } from 'lucide-react';
-import { currentUser, updateUser } from '../data/mock-data';
+import { updateUser } from '../data/mock-data';
+import { useAuth } from '../contexts/AuthContext';
 import { User as UserType } from '../types';
 import { Button } from '../components/ui/Button';
 import { Input } from '../components/ui/Input';
@@ -35,9 +36,10 @@ import { Avatar } from '../components/ui/Avatar';
 import { formatDate, formatDateTime, getInitials } from '../lib/utils';
 
 export function Settings() {
-  const [user, setUser] = useState<UserType>(currentUser);
+  const { user: currentUser } = useAuth();
+  const [user, setUser] = useState<UserType>(currentUser!);
   const [isEditing, setIsEditing] = useState(false);
-  const [formData, setFormData] = useState<UserType>(currentUser);
+  const [formData, setFormData] = useState<UserType>(currentUser!);
   const [showPassword, setShowPassword] = useState(false);
   const [showNewPassword, setShowNewPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
