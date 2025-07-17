@@ -100,6 +100,16 @@ export function deleteUser(id: string): boolean {
   return true;
 }
 
+export function authenticateUser(email: string, password: string): User | null {
+  const user = usersData.find(user => user.email === email && user.password === password);
+  if (user) {
+    // Update last login time
+    user.lastLogin = new Date().toISOString();
+    return user;
+  }
+  return null;
+}
+
 // Create customers from complete CSV data
 export const customers: Customer[] =[
   {
