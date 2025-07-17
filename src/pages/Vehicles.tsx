@@ -138,15 +138,9 @@ export function Vehicles() {
 
   const toggleSort = (field: SortField) => {
     if (sortField === field) {
-      case 'Lithium-Ion (EV)':
-      case 'Lithium-Ion (Plug-In Hybrid EV)':
-      case 'Lithium-Ion (Hybrid EV)':
-        return 'success';
-      case 'Lead-Acid Sealed (AGM)':
-      case 'Lead-Acid Sealed (Gel)':
-        return 'warning';
-      case 'Lead-Acid Flooded':
-        return 'default';
+      setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
+    } else {
+      setSortField(field);
       setSortOrder('asc');
     }
   };
