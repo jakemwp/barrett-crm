@@ -7384,19 +7384,6 @@ export function getUserById(id: string): User | undefined {
   return users.find(user => user.id === id);
 }
 
-export function updateUser(id: string, updates: Partial<User>): User | undefined {
-  const userIndex = users.findIndex(user => user.id === id);
-  if (userIndex === -1) return undefined;
-  
-  const updatedUser = {
-    ...users[userIndex],
-    ...updates,
-    updatedAt: new Date().toISOString(),
-  };
-  
-  users[userIndex] = updatedUser;
-  return updatedUser;
-}
 
 export function getCustomerById(id: string): Customer | undefined {
   return customers.find(customer => customer.id === id);
