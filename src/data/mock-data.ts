@@ -115,7 +115,7 @@ export function authenticateUser(email: string, password: string, userType: 'sta
         lastName: customer.lastName || '',
         email: customer.email || '',
         password: customer.password || '',
-        role: 'Customer' as any, // Add Customer role
+        role: 'Customer' as User['role'], // Add Customer role
         phone: customer.phone,
         department: customer.storageLocation,
         lastLogin: null,
