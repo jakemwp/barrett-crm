@@ -17,18 +17,26 @@ import { AddCheckInOut } from './pages/AddCheckInOut';
 import { Settings } from './pages/Settings';
 import { Help } from './pages/Help';
 import { UserManagement } from './pages/UserManagement';
+import { CustomerPortal } from './pages/CustomerPortal';
+import { CustomerLogin } from './pages/CustomerLogin';
 
 function App() {
   return (
     <AuthProvider>
       <Routes>
         <Route path="/login" element={<Login />} />
+        <Route path="/customer-login" element={<CustomerLogin />} />
         <Route path="/" element={
           <ProtectedRoute>
             <MainLayout />
           </ProtectedRoute>
         }>
           <Route index element={<Dashboard />} />
+          <Route path="customer-portal" element={
+            <ProtectedRoute requiredRole="Customer">
+              <CustomerPortal />
+            </ProtectedRoute>
+          } />
           <Route path="clients" element={<Customers />} />
           <Route path="clients/new" element={<AddCustomer />} />
           <Route path="clients/:id" element={<CustomerDetail />} />

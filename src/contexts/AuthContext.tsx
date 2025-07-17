@@ -4,7 +4,7 @@ import { authenticateUser, users } from '../data/mock-data';
 
 interface AuthContextType {
   user: User | null;
-  login: (email: string, password: string) => Promise<boolean>;
+  login: (email: string, password: string, userType?: 'staff' | 'customer') => Promise<boolean>;
   logout: () => void;
   isLoading: boolean;
   isAuthenticated: boolean;
@@ -30,9 +30,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     setIsLoading(false);
   }, []);
 
-  const login = async (email: string, password: string): Promise<boolean> => {
+  const login = async (email: string, password: string, userType: 'staff' | 'customer' = 'staff'): Promise<boolean> => {
     try {
-      const authenticatedUser = authenticateUser(email, password);
+      const authenticatedUser = authenticateUser(email, password, userType);
       if (authenticatedUser) {
         setUser(authenticatedUser);
         localStorage.setItem('currentUser', JSON.stringify(authenticatedUser));

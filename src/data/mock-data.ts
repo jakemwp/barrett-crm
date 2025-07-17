@@ -100,8 +100,33 @@ export function deleteUser(id: string): boolean {
   return true;
 }
 
-export function authenticateUser(email: string, password: string): User | null {
-  const user = usersData.find(user => user.email === email && user.password === password);
+export function authenticateUser(email: string, password: string, userType: 'staff' | 'customer' = 'staff'): User | null {
+  let user: User | null = null;
+  
+  if (userType === 'staff') {
+    user = usersData.find(user => user.email === email && user.password === password);
+  } else if (userType === 'customer') {
+    // Find customer and create a user object for them
+    const customer = customers.find(customer => customer.email === email && customer.password === password);
+    if (customer) {
+      user = {
+        id: customer.id,
+        firstName: customer.firstName || '',
+        lastName: customer.lastName || '',
+        email: customer.email || '',
+        password: customer.password || '',
+        role: 'Customer' as any, // Add Customer role
+        phone: customer.phone,
+        department: customer.storageLocation,
+        lastLogin: null,
+        isActive: true,
+        createdAt: customer.createdAt,
+        updatedAt: customer.updatedAt,
+        customerId: customer.id, // Add reference to customer record
+      };
+    }
+  }
+  
   if (user) {
     // Update last login time
     user.lastLogin = new Date().toISOString();

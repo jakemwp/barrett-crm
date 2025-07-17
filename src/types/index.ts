@@ -226,7 +226,7 @@ export interface User {
   lastName: string;
   email: string;
   password: string;
-  role: 'Admin' | 'Manager' | 'Staff' | 'Viewer';
+  role: 'Admin' | 'Manager' | 'Staff' | 'Viewer' | 'Customer';
   avatar?: string | null;
   phone?: string | null;
   department?: string | null;
@@ -234,6 +234,7 @@ export interface User {
   isActive: boolean;
   createdAt: string;
   updatedAt: string;
+  customerId?: string; // For customer users, reference to customer record
 }
 
 export interface UserSession {

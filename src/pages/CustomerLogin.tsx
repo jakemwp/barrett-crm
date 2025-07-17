@@ -14,7 +14,7 @@ import { Input } from '../components/ui/Input';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/Card';
 import { useAuth } from '../contexts/AuthContext';
 
-export function Login() {
+export function CustomerLogin() {
   const navigate = useNavigate();
   const location = useLocation();
   const { login } = useAuth();
@@ -26,7 +26,7 @@ export function Login() {
   const [loginStatus, setLoginStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
   
-  const from = location.state?.from?.pathname || '/';
+  const from = location.state?.from?.pathname || '/customer-portal';
 
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({
@@ -56,7 +56,7 @@ export function Login() {
       // Simulate API call delay
       await new Promise(resolve => setTimeout(resolve, 1000));
 
-      const success = await login(formData.email, formData.password);
+      const success = await login(formData.email, formData.password, 'customer');
 
       if (success) {
         setLoginStatus('success');
@@ -73,16 +73,6 @@ export function Login() {
     }
   };
 
-  const fillDemoCredentials = (role: 'admin' | 'manager' | 'staff') => {
-    const demoUsers = {
-      admin: { email: 'admin@autoservice.com', password: 'admin123' },
-      manager: { email: 'john.manager@autoservice.com', password: 'manager123' },
-      staff: { email: 'sarah.staff@autoservice.com', password: 'staff123' },
-    };
-
-    setFormData(demoUsers[role]);
-  };
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-primary-50 to-secondary-50 flex items-center justify-center p-4">
       <div className="w-full max-w-md">
@@ -92,7 +82,7 @@ export function Login() {
             <User className="h-10 w-10 text-white" />
           </div>
           <h1 className="text-3xl font-bold text-gray-900">Barrett Automotive</h1>
-          <p className="text-gray-600 mt-2">Employee Portal</p>
+          <p className="text-gray-600 mt-2">Customer Portal</p>
         </div>
 
         {/* Login Form */}
@@ -167,15 +157,13 @@ export function Login() {
               </Button>
             </form>
 
-            
-
             {/* Footer */}
             <div className="mt-6 pt-4 border-t border-gray-200 text-center">
               <p className="text-xs text-gray-500">
-                Need help? Contact your system administrator
+                Need help? Contact Barrett Automotive Group
               </p>
               <p className="text-xs text-gray-500 mt-1">
-                Customer? <a href="/customer-login" className="text-primary-600 hover:underline">Sign in here</a>
+                Staff login? <a href="/login" className="text-primary-600 hover:underline">Click here</a>
               </p>
             </div>
           </CardContent>
@@ -184,8 +172,8 @@ export function Login() {
         {/* Additional Info */}
         <div className="mt-6 text-center">
           <p className="text-sm text-gray-600">
-            Secure employee access to Barrett Automotive Group's<br />
-            vehicle storage management system
+            Secure customer access to your<br />
+            vehicle storage information
           </p>
         </div>
       </div>
