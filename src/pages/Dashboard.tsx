@@ -70,7 +70,7 @@ export function Dashboard() {
       </div>
       
       {/* Summary Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         <Card className="bg-white">
           <CardContent className="p-6">
             <div className="flex justify-between">
@@ -138,7 +138,7 @@ export function Dashboard() {
           <CardTitle>Quick Actions</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-3 gap-4">
             <Link to="/check-in-out/new">
               <Button 
                 className="h-auto py-6 flex flex-col items-center justify-center space-y-2 w-full"

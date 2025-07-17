@@ -268,7 +268,7 @@ export function AddCustomer() {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Customer Information Form */}
-        <div className="lg:col-span-2">
+        <div className="lg:col-span-2 min-w-0">
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center">
@@ -276,11 +276,11 @@ export function AddCustomer() {
                 Client Information
               </CardTitle>
             </CardHeader>
-            <CardContent className="space-y-6">
+            <CardContent className="space-y-6 min-w-0">
               {/* Basic Information */}
               <div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">Basic Information</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <Input
                     label="First Name *"
                     value={formData.firstName}
@@ -323,7 +323,7 @@ export function AddCustomer() {
               {/* Contact Information */}
               <div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">Contact Information</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <Input
                     label="Email Address *"
                     type="email"
@@ -353,7 +353,7 @@ export function AddCustomer() {
                     error={errors.streetAddress}
                     placeholder="123 Main Street"
                   />
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 gap-4">
                     <Input
                       label="City *"
                       value={formData.city}
@@ -382,7 +382,7 @@ export function AddCustomer() {
               {/* Storage Information */}
               <div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">Storage Information</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <Input
                     label="Storage Location *"
                     value={formData.storageLocation}
@@ -405,7 +405,7 @@ export function AddCustomer() {
               {/* Account Information */}
               <div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">Account Information</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <Input
                     label="Password *"
                     type="password"
@@ -443,7 +443,7 @@ export function AddCustomer() {
         </div>
 
         {/* Customer Preview & Pricing */}
-        <div className="space-y-6">
+        <div className="space-y-6 min-w-0">
           {/* Customer Preview */}
           <Card>
             <CardHeader>

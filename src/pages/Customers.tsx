@@ -222,7 +222,7 @@ export function Customers() {
 
       {/* Filters and Search */}
       <div className="bg-white rounded-lg border border-gray-200 p-6">
-        <div className="flex flex-col lg:flex-row gap-4">
+        <div className="flex flex-col gap-4">
           <div className="flex-1">
             <div className="relative">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
@@ -235,7 +235,7 @@ export function Customers() {
             </div>
           </div>
           
-          <div className="flex flex-col sm:flex-row gap-4">
+          <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
             <Select
               value={typeFilter}
               onChange={(e) => setTypeFilter(e.target.value)}
@@ -260,7 +260,7 @@ export function Customers() {
               ]}
             />
             
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center space-x-2 xs:col-span-2 sm:col-span-1 lg:col-span-2 justify-center">
               <Button
                 variant={viewMode === 'grid' ? 'primary' : 'outline'}
                 size="icon"
@@ -280,7 +280,7 @@ export function Customers() {
         </div>
         
         {/* Sort Controls */}
-        <div className="flex flex-wrap gap-2 mt-4 pt-4 border-t border-gray-200">
+        <div className="flex flex-wrap gap-2 mt-4 pt-4 border-t border-gray-200 overflow-x-auto">
           <span className="text-sm font-medium text-gray-700 mr-2">Sort by:</span>
           {[
             { field: 'name' as SortField, label: 'Name' },
@@ -293,6 +293,7 @@ export function Customers() {
               variant={sortField === field ? 'primary' : 'ghost'}
               size="sm"
               onClick={() => toggleSort(field)}
+              className="whitespace-nowrap"
               rightIcon={
                 sortField === field ? (
                   sortOrder === 'asc' ? <SortAsc size={14} /> : <SortDesc size={14} />
@@ -329,13 +330,13 @@ export function Customers() {
 
         {filteredAndSortedCustomers.length > 0 ? (
           viewMode === 'grid' ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredAndSortedCustomers.map((customer) => (
                 <CustomerCard key={customer.id} customer={customer} />
               ))}
             </div>
           ) : (
-            <div className="space-y-4">
+            <div className="space-y-4 overflow-x-auto">
               {filteredAndSortedCustomers.map((customer) => (
                 <CustomerListItem key={customer.id} customer={customer} />
               ))}
