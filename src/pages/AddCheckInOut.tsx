@@ -91,7 +91,7 @@ export function AddCheckInOut() {
       if (vehicle) {
         setFormData(prev => ({
           ...prev,
-          mileage: vehicle.odometer,
+          mileage: vehicle.odometer || 0,
           fuelLevel: vehicle.fuelLevel,
           tirePressure: {
             passengerFront: vehicle.tirePressurePreferred.front,
@@ -115,6 +115,15 @@ export function AddCheckInOut() {
       setErrors(prev => ({
         ...prev,
         [field]: '',
+      }));
+    }
+    
+    // Reset vehicle selection when customer changes
+    if (field === 'customerId' && value !== prev.customerId) {
+      setFormData(prevData => ({
+        ...prevData,
+        customerId: value,
+        vehicleId: '', // Reset vehicle selection
       }));
     }
   };
@@ -244,7 +253,7 @@ export function AddCheckInOut() {
     .filter(vehicle => !formData.customerId || vehicle.customerId === formData.customerId)
     .map(vehicle => ({
       value: vehicle.id,
-      label: `${vehicle.year} ${vehicle.make} ${vehicle.model} (${vehicle.licensePlate})`,
+      label: `${vehicle.year || ''} ${vehicle.make || ''} ${vehicle.model || ''} (${vehicle.licensePlate || 'No Plate'})`,
     }));
 
   const selectedCustomer = formData.customerId ? getCustomerById(formData.customerId) : null;

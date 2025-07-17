@@ -198,7 +198,10 @@ export function VehicleDetail() {
               <h1 className="text-2xl font-bold text-gray-900">
                 {vehicle.year} {vehicle.make} {vehicle.model}
               </h1>
-              <p className="text-sm text-gray-600">{vehicle.licensePlate} • VIN: {vehicle.vin}</p>
+              <p className="text-sm text-gray-600">
+                ID: {vehicle.id.length >= 4 ? vehicle.id.substring(0, 8).toUpperCase() : vehicle.id.toUpperCase()} • 
+                {vehicle.licensePlate} • VIN: {vehicle.vin}
+              </p>
               <p className="text-sm text-gray-500">
                 Owner: <Link to={`/clients/${vehicle.customerId}`} className="text-primary-600 hover:underline">
                   {customerName}
