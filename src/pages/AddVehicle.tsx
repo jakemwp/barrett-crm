@@ -50,6 +50,7 @@ export function AddVehicle() {
     insuranceRiderRequired: false,
     insuranceRiderAmount: 0,
     licensePlate: '',
+    proofOfOwnership: null as string | null,
     registration: {
       number: '',
       expirationDate: '',
@@ -195,12 +196,14 @@ export function AddVehicle() {
     
     if (!formData.vin.trim()) {
       newErrors.vin = 'VIN is required';
-    } else if (formData.vin.length !== 17) {
-      newErrors.vin = 'VIN must be exactly 17 characters';
     }
     
     if (!formData.licensePlate.trim()) {
       newErrors.licensePlate = 'License plate is required';
+    }
+    
+    if (!formData.proofOfOwnership) {
+      newErrors.proofOfOwnership = 'Proof of ownership is required';
     }
     
     if (!formData.storageLocation.trim()) {
@@ -463,7 +466,18 @@ export function AddVehicle() {
                     onChange={(e) => handleInputChange('vin', e.target.value.toUpperCase())}
                     error={errors.vin}
                     placeholder="17-character VIN"
-                    maxLength={17}
+                  />
+                  <Select
+                    label="Proof of Ownership *"
+                    value={formData.proofOfOwnership || ''}
+                    onChange={(e) => handleInputChange('proofOfOwnership', e.target.value || null)}
+                    error={errors.proofOfOwnership}
+                    options={[
+                      { value: '', label: 'Please Select' },
+                      { value: 'Vehicle Registration', label: 'Vehicle Registration' },
+                      { value: 'Temporary Operating Permit', label: 'Temporary Operating Permit' },
+                      { value: 'Proof of Insurance', label: 'Proof of Insurance' },
+                    ]}
                   />
                 </div>
               </div>
@@ -504,11 +518,13 @@ export function AddVehicle() {
                     value={formData.batteryType}
                     onChange={(e) => handleInputChange('batteryType', e.target.value)}
                     options={[
-                      { value: 'Standard', label: 'Standard' },
-                      { value: 'AGM', label: 'AGM' },
-                      { value: 'Lithium', label: 'Lithium' },
-                      { value: 'Gel', label: 'Gel' },
-                      { value: 'Other', label: 'Other' },
+                      { value: '', label: 'Please Select' },
+                      { value: 'Lead-Acid Flooded', label: 'Lead-Acid Flooded' },
+                      { value: 'Lead-Acid Sealed (AGM)', label: 'Lead-Acid Sealed (AGM)' },
+                      { value: 'Lead-Acid Sealed (Gel)', label: 'Lead-Acid Sealed (Gel)' },
+                      { value: 'Lithium-Ion (EV)', label: 'Lithium-Ion (EV)' },
+                      { value: 'Lithium-Ion (Plug-In Hybrid EV)', label: 'Lithium-Ion (Plug-In Hybrid EV)' },
+                      { value: 'Lithium-Ion (Hybrid EV)', label: 'Lithium-Ion (Hybrid EV)' },
                     ]}
                   />
                 </div>

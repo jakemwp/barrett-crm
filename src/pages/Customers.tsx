@@ -208,14 +208,10 @@ export function Customers() {
         <div className="bg-white rounded-lg border border-gray-200 p-4">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm font-medium text-gray-500">Total Storage Spots</p>
-              <p className="text-2xl font-bold text-blue-600">
-                {customers.reduce((sum, c) => sum + c.storageSpots, 0)}
-              </p>
+              <p className="text-sm font-medium text-gray-500">Individual Clients</p>
+              <p className="text-2xl font-bold text-blue-600">{typeStats.Individual || 0}</p>
             </div>
-            <div className="h-8 w-8 bg-blue-100 rounded-full flex items-center justify-center">
-              <span className="text-blue-600 font-bold text-sm">#</span>
-            </div>
+            <Badge variant="outline" className="text-lg px-3 py-1">Individual</Badge>
           </div>
         </div>
       </div>

@@ -281,6 +281,18 @@ export function VehicleDetail() {
                     onChange={(e) => handleInputChange('vin', e.target.value)}
                     disabled={!isEditing}
                   />
+                  <Select
+                    label="Proof of Ownership"
+                    value={formData.proofOfOwnership || ''}
+                    onChange={(e) => handleInputChange('proofOfOwnership', e.target.value || null)}
+                    disabled={!isEditing}
+                    options={[
+                      { value: '', label: 'Please Select' },
+                      { value: 'Vehicle Registration', label: 'Vehicle Registration' },
+                      { value: 'Temporary Operating Permit', label: 'Temporary Operating Permit' },
+                      { value: 'Proof of Insurance', label: 'Proof of Insurance' },
+                    ]}
+                  />
                 </div>
               </div>
 
@@ -318,11 +330,13 @@ export function VehicleDetail() {
                     onChange={(e) => handleInputChange('batteryType', e.target.value)}
                     disabled={!isEditing}
                     options={[
-                      { value: 'Standard', label: 'Standard' },
-                      { value: 'AGM', label: 'AGM' },
-                      { value: 'Lithium', label: 'Lithium' },
-                      { value: 'Gel', label: 'Gel' },
-                      { value: 'Other', label: 'Other' },
+                      { value: '', label: 'Please Select' },
+                      { value: 'Lead-Acid Flooded', label: 'Lead-Acid Flooded' },
+                      { value: 'Lead-Acid Sealed (AGM)', label: 'Lead-Acid Sealed (AGM)' },
+                      { value: 'Lead-Acid Sealed (Gel)', label: 'Lead-Acid Sealed (Gel)' },
+                      { value: 'Lithium-Ion (EV)', label: 'Lithium-Ion (EV)' },
+                      { value: 'Lithium-Ion (Plug-In Hybrid EV)', label: 'Lithium-Ion (Plug-In Hybrid EV)' },
+                      { value: 'Lithium-Ion (Hybrid EV)', label: 'Lithium-Ion (Hybrid EV)' },
                     ]}
                   />
                 </div>

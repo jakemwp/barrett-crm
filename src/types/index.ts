@@ -77,6 +77,7 @@ export interface Vehicle {
   image?: string | null;
   fuelLevel: number; // percentage 0-100
   batteryType: 'Standard' | 'AGM' | 'Lithium' | 'Gel' | 'Other';
+  proofOfOwnership: 'Vehicle Registration' | 'Temporary Operating Permit' | 'Proof of Insurance' | null;
   color?: string | null;
   createdAt: string;
   updatedAt: string;

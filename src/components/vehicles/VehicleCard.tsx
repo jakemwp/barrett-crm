@@ -35,9 +35,15 @@ export function VehicleCard({ vehicle, customerName, showCustomer = false }: Veh
 
   const getBatteryTypeColor = (type: string) => {
     switch (type) {
-      case 'Lithium': return 'success';
-      case 'AGM': return 'warning';
-      case 'Standard': return 'default';
+      case 'Lithium-Ion (EV)':
+      case 'Lithium-Ion (Plug-In Hybrid EV)':
+      case 'Lithium-Ion (Hybrid EV)':
+        return 'success';
+      case 'Lead-Acid Sealed (AGM)':
+      case 'Lead-Acid Sealed (Gel)':
+        return 'warning';
+      case 'Lead-Acid Flooded':
+        return 'default';
       default: return 'outline';
     }
   };

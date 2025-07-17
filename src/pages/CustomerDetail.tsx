@@ -114,7 +114,7 @@ export function CustomerDetail() {
 
   const handleAddVehicle = () => {
     // Navigate to add vehicle page with customer ID as query parameter
-    navigate(`/vehicles/new?customerId=${id}`);
+    navigate(`/vehicles/new?customerId=${customer?.id}`);
   };
 
   const handleVehicleRowClick = (vehicleId: string) => {
@@ -168,9 +168,9 @@ export function CustomerDetail() {
             </Button>
           </Link>
           
-          <div className="flex items-center space-x-4">
+          <div className="flex-1">
             <Avatar initials={initials} size="lg" />
-            <div>
+            <div className="ml-4">
               <h1 className="text-2xl font-bold text-gray-900">
                 {customer.firstName} {customer.lastName}
               </h1>
@@ -182,11 +182,40 @@ export function CustomerDetail() {
                   {customer.membershipLevel}
                 </Badge>
               </div>
+              
+              {/* Mobile buttons - below name */}
+              <div className="flex flex-col sm:flex-row gap-2 mt-3 sm:hidden">
+                {isEditing ? (
+                  <>
+                    <Button variant="outline" onClick={handleCancel} leftIcon={<X size={16} />} size="sm">
+                      Cancel
+                    </Button>
+                    <Button variant="primary" onClick={handleSave} leftIcon={<Save size={16} />} size="sm">
+                      Save Changes
+                    </Button>
+                  </>
+                ) : (
+                  <>
+                    <Button 
+                      variant="secondary" 
+                      onClick={() => setShowServiceSignup(true)} 
+                      leftIcon={<Pen size={16} />}
+                      size="sm"
+                    >
+                      Service Agreement
+                    </Button>
+                    <Button variant="primary" onClick={() => setIsEditing(true)} leftIcon={<Edit size={16} />} size="sm">
+                      Edit Client
+                    </Button>
+                  </>
+                )}
+              </div>
             </div>
           </div>
         </div>
         
-        <div className="flex items-center space-x-2">
+        {/* Desktop buttons - to the right */}
+        <div className="hidden sm:flex items-center space-x-2">
           {isEditing ? (
             <>
               <Button variant="outline" onClick={handleCancel} leftIcon={<X size={16} />}>
