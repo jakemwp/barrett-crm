@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, Link, useSearchParams } from 'react-router-dom';
 import { 
   ArrowLeft, 
   Save, 
@@ -36,11 +36,12 @@ import { formatCurrency, getInitials, generateId } from '../lib/utils';
 
 export function AddVehicle() {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const [saveStatus, setSaveStatus] = useState<'idle' | 'saving' | 'success' | 'error'>('idle');
   const [errors, setErrors] = useState<Record<string, string>>({});
   
   const [formData, setFormData] = useState({
-    customerId: '',
+    customerId: searchParams.get('customerId') || '',
     year: new Date().getFullYear(),
     make: '',
     model: '',
@@ -291,6 +292,14 @@ export function AddVehicle() {
   };
 
   // Auto-generate next service date based on last service and interval
+  React.useEffect(() => {
+    // Auto-populate customer info if customerId is provided in URL params
+    const customerIdFromUrl = searchParams.get('customerId');
+    if (customerIdFromUrl && !formData.customerId) {
+      handleCustomerChange(customerIdFromUrl);
+    }
+  }, [searchParams]);
+
   React.useEffect(() => {
     if (formData.maintenanceSchedule.lastService && formData.maintenanceSchedule.serviceInterval) {
       const lastServiceDate = new Date(formData.maintenanceSchedule.lastService);
