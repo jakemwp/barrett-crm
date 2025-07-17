@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { 
   User, 
   Lock, 
@@ -12,10 +12,12 @@ import {
 import { Button } from '../components/ui/Button';
 import { Input } from '../components/ui/Input';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/Card';
-import { users, authenticateUser } from '../data/mock-data';
+import { useAuth } from '../contexts/AuthContext';
 
 export function Login() {
   const navigate = useNavigate();
+  const location = useLocation();
+  const { login } = useAuth();
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -23,6 +25,8 @@ export function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const [loginStatus, setLoginStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
+  
+  const from = location.state?.from?.pathname || '/';
 
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({
@@ -52,20 +56,12 @@ export function Login() {
       // Simulate API call delay
       await new Promise(resolve => setTimeout(resolve, 1000));
 
-      // Use mock authentication
-      const user = authenticateUser(formData.email, formData.password);
+      const success = await login(formData.email, formData.password);
 
-      if (user) {
+      if (success) {
         setLoginStatus('success');
-        
-        // In a real app, you would:
-        // 1. Store the authentication token
-        // 2. Set up user session
-        // 3. Update global auth state
-        
-        // Simulate successful login and redirect
         setTimeout(() => {
-          navigate('/');
+          navigate(from, { replace: true });
         }, 1000);
       } else {
         setLoginStatus('error');

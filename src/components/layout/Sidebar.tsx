@@ -7,11 +7,14 @@ import {
   ClipboardCheck, 
   Settings, 
   HelpCircle, 
-  X 
+  X,
+  Shield,
+  LogOut
 } from 'lucide-react';
 import { cn } from '../../lib/utils';
-import { currentUser } from '../../data/mock-data';
+import { useAuth } from '../../contexts/AuthContext';
 import { Avatar } from '../ui/Avatar';
+import { Button } from '../ui/Button';
 import { getInitials } from '../../lib/utils';
 
 interface SidebarProps {
@@ -20,6 +23,10 @@ interface SidebarProps {
 }
 
 export function Sidebar({ isOpen, onClose }: SidebarProps) {
+  const { user, logout } = useAuth();
+  
+  if (!user) return null;
+  
   const navItems = [
     { to: '/', icon: <Home size={20} />, label: 'Dashboard' },
     { to: '/clients', icon: <Users size={20} />, label: 'Clients' },
@@ -29,8 +36,21 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
     { to: '/help', icon: <HelpCircle size={20} />, label: 'Help & Support' },
   ];
 
-  const initials = getInitials(currentUser.firstName, currentUser.lastName);
+  // Add user management for admins
+  if (user.role === 'Admin') {
+    navItems.splice(-2, 0, { 
+      to: '/users', 
+      icon: <Shield size={20} />, 
+      label: 'User Management' 
+    });
+  }
 
+  const initials = getInitials(user.firstName, user.lastName);
+
+  const handleLogout = () => {
+    logout();
+    onClose();
+  };
   return (
     <>
       {/* Overlay */}
@@ -96,11 +116,11 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
           
           {/* User profile section */}
           <div className="p-4 border-t border-gray-200">
-            <div className="flex items-center">
+            <div className="flex items-center mb-3">
               <div className="flex-shrink-0">
-                {currentUser.avatar ? (
+                {user.avatar ? (
                   <img 
-                    src={currentUser.avatar} 
+                    src={user.avatar} 
                     alt="Profile" 
                     className="w-8 h-8 rounded-full object-cover"
                   />
@@ -110,11 +130,20 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
               </div>
               <div className="ml-3">
                 <p className="text-sm font-medium text-gray-700">
-                  {currentUser.firstName} {currentUser.lastName}
+                  {user.firstName} {user.lastName}
                 </p>
-                <p className="text-xs text-gray-500">{currentUser.email}</p>
+                <p className="text-xs text-gray-500">{user.email}</p>
               </div>
             </div>
+            <Button
+              variant="ghost"
+              size="sm"
+              className="w-full justify-start text-gray-600 hover:text-gray-800"
+              onClick={handleLogout}
+              leftIcon={<LogOut size={16} />}
+            >
+              Sign Out
+            </Button>
           </div>
         </div>
       </div>
