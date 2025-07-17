@@ -1611,28 +1611,6 @@ export const customers: Customer[] =[
     "manualprice": null,
     "createdAt": "2025-06-27T10:30:00Z",
     "updatedAt": "2025-06-27T10:30:00Z"
-  },
-  {
-    "id": "c68",
-    "firstName": null,
-    "lastName": " ",
-    "type": "Individual",
-    "membershipLevel": "Standard",
-    "storageLocation": null,
-    "email": null,
-    "phone": null,
-    "streetAddress": null,
-    "city": false,
-    "state": null,
-    "zipCode": null,
-    "storageSpots": null,
-    "showPandaDocForm": false,
-    "dateCreated": "2025-06-27",
-    "password": "placeholder",
-    "numRows": 1,
-    "manualprice": null,
-    "createdAt": "2025-06-27T10:30:00Z",
-    "updatedAt": "2025-06-27T10:30:00Z"
   }
 ]
 
