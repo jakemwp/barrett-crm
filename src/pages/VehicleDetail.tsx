@@ -600,49 +600,7 @@ export function VehicleDetail() {
             </CardContent>
           </Card>
 
-          {/* Maintenance Info */}
-          <Card>
-            <CardHeader>
-              <CardTitle>Maintenance Schedule</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-3">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center">
-                  <Wrench className="mr-2 text-gray-400" size={16} />
-                  <span className="text-sm text-gray-600">Last Service</span>
-                </div>
-                <span className="text-sm font-medium">
-                  {vehicle.maintenanceSchedule.lastService 
-                    ? formatDateDisplay(vehicle.maintenanceSchedule.lastService)
-                    : 'Never'
-                  }
-                </span>
-              </div>
-              
-              {vehicle.maintenanceSchedule.nextService && (
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center">
-                    <Calendar className="mr-2 text-primary-600" size={16} />
-                    <span className="text-sm text-gray-600">Next Service</span>
-                  </div>
-                  <span className="text-sm font-medium text-primary-600">
-                    {formatDateDisplay(vehicle.maintenanceSchedule.nextService)}
-                  </span>
-                </div>
-              )}
-              
-              <div className="flex items-center justify-between">
-                <div className="flex items-center">
-                  <Clock className="mr-2 text-gray-400" size={16} />
-                  <span className="text-sm text-gray-600">Interval</span>
-                </div>
-                <span className="text-sm font-medium">
-                  {vehicle.maintenanceSchedule.serviceInterval} months
-                </span>
-              </div>
-            </CardContent>
-          </Card>
-
+          
           {/* Owner Information */}
           <Card>
             <CardHeader>
