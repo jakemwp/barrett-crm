@@ -2,32 +2,84 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, Search, Bell, X } from 'lucide-react';
 import { Button } from '../ui/Button';
-import { customers } from '../../data/mock-data';
-import { Customer } from '../../types';
+import { customers, vehicles, getCustomerById } from '../../data/mock-data';
+import { Customer, Vehicle } from '../../types';
 import { useAuth } from '../../contexts/AuthContext';
 
 interface TopBarProps {
   onMenuClick: () => void;
 }
 
+interface SearchResult {
+  id: string;
+  type: 'customer' | 'vehicle';
+  title: string;
+  subtitle: string;
+  link: string;
+}
+
 export function TopBar({ onMenuClick }: TopBarProps) {
   const { user } = useAuth();
   const [searchTerm, setSearchTerm] = useState('');
-  const [searchResults, setSearchResults] = useState<Customer[]>([]);
+  const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
   const [showResults, setShowResults] = useState(false);
 
   const handleSearch = (value: string) => {
     setSearchTerm(value);
     
     if (value.trim().length > 0) {
-      const filtered = customers.filter(customer => 
+      const results: SearchResult[] = [];
+      
+      // Search customers
+      const filteredCustomers = customers.filter(customer => 
         (customer.firstName?.toLowerCase().includes(value.toLowerCase()) || false) ||
         (customer.lastName?.toLowerCase().includes(value.toLowerCase()) || false) ||
         (customer.email?.toLowerCase().includes(value.toLowerCase()) || false) ||
         (customer.phone?.includes(value) || false)
-      ).slice(0, 5); // Limit to 5 results
+      ).slice(0, 3); // Limit to 3 customer results
       
-      setSearchResults(filtered);
+      // Add customer results
+      filteredCustomers.forEach(customer => {
+        results.push({
+          id: customer.id,
+          type: 'customer',
+          title: `${customer.firstName} ${customer.lastName}`,
+          subtitle: customer.email || '',
+          link: `/clients/${customer.id}`
+        });
+      });
+      
+      // Search vehicles (only for non-customer users)
+      if (user?.role !== 'Customer') {
+        const filteredVehicles = vehicles.filter(vehicle => {
+          const customer = getCustomerById(vehicle.customerId);
+          const customerName = customer ? `${customer.firstName} ${customer.lastName}` : '';
+          
+          return (
+            (vehicle.make?.toLowerCase().includes(value.toLowerCase()) || false) ||
+            (vehicle.model?.toLowerCase().includes(value.toLowerCase()) || false) ||
+            (vehicle.licensePlate?.toLowerCase().includes(value.toLowerCase()) || false) ||
+            (vehicle.vin?.toLowerCase().includes(value.toLowerCase()) || false) ||
+            customerName.toLowerCase().includes(value.toLowerCase())
+          );
+        }).slice(0, 3); // Limit to 3 vehicle results
+        
+        // Add vehicle results
+        filteredVehicles.forEach(vehicle => {
+          const customer = getCustomerById(vehicle.customerId);
+          const customerName = customer ? `${customer.firstName} ${customer.lastName}` : 'Unknown Owner';
+          
+          results.push({
+            id: vehicle.id,
+            type: 'vehicle',
+            title: `${vehicle.year || ''} ${vehicle.make || ''} ${vehicle.model || ''}`.trim(),
+            subtitle: `${vehicle.licensePlate || 'No Plate'} • Owner: ${customerName}`,
+            link: `/vehicles/${vehicle.id}`
+          });
+        });
+      }
+      
+      setSearchResults(results);
       setShowResults(true);
     } else {
       setSearchResults([]);
@@ -77,23 +129,41 @@ export function TopBar({ onMenuClick }: TopBarProps) {
             
             {/* Search Results Dropdown */}
             {showResults && searchResults.length > 0 && (
-              <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-md shadow-lg z-50 max-h-64 overflow-y-auto min-w-0">
-                {searchResults.map((customer) => (
+              <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-md shadow-lg z-50 max-h-80 overflow-y-auto min-w-0">
+                {searchResults.map((result) => (
                   <Link
-                    key={customer.id}
-                    to={`/clients/${customer.id}`}
+                    key={`${result.type}-${result.id}`}
+                    to={result.link}
                     onClick={clearSearch}
-                    className="block px-4 py-3 hover:bg-gray-50 border-b border-gray-100 last:border-b-0"
+                    className="block px-4 py-3 hover:bg-gray-50 border-b border-gray-100 last:border-b-0 transition-colors"
                   >
                     <div className="flex items-center space-x-3">
-                      <div className="w-8 h-8 rounded-full bg-primary-600 text-white flex items-center justify-center text-sm font-medium">
-                        {(customer.firstName?.charAt(0) || '') + (customer.lastName?.charAt(0) || '')}
+                      <div className={`w-8 h-8 rounded-full text-white flex items-center justify-center text-sm font-medium ${
+                        result.type === 'customer' ? 'bg-primary-600' : 'bg-secondary-600'
+                      }`}>
+                        {result.type === 'customer' ? (
+                          result.title.split(' ').map(n => n.charAt(0)).join('').slice(0, 2)
+                        ) : (
+                          '🚗'
+                        )}
                       </div>
                       <div>
+                        <div className="flex items-center space-x-2">
+                          <p className="text-sm font-medium text-gray-900">
+                            {result.title}
+                          </p>
+                          <span className={`text-xs px-2 py-0.5 rounded-full ${
+                            result.type === 'customer' 
+                              ? 'bg-primary-100 text-primary-700' 
+                              : 'bg-secondary-100 text-secondary-700'
+                          }`}>
+                            {result.type === 'customer' ? 'Client' : 'Vehicle'}
+                          </span>
+                        </div>
                         <p className="text-sm font-medium text-gray-900">
-                          {customer.firstName} {customer.lastName}
+                          {result.title}
                         </p>
-                        <p className="text-xs text-gray-500">{customer.email}</p>
+                        <p className="text-xs text-gray-500">{result.subtitle}</p>
                       </div>
                     </div>
                   </Link>
@@ -103,7 +173,7 @@ export function TopBar({ onMenuClick }: TopBarProps) {
             
             {showResults && searchResults.length === 0 && searchTerm && (
               <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-md shadow-lg z-50 p-4 min-w-0">
-                <p className="text-sm text-gray-500">No clients found</p>
+                <p className="text-sm text-gray-500">No clients or vehicles found</p>
               </div>
             )}
           </div>
