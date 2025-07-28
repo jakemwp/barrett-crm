@@ -259,7 +259,7 @@ export function CustomerPortal() {
                           </span>
                         </div>
                       </div>
-                      
+                    </div>
                   </CardContent>
                 </Card>
               ))}
