@@ -44,7 +44,6 @@ export interface Vehicle {
   insuranceRiderAmount?: number | null;
   licensePlate: string | null;
   registration?: {
-    number: string | null;
     expirationDate: string | null;
     state: string | null;
   };

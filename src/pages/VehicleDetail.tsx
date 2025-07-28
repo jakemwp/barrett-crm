@@ -389,12 +389,7 @@ export function VehicleDetail() {
               <div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">Registration Information</h3>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  <Input
-                    label="Registration Number"
-                    value={formData.registration.number}
-                    onChange={(e) => handleNestedInputChange('registration', 'number', e.target.value)}
-                    disabled={!isEditing}
-                  />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <Input
                     label="State"
                     value={formData.registration.state}

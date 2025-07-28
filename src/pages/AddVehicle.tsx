@@ -53,7 +53,6 @@ export function AddVehicle() {
     licensePlate: '',
     proofOfOwnership: null as string | null,
     registration: {
-      number: '',
       expirationDate: '',
       state: '',
     },
@@ -204,10 +203,6 @@ export function AddVehicle() {
     
     if (!formData.registration.number.trim()) {
       newErrors['registration.number'] = 'Registration number is required';
-    }
-    
-    if (!formData.registration.state.trim()) {
-      newErrors['registration.state'] = 'Registration state is required';
     }
     
     if (!formData.registration.expirationDate) {
@@ -549,7 +544,7 @@ export function AddVehicle() {
                   type="number"
                   step="0.01"
                   min="0"
-                  value={formData.insuranceRiderAmount}
+                  value={formData.insuranceRiderAmount || ''}
                   onChange={(e) => handleInputChange('insuranceRiderAmount', parseFloat(e.target.value) || 0)}
                   error={errors.insuranceRiderAmount}
                   placeholder="Insurance coverage amount"
@@ -568,13 +563,7 @@ export function AddVehicle() {
             </CardHeader>
             <CardContent>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <Input
-                  label="Registration Number *"
-                  value={formData.registration.number}
-                  onChange={(e) => handleNestedInputChange('registration', 'number', e.target.value)}
-                  error={errors['registration.number']}
-                  placeholder="REG123456"
-                />
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <Input
                   label="State *"
                   value={formData.registration.state}
