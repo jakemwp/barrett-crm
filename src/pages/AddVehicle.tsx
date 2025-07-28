@@ -685,7 +685,7 @@ export function AddVehicle() {
                   size="sm" 
                   onClick={addAuthorizedDriver}
                   leftIcon={<Plus size={14} />}
-                  disabled={!newDriver.name || !newDriver.email}
+                  disabled={!newDriver.name}
                 >
                   Add Driver
                 </Button>

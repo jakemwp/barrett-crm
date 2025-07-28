@@ -472,7 +472,6 @@ export function VehicleDetail() {
                         <Avatar initials={getInitials(driver.name.split(' ')[0] || '', driver.name.split(' ')[1] || '')} size="sm" />
                         <div className="ml-3 flex-1">
                           <h5 className="font-medium text-gray-900">{driver.name}</h5>
-                          <p className="text-sm text-gray-600">{driver.email}</p>
                           <div className="flex items-center space-x-2 mt-1">
                             {driver.phone && (
                               <span className="text-xs text-gray-500">{driver.phone}</span>
