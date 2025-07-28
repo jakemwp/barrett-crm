@@ -30,16 +30,6 @@ export interface AuthorizedDriver {
   relationship: string | null;
 }
 
-export interface AuthorizedContact {
-  id: string;
-  name: string;
-  phone: string | null;
-  email: string | null;
-  relationship: string | null;
-  canDropoff: boolean;
-  canPickup: boolean;
-}
-
 export interface Vehicle {
   id: string;
   customerId: string;
@@ -72,7 +62,6 @@ export interface Vehicle {
     serviceInterval: number; // in months
     notes?: string | null;
   };
-  authorizedContacts: AuthorizedContact[];
   odometer: number | null;
   image?: string | null;
   fuelLevel: number; // percentage 0-100
