@@ -42,6 +42,12 @@ export interface Vehicle {
   fairMarketValue: number;
   insuranceRiderRequired: boolean;
   insuranceRiderAmount?: number | null;
+  insuranceStatus?: string | null;
+  insurancePolicyHolder?: string | null;
+  insuranceStartDate?: string | null;
+  insuranceExpirationDate?: string | null;
+  insuranceProvider?: string | null;
+  insurancePolicyNumber?: string | null;
   licensePlate: string | null;
   registration?: {
     expirationDate: string | null;

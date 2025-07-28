@@ -49,6 +49,12 @@ export function AddVehicle() {
     fairMarketValue: 0,
     insuranceRiderRequired: false,
     insuranceRiderAmount: 0,
+    insuranceStatus: '',
+    insurancePolicyHolder: '',
+    insuranceStartDate: '',
+    insuranceExpirationDate: '',
+    insuranceProvider: '',
+    insurancePolicyNumber: '',
     licensePlate: '',
     proofOfOwnership: null as string | null,
     registration: {
@@ -527,6 +533,51 @@ export function AddVehicle() {
                   placeholder="Insurance coverage amount"
                 />
               )}
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <Select
+                  label="Insurance Status"
+                  value={formData.insuranceStatus || ''}
+                  onChange={(e) => handleInputChange('insuranceStatus', e.target.value)}
+                  options={[
+                    { value: '', label: 'Select status...' },
+                    { value: 'Active', label: 'Active' },
+                    { value: 'Expired', label: 'Expired' },
+                    { value: 'Pending', label: 'Pending' },
+                    { value: 'Cancelled', label: 'Cancelled' },
+                  ]}
+                />
+                <Input
+                  label="Policy Holder"
+                  value={formData.insurancePolicyHolder || ''}
+                  onChange={(e) => handleInputChange('insurancePolicyHolder', e.target.value)}
+                  placeholder="Name of policy holder"
+                />
+                <Input
+                  label="Start Date"
+                  type="date"
+                  value={formData.insuranceStartDate || ''}
+                  onChange={(e) => handleInputChange('insuranceStartDate', e.target.value)}
+                />
+                <Input
+                  label="Expiration Date"
+                  type="date"
+                  value={formData.insuranceExpirationDate || ''}
+                  onChange={(e) => handleInputChange('insuranceExpirationDate', e.target.value)}
+                />
+                <Input
+                  label="Insurance Provider"
+                  value={formData.insuranceProvider || ''}
+                  onChange={(e) => handleInputChange('insuranceProvider', e.target.value)}
+                  placeholder="Insurance company name"
+                />
+                <Input
+                  label="Policy Number"
+                  value={formData.insurancePolicyNumber || ''}
+                  onChange={(e) => handleInputChange('insurancePolicyNumber', e.target.value)}
+                  placeholder="Policy number"
+                />
+              </div>
             </CardContent>
           </Card>
 
