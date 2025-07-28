@@ -546,7 +546,7 @@ export function AddVehicle() {
                   value={formData.storageLocation}
                   onChange={(e) => handleInputChange('storageLocation', e.target.value)}
                   error={errors.storageLocation}
-                  placeholder="Building A - Section 1 - Spot 12"
+                  placeholder=""
                   helperText="Auto-populated from customer information"
                 />
               </div>
