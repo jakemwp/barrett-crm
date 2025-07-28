@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { 
   Calendar, 
   Clock, 
-  Wrench, 
   Building, 
   DollarSign, 
   Shield, 
@@ -168,34 +167,6 @@ export function VehicleCard({ vehicle, customerName, showCustomer = false }: Veh
               </div>
             </div>
           )}
-          
-          {/* Maintenance Status */}
-          <div className="mt-4 pt-4 border-t border-gray-200">
-            <div className="flex items-center justify-between text-sm">
-              <div className="flex items-center">
-                <Wrench size={16} className="flex-shrink-0 mr-2 text-gray-400" />
-                <span className="text-gray-600">Last Service:</span>
-              </div>
-              <span className="font-medium">
-                {vehicle.maintenanceSchedule?.lastService 
-                  ? formatDate(vehicle.maintenanceSchedule.lastService)
-                  : 'Never'
-                }
-              </span>
-            </div>
-            
-            {vehicle.maintenanceSchedule?.nextService && (
-              <div className="flex items-center justify-between text-sm mt-1">
-                <div className="flex items-center">
-                  <Calendar size={16} className="flex-shrink-0 mr-2 text-gray-400" />
-                  <span className="text-gray-600">Next Service:</span>
-                </div>
-                <span className="font-medium text-primary-600">
-                  {formatDate(vehicle.maintenanceSchedule.nextService)}
-                </span>
-              </div>
-            )}
-          </div>
           
           {/* Registration Status */}
           <div className="mt-3 pt-3 border-t border-gray-200">

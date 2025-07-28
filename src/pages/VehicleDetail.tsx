@@ -19,7 +19,6 @@ import {
   Battery,
   AlertTriangle,
   CheckCircle,
-  Wrench,
   Clock
 } from 'lucide-react';
 import { getVehicleById, getCustomerById, checkInOuts } from '../data/mock-data';
@@ -448,44 +447,6 @@ export function VehicleDetail() {
                       />
                     </div>
                   </div>
-                </div>
-              </div>
-
-              {/* Maintenance Schedule */}
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">Maintenance Schedule</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <Input
-                    label="Last Service Date"
-                    type="date"
-                    value={formData.maintenanceSchedule.lastService || ''}
-                    onChange={(e) => handleNestedInputChange('maintenanceSchedule', 'lastService', e.target.value)}
-                    disabled={!isEditing}
-                  />
-                  <Input
-                    label="Next Service Date"
-                    type="date"
-                    value={formData.maintenanceSchedule.nextService || ''}
-                    onChange={(e) => handleNestedInputChange('maintenanceSchedule', 'nextService', e.target.value)}
-                    disabled={!isEditing}
-                  />
-                  <Input
-                    label="Service Interval (months)"
-                    type="number"
-                    value={formData.maintenanceSchedule.serviceInterval}
-                    onChange={(e) => handleNestedInputChange('maintenanceSchedule', 'serviceInterval', parseInt(e.target.value))}
-                    disabled={!isEditing}
-                  />
-                </div>
-                
-                <div className="mt-4">
-                  <Textarea
-                    label="Maintenance Notes"
-                    value={formData.maintenanceSchedule.notes || ''}
-                    onChange={(e) => handleNestedInputChange('maintenanceSchedule', 'notes', e.target.value)}
-                    disabled={!isEditing}
-                    rows={3}
-                  />
                 </div>
               </div>
 

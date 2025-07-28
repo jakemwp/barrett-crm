@@ -55,12 +55,6 @@ export interface Vehicle {
     front: number;
     rear: number;
   };
-  maintenanceSchedule?: {
-    lastService?: string | null;
-    nextService?: string | null;
-    serviceInterval: number; // in months
-    notes?: string | null;
-  };
   odometer: number | null;
   image?: string | null;
   fuelLevel: number; // percentage 0-100

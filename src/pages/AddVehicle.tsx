@@ -11,7 +11,6 @@ import {
   Fuel, 
   Battery, 
   Calendar, 
-  Wrench, 
   CheckCircle, 
   AlertCircle,
   Users,
@@ -63,12 +62,6 @@ export function AddVehicle() {
     tirePressurePreferred: {
       front: 34,
       rear: 32,
-    },
-    maintenanceSchedule: {
-      lastService: '',
-      nextService: '',
-      serviceInterval: 6,
-      notes: '',
     },
     odometer: 0,
     image: '',
@@ -265,22 +258,6 @@ export function AddVehicle() {
       handleCustomerChange(customerIdFromUrl);
     }
   }, [searchParams]);
-
-  React.useEffect(() => {
-    if (formData.maintenanceSchedule.lastService && formData.maintenanceSchedule.serviceInterval) {
-      const lastServiceDate = new Date(formData.maintenanceSchedule.lastService);
-      const nextServiceDate = new Date(lastServiceDate);
-      nextServiceDate.setMonth(nextServiceDate.getMonth() + formData.maintenanceSchedule.serviceInterval);
-      
-      setFormData(prev => ({
-        ...prev,
-        maintenanceSchedule: {
-          ...prev.maintenanceSchedule,
-          nextService: nextServiceDate.toISOString().split('T')[0],
-        },
-      }));
-    }
-  }, [formData.maintenanceSchedule.lastService, formData.maintenanceSchedule.serviceInterval]);
 
   const selectedCustomer = formData.customerId ? getCustomerById(formData.customerId) : null;
 
@@ -632,48 +609,6 @@ export function AddVehicle() {
                   </div>
                 </div>
               </div>
-            </CardContent>
-          </Card>
-
-          {/* Maintenance Schedule */}
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center">
-                <Wrench className="mr-2" size={20} />
-                Maintenance Schedule
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <Input
-                  label="Last Service Date"
-                  type="date"
-                  value={formData.maintenanceSchedule.lastService}
-                  onChange={(e) => handleNestedInputChange('maintenanceSchedule', 'lastService', e.target.value)}
-                />
-                <Input
-                  label="Next Service Date"
-                  type="date"
-                  value={formData.maintenanceSchedule.nextService}
-                  onChange={(e) => handleNestedInputChange('maintenanceSchedule', 'nextService', e.target.value)}
-                  helperText="Auto-calculated based on last service and interval"
-                />
-                <Input
-                  label="Service Interval (months)"
-                  type="number"
-                  min="1"
-                  value={formData.maintenanceSchedule.serviceInterval}
-                  onChange={(e) => handleNestedInputChange('maintenanceSchedule', 'serviceInterval', parseInt(e.target.value) || 6)}
-                />
-              </div>
-              
-              <Textarea
-                label="Maintenance Notes"
-                value={formData.maintenanceSchedule.notes}
-                onChange={(e) => handleNestedInputChange('maintenanceSchedule', 'notes', e.target.value)}
-                rows={3}
-                placeholder="Special maintenance instructions or notes..."
-              />
             </CardContent>
           </Card>
 

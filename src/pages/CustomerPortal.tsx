@@ -260,26 +260,6 @@ export function CustomerPortal() {
                         </div>
                       </div>
                       
-                      {/* Maintenance Info */}
-                      {vehicle.maintenanceSchedule?.lastService && (
-                        <div className="pt-3 border-t border-gray-200">
-                          <div className="flex items-center justify-between text-sm">
-                            <span className="text-gray-600">Last Service:</span>
-                            <span className="font-medium">
-                              {formatDate(vehicle.maintenanceSchedule.lastService)}
-                            </span>
-                          </div>
-                          {vehicle.maintenanceSchedule.nextService && (
-                            <div className="flex items-center justify-between text-sm mt-1">
-                              <span className="text-gray-600">Next Service:</span>
-                              <span className="font-medium text-primary-600">
-                                {formatDate(vehicle.maintenanceSchedule.nextService)}
-                              </span>
-                            </div>
-                          )}
-                        </div>
-                      )}
-                    </div>
                   </CardContent>
                 </Card>
               ))}
