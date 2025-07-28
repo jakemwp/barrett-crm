@@ -79,7 +79,6 @@ export function AddVehicle() {
   });
 
   const [authorizedDrivers, setAuthorizedDrivers] = useState<Omit<AuthorizedDriver, 'id'>[]>([]);
-  const [authorizedContacts, setAuthorizedContacts] = useState<any[]>([]);
   
   const [newDriver, setNewDriver] = useState({
     name: '',
@@ -89,6 +88,7 @@ export function AddVehicle() {
     relationship: '',
   });
 
+  const [authorizedContacts, setAuthorizedContacts] = useState<any[]>([]);
 
   const handleInputChange = (field: string, value: any) => {
     setFormData(prev => ({
@@ -242,10 +242,6 @@ export function AddVehicle() {
         ...formData,
         authorizedDrivers: authorizedDrivers.map(driver => ({
           ...driver,
-          id: generateId(),
-        })),
-        authorizedContacts: authorizedContacts.map(contact => ({
-          ...contact,
           id: generateId(),
         })),
       });
