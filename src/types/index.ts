@@ -25,7 +25,6 @@ export interface AuthorizedDriver {
   id: string;
   name: string;
   phone: string | null;
-  email: string | null;
   licenseNumber: string | null;
   relationship: string | null;
 }

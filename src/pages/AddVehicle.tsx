@@ -82,7 +82,6 @@ export function AddVehicle() {
   const [newDriver, setNewDriver] = useState({
     name: '',
     phone: '',
-    email: '',
     licenseNumber: '',
     relationship: '',
   });
@@ -124,11 +123,10 @@ export function AddVehicle() {
       }));
       
       // Add customer as primary authorized driver
-      if (!authorizedDrivers.some(driver => driver.email === customer.email)) {
+      if (!authorizedDrivers.some(driver => driver.name === `${customer.firstName} ${customer.lastName}`)) {
         setAuthorizedDrivers(prev => [{
           name: `${customer.firstName} ${customer.lastName}`,
           phone: customer.phone,
-          email: customer.email,
           licenseNumber: '',
           relationship: 'Owner',
         }, ...prev]);
@@ -137,12 +135,11 @@ export function AddVehicle() {
   };
 
   const addAuthorizedDriver = () => {
-    if (newDriver.name && newDriver.email) {
+    if (newDriver.name) {
       setAuthorizedDrivers(prev => [...prev, { ...newDriver }]);
       setNewDriver({
         name: '',
         phone: '',
-        email: '',
         licenseNumber: '',
         relationship: '',
       });
@@ -708,13 +705,6 @@ export function AddVehicle() {
                     value={newDriver.name}
                     onChange={(e) => setNewDriver(prev => ({ ...prev, name: e.target.value }))}
                     placeholder="John Doe"
-                  />
-                  <Input
-                    label="Email *"
-                    type="email"
-                    value={newDriver.email}
-                    onChange={(e) => setNewDriver(prev => ({ ...prev, email: e.target.value }))}
-                    placeholder="john@example.com"
                   />
                   <Input
                     label="Phone"
