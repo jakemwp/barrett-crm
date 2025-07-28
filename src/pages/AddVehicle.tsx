@@ -79,6 +79,7 @@ export function AddVehicle() {
   });
 
   const [authorizedDrivers, setAuthorizedDrivers] = useState<Omit<AuthorizedDriver, 'id'>[]>([]);
+  const [authorizedContacts, setAuthorizedContacts] = useState<Omit<AuthorizedContact, 'id'>[]>([]);
   
   const [newDriver, setNewDriver] = useState({
     name: '',
@@ -88,8 +89,6 @@ export function AddVehicle() {
     relationship: '',
   });
 
-  const [authorizedContacts, setAuthorizedContacts] = useState<any[]>([]);
-  
   const [newContact, setNewContact] = useState({
     name: '',
     phone: '',
