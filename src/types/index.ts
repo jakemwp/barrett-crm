@@ -61,6 +61,7 @@ export interface Vehicle {
     front: number;
     rear: number;
   };
+  hasPreferredPressure?: boolean;
   odometer: number | null;
   image?: string | null;
   fuelLevel: number; // percentage 0-100

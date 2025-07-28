@@ -69,6 +69,7 @@ export function AddVehicle() {
       front: 34,
       rear: 32,
     },
+    hasPreferredPressure: false,
     odometer: 0,
     image: '',
     fuelLevel: 100,
@@ -619,9 +620,9 @@ export function AddVehicle() {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="space-y-6">
                 <div>
-                  <h4 className="text-md font-medium text-gray-700 mb-3">Default Pressure (PSI)</h4>
+                  <h4 className="text-md font-medium text-gray-700 mb-3">Manufacturer Recommended Pressure (PSI)</h4>
                   <div className="grid grid-cols-2 gap-4">
                     <Input
                       label="Front"
@@ -641,23 +642,34 @@ export function AddVehicle() {
                 </div>
                 
                 <div>
-                  <h4 className="text-md font-medium text-gray-700 mb-3">Preferred Pressure (PSI)</h4>
-                  <div className="grid grid-cols-2 gap-4">
-                    <Input
-                      label="Front"
-                      type="number"
-                      min="0"
-                      value={formData.tirePressurePreferred.front}
-                      onChange={(e) => handleNestedInputChange('tirePressurePreferred', 'front', parseInt(e.target.value) || 0)}
+                  <label className="flex items-center space-x-2 mb-4">
+                    <input
+                      type="checkbox"
+                      checked={formData.hasPreferredPressure}
+                      onChange={(e) => handleInputChange('hasPreferredPressure', e.target.checked)}
+                      className="checkbox"
                     />
-                    <Input
-                      label="Rear"
-                      type="number"
-                      min="0"
-                      value={formData.tirePressurePreferred.rear}
-                      onChange={(e) => handleNestedInputChange('tirePressurePreferred', 'rear', parseInt(e.target.value) || 0)}
-                    />
-                  </div>
+                    <span className="text-md font-medium text-gray-700">Preferred Pressure (PSI)</span>
+                  </label>
+                  
+                  {formData.hasPreferredPressure && (
+                    <div className="grid grid-cols-2 gap-4">
+                      <Input
+                        label="Front"
+                        type="number"
+                        min="0"
+                        value={formData.tirePressurePreferred.front}
+                        onChange={(e) => handleNestedInputChange('tirePressurePreferred', 'front', parseInt(e.target.value) || 0)}
+                      />
+                      <Input
+                        label="Rear"
+                        type="number"
+                        min="0"
+                        value={formData.tirePressurePreferred.rear}
+                        onChange={(e) => handleNestedInputChange('tirePressurePreferred', 'rear', parseInt(e.target.value) || 0)}
+                      />
+                    </div>
+                  )}
                 </div>
               </div>
             </CardContent>
