@@ -562,7 +562,6 @@ export function AddVehicle() {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <Input
                   label="State *"
@@ -968,7 +967,6 @@ export function AddVehicle() {
               </div>
             </CardContent>
           </Card>
-
         </div>
       </div>
     </div>
