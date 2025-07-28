@@ -88,6 +88,16 @@ export function AddVehicle() {
     relationship: '',
   });
 
+  const [authorizedContacts, setAuthorizedContacts] = useState<any[]>([]);
+  
+  const [newContact, setNewContact] = useState({
+    name: '',
+    phone: '',
+    email: '',
+    relationship: '',
+    canDropoff: false,
+    canPickup: false,
+  });
 
   const handleInputChange = (field: string, value: any) => {
     setFormData(prev => ({
@@ -153,6 +163,23 @@ export function AddVehicle() {
     setAuthorizedDrivers(prev => prev.filter((_, i) => i !== index));
   };
 
+  const addAuthorizedContact = () => {
+    if (newContact.name && newContact.phone) {
+      setAuthorizedContacts(prev => [...prev, { ...newContact }]);
+      setNewContact({
+        name: '',
+        phone: '',
+        email: '',
+        relationship: '',
+        canDropoff: false,
+        canPickup: false,
+      });
+    }
+  };
+
+  const removeAuthorizedContact = (index: number) => {
+    setAuthorizedContacts(prev => prev.filter((_, i) => i !== index));
+  };
 
   const validateForm = () => {
     const newErrors: Record<string, string> = {};
@@ -241,6 +268,10 @@ export function AddVehicle() {
         ...formData,
         authorizedDrivers: authorizedDrivers.map(driver => ({
           ...driver,
+          id: generateId(),
+        })),
+        authorizedContacts: authorizedContacts.map(contact => ({
+          ...contact,
           id: generateId(),
         })),
       });
@@ -799,6 +830,7 @@ export function AddVehicle() {
               )}
             </CardContent>
           </Card>
+        </div>
 
         {/* Vehicle Preview & Summary */}
         <div className="space-y-6">
@@ -957,6 +989,24 @@ export function AddVehicle() {
                 <span className="font-semibold">{authorizedDrivers.length}</span>
               </div>
               
+              <div className="flex items-center justify-between">
+                <span className="text-sm text-gray-600">Emergency Contacts</span>
+                <span className="font-semibold">{authorizedContacts.length}</span>
+              </div>
+              
+              <div className="flex items-center justify-between">
+                <span className="text-sm text-gray-600">Can Drop Off</span>
+                <span className="font-semibold text-green-600">
+                  {authorizedContacts.filter(c => c.canDropoff).length}
+                </span>
+              </div>
+              
+              <div className="flex items-center justify-between">
+                <span className="text-sm text-gray-600">Can Pick Up</span>
+                <span className="font-semibold text-blue-600">
+                  {authorizedContacts.filter(c => c.canPickup).length}
+                </span>
+              </div>
             </CardContent>
           </Card>
 
