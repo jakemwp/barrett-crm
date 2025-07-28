@@ -980,35 +980,6 @@ export function AddVehicle() {
             </CardContent>
           </Card>
 
-          {/* Maintenance Summary */}
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center">
-                <Wrench className="mr-2" size={16} />
-                Maintenance
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-sm text-gray-600">Service Interval</span>
-                <span className="font-semibold">{formData.maintenanceSchedule.serviceInterval} months</span>
-              </div>
-              
-              <div className="flex items-center justify-between">
-                <span className="text-sm text-gray-600">Last Service</span>
-                <span className="font-semibold text-sm">
-                  {formData.maintenanceSchedule.lastService || 'Never'}
-                </span>
-              </div>
-              
-              <div className="flex items-center justify-between">
-                <span className="text-sm text-gray-600">Next Service</span>
-                <span className="font-semibold text-sm text-primary-600">
-                  {formData.maintenanceSchedule.nextService || 'Not scheduled'}
-                </span>
-              </div>
-            </CardContent>
-          </Card>
         </div>
       </div>
     </div>
