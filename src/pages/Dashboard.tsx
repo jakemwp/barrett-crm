@@ -168,8 +168,7 @@ export function Dashboard() {
                 <span>Add Vehicle</span>
               </Button>
             </Link>
-          </div>
-          
+            
             <Link to="/check-in-out/new">
               <Button 
                 className="h-auto py-6 flex flex-col items-center justify-center space-y-2 w-full"
@@ -179,6 +178,8 @@ export function Dashboard() {
                 <span>Check-In Vehicle</span>
               </Button>
             </Link>
+          </div>
+          
         </CardContent>
       </Card>
       
