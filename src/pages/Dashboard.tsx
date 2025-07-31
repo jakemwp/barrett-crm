@@ -148,15 +148,6 @@ export function Dashboard() {
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-3 gap-4">
-            <Link to="/check-in-out/new">
-              <Button 
-                className="h-auto py-6 flex flex-col items-center justify-center space-y-2 w-full"
-                variant="outline"
-              >
-                <Car size={24} />
-                <span>Check-In Vehicle</span>
-              </Button>
-            </Link>
             
             <Link to="/clients/new">
               <Button 
@@ -178,6 +169,16 @@ export function Dashboard() {
               </Button>
             </Link>
           </div>
+          
+            <Link to="/check-in-out/new">
+              <Button 
+                className="h-auto py-6 flex flex-col items-center justify-center space-y-2 w-full"
+                variant="outline"
+              >
+                <Car size={24} />
+                <span>Check-In Vehicle</span>
+              </Button>
+            </Link>
         </CardContent>
       </Card>
       
