@@ -137,7 +137,7 @@ export function authenticateUser(email: string, password: string, userType: 'sta
 
 // Create customers from complete CSV data
 
-export const customers: Customer[] =[
+export const customers: Customer[] = [
   {
     "id": "c1",
     "firstName": "Name",
@@ -182,11 +182,11 @@ export const customers: Customer[] =[
     "createdAt": "2025-06-27T10:30:00Z",
     "updatedAt": "2025-06-27T10:30:00Z"
   }
-]
+];
 
 // Create mock vehicles with comprehensive data
 
-export const vehicles: Vehicle[] =[
+export const vehicles: Vehicle[] = [
   {
     "id": "2",
     "customerId": "c2",
@@ -238,8 +238,24 @@ export const vehicles: Vehicle[] =[
       "number": "REG123456",
       "expirationDate": "2024-12-31",
       "state": "CA"
-    }
-  ];
+    },
+    "tirePressureDefault": {
+      "front": 32,
+      "rear": 32
+    },
+    "tirePressurePreferred": {
+      "front": 32,
+      "rear": 32
+    },
+    "maintenanceSchedule": [],
+    "odometer": null,
+    "fuelLevel": 100,
+    "batteryType": "Standard",
+    "color": "Placeholder",
+    "createdAt": "2025-06-27T10:35:00Z",
+    "updatedAt": "2025-06-27T14:35:00Z"
+  }
+];
 
 
 // Create mock service items
