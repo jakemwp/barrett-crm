@@ -4,7 +4,6 @@ import {
   ArrowLeft, 
   Save, 
   Edit, 
-  updateCustomer,
   X, 
   Car, 
   Plus, 
@@ -33,7 +32,7 @@ import {
   LogOut,
   Pen
 } from 'lucide-react';
-import { getCustomerById, getVehiclesByCustomerId, checkInOuts } from '../data/mock-data';
+import { getCustomerById, getVehiclesByCustomerId, checkInOuts, updateCustomer } from '../data/mock-data';
 import { Customer, Vehicle, CheckStatus } from '../types';
 import { Button } from '../components/ui/Button';
 import { Input } from '../components/ui/Input';
@@ -94,10 +93,22 @@ export function CustomerDetail() {
 
   const handleSave = () => {
     if (formData) {
-      // In a real app, this would make an API call
-      setCustomer(formData);
-      setIsEditing(false);
-      // Show success message
+      try {
+        const updatedCustomer = updateCustomer(customer.id, formData);
+        if (updatedCustomer) {
+          setCustomer(updatedCustomer);
+          setFormData(updatedCustomer);
+          setIsEditing(false);
+          // Show success message - you could add a toast notification here
+          console.log('Customer updated successfully');
+        } else {
+          console.error('Failed to update customer');
+          // Show error message
+        }
+      } catch (error) {
+        console.error('Error updating customer:', error);
+        // Show error message
+      }
     }
   };
 
