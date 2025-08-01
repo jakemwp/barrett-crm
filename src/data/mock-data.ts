@@ -7449,6 +7449,32 @@ export function updateCustomer(id: string, customerData: Partial<Customer>): Cus
   return customers[customerIndex];
 }
 
+
+export function updateVehicle((vehicleData: Omit<Vehicle, 'id' | 'createdAt' | 'updatedAt'>): Vehicle {
+  const customerIndex = customers.findIndex(customer => customer.id === id);
+  const now = new Date().toISOString();
+  const newVehicle: Vehicle = {
+    id: generateId(),
+    ...vehicleData,
+    createdAt: now,
+    updatedAt: now,
+  };
+  
+  vehicles.push(newVehicle);
+  return newVehicle;
+}
+id: string, customerData: Partial<Customer>): Customer | null {
+  if (customerIndex === -1) return null;
+  
+  customers[customerIndex] = {
+    ...customers[customerIndex],
+    ...customerData,
+    updatedAt: new Date().toISOString(),
+  };
+  
+  return customers[customerIndex];
+}
+
 export function addVehicle(vehicleData: Omit<Vehicle, 'id' | 'createdAt' | 'updatedAt'>): Vehicle {
   const now = new Date().toISOString();
   const newVehicle: Vehicle = {
