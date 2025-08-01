@@ -448,6 +448,19 @@ export function addCustomer(customerData: Omit<Customer, 'id' | 'createdAt' | 'u
   return newCustomer;
 }
 
+export function updateCustomer(id: string, customerData: Partial<Customer>): Customer | null {
+  const customerIndex = customers.findIndex(customer => customer.id === id);
+  if (customerIndex === -1) return null;
+  
+  customers[customerIndex] = {
+    ...customers[customerIndex],
+    ...customerData,
+    updatedAt: new Date().toISOString(),
+  };
+  
+  return customers[customerIndex];
+}
+
 export function addVehicle(vehicleData: Omit<Vehicle, 'id' | 'createdAt' | 'updatedAt'>): Vehicle {
   const now = new Date().toISOString();
   const newVehicle: Vehicle = {
