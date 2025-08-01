@@ -72,7 +72,7 @@ export function TopBar({ onMenuClick }: TopBarProps) {
           results.push({
             id: vehicle.id,
             type: 'vehicle',
-            title: `${vehicle.year || ''} ${vehicle.make || ''} ${vehicle.model || ''}`.trim(),
+            title: `${vehicle.year || ''} ${vehicle.make || ''} ${vehicle.model || ''} ${vehicle.id || ''}`.trim(),
             subtitle: `${vehicle.licensePlate || 'No Plate'} • Owner: ${customerName}`,
             link: `/vehicles/${vehicle.id}`
           });
