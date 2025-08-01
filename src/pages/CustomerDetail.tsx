@@ -4,7 +4,8 @@ import {
   ArrowLeft, 
   Save, 
   Edit, 
-  updateCustomer
+  updateCustomer,
+  X, 
   Car, 
   Plus, 
   Eye, 
@@ -93,21 +94,10 @@ export function CustomerDetail() {
 
   const handleSave = () => {
     if (formData) {
-      try {
-        const updatedCustomer = updateCustomer(customer.id, formData);
-        if (updatedCustomer) {
-          setCustomer(updatedCustomer);
-          setFormData(updatedCustomer);
-          setIsEditing(false);
-          // Show success message - you could add a toast notification here
-        } else {
-          console.error('Failed to update customer');
-          // Show error message
-        }
-      } catch (error) {
-        console.error('Error updating customer:', error);
-        // Show error message
-      }
+      // In a real app, this would make an API call
+      setCustomer(formData);
+      setIsEditing(false);
+      // Show success message
     }
   };
 
