@@ -477,6 +477,18 @@ export function updateCustomer(id: string, customerData: Partial<Customer>): Cus
   return customers[customerIndex];
 }
 
+export function updateVehicle(id: string, vehicleData: Partial<Vehicle>): Vehicle | null {
+  const vehicleIndex = vehicles.findIndex(vehicle => vehicle.id === id);
+  if (vehicleIndex === -1) return null;
+  
+  vehicles[vehicleIndex] = {
+    ...vehicles[vehicleIndex],
+    ...vehicleData,
+    updatedAt: new Date().toISOString(),
+  };
+  
+  return vehicles[vehicleIndex];
+}
 
 
 export function addVehicle(vehicleData: Omit<Vehicle, 'id' | 'createdAt' | 'updatedAt'>): Vehicle {

@@ -21,7 +21,7 @@ import {
   CheckCircle,
   Clock
 } from 'lucide-react';
-import { getVehicleById, getCustomerById, checkInOuts } from '../data/mock-data';
+import { getVehicleById, getCustomerById, checkInOuts, updateVehicle } from '../data/mock-data';
 import { Vehicle, CheckInOut, CheckStatus, CheckType } from '../types';
 import { Button } from '../components/ui/Button';
 import { Input } from '../components/ui/Input';
@@ -77,10 +77,22 @@ export function VehicleDetail() {
 
   const handleSave = () => {
     if (formData) {
-      // In a real app, this would make an API call
-      setVehicle(formData);
-      setIsEditing(false);
-      // Show success message
+      try {
+        const updatedVehicle = updateVehicle(vehicle.id, formData);
+        if (updatedVehicle) {
+          setVehicle(updatedVehicle);
+          setFormData(updatedVehicle);
+          setIsEditing(false);
+          // Show success message - you could add a toast notification here
+          console.log('Vehicle updated successfully');
+        } else {
+          console.error('Failed to update vehicle');
+          // Show error message
+        }
+      } catch (error) {
+        console.error('Error updating vehicle:', error);
+        // Show error message
+      }
     }
   };
 
