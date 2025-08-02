@@ -469,7 +469,7 @@ export function CheckInOutDetail() {
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">Engine Bay</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <PhotoUpload
-                    title="Engine Bay Photos"
+                    title="Engine Bay Photos *"
                     description="Multiple photos of the engine bay"
                     multiple={true}
                     maxSize={10}
@@ -479,7 +479,7 @@ export function CheckInOutDetail() {
                   />
                   
                   <PhotoUpload
-                    title="Hood Photos"
+                    title="Hood Photos *"
                     description="Photos of the hood exterior and interior"
                     multiple={true}
                     maxSize={10}
@@ -490,17 +490,376 @@ export function CheckInOutDetail() {
                 </div>
               </div>
 
+              {/* Front Section */}
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Front Section</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <PhotoUpload
+                    title="Grille Photos *"
+                    description="Photos of the front grille"
+                    multiple={true}
+                    maxSize={10}
+                    initialPhotos={formData.photos?.grillePics || []}
+                    onPhotosChange={(urls) => handlePhotoChange('grillePics', urls)}
+                    disabled={!isEditing}
+                  />
+                  
+                  <PhotoUpload
+                    title="Headlight Photos *"
+                    description="Photos of both headlights"
+                    multiple={true}
+                    maxSize={10}
+                    initialPhotos={formData.photos?.headlightPics || []}
+                    onPhotosChange={(urls) => handlePhotoChange('headlightPics', urls)}
+                    disabled={!isEditing}
+                  />
+                  
+                  <PhotoUpload
+                    title="Front Bumper Photos *"
+                    description="Photos of the front bumper"
+                    multiple={true}
+                    maxSize={10}
+                    initialPhotos={formData.photos?.frontBumperPics || []}
+                    onPhotosChange={(urls) => handlePhotoChange('frontBumperPics', urls)}
+                    disabled={!isEditing}
+                  />
+                </div>
+              </div>
+
+              {/* Passenger Side */}
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Passenger Side</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <PhotoUpload
+                    title="Passenger Side Front Fender Photos *"
+                    description="Photos of the passenger side front fender"
+                    multiple={true}
+                    maxSize={10}
+                    initialPhotos={formData.photos?.passengerSideFrontFenderPics || []}
+                    onPhotosChange={(urls) => handlePhotoChange('passengerSideFrontFenderPics', urls)}
+                    disabled={!isEditing}
+                  />
+                  
+                  <PhotoUpload
+                    title="Passenger Side Front Wheel Photos *"
+                    description="Photos of the passenger side front wheel"
+                    multiple={true}
+                    maxSize={10}
+                    initialPhotos={formData.photos?.passengerSideFrontWheelPics || []}
+                    onPhotosChange={(urls) => handlePhotoChange('passengerSideFrontWheelPics', urls)}
+                    disabled={!isEditing}
+                  />
+                  
+                  <PhotoUpload
+                    title="Passenger Side Pillar Photos *"
+                    description="Photos of the passenger side pillars"
+                    multiple={true}
+                    maxSize={10}
+                    initialPhotos={formData.photos?.passengerSidePillarPics || []}
+                    onPhotosChange={(urls) => handlePhotoChange('passengerSidePillarPics', urls)}
+                    disabled={!isEditing}
+                  />
+                  
+                  <PhotoUpload
+                    title="Passenger Side Door Photos *"
+                    description="Photos of the passenger side doors"
+                    multiple={true}
+                    maxSize={10}
+                    initialPhotos={formData.photos?.passengerSideDoorPics || []}
+                    onPhotosChange={(urls) => handlePhotoChange('passengerSideDoorPics', urls)}
+                    disabled={!isEditing}
+                  />
+                  
+                  <PhotoUpload
+                    title="Passenger Side Door Handle Photos *"
+                    description="Photos of the passenger side door handles"
+                    multiple={true}
+                    maxSize={10}
+                    initialPhotos={formData.photos?.passengerSideDoorHandlePics || []}
+                    onPhotosChange={(urls) => handlePhotoChange('passengerSideDoorHandlePics', urls)}
+                    disabled={!isEditing}
+                  />
+                  
+                  <PhotoUpload
+                    title="Passenger Side Rear Fender Photos *"
+                    description="Photos of the passenger side rear fender"
+                    multiple={true}
+                    maxSize={10}
+                    initialPhotos={formData.photos?.passengerSideRearFenderPics || []}
+                    onPhotosChange={(urls) => handlePhotoChange('passengerSideRearFenderPics', urls)}
+                    disabled={!isEditing}
+                  />
+                  
+                  <PhotoUpload
+                    title="Passenger Side Rear Wheel Photos *"
+                    description="Photos of the passenger side rear wheel"
+                    multiple={true}
+                    maxSize={10}
+                    initialPhotos={formData.photos?.passengerSideRearWheelPics || []}
+                    onPhotosChange={(urls) => handlePhotoChange('passengerSideRearWheelPics', urls)}
+                    disabled={!isEditing}
+                  />
+                  
+                  <PhotoUpload
+                    title="Passenger Side Mirror Photos *"
+                    description="Photos of the passenger side mirror"
+                    multiple={true}
+                    maxSize={10}
+                    initialPhotos={formData.photos?.passengerSideMirrorPics || []}
+                    onPhotosChange={(urls) => handlePhotoChange('passengerSideMirrorPics', urls)}
+                    disabled={!isEditing}
+                  />
+                </div>
+              </div>
+
+              {/* Rear Section */}
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Rear Section</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <PhotoUpload
+                    title="Trunk Photos (Exterior) *"
+                    description="Photos of the trunk exterior"
+                    multiple={true}
+                    maxSize={10}
+                    initialPhotos={formData.photos?.trunkExteriorPics || []}
+                    onPhotosChange={(urls) => handlePhotoChange('trunkExteriorPics', urls)}
+                    disabled={!isEditing}
+                  />
+                  
+                  <PhotoUpload
+                    title="Trunk Photos (Interior) *"
+                    description="Photos of the trunk interior"
+                    multiple={true}
+                    maxSize={10}
+                    initialPhotos={formData.photos?.trunkInteriorPics || []}
+                    onPhotosChange={(urls) => handlePhotoChange('trunkInteriorPics', urls)}
+                    disabled={!isEditing}
+                  />
+                  
+                  <PhotoUpload
+                    title="Rear Light Photos *"
+                    description="Photos of the rear lights"
+                    multiple={true}
+                    maxSize={10}
+                    initialPhotos={formData.photos?.rearLightPics || []}
+                    onPhotosChange={(urls) => handlePhotoChange('rearLightPics', urls)}
+                    disabled={!isEditing}
+                  />
+                  
+                  <PhotoUpload
+                    title="Rear Bumper Photos *"
+                    description="Photos of the rear bumper"
+                    multiple={true}
+                    maxSize={10}
+                    initialPhotos={formData.photos?.bumperPics || []}
+                    onPhotosChange={(urls) => handlePhotoChange('bumperPics', urls)}
+                    disabled={!isEditing}
+                  />
+                </div>
+              </div>
+
+              {/* Driver Side */}
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Driver Side</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <PhotoUpload
+                    title="Driver Side Rear Fender Photos *"
+                    description="Photos of the driver side rear fender"
+                    multiple={true}
+                    maxSize={10}
+                    initialPhotos={formData.photos?.driverSideRearFenderPics || []}
+                    onPhotosChange={(urls) => handlePhotoChange('driverSideRearFenderPics', urls)}
+                    disabled={!isEditing}
+                  />
+                  
+                  <PhotoUpload
+                    title="Driver Side Rear Wheel Photos *"
+                    description="Photos of the driver side rear wheel"
+                    multiple={true}
+                    maxSize={10}
+                    initialPhotos={formData.photos?.driverSideRearWheelPics || []}
+                    onPhotosChange={(urls) => handlePhotoChange('driverSideRearWheelPics', urls)}
+                    disabled={!isEditing}
+                  />
+                  
+                  <PhotoUpload
+                    title="Driver Side Pillar Photos *"
+                    description="Photos of the driver side pillars"
+                    multiple={true}
+                    maxSize={10}
+                    initialPhotos={formData.photos?.driverSidePillarPics || []}
+                    onPhotosChange={(urls) => handlePhotoChange('driverSidePillarPics', urls)}
+                    disabled={!isEditing}
+                  />
+                  
+                  <PhotoUpload
+                    title="Driver Side Door Photos *"
+                    description="Photos of the driver side doors"
+                    multiple={true}
+                    maxSize={10}
+                    initialPhotos={formData.photos?.driverSideDoorPics || []}
+                    onPhotosChange={(urls) => handlePhotoChange('driverSideDoorPics', urls)}
+                    disabled={!isEditing}
+                  />
+                  
+                  <PhotoUpload
+                    title="Driver Side Door Handle Photos *"
+                    description="Photos of the driver side door handles"
+                    multiple={true}
+                    maxSize={10}
+                    initialPhotos={formData.photos?.driverSideDoorHandlePics || []}
+                    onPhotosChange={(urls) => handlePhotoChange('driverSideDoorHandlePics', urls)}
+                    disabled={!isEditing}
+                  />
+                  
+                  <PhotoUpload
+                    title="Driver Side Front Fender Photos *"
+                    description="Photos of the driver side front fender"
+                    multiple={true}
+                    maxSize={10}
+                    initialPhotos={formData.photos?.driverSideFrontFenderPics || []}
+                    onPhotosChange={(urls) => handlePhotoChange('driverSideFrontFenderPics', urls)}
+                    disabled={!isEditing}
+                  />
+                  
+                  <PhotoUpload
+                    title="Driver Side Front Wheel Photos *"
+                    description="Photos of the driver side front wheel"
+                    multiple={true}
+                    maxSize={10}
+                    initialPhotos={formData.photos?.driverSideFrontWheelPics || []}
+                    onPhotosChange={(urls) => handlePhotoChange('driverSideFrontWheelPics', urls)}
+                    disabled={!isEditing}
+                  />
+                  
+                  <PhotoUpload
+                    title="Driver Side Mirror Photos *"
+                    description="Photos of the driver side mirror"
+                    multiple={true}
+                    maxSize={10}
+                    initialPhotos={formData.photos?.driverSideMirrorPics || []}
+                    onPhotosChange={(urls) => handlePhotoChange('driverSideMirrorPics', urls)}
+                    disabled={!isEditing}
+                  />
+                </div>
+              </div>
+
+              {/* Top and Roof */}
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Top and Roof</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <PhotoUpload
+                    title="Roof Photos *"
+                    description="Photos of the vehicle roof"
+                    multiple={true}
+                    maxSize={10}
+                    initialPhotos={formData.photos?.roofPics || []}
+                    onPhotosChange={(urls) => handlePhotoChange('roofPics', urls)}
+                    disabled={!isEditing}
+                  />
+                </div>
+              </div>
               {/* Interior */}
               <div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">Interior</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <PhotoUpload
-                    title="Dashboard Photos"
-                    description="Include odometer and fuel level readings"
+                    title="Driver Side Door Trim Photos *"
+                    description="Photos of the driver side door trim"
+                    multiple={true}
+                    maxSize={10}
+                    initialPhotos={formData.photos?.driverSideDoorTrimPics || []}
+                    onPhotosChange={(urls) => handlePhotoChange('driverSideDoorTrimPics', urls)}
+                    disabled={!isEditing}
+                  />
+                  
+                  <PhotoUpload
+                    title="Driver Side Seat Photos *"
+                    description="Photos of the driver side seat"
+                    multiple={true}
+                    maxSize={10}
+                    initialPhotos={formData.photos?.driverSideSeatPics || []}
+                    onPhotosChange={(urls) => handlePhotoChange('driverSideSeatPics', urls)}
+                    disabled={!isEditing}
+                  />
+                  
+                  <PhotoUpload
+                    title="Driver Side Floor Mat Photos *"
+                    description="Photos of the driver side floor mats"
+                    multiple={true}
+                    maxSize={10}
+                    initialPhotos={formData.photos?.driverSideFloorMatPics || []}
+                    onPhotosChange={(urls) => handlePhotoChange('driverSideFloorMatPics', urls)}
+                    disabled={!isEditing}
+                  />
+                  
+                  <PhotoUpload
+                    title="Dashboard Photos (Odometer & Fuel Level Included) *"
+                    description="Include clear shots of odometer and fuel level readings"
                     multiple={true}
                     maxSize={10}
                     initialPhotos={formData.photos?.dashboardPics || []}
                     onPhotosChange={(urls) => handlePhotoChange('dashboardPics', urls)}
+                    disabled={!isEditing}
+                  />
+                  
+                  <PhotoUpload
+                    title="Entertainment Center Photos *"
+                    description="Photos of the entertainment/infotainment system"
+                    multiple={true}
+                    maxSize={10}
+                    initialPhotos={formData.photos?.entertainmentCenterPics || []}
+                    onPhotosChange={(urls) => handlePhotoChange('entertainmentCenterPics', urls)}
+                    disabled={!isEditing}
+                  />
+                  
+                  <PhotoUpload
+                    title="Center Console Photos (Interior & Exterior) *"
+                    description="Photos of the center console interior and exterior"
+                    multiple={true}
+                    maxSize={10}
+                    initialPhotos={formData.photos?.centerConsoleInteriorPics || []}
+                    onPhotosChange={(urls) => handlePhotoChange('centerConsoleInteriorPics', urls)}
+                    disabled={!isEditing}
+                  />
+                  
+                  <PhotoUpload
+                    title="Passenger Side Door Trim Photos *"
+                    description="Photos of the passenger side door trim"
+                    multiple={true}
+                    maxSize={10}
+                    initialPhotos={formData.photos?.passengerSideDoorTrimPics || []}
+                    onPhotosChange={(urls) => handlePhotoChange('passengerSideDoorTrimPics', urls)}
+                    disabled={!isEditing}
+                  />
+                  
+                  <PhotoUpload
+                    title="Passenger Side Seat Photos *"
+                    description="Photos of the passenger side seat"
+                    multiple={true}
+                    maxSize={10}
+                    initialPhotos={formData.photos?.passengerSideSeatPics || []}
+                    onPhotosChange={(urls) => handlePhotoChange('passengerSideSeatPics', urls)}
+                    disabled={!isEditing}
+                  />
+                  
+                  <PhotoUpload
+                    title="Passenger Side Floor Mat Photos *"
+                    description="Photos of the passenger side floor mats"
+                    multiple={true}
+                    maxSize={10}
+                    initialPhotos={formData.photos?.passengerSideFloorMatPics || []}
+                    onPhotosChange={(urls) => handlePhotoChange('passengerSideFloorMatPics', urls)}
+                    disabled={!isEditing}
+                  />
+                  
+                  <PhotoUpload
+                    title="Glove Box Photos (Interior & Exterior) *"
+                    description="Photos of the glove box interior and exterior"
+                    multiple={true}
+                    maxSize={10}
+                    initialPhotos={formData.photos?.gloveBoxInteriorPics || []}
+                    onPhotosChange={(urls) => handlePhotoChange('gloveBoxInteriorPics', urls)}
                     disabled={!isEditing}
                   />
                   

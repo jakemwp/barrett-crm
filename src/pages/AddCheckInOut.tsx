@@ -598,16 +598,309 @@ export function AddCheckInOut() {
                 </div>
               </div>
 
+              {/* Front Section */}
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Front Section</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <PhotoUpload
+                    title="Grille Photos *"
+                    description="Photos of the front grille"
+                    multiple={true}
+                    maxSize={10}
+                    onPhotosChange={(urls) => handlePhotoChange('grillePics', urls)}
+                  />
+                  
+                  <PhotoUpload
+                    title="Headlight Photos *"
+                    description="Photos of both headlights"
+                    multiple={true}
+                    maxSize={10}
+                    onPhotosChange={(urls) => handlePhotoChange('headlightPics', urls)}
+                  />
+                  
+                  <PhotoUpload
+                    title="Front Bumper Photos *"
+                    description="Photos of the front bumper"
+                    multiple={true}
+                    maxSize={10}
+                    onPhotosChange={(urls) => handlePhotoChange('frontBumperPics', urls)}
+                  />
+                </div>
+              </div>
+
+              {/* Passenger Side */}
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Passenger Side</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <PhotoUpload
+                    title="Passenger Side Front Fender Photos *"
+                    description="Photos of the passenger side front fender"
+                    multiple={true}
+                    maxSize={10}
+                    onPhotosChange={(urls) => handlePhotoChange('passengerSideFrontFenderPics', urls)}
+                  />
+                  
+                  <PhotoUpload
+                    title="Passenger Side Front Wheel Photos *"
+                    description="Photos of the passenger side front wheel"
+                    multiple={true}
+                    maxSize={10}
+                    onPhotosChange={(urls) => handlePhotoChange('passengerSideFrontWheelPics', urls)}
+                  />
+                  
+                  <PhotoUpload
+                    title="Passenger Side Pillar Photos *"
+                    description="Photos of the passenger side pillars"
+                    multiple={true}
+                    maxSize={10}
+                    onPhotosChange={(urls) => handlePhotoChange('passengerSidePillarPics', urls)}
+                  />
+                  
+                  <PhotoUpload
+                    title="Passenger Side Door Photos *"
+                    description="Photos of the passenger side doors"
+                    multiple={true}
+                    maxSize={10}
+                    onPhotosChange={(urls) => handlePhotoChange('passengerSideDoorPics', urls)}
+                  />
+                  
+                  <PhotoUpload
+                    title="Passenger Side Door Handle Photos *"
+                    description="Photos of the passenger side door handles"
+                    multiple={true}
+                    maxSize={10}
+                    onPhotosChange={(urls) => handlePhotoChange('passengerSideDoorHandlePics', urls)}
+                  />
+                  
+                  <PhotoUpload
+                    title="Passenger Side Rear Fender Photos *"
+                    description="Photos of the passenger side rear fender"
+                    multiple={true}
+                    maxSize={10}
+                    onPhotosChange={(urls) => handlePhotoChange('passengerSideRearFenderPics', urls)}
+                  />
+                  
+                  <PhotoUpload
+                    title="Passenger Side Rear Wheel Photos *"
+                    description="Photos of the passenger side rear wheel"
+                    multiple={true}
+                    maxSize={10}
+                    onPhotosChange={(urls) => handlePhotoChange('passengerSideRearWheelPics', urls)}
+                  />
+                  
+                  <PhotoUpload
+                    title="Passenger Side Mirror Photos *"
+                    description="Photos of the passenger side mirror"
+                    multiple={true}
+                    maxSize={10}
+                    onPhotosChange={(urls) => handlePhotoChange('passengerSideMirrorPics', urls)}
+                  />
+                </div>
+              </div>
+
+              {/* Rear Section */}
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Rear Section</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <PhotoUpload
+                    title="Trunk Photos (Exterior) *"
+                    description="Photos of the trunk exterior"
+                    multiple={true}
+                    maxSize={10}
+                    onPhotosChange={(urls) => handlePhotoChange('trunkExteriorPics', urls)}
+                  />
+                  
+                  <PhotoUpload
+                    title="Trunk Photos (Interior) *"
+                    description="Photos of the trunk interior"
+                    multiple={true}
+                    maxSize={10}
+                    onPhotosChange={(urls) => handlePhotoChange('trunkInteriorPics', urls)}
+                  />
+                  
+                  <PhotoUpload
+                    title="Rear Light Photos *"
+                    description="Photos of the rear lights"
+                    multiple={true}
+                    maxSize={10}
+                    onPhotosChange={(urls) => handlePhotoChange('rearLightPics', urls)}
+                  />
+                  
+                  <PhotoUpload
+                    title="Rear Bumper Photos *"
+                    description="Photos of the rear bumper"
+                    multiple={true}
+                    maxSize={10}
+                    onPhotosChange={(urls) => handlePhotoChange('bumperPics', urls)}
+                  />
+                </div>
+              </div>
+
+              {/* Driver Side */}
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Driver Side</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <PhotoUpload
+                    title="Driver Side Rear Fender Photos *"
+                    description="Photos of the driver side rear fender"
+                    multiple={true}
+                    maxSize={10}
+                    onPhotosChange={(urls) => handlePhotoChange('driverSideRearFenderPics', urls)}
+                  />
+                  
+                  <PhotoUpload
+                    title="Driver Side Rear Wheel Photos *"
+                    description="Photos of the driver side rear wheel"
+                    multiple={true}
+                    maxSize={10}
+                    onPhotosChange={(urls) => handlePhotoChange('driverSideRearWheelPics', urls)}
+                  />
+                  
+                  <PhotoUpload
+                    title="Driver Side Pillar Photos *"
+                    description="Photos of the driver side pillars"
+                    multiple={true}
+                    maxSize={10}
+                    onPhotosChange={(urls) => handlePhotoChange('driverSidePillarPics', urls)}
+                  />
+                  
+                  <PhotoUpload
+                    title="Driver Side Door Photos *"
+                    description="Photos of the driver side doors"
+                    multiple={true}
+                    maxSize={10}
+                    onPhotosChange={(urls) => handlePhotoChange('driverSideDoorPics', urls)}
+                  />
+                  
+                  <PhotoUpload
+                    title="Driver Side Door Handle Photos *"
+                    description="Photos of the driver side door handles"
+                    multiple={true}
+                    maxSize={10}
+                    onPhotosChange={(urls) => handlePhotoChange('driverSideDoorHandlePics', urls)}
+                  />
+                  
+                  <PhotoUpload
+                    title="Driver Side Front Fender Photos *"
+                    description="Photos of the driver side front fender"
+                    multiple={true}
+                    maxSize={10}
+                    onPhotosChange={(urls) => handlePhotoChange('driverSideFrontFenderPics', urls)}
+                  />
+                  
+                  <PhotoUpload
+                    title="Driver Side Front Wheel Photos *"
+                    description="Photos of the driver side front wheel"
+                    multiple={true}
+                    maxSize={10}
+                    onPhotosChange={(urls) => handlePhotoChange('driverSideFrontWheelPics', urls)}
+                  />
+                  
+                  <PhotoUpload
+                    title="Driver Side Mirror Photos *"
+                    description="Photos of the driver side mirror"
+                    multiple={true}
+                    maxSize={10}
+                    onPhotosChange={(urls) => handlePhotoChange('driverSideMirrorPics', urls)}
+                  />
+                </div>
+              </div>
+
+              {/* Top and Roof */}
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Top and Roof</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <PhotoUpload
+                    title="Roof Photos *"
+                    description="Photos of the vehicle roof"
+                    multiple={true}
+                    maxSize={10}
+                    onPhotosChange={(urls) => handlePhotoChange('roofPics', urls)}
+                  />
+                </div>
+              </div>
               {/* Interior */}
               <div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">Interior</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <PhotoUpload
-                    title="Dashboard Photos"
-                    description="Include odometer and fuel level readings"
+                    title="Driver Side Door Trim Photos *"
+                    description="Photos of the driver side door trim"
+                    multiple={true}
+                    maxSize={10}
+                    onPhotosChange={(urls) => handlePhotoChange('driverSideDoorTrimPics', urls)}
+                  />
+                  
+                  <PhotoUpload
+                    title="Driver Side Seat Photos *"
+                    description="Photos of the driver side seat"
+                    multiple={true}
+                    maxSize={10}
+                    onPhotosChange={(urls) => handlePhotoChange('driverSideSeatPics', urls)}
+                  />
+                  
+                  <PhotoUpload
+                    title="Driver Side Floor Mat Photos *"
+                    description="Photos of the driver side floor mats"
+                    multiple={true}
+                    maxSize={10}
+                    onPhotosChange={(urls) => handlePhotoChange('driverSideFloorMatPics', urls)}
+                  />
+                  
+                  <PhotoUpload
+                    title="Dashboard Photos (Odometer & Fuel Level Included) *"
+                    description="Include clear shots of odometer and fuel level readings"
                     multiple={true}
                     maxSize={10}
                     onPhotosChange={(urls) => handlePhotoChange('dashboardPics', urls)}
+                  />
+                  
+                  <PhotoUpload
+                    title="Entertainment Center Photos *"
+                    description="Photos of the entertainment/infotainment system"
+                    multiple={true}
+                    maxSize={10}
+                    onPhotosChange={(urls) => handlePhotoChange('entertainmentCenterPics', urls)}
+                  />
+                  
+                  <PhotoUpload
+                    title="Center Console Photos (Interior & Exterior) *"
+                    description="Photos of the center console interior and exterior"
+                    multiple={true}
+                    maxSize={10}
+                    onPhotosChange={(urls) => handlePhotoChange('centerConsoleInteriorPics', urls)}
+                  />
+                  
+                  <PhotoUpload
+                    title="Passenger Side Door Trim Photos *"
+                    description="Photos of the passenger side door trim"
+                    multiple={true}
+                    maxSize={10}
+                    onPhotosChange={(urls) => handlePhotoChange('passengerSideDoorTrimPics', urls)}
+                  />
+                  
+                  <PhotoUpload
+                    title="Passenger Side Seat Photos *"
+                    description="Photos of the passenger side seat"
+                    multiple={true}
+                    maxSize={10}
+                    onPhotosChange={(urls) => handlePhotoChange('passengerSideSeatPics', urls)}
+                  />
+                  
+                  <PhotoUpload
+                    title="Passenger Side Floor Mat Photos *"
+                    description="Photos of the passenger side floor mats"
+                    multiple={true}
+                    maxSize={10}
+                    onPhotosChange={(urls) => handlePhotoChange('passengerSideFloorMatPics', urls)}
+                  />
+                  
+                  <PhotoUpload
+                    title="Glove Box Photos (Interior & Exterior) *"
+                    description="Photos of the glove box interior and exterior"
+                    multiple={true}
+                    maxSize={10}
+                    onPhotosChange={(urls) => handlePhotoChange('gloveBoxInteriorPics', urls)}
                   />
                   
                   <PhotoUpload
