@@ -79,6 +79,7 @@ export function addUser(userData: Omit<User, 'id' | 'createdAt' | 'updatedAt' | 
   checkInOuts.push(newCheckInOut);
   
   usersData.push(newUser);
+  saveToStorage(STORAGE_KEYS.USERS, users);
   return newUser;
 }
 
@@ -99,6 +100,7 @@ export function deleteUser(id: string): boolean {
   const userIndex = usersData.findIndex(user => user.id === id);
   if (userIndex === -1) return false;
   
+    saveToStorage(STORAGE_KEYS.USERS, users);
   usersData.splice(userIndex, 1);
   return true;
 }
@@ -133,6 +135,10 @@ export function authenticateUser(email: string, password: string, userType: 'sta
   if (user) {
     // Update last login time
     user.lastLogin = new Date().toISOString();
+    saveToStorage(STORAGE_KEYS.CUSTOMERS, customers);
+    saveToStorage(STORAGE_KEYS.VEHICLES, vehicles);
+    saveToStorage(STORAGE_KEYS.CHECK_IN_OUTS, checkInOuts);
+    saveToStorage(STORAGE_KEYS.USERS, users);
     return user;
   }
   return null;
@@ -7438,6 +7444,7 @@ export function addCustomer(customerData: Omit<Customer, 'id' | 'createdAt' | 'u
   };
   
   customers.push(newCustomer);
+  saveToStorage(STORAGE_KEYS.CUSTOMERS, customers);
   return newCustomer;
 }
 
@@ -7478,6 +7485,7 @@ export function addVehicle(vehicleData: Omit<Vehicle, 'id' | 'createdAt' | 'upda
   };
   
   vehicles.push(newVehicle);
+  saveToStorage(STORAGE_KEYS.VEHICLES, vehicles);
   return newVehicle;
 }
 
@@ -7492,5 +7500,6 @@ export function addCheckInOut(checkData: Omit<CheckInOut, 'id' | 'serviceItems' 
   };
   
   checkInOuts.push(newCheckInOut);
+  saveToStorage(STORAGE_KEYS.CHECK_IN_OUTS, checkInOuts);
   return newCheckInOut;
 }
