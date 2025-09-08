@@ -173,7 +173,7 @@ export function Vehicles() {
             <div>
               <Link to={`/vehicles/${vehicle.id}`}>
                 <h3 className="text-lg font-semibold text-gray-900 hover:text-primary-600">
-                  {vehicle.year || ''} {vehicle.make || ''} {vehicle.model || ''}
+                  {vehicle.year || ''} {vehicle.make || ''} {vehicle.model || ''} {vehicle.id || ''}
                 </h3>
               </Link>
               <p className="text-sm text-gray-600">{vehicle.id } </p>
