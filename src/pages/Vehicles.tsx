@@ -176,6 +176,7 @@ export function Vehicles() {
                   {vehicle.year || ''} {vehicle.make || ''} {vehicle.model || ''}
                 </h3>
               </Link>
+              <p className="text-sm text-gray-600">{vehicle.id } </p>
               <p className="text-sm text-gray-600">{vehicle.licensePlate || 'No Plate'} • {vehicle.storageLocation || 'No Location'}</p>
               <p className="text-sm text-gray-500">
                 Owner: <Link to={`/clients/${vehicle.customerId}`} className="text-primary-600 hover:underline">
