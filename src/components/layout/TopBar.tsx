@@ -63,7 +63,7 @@ export function TopBar({ onMenuClick }: TopBarProps) {
             (vehicle.id?.includes(value.toLowerCase()) || false) ||
             customerName.toLowerCase().includes(value.toLowerCase())
           );
-        }).slice(0, 3); // Limit to 3 vehicle results
+        }).slice(0, 10); // Limit to 3 vehicle results
         
         // Add vehicle results
         filteredVehicles.forEach(vehicle => {
