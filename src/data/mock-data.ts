@@ -75,6 +75,9 @@ export function addUser(userData: Omit<User, 'id' | 'createdAt' | 'updatedAt' | 
     updatedAt: new Date().toISOString(),
   };
   
+  // Add the new check-in/out record to the array
+  checkInOuts.push(newCheckInOut);
+  
   usersData.push(newUser);
   return newUser;
 }
