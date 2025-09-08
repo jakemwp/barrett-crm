@@ -396,6 +396,53 @@ export function VehicleDetail() {
                       disabled={!isEditing}
                     />
                   )}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <Select
+                    label="Insurance Status"
+                    value={formData.insuranceStatus || ''}
+                    onChange={(e) => handleInputChange('insuranceStatus', e.target.value)}
+                    disabled={!isEditing}
+                    options={[
+                      { value: '', label: 'Select status...' },
+                      { value: 'Active', label: 'Active' },
+                      { value: 'Expired', label: 'Expired' },
+                      { value: 'Pending', label: 'Pending' },
+                      { value: 'Cancelled', label: 'Cancelled' },
+                    ]}
+                  />
+                  <Input
+                    label="Policy Holder"
+                    value={formData.insurancePolicyHolder || ''}
+                    onChange={(e) => handleInputChange('insurancePolicyHolder', e.target.value)}
+                    disabled={!isEditing}
+                  />
+                  <Input
+                    label="Start Date"
+                    type="date"
+                    value={formData.insuranceStartDate || ''}
+                    onChange={(e) => handleInputChange('insuranceStartDate', e.target.value)}
+                    disabled={!isEditing}
+                  />
+                  <Input
+                    label="Expiration Date"
+                    type="date"
+                    value={formData.insuranceExpirationDate || ''}
+                    onChange={(e) => handleInputChange('insuranceExpirationDate', e.target.value)}
+                    disabled={!isEditing}
+                  />
+                  <Input
+                    label="Insurance Provider"
+                    value={formData.insuranceProvider || ''}
+                    onChange={(e) => handleInputChange('insuranceProvider', e.target.value)}
+                    disabled={!isEditing}
+                  />
+                  <Input
+                    label="Policy Number"
+                    value={formData.insurancePolicyNumber || ''}
+                    onChange={(e) => handleInputChange('insurancePolicyNumber', e.target.value)}
+                    disabled={!isEditing}
+                  />
+                </div>
                 </div>
               </div>
 
@@ -505,53 +552,7 @@ export function VehicleDetail() {
                   <p className="text-sm text-gray-500">No authorized drivers added</p>
                 )}
                 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <Select
-                    label="Insurance Status"
-                    value={formData.insuranceStatus || ''}
-                    onChange={(e) => handleInputChange('insuranceStatus', e.target.value)}
-                    disabled={!isEditing}
-                    options={[
-                      { value: '', label: 'Select status...' },
-                      { value: 'Active', label: 'Active' },
-                      { value: 'Expired', label: 'Expired' },
-                      { value: 'Pending', label: 'Pending' },
-                      { value: 'Cancelled', label: 'Cancelled' },
-                    ]}
-                  />
-                  <Input
-                    label="Policy Holder"
-                    value={formData.insurancePolicyHolder || ''}
-                    onChange={(e) => handleInputChange('insurancePolicyHolder', e.target.value)}
-                    disabled={!isEditing}
-                  />
-                  <Input
-                    label="Start Date"
-                    type="date"
-                    value={formData.insuranceStartDate || ''}
-                    onChange={(e) => handleInputChange('insuranceStartDate', e.target.value)}
-                    disabled={!isEditing}
-                  />
-                  <Input
-                    label="Expiration Date"
-                    type="date"
-                    value={formData.insuranceExpirationDate || ''}
-                    onChange={(e) => handleInputChange('insuranceExpirationDate', e.target.value)}
-                    disabled={!isEditing}
-                  />
-                  <Input
-                    label="Insurance Provider"
-                    value={formData.insuranceProvider || ''}
-                    onChange={(e) => handleInputChange('insuranceProvider', e.target.value)}
-                    disabled={!isEditing}
-                  />
-                  <Input
-                    label="Policy Number"
-                    value={formData.insurancePolicyNumber || ''}
-                    onChange={(e) => handleInputChange('insurancePolicyNumber', e.target.value)}
-                    disabled={!isEditing}
-                  />
-                </div>
+                
               </div>
             </CardContent>
           </Card>
