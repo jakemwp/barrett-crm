@@ -55,6 +55,7 @@ export function Vehicles() {
         (vehicle.licensePlate ?? '').toLowerCase().includes(searchTerm.toLowerCase()) ||
         (vehicle.vin ?? '').toLowerCase().includes(searchTerm.toLowerCase()) ||
         (vehicle.storageLocation ?? '').toLowerCase().includes(searchTerm.toLowerCase()) ||
+        (vehicle.id ?? '').toLowerCase().includes(searchTerm.toLowerCase()) ||
         customerName.toLowerCase().includes(searchTerm.toLowerCase());
       
       const matchesMake = makeFilter === 'all' || vehicle.make === makeFilter;
