@@ -60,6 +60,7 @@ export function TopBar({ onMenuClick }: TopBarProps) {
             (vehicle.model?.toLowerCase().includes(value.toLowerCase()) || false) ||
             (vehicle.licensePlate?.toLowerCase().includes(value.toLowerCase()) || false) ||
             (vehicle.vin?.toLowerCase().includes(value.toLowerCase()) || false) ||
+            (vehicle.id?.includes(value.toLowerCase()) || false) ||
             customerName.toLowerCase().includes(value.toLowerCase())
           );
         }).slice(0, 3); // Limit to 3 vehicle results
