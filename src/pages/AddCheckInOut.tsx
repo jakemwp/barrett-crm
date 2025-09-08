@@ -190,6 +190,10 @@ export function AddCheckInOut() {
       newErrors.vehicleId = 'Vehicle is required';
     }
     
+    if (!formData.date) {
+      newErrors.date = 'Date is required';
+    }
+    
     if (!formData.location.trim()) {
       newErrors.location = 'Location is required';
     }
@@ -198,11 +202,11 @@ export function AddCheckInOut() {
       newErrors.contact = 'Contact is required';
     }
     
-    if (formData.fuelLevel < 0 || formData.fuelLevel > 100) {
+    if (formData.fuelLevel === null || formData.fuelLevel === undefined || formData.fuelLevel < 0 || formData.fuelLevel > 100) {
       newErrors.fuelLevel = 'Fuel level must be between 0 and 100';
     }
     
-    if (formData.mileage < 0) {
+    if (formData.mileage === null || formData.mileage === undefined || formData.mileage < 0) {
       newErrors.mileage = 'Mileage cannot be negative';
     }
     
@@ -375,6 +379,7 @@ export function AddCheckInOut() {
                   type="date"
                   value={formData.date}
                   onChange={(e) => handleInputChange('date', e.target.value)}
+                  error={errors.date}
                 />
                 <Select
                   label="Type *"
