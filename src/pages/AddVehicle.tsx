@@ -41,7 +41,7 @@ export function AddVehicle() {
   
   const [formData, setFormData] = useState({
     customerId: searchParams.get('customerId') || '',
-    year: new Date().getFullYear(),
+    year: '',
     make: '',
     model: '',
     vin: '',
