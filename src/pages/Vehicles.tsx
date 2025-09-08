@@ -164,7 +164,7 @@ export function Vehicles() {
               <div className="w-16 h-12 rounded-md overflow-hidden bg-gray-100 flex-shrink-0">
                 <img 
                   src={vehicle.image} 
-                  alt={`${vehicle.make || ''} ${vehicle.model || ''}`}
+                  alt={`${vehicle.make || ''} ${vehicle.model || ''} ${vehicle.id || ''}`}
                   className="w-full h-full object-cover"
                 />
               </div>
