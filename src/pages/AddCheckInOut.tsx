@@ -182,6 +182,7 @@ export function AddCheckInOut() {
   const validateForm = () => {
     const newErrors: Record<string, string> = {};
     
+    // Only validate essential fields - allow saving with missing data
     if (!formData.customerId) {
       newErrors.customerId = 'Customer is required';
     }
@@ -190,23 +191,12 @@ export function AddCheckInOut() {
       newErrors.vehicleId = 'Vehicle is required';
     }
     
-    if (!formData.date) {
-      newErrors.date = 'Date is required';
-    }
-    
-    if (!formData.location.trim()) {
-      newErrors.location = 'Location is required';
-    }
-    
-    if (!formData.contact.trim()) {
-      newErrors.contact = 'Contact is required';
-    }
-    
-    if (formData.fuelLevel === null || formData.fuelLevel === undefined || formData.fuelLevel < 0 || formData.fuelLevel > 100) {
+    // Optional validations - only check if values are provided
+    if (formData.fuelLevel !== null && formData.fuelLevel !== undefined && (formData.fuelLevel < 0 || formData.fuelLevel > 100)) {
       newErrors.fuelLevel = 'Fuel level must be between 0 and 100';
     }
     
-    if (formData.mileage === null || formData.mileage === undefined || formData.mileage < 0) {
+    if (formData.mileage !== null && formData.mileage !== undefined && formData.mileage < 0) {
       newErrors.mileage = 'Mileage cannot be negative';
     }
     
@@ -241,11 +231,31 @@ export function AddCheckInOut() {
         updatedAt: new Date().toISOString(),
       }));
       
-      const newCheckInOut = addCheckInOut({
-        ...formData,
-        photos: photosData,
-        serviceItems: serviceItemsData,
-      });
+      // Create the complete check-in/out record
+      const checkInOutData = {
+        customerId: formData.customerId,
+        vehicleId: formData.vehicleId,
+        date: formData.date || new Date().toISOString().split('T')[0],
+        type: formData.type,
+        location: formData.location || 'Not specified',
+        contact: formData.contact || 'Not specified',
+        status: formData.status,
+        checkInDate: formData.checkInDate || new Date().toISOString(),
+        checkOutDate: formData.checkOutDate || null,
+        fuelLevel: formData.fuelLevel || null,
+        mileage: formData.mileage || null,
+        tirePressure: formData.tirePressure || null,
+        carCover: formData.carCover || false,
+        killSwitch: formData.killSwitch || false,
+        startupDirections: formData.startupDirections || null,
+        deliveryAddress: formData.deliveryAddress || null,
+        notes: formData.notes || null,
+        signature: formData.signature || null,
+        photos: Object.keys(photosData).length > 0 ? photosData : null,
+        serviceItems: serviceItemsData.length > 0 ? serviceItemsData : null,
+      };
+      
+      const newCheckInOut = addCheckInOut(checkInOutData);
       
       setSaveStatus('success');
       
