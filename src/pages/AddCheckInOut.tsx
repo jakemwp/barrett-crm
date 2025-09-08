@@ -126,12 +126,20 @@ export function AddCheckInOut() {
     }
     
     // Reset vehicle selection when customer changes
-    if (field === 'customerId' && value !== prev.customerId) {
-      setFormData(prevData => ({
-        ...prevData,
-        customerId: value,
-        vehicleId: '', // Reset vehicle selection
-      }));
+    if (field === 'customerId') {
+      setFormData(prevData => {
+        if (value !== prevData.customerId) {
+          return {
+            ...prevData,
+            customerId: value,
+            vehicleId: '', // Reset vehicle selection
+          };
+        }
+        return {
+          ...prevData,
+          customerId: value,
+        };
+      });
     }
   };
 
