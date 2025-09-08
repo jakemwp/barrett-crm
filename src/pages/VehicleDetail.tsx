@@ -103,7 +103,7 @@ export function VehicleDetail() {
 
   const handleNewCheckIn = () => {
     // Navigate to add check-in/out page with vehicle ID as query parameter
-    navigate(`/check-in-out/new?vehicleId=${id}`);
+    navigate(`/check-in-out/new?vehicleId=${id}&customerId=${vehicle.customerId}`);
   };
 
   const formatDateDisplay = (dateString: string) => {

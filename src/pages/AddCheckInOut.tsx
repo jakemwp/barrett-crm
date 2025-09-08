@@ -73,6 +73,13 @@ export function AddCheckInOut() {
 
   // Auto-populate customer and vehicle info if IDs are provided
   useEffect(() => {
+    const customerIdFromUrl = searchParams.get('customerId');
+    if (customerIdFromUrl && !formData.customerId) {
+      handleInputChange('customerId', customerIdFromUrl);
+    }
+  }, [searchParams]);
+
+  useEffect(() => {
     if (formData.customerId) {
       const customer = getCustomerById(formData.customerId);
       if (customer) {
