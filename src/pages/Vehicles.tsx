@@ -213,6 +213,9 @@ export function Vehicles() {
               <p className="text-xs text-gray-500 mt-1">
                 Fuel: {vehicle.fuelLevel}%
               </p>
+              <p className="text-xs text-gray-500 mt-1">
+                ID: {vehicle.id}
+              </p>
             </div>
             
             <div className="text-right">
