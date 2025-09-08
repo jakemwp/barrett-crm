@@ -302,17 +302,20 @@ export function CheckInOutDetail() {
                 <Input
                   label="Fuel Level (%)"
                   type="number"
+                  step="0.1"
                   min="0"
                   max="100"
                   value={formData.fuelLevel || ''}
-                  onChange={(e) => handleInputChange('fuelLevel', parseInt(e.target.value) || 0)}
+                  onChange={(e) => handleInputChange('fuelLevel', parseFloat(e.target.value) || 0)}
                   disabled={!isEditing}
                 />
                 <Input
                   label="Mileage"
                   type="number"
+                  step="0.1"
+                  min="0"
                   value={formData.mileage || ''}
-                  onChange={(e) => handleInputChange('mileage', parseInt(e.target.value) || 0)}
+                  onChange={(e) => handleInputChange('mileage', parseFloat(e.target.value) || 0)}
                   disabled={!isEditing}
                 />
               </div>

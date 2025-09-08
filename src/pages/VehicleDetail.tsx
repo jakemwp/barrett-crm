@@ -314,8 +314,10 @@ export function VehicleDetail() {
                   <Input
                     label="Odometer"
                     type="number"
+                    step="0.1"
+                    min="0"
                     value={formData.odometer || ''}
-                    onChange={(e) => handleInputChange('odometer', parseInt(e.target.value))}
+                    onChange={(e) => handleInputChange('odometer', parseFloat(e.target.value) || 0)}
                     disabled={!isEditing}
                   />
                   <Input
@@ -329,10 +331,11 @@ export function VehicleDetail() {
                   <Input
                     label="Fuel Level (%)"
                     type="number"
+                    step="0.1"
                     min="0"
                     max="100"
                     value={formData.fuelLevel}
-                    onChange={(e) => handleInputChange('fuelLevel', parseInt(e.target.value))}
+                    onChange={(e) => handleInputChange('fuelLevel', parseFloat(e.target.value) || 0)}
                     disabled={!isEditing}
                   />
                   <Select

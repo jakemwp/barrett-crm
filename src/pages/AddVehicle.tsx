@@ -444,9 +444,10 @@ export function AddVehicle() {
                   <Input
                     label="Odometer *"
                     type="number"
+                    step="0.1"
                     min="0"
                     value={formData.odometer}
-                    onChange={(e) => handleInputChange('odometer', parseInt(e.target.value) || 0)}
+                    onChange={(e) => handleInputChange('odometer', parseFloat(e.target.value) || 0)}
                     error={errors.odometer}
                     placeholder="Current mileage"
                   />
@@ -463,10 +464,11 @@ export function AddVehicle() {
                   <Input
                     label="Fuel Level (%) *"
                     type="number"
+                    step="0.1"
                     min="0"
                     max="100"
                     value={formData.fuelLevel}
-                    onChange={(e) => handleInputChange('fuelLevel', parseInt(e.target.value) || 0)}
+                    onChange={(e) => handleInputChange('fuelLevel', parseFloat(e.target.value) || 0)}
                     error={errors.fuelLevel}
                   />
                   <Select
