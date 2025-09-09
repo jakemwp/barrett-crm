@@ -30,7 +30,7 @@ const loadFromStorage = <T>(key: string, defaultValue: T): T => {
 
 // Default data
 
-export const customers: Customer[] =[
+ const customers: Customer[] =[
   {
     "id": "c1",
     "firstName": "Name",
@@ -1508,7 +1508,7 @@ export const customers: Customer[] =[
 ]
 
 
-export const vehicles: Vehicle[] =[
+ const vehicles: Vehicle[] =[
   {
     "id": "2",
     "customerId": "c2",
