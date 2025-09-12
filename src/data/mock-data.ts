@@ -7374,7 +7374,7 @@ const defaultUsers: User[] = [
     lastName: 'Renstrom',
     email: 'jeremyr@barrettbuilding.com',
     password: 'BAG8958',
-    role: 'Manager',
+    role: 'Admin',
     avatar: null,
     phone: '(555) 456-7890',
     department: 'Operations',
