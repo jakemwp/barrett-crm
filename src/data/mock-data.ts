@@ -1510,8 +1510,8 @@ const defaultCustomers: Customer[] =[
 
 
 
- const defaultVehicles: Vehicle[] =[
-  {
+const defaultVehicles: Vehicle[] =[
+     {
     "id": "2",
     "customerId": "c2",
     "authorizedDrivers": [],
@@ -7353,6 +7353,66 @@ const defaultUsers: User[] = [
     createdAt: '2023-01-15T10:35:00Z',
     updatedAt: '2024-03-16T08:30:00Z',
   },
+  {
+    id: 'user-5',
+    firstName: 'Dylan',
+    lastName: 'Boztepe',
+    email: 'dylanboztepe@barrettautomotivegroup.com',
+    password: 'BAG1337',
+    role: 'Staff',
+    avatar: null,
+    phone: '(555) 456-7890',
+    department: 'Operations',
+    lastLogin: '2024-03-17T13:20:00Z',
+    isActive: true,
+    createdAt: '2023-03-01T00:00:00Z',
+    updatedAt: '2024-03-17T13:20:00Z',
+  },
+  {
+    id: 'user-6',
+    firstName: 'Jeremy',
+    lastName: 'Renstrom',
+    email: 'jeremyr@barrettbuilding.com',
+    password: 'BAG8958',
+    role: 'Manager',
+    avatar: null,
+    phone: '(555) 456-7890',
+    department: 'Operations',
+    lastLogin: '2024-03-17T13:20:00Z',
+    isActive: true,
+    createdAt: '2023-03-01T00:00:00Z',
+    updatedAt: '2024-03-17T13:20:00Z',
+  },
+  {
+    id: 'user-7',
+    firstName: 'Joshua',
+    lastName: 'Gamboa',
+    email: 'joshuagamboa@barrettautomotivegroup.com',
+    password: 'BAG7306',
+    role: 'Staff',
+    avatar: null,
+    phone: '(555) 456-7890',
+    department: 'Operations',
+    lastLogin: '2024-03-17T13:20:00Z',
+    isActive: true,
+    createdAt: '2023-03-01T00:00:00Z',
+    updatedAt: '2024-03-17T13:20:00Z',
+  },
+  {
+    id: 'user-8',
+    firstName: 'Jared',
+    lastName: 'Oropeza',
+    email: 'jaredoropeza@barrettautomotivegroup.com',
+    password: 'BAG7414',
+    role: 'Staff',
+    avatar: null,
+    phone: '(555) 456-7890',
+    department: 'Support',
+    lastLogin: '2024-03-17T13:20:00Z',
+    isActive: true,
+    createdAt: '2023-03-01T00:00:00Z',
+    updatedAt: '2024-03-17T13:20:00Z',
+  }
 ];
 
 // Load data from localStorage or use defaults
