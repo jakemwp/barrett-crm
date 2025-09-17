@@ -20,7 +20,7 @@ const saveToStorage = (key: string, data: any) => {
 
 const loadFromStorage = <T>(key: string, defaultValue: T): T => {
   try {
-    const stored = localStorage.getItem(key);
+    const stored = localStorage.getItem(key); 
     return stored ? JSON.parse(stored) : defaultValue;
   } catch (error) {
     console.warn('Failed to load from localStorage:', error);
