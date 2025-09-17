@@ -30,7 +30,6 @@ const loadFromStorage = <T>(key: string, defaultValue: T): T => {
 
 // Default data
 
-]
 // Function to fetch customers from API
 async function fetchCustomersFromAPI(): Promise<Customer[]> {
   try {
@@ -84,7 +83,7 @@ fetchCustomersFromAPI().then(apiCustomers => {
   customers = loadFromStorage(STORAGE_KEYS.CUSTOMERS, []);
 });
 
-const defaultVehicles: Vehicle[] =[
+const defaultVehicles: Vehicle[] = [
      {
     "id": "2",
     "customerId": "c2",
@@ -448,7 +447,7 @@ const defaultUsers: User[] = [
 ];
 
 // Load data from localStorage or use defaults
-export let customers: Customer[] = [];
+export let customers: Customer[] = loadFromStorage(STORAGE_KEYS.CUSTOMERS, defaultCustomers);
 export let vehicles: Vehicle[] = loadFromStorage(STORAGE_KEYS.VEHICLES, defaultVehicles);
 export let checkInOuts: CheckInOut[] = loadFromStorage(STORAGE_KEYS.CHECK_IN_OUTS, defaultCheckInOuts);
 export let users: User[] = loadFromStorage(STORAGE_KEYS.USERS, defaultUsers);
