@@ -30,77 +30,59 @@ const loadFromStorage = <T>(key: string, defaultValue: T): T => {
 
 // Default data
 
-
-const defaultCustomers: Customer[] =[
-  {
-    "id": "c1",
-    "firstName": "Name",
-    "lastName": " ",
-    "type": "Individual",
-    "membershipLevel": "Standard",
-    "storageLocation": "Storage Location ",
-    "email": "Email",
-    "phone": "Phone Number",
-    "streetAddress": "Address",
-    "city": "City",
-    "state": "State,",
-    "zipCode": "Zip",
-    "storageSpots": "Payment Information",
-    "showPandaDocForm": false,
-    "dateCreated": "2025-06-27",
-    "password": "placeholder",
-    "numRows": 1,
-    "manualprice": null,
-    "createdAt": "2025-06-27T10:30:00Z",
-    "updatedAt": "2025-06-27T10:30:00Z"
-  },
-  {
-    "id": "c2",
-    "firstName": "Adang, Jason",
-    "lastName": " ",
-    "type": "Individual",
-    "membershipLevel": "Standard",
-    "storageLocation": "Moorpark",
-    "email": "jason@adangenterprises.com",
-    "phone": "(805) 795-6808",
-    "streetAddress": "821 Calle Pecos",
-    "city": "Thousan",
-    "state": "Oaks,",
-    "zipCode": "CA",
-    "storageSpots": "2",
-    "showPandaDocForm": false,
-    "dateCreated": "2025-06-27",
-    "password": "placeholder",
-    "numRows": 1,
-    "manualprice": null,
-    "createdAt": "2025-06-27T10:30:00Z",
-    "updatedAt": "2025-06-27T10:30:00Z"
-  },
-  {
-    "id": "c3",
-    "firstName": "All Valley Washer Service, Inc.",
-    "lastName": " ",
-    "type": "Individual",
-    "membershipLevel": "Standard",
-    "storageLocation": "Moorpark",
-    "email": "jim@allvalleywasher.com",
-    "phone": "818-464-5264",
-    "streetAddress": "15008 Delano St.",
-    "city": "Va",
-    "state": "Nuys,",
-    "zipCode": "CA",
-    "storageSpots": "1",
-    "showPandaDocForm": false,
-    "dateCreated": "2025-06-27",
-    "password": "placeholder",
-    "numRows": 1,
-    "manualprice": null,
-    "createdAt": "2025-06-27T10:30:00Z",
-    "updatedAt": "2025-06-27T10:30:00Z"
-  }
 ]
+// Function to fetch customers from API
+async function fetchCustomersFromAPI(): Promise<Customer[]> {
+  try {
+    const response = await fetch('http://64.91.243.34/~dvidev/dev.dvi360.com/podio/barrett/get-customers.php');
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const apiData = await response.json();
+    
+    // Map API data to Customer interface
+    return apiData.map((item: any) => ({
+      id: item.id || generateId(),
+      firstName: item.firstName || item.first_name || null,
+      lastName: item.lastName || item.last_name || null,
+      type: (item.type === 'Business' || item.type === 'Corporate') ? 'Business' : 'Individual',
+      membershipLevel: item.membershipLevel || item.membership_level || 'Basic',
+      storageLocation: item.storageLocation || item.storage_location || null,
+      email: item.email || null,
+      phone: item.phone || null,
+      streetAddress: item.streetAddress || item.street_address || null,
+      city: item.city || null,
+      state: item.state || null,
+      zipCode: item.zipCode || item.zip_code || null,
+      storageSpots: parseInt(item.storageSpots || item.storage_spots || '1'),
+      showPandaDocForm: Boolean(item.showPandaDocForm || item.show_panda_doc_form),
+      dateCreated: item.dateCreated || item.date_created || new Date().toISOString().split('T')[0],
+      password: item.password || 'defaultpassword123',
+      numRows: parseInt(item.numRows || item.num_rows || '1'),
+      manualPrice: item.manualPrice || item.manual_price ? parseFloat(item.manualPrice || item.manual_price) : null,
+      createdAt: item.createdAt || item.created_at || new Date().toISOString(),
+      updatedAt: item.updatedAt || item.updated_at || new Date().toISOString(),
+    }));
+  } catch (error) {
+    console.error('Failed to fetch customers from API:', error);
+    // Return empty array as fallback
+    return [];
+  }
+}
 
+// Initialize customers data
+let defaultCustomers: Customer[] = [];
 
+// Fetch customers from API on module load
+fetchCustomersFromAPI().then(apiCustomers => {
+  defaultCustomers = apiCustomers;
+  // Update the exported customers array
+  customers = loadFromStorage(STORAGE_KEYS.CUSTOMERS, defaultCustomers);
+  console.log('Customers loaded from API:', customers.length);
+}).catch(error => {
+  console.error('Failed to load customers from API:', error);
+  customers = loadFromStorage(STORAGE_KEYS.CUSTOMERS, []);
+});
 
 const defaultVehicles: Vehicle[] =[
      {
@@ -466,7 +448,7 @@ const defaultUsers: User[] = [
 ];
 
 // Load data from localStorage or use defaults
-export let customers: Customer[] = loadFromStorage(STORAGE_KEYS.CUSTOMERS, defaultCustomers);
+export let customers: Customer[] = [];
 export let vehicles: Vehicle[] = loadFromStorage(STORAGE_KEYS.VEHICLES, defaultVehicles);
 export let checkInOuts: CheckInOut[] = loadFromStorage(STORAGE_KEYS.CHECK_IN_OUTS, defaultCheckInOuts);
 export let users: User[] = loadFromStorage(STORAGE_KEYS.USERS, defaultUsers);
