@@ -30,127 +30,174 @@ const loadFromStorage = <T>(key: string, defaultValue: T): T => {
 
 // Default data
 
-// Function to fetch customers from API
-async function fetchCustomersFromAPI(): Promise<Customer[]> {
-  try {
-    const response = await fetch('http://64.91.243.34/~dvidev/dev.dvi360.com/podio/barrett/get-customers.php');
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    const apiData = await response.json();
-    
-    // Map API data to Customer interface
-    return apiData.map((item: any) => ({
-      id: item.id || generateId(),
-      firstName: item.firstName || item.first_name || null,
-      lastName: item.lastName || item.last_name || null,
-      type: (item.type === 'Business' || item.type === 'Corporate') ? 'Business' : 'Individual',
-      membershipLevel: item.membershipLevel || item.membership_level || 'Basic',
-      storageLocation: item.storageLocation || item.storage_location || null,
-      email: item.email || null,
-      phone: item.phone || null,
-      streetAddress: item.streetAddress || item.street_address || null,
-      city: item.city || null,
-      state: item.state || null,
-      zipCode: item.zipCode || item.zip_code || null,
-      storageSpots: parseInt(item.storageSpots || item.storage_spots || '1'),
-      showPandaDocForm: Boolean(item.showPandaDocForm || item.show_panda_doc_form),
-      dateCreated: item.dateCreated || item.date_created || new Date().toISOString().split('T')[0],
-      password: item.password || 'defaultpassword123',
-      numRows: parseInt(item.numRows || item.num_rows || '1'),
-      manualPrice: item.manualPrice || item.manual_price ? parseFloat(item.manualPrice || item.manual_price) : null,
-      createdAt: item.createdAt || item.created_at || new Date().toISOString(),
-      updatedAt: item.updatedAt || item.updated_at || new Date().toISOString(),
-    }));
-  } catch (error) {
-    console.error('Failed to fetch customers from API:', error);
-    // Return empty array as fallback
-    return [];
-  }
-}
-
-// Initialize customers data
-let defaultCustomers: Customer[] = [];
-
-// Fetch customers from API on module load
-fetchCustomersFromAPI().then(apiCustomers => {
-  defaultCustomers = apiCustomers;
-  // Update the exported customers array
-  customers = loadFromStorage(STORAGE_KEYS.CUSTOMERS, defaultCustomers);
-  console.log('Customers loaded from API:', customers.length);
-}).catch(error => {
-  console.error('Failed to load customers from API:', error);
-  customers = loadFromStorage(STORAGE_KEYS.CUSTOMERS, []);
-});
-
-const defaultVehicles: Vehicle[] = [
-     {
-    "id": "2",
-    "customerId": "c2",
-    "authorizedDrivers": [],
-    "year": "1972",
-    "make": "Porsche",
-    "model": "911",
-    "vin": "9112101858",
-    "storageLocation": "Moorpark",
-    "fairMarketValue": 100000,
-    "insuranceRiderRequired": false,
-    "insuranceRiderAmount": 0,
-    "licensePlate": "4/21/2025",
-    "registration": {
-      "number": "REG123456",
-      "expirationDate": "2024-12-31",
-      "state": "CA"
-    },
-    "tirePressureDefault": {
-      "front": 32,
-      "rear": 32
-    },
-    "tirePressurePreferred": {
-      "front": 32,
-      "rear": 32
-    },
-    "maintenanceSchedule": [],
-    "odometer": null,
-    "fuelLevel": 100,
-    "batteryType": "Standard",
-    "color": "Placeholder",
-    "createdAt": "2025-06-27T10:35:00Z",
-    "updatedAt": "2025-06-27T14:35:00Z"
+const defaultCustomers: Customer[] = [
+  {
+    id: 'cust-1',
+    firstName: 'Jason',
+    lastName: 'Adang',
+    type: 'Individual',
+    membershipLevel: 'Premium',
+    storageLocation: 'Moorpark',
+    email: 'jason@adangenterprises.com',
+    phone: '(805) 795-6808',
+    streetAddress: '123 Main St',
+    city: 'Moorpark',
+    state: 'CA',
+    zipCode: '93021',
+    storageSpots: 2,
+    showPandaDocForm: false,
+    dateCreated: '2023-01-15',
+    password: 'jasonadang123',
+    numRows: 1,
+    manualPrice: null,
+    createdAt: '2023-01-15T10:35:00Z',
+    updatedAt: '2024-03-16T08:30:00Z',
   },
   {
-    "id": "3",
-    "customerId": "c2",
-    "authorizedDrivers": [],
-    "year": "2012",
-    "make": "Lexus",
-    "model": "LFA",
-    "vin": "JTHHX8BH2C1000028",
-    "storageLocation": "Moorpark",
-    "fairMarketValue": 875000,
-    "insuranceRiderRequired": true,
-    "insuranceRiderAmount": 100,
-    "licensePlate": "4/21/2025",
-    "registration": {
-      "number": "REG123456",
-      "expirationDate": "2024-12-31",
-      "state": "CA"
+    id: 'cust-2',
+    firstName: 'Chris',
+    lastName: 'Antonsen',
+    type: 'Individual',
+    membershipLevel: 'VIP',
+    storageLocation: 'Westlake Village',
+    email: 'chris@antonsengroup.com',
+    phone: '(805) 555-0123',
+    streetAddress: '456 Oak Ave',
+    city: 'Westlake Village',
+    state: 'CA',
+    zipCode: '91362',
+    storageSpots: 3,
+    showPandaDocForm: true,
+    dateCreated: '2023-02-20',
+    password: 'chrisantonsen123',
+    numRows: 2,
+    manualPrice: 150.00,
+    createdAt: '2023-02-20T14:20:00Z',
+    updatedAt: '2024-03-17T16:45:00Z',
+  },
+  {
+    id: 'cust-3',
+    firstName: 'Kam',
+    lastName: 'Assil',
+    type: 'Business',
+    membershipLevel: 'Enterprise',
+    storageLocation: 'Moorpark',
+    email: 'kam@assilenterprises.com',
+    phone: '(818) 555-0456',
+    streetAddress: '789 Business Blvd',
+    city: 'Thousand Oaks',
+    state: 'CA',
+    zipCode: '91320',
+    storageSpots: 5,
+    showPandaDocForm: true,
+    dateCreated: '2023-03-10',
+    password: 'kamassil123',
+    numRows: 3,
+    manualPrice: 300.00,
+    createdAt: '2023-03-10T09:15:00Z',
+    updatedAt: '2024-03-16T12:00:00Z',
+  },
+];
+
+const defaultVehicles: Vehicle[] = [
+  {
+    id: 'veh-1',
+    customerId: 'cust-1',
+    authorizedDrivers: [],
+    year: 1972,
+    make: 'Porsche',
+    model: '911',
+    vin: '9112101858',
+    storageLocation: 'Moorpark',
+    fairMarketValue: 100000,
+    insuranceRiderRequired: false,
+    insuranceRiderAmount: null,
+    licensePlate: 'POR911CA',
+    registration: {
+      expirationDate: '2024-12-31',
+      state: 'CA'
     },
-    "tirePressureDefault": {
-      "front": 32,
-      "rear": 32
+    tirePressureDefault: {
+      front: 32,
+      rear: 32
     },
-    "tirePressurePreferred": {
-      "front": 32,
-      "rear": 32
+    tirePressurePreferred: {
+      front: 32,
+      rear: 32
     },
-    "maintenanceSchedule": [],
-    "odometer": null,
-    "fuelLevel": 100,
-    "batteryType": "Standard",
-    "color": "Placeholder",
-    "createdAt": "2025-06-27T10:35:00Z",
-    "updatedAt": "2025-06-27T14:35:00Z"
+    hasPreferredPressure: false,
+    odometer: null,
+    fuelLevel: 100,
+    batteryType: 'Standard',
+    color: 'Red',
+    createdAt: '2025-06-27T10:35:00Z',
+    updatedAt: '2025-06-27T14:35:00Z'
+  },
+  {
+    id: 'veh-2',
+    customerId: 'cust-2',
+    authorizedDrivers: [],
+    year: 2012,
+    make: 'Lexus',
+    model: 'LFA',
+    vin: 'JTHHX8BH2C1000028',
+    storageLocation: 'Moorpark',
+    fairMarketValue: 875000,
+    insuranceRiderRequired: true,
+    insuranceRiderAmount: 100,
+    licensePlate: 'LEXLFA',
+    registration: {
+      expirationDate: '2024-12-31',
+      state: 'CA'
+    },
+    tirePressureDefault: {
+      front: 32,
+      rear: 32
+    },
+    tirePressurePreferred: {
+      front: 32,
+      rear: 32
+    },
+    hasPreferredPressure: false,
+    odometer: null,
+    fuelLevel: 100,
+    batteryType: 'Standard',
+    color: 'White',
+    createdAt: '2025-06-27T10:35:00Z',
+    updatedAt: '2025-06-27T14:35:00Z'
+  },
+  {
+    id: 'veh-3',
+    customerId: 'cust-3',
+    authorizedDrivers: [],
+    year: 2020,
+    make: 'Ferrari',
+    model: '488 GTB',
+    vin: 'ZFF79ALA5L0245678',
+    storageLocation: 'Moorpark',
+    fairMarketValue: 350000,
+    insuranceRiderRequired: true,
+    insuranceRiderAmount: 200,
+    licensePlate: 'FER488',
+    registration: {
+      expirationDate: '2024-12-31',
+      state: 'CA'
+    },
+    tirePressureDefault: {
+      front: 35,
+      rear: 38
+    },
+    tirePressurePreferred: {
+      front: 35,
+      rear: 38
+    },
+    hasPreferredPressure: false,
+    odometer: 18000,
+    fuelLevel: 90,
+    batteryType: 'Standard',
+    color: 'Rosso Corsa',
+    createdAt: '2023-03-10T09:15:00Z',
+    updatedAt: '2024-03-16T12:00:00Z'
   }
 ];
 
@@ -447,7 +494,7 @@ const defaultUsers: User[] = [
 ];
 
 // Load data from localStorage or use defaults
-export let customers: Customer[] = [];
+export let customers: Customer[] = loadFromStorage(STORAGE_KEYS.CUSTOMERS, defaultCustomers);
 export let vehicles: Vehicle[] = loadFromStorage(STORAGE_KEYS.VEHICLES, defaultVehicles);
 export let checkInOuts: CheckInOut[] = loadFromStorage(STORAGE_KEYS.CHECK_IN_OUTS, defaultCheckInOuts);
 export let users: User[] = loadFromStorage(STORAGE_KEYS.USERS, defaultUsers);
