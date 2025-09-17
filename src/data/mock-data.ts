@@ -5733,6 +5733,15 @@ const defaultCheckInOuts: CheckInOut[] = [
         checkInOutId: 'check-1',
         description: 'Oil Change',
         cost: 49.99,
+        completed: true,
+        completedAt: '2024-03-15T11:30:00Z',
+        createdAt: '2024-03-15T09:30:00Z',
+        updatedAt: '2024-03-15T11:30:00Z',
+      },
+    ],
+  },
+];
+
 const defaultCustomers: Customer[] = [
   {
     id: '1',
@@ -6455,60 +6464,4 @@ export function getUserById(id: string): User | undefined {
   return users.find(user => user.id === id);
 }
 
-export function addUser(userData: Omit<User, 'id' | 'createdAt' | 'updatedAt'>): User {
-  const newUser: User = {
-    ...userData,
-    id: generateId(),
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
-  };
-  
-  users.push(newUser);
-  saveToStorage(STORAGE_KEYS.USERS, users);
-  return newUser;
-}
-
-export function updateUser(id: string, updates: Partial<User>): User | null {
-  const index = users.findIndex(user => user.id === id);
-  if (index === -1) return null;
-  
-  users[index] = {
-    ...users[index],
-    ...updates,
-    updatedAt: new Date().toISOString(),
-  };
-  
-  saveToStorage(STORAGE_KEYS.USERS, users);
-  return users[index];
-}
-
-export function deleteUser(id: string): boolean {
-  const index = users.findIndex(user => user.id === id);
-  if (index === -1) return false;
-  
-  users.splice(index, 1);
-  saveToStorage(STORAGE_KEYS.USERS, users);
-  return true;
-}
-
-export function authenticateUser(email: string, password: string, userType: 'staff' | 'customer' = 'staff'): User | null {
-  const user = users.find(u => u.email === email && u.password === password);
-  
-  if (!user) return null;
-  
-  // Check user type matches
-  if (userType === 'customer' && user.role !== 'Customer') return null;
-  if (userType === 'staff' && user.role === 'Customer') return null;
-  
-  // Update last login
-  updateUser(user.id, { lastLogin: new Date().toISOString() });
-  
-  return user;
-}
-
-// Initialize data on module load
-console.log('Mock data initialized with localStorage persistence');
-console.log('Customers:', customers.length);
-console.log('Vehicles:', vehicles.length);
-console.log('Check-in/out records:', checkInOuts.length);
-console.log('Users:', users.length);
+export function addUser
