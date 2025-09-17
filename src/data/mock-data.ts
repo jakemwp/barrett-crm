@@ -447,7 +447,7 @@ const defaultUsers: User[] = [
 ];
 
 // Load data from localStorage or use defaults
-export let customers: Customer[] = loadFromStorage(STORAGE_KEYS.CUSTOMERS, defaultCustomers);
+export let customers: Customer[] = [];
 export let vehicles: Vehicle[] = loadFromStorage(STORAGE_KEYS.VEHICLES, defaultVehicles);
 export let checkInOuts: CheckInOut[] = loadFromStorage(STORAGE_KEYS.CHECK_IN_OUTS, defaultCheckInOuts);
 export let users: User[] = loadFromStorage(STORAGE_KEYS.USERS, defaultUsers);
