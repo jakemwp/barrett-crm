@@ -24,6 +24,7 @@ export interface Customer {
 export interface AuthorizedDriver {
   id: string;
   name: string;
+  email?: string | null;
   phone: string | null;
   licenseNumber: string | null;
   relationship: string | null;
